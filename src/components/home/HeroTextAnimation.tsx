@@ -30,7 +30,7 @@ const HeroTextAnimation = (props: Props) => {
         trigger: document.documentElement,
         start: 0,
         end: window.innerHeight,
-        scrub: 0.25,
+        scrub: 0.35,
         onUpdate: (e) => {
           direction = e.direction * 1;
         },
