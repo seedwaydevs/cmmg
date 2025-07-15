@@ -3,6 +3,7 @@
     top: calc(65vh - 300px)
 }
 
+
 .slider{
     position: relative;
     white-space: nowrap;
@@ -12,7 +13,7 @@
 .slider p{
     font-family: 'Anton';
     margin: 1px;
-    color: white;
+    color: black;
     text-transform: uppercase;
     font-size: 100px;
     font-weight: 500;
