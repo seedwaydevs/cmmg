@@ -1,0 +1,24 @@
+.sliderContainer{
+    position: absolute;
+    top: calc(65vh - 300px)
+}
+
+.slider{
+    position: relative;
+    white-space: nowrap;
+    display: flex;
+}
+
+.slider p{
+    font-family: 'Anton';
+    margin: 1px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 100px;
+    font-weight: 500;
+}
+
+.slider p:nth-of-type(2){
+    position: absolute;
+    left:100%
+}
