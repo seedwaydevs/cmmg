@@ -50,7 +50,7 @@ const Nav = () => {
             className={`${antonFont.className} transition-all duration-300 ${
               scrolled
                 ? "text-4xl text-[#0e0e0e]"
-                : "text-[180px] text-[#f2ece5] text-center -my-5"
+                : "text-[180px] text-[#f2ece5] -mx-1 text-center -my-5"
             }`}
           >
             CMMG
