@@ -1,100 +1,127 @@
 "use client";
-import { Menu, X } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { Anton, Hanken_Grotesk } from "next/font/google";
 import Link from "next/link";
-import React, { useState } from "react";
+import { FaSquareFacebook } from "react-icons/fa6";
+import { FaInstagram } from "react-icons/fa6";
+import { FaYoutube } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 
-type Props = {};
+const antonFont = Anton({
+  subsets: ["latin"],
+  weight: "400",
+});
 
-const Nav = (props: Props) => {
-  const [isOpen, setIsOpen] = useState(false);
+const hanken = Hanken_Grotesk({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
 
-  const toggleMenu = () => setIsOpen(!isOpen);
-  const closeMenu = () => setIsOpen(false);
+const Nav = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const navLinks = ["About", "Services", "Artists", "Contact"];
 
   return (
     <>
-      {/* Fixed top nav bar */}
+      {/* Navigation */}
       <div
-        className={`fixed top-0 left-0 w-full z-50 transition-colors duration-900 ${
-          isOpen ? "bg-white" : "bg-[#181818]"
-        }`}
+        className={`${
+          scrolled ? "fixed bg-transparent py-5" : "bg-[#0e0e0e] py-5"
+        } w-full transition-all duration-300 z-50`}
       >
-        <div className="w-[90%] mx-auto py-6 flex justify-between items-center">
+        <div
+          className={`w-[90%] mx-auto h-full transition-all duration-300 flex ${
+            scrolled
+              ? "flex-row items-center justify-between"
+              : "flex-col justify-center"
+          }`}
+        >
           <h1
-            className={`font-bold text-2xl transition-colors duration-900 ${
-              isOpen ? "text-black" : "text-white"
+            className={`${antonFont.className} transition-all duration-300 ${
+              scrolled
+                ? "text-4xl text-[#0e0e0e]"
+                : "text-[180px] text-[#f2ece5] text-center -my-5"
             }`}
           >
             CMMG
           </h1>
-          <button
-            onClick={toggleMenu}
-            className={`transition-colors duration-900 ${
-              isOpen ? "text-black" : "text-white"
+          <div
+            className={`transition-all duration-300 ${
+              scrolled ? "" : "flex justify-end w-full mt-4"
             }`}
-            aria-label="Toggle Menu"
           >
-            {isOpen ? <X size={35} /> : <Menu size={35} />}
-          </button>
+            <button
+              onClick={() => setMenuOpen(true)}
+              className={`${
+                hanken.className
+              } text-xl transition-all duration-300 ${
+                scrolled
+                  ? "text-[#0e0e0e] cursor-pointer"
+                  : "text-[#f2ece5] cursor-pointer"
+              }`}
+            >
+              Menu
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Fullscreen dropdown menu overlay */}
-      <div
-        className={`fixed top-0 left-0 w-full bg-white z-40 transition-all duration-900 ease-in-out transform ${
-          isOpen
-            ? "translate-y-0 opacity-100"
-            : "-translate-y-full opacity-0 pointer-events-none"
-        }`}
-      >
-        <div className="w-[90%] mx-auto pt-28 pb-10">
-          <ul className="flex flex-col space-y-3 text-left text-lg font-medium text-black">
-            <li>
-              <Link
-                href="#home"
-                onClick={closeMenu}
-                className="text-sm hover:text-gray-600"
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#about"
-                onClick={closeMenu}
-                className="text-sm hover:text-gray-600"
-              >
-                About
-              </Link>
-            </li>
-            <li>
-              <a
-                href="#services"
-                onClick={closeMenu}
-                className="text-sm hover:text-gray-600"
-              >
-                Services
-              </a>
-            </li>
-            <li>
-              <Link
-                href="#contact"
-                onClick={closeMenu}
-                className="text-sm hover:text-gray-600"
-              >
-                Contact
-              </Link>
-            </li>
-          </ul>
+      {/* Spacer for fixed nav */}
+      {scrolled && <div className="h-[170px]"></div>}
 
-          <button className="border border-black w-full mt-10 py-2 rounded-3xl">
+      {/* Fullscreen Overlay Menu */}
+      {menuOpen && (
+        <div className="fixed inset-0 bg-[#0e0e0e] z-[999] flex flex-col p-10 space-y-10 text-[#f2ece5] transition-all duration-300">
+          <div className="flex justify-between items-start">
+            <h1 className={`${antonFont.className} text-5xl`}>CMMG.</h1>
+            <button
+              onClick={() => setMenuOpen(false)}
+              className="w-full flex justify-end cursor-pointer text-xl font-bold"
+            >
+              Close
+            </button>
+          </div>
+          <div className="flex flex-col">
+            {navLinks.map((link) => (
+              <Link
+                key={link}
+                href={`/${link.toLowerCase()}`}
+                onClick={() => setMenuOpen(false)}
+                className={`${hanken.className} text-6xl py-2 hover:text-orange-700 transition duration-200`}
+              >
+                {link}
+              </Link>
+            ))}
+          </div>
+          <div className="flex space-x-3">
+            <Link href={"/"}>
+              <FaInstagram className="h-8 w-8" />
+            </Link>
+            <Link href={"/"}>
+              <FaSquareFacebook className="h-8 w-8" />
+            </Link>
+            <Link href={"/"}>
+              <FaYoutube className="h-8 w-8" />
+            </Link>
+            <Link href={"/"}>
+              <FaLinkedin className="h-8 w-8" />
+            </Link>
+          </div>
+          <button className="w-full border font-semibold rounded-3xl py-3 cursor-pointer hover:bg-[#f2ece5] hover:text-[#0e0e0e]">
             Music Library
           </button>
         </div>
-      </div>
-
-      {/* Spacer to keep hero visible beneath fixed nav */}
-      <div className="h-[76px]" />
+      )}
     </>
   );
 };
