@@ -1,10 +1,15 @@
 "use client";
-import Image from "next/image";
+
 import React from "react";
-import img from "../../../public/prodco.jpg";
 import HeroTextAnimation from "./HeroTextAnimation";
+import { Hanken_Grotesk } from "next/font/google";
 
 type Props = {};
+
+const hanken = Hanken_Grotesk({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
 
 const Hero = (props: Props) => {
   return (
@@ -12,7 +17,7 @@ const Hero = (props: Props) => {
       <div className="mx-auto">
         <div className="">
           <div className="w-[90%] mx-auto pt-5 text-[#0e0e0e]">
-            <p className="text-4xl">
+            <p className={`${hanken.className} font-medium text-4xl`}>
               Bringing ideas to life with creativity and a fresh perspective...
             </p>
           </div>
@@ -22,7 +27,7 @@ const Hero = (props: Props) => {
             <HeroTextAnimation />
           </div>
           <div className="w-[90%] mx-auto mb-4 text-[#0e0e0e]">
-            <p className="text-4xl">
+            <p className={`${hanken.className} font-medium text-4xl`}>
               ...making sure every project looks and sounds just right.
             </p>
           </div>
