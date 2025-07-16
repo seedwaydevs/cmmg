@@ -50,7 +50,7 @@ const Nav = () => {
             className={`${antonFont.className} transition-all duration-300 ${
               scrolled
                 ? "text-4xl text-[#0e0e0e]"
-                : "text-[180px] text-[#f2ece5] -mx-5 sm:-mx-1 text-center -my-5"
+                : "text-[180px] leading-40 text-[#f2ece5] -mx-5 sm:-mx-1 text-center"
             }`}
           >
             CMMG
@@ -77,7 +77,7 @@ const Nav = () => {
       </div>
 
       {/* Spacer for fixed nav */}
-      {scrolled && <div className="h-[170px]"></div>}
+      {scrolled && <div className="h-[150px]"></div>}
 
       {/* Fullscreen Overlay Menu */}
       {menuOpen && (
