@@ -57,7 +57,7 @@ const Nav = () => {
           </h1>
           <div
             className={`transition-all duration-300 ${
-              scrolled ? "" : "flex justify-end w-full mt-4"
+              scrolled ? "" : "flex justify-end md:justify-center w-full mt-4"
             }`}
           >
             <button
@@ -66,12 +66,31 @@ const Nav = () => {
                 hanken.className
               } text-xl transition-all duration-300 ${
                 scrolled
-                  ? "text-[#0e0e0e] cursor-pointer"
-                  : "text-[#f2ece5] cursor-pointer"
+                  ? "text-[#0e0e0e] cursor-pointer md:hidden"
+                  : "text-[#f2ece5] cursor-pointer md:hidden"
               }`}
             >
               Menu
             </button>
+
+            <div
+              className={`hidden md:flex items-center space-x-18 ${
+                scrolled ? "text-black" : "text-white"
+              }`}
+            >
+              <Link href={"/"} className="hover:text-orange-600">
+                Home
+              </Link>
+              <Link href={"/"} className="hover:text-orange-600">
+                About
+              </Link>
+              <Link href={"/"} className="hover:text-orange-600">
+                Services
+              </Link>
+              <Link href={"/"} className="hover:text-orange-600">
+                Artists
+              </Link>
+            </div>
           </div>
         </div>
       </div>
