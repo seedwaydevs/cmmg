@@ -73,42 +73,48 @@ const HeroTextAnimation = (props: Props) => {
 
   return (
     <div className="">
-      <div className={styles.sliderContainer}>
+      <div className={`${styles.sliderContainer} top-0 lg:-top-9 absolute`}>
         <div ref={slider} className={styles.slider}>
-          <p ref={firstText}>
+          <p ref={firstText} className="text-[100px] lg:text-[140px]">
             <span className="text-orange-700">Video</span> Production.{" "}
           </p>
-          <p ref={secondText}>
+          <p ref={secondText} className="text-[100px] lg:text-[140px]">
             <span className="text-orange-700">Video</span> Production.{" "}
           </p>
         </div>
       </div>
-      <div className={styles.sliderContainerTextTwo}>
+      <div
+        className={`${styles.sliderContainerTextTwo} top-[90px] lg:top-[90px] absolute`}
+      >
         <div ref={slider} className={styles.sliderTwo}>
-          <p ref={firstTextTextTwo}>
+          <p ref={firstTextTextTwo} className="text-[100px] lg:text-[140px]">
             <span className="text-red-700">Film</span> Studios.{" "}
           </p>
-          <p ref={secondTextTextTwo}>
+          <p ref={secondTextTextTwo} className="text-[100px] lg:text-[140px]">
             <span className="text-red-700">Film</span> Studios.{" "}
           </p>
         </div>
       </div>
-      <div className={styles.sliderContainerTextThree}>
+      <div
+        className={`${styles.sliderContainerTextThree} top-[180px] lg:top-[215px] absolute`}
+      >
         <div ref={slider} className={styles.slider}>
-          <p ref={firstTextTextThree}>
+          <p ref={firstTextTextThree} className="text-[100px] lg:text-[140px]">
             <span className="text-green-700">Music</span> Production.{" "}
           </p>
-          <p ref={secondTextTextThree}>
+          <p ref={secondTextTextThree} className="text-[100px] lg:text-[140px]">
             <span className="text-green-700">Music</span> Production.{" "}
           </p>
         </div>
       </div>
-      <div className={styles.sliderContainerTextFour}>
+      <div
+        className={`${styles.sliderContainerTextFour} top-[270px] lg:top-[345px] absolute`}
+      >
         <div ref={slider} className={styles.sliderTwo}>
-          <p ref={firstTextTextFour}>
+          <p ref={firstTextTextFour} className="text-[100px] lg:text-[130px]">
             <span className="text-blue-700">Content</span> Production.{" "}
           </p>
-          <p ref={secondTextTextFour}>
+          <p ref={secondTextTextFour} className="text-[100px] lg:text-[130px]">
             <span className="text-blue-700">Content</span> Production.{" "}
           </p>
         </div>
