@@ -29,7 +29,7 @@ const WhatWeDoCarousel = (props: Props) => {
       <CarouselContent>
         {brandContentSections.map((content, index) => (
           <CarouselItem key={index}>
-            <div className="p-5 space-y-5 flex flex-col gap-5 lg:flex-row lg:items-center">
+            <div className="p-5 space-y-5  flex flex-col gap-5 lg:flex-row lg:items-center">
               <div className="flex-1">
                 <div className="flex flex-col space-y-5">
                   <h1
@@ -52,22 +52,22 @@ const WhatWeDoCarousel = (props: Props) => {
                   </div>
                 </div>
               </div>
-              <div className="mt-10 h-[40vh] w-full lg:flex-1 md:h-full">
+              <div className="mt-10 w-full max-w-full h-[45vh] sm:h-[60vh] md:h-[60vh] lg:h-full lg:flex-1 overflow-hidden">
                 <Image
                   src={image}
                   alt="image"
-                  className="rounded-xl w-full object-cover h-full"
+                  className="rounded-xl w-full h-full object-cover"
                 />
               </div>
             </div>
+            <p className="text-white  text-center flex justify-center items-center gap-2 lg:py-5">
+              Swipe <IoIosArrowRoundForward className="h-7 w-7" />
+            </p>
           </CarouselItem>
         ))}
       </CarouselContent>
       <CarouselPrevious />
       <CarouselNext />
-      <p className="text-white text-center flex justify-center items-center gap-2 lg:py-5">
-        Swipe <IoIosArrowRoundForward className="h-7 w-7" />
-      </p>
     </Carousel>
   );
 };
