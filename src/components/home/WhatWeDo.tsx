@@ -36,7 +36,7 @@ const WhatWeDo = (props: Props) => {
             </h1>
           </div>
           {/* Carousel Wrapper */}
-          <div className="h-[110vh] lg:h-auto bg-[#0e0e0e] text-[#f2ece5] rounded-xl">
+          <div className="h-[125vh] lg:h-auto bg-[#0e0e0e] text-[#f2ece5] rounded-xl">
             {/* Carousel Content */}
             <WhatWeDoCarousel />
           </div>
