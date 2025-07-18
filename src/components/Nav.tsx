@@ -53,7 +53,7 @@ const Nav = () => {
                 : "text-[180px] leading-40 text-[#f2ece5] -mx-5 sm:-mx-1 text-center"
             }`}
           >
-            CMMG
+            <Link href={"/"}>CMMG</Link>
           </h1>
           <div
             className={`transition-all duration-300 ${
