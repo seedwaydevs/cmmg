@@ -24,18 +24,22 @@ const Hero = (props: Props) => {
               Bringing{" "}
               <span className=" p-2 font-serif italic text-4xl">ideas</span> to
               life with{" "}
-              <span className="p-2 font-serif italic text-4xl">creativity</span>{" "}
+              <span className="py-2 font-serif italic text-4xl">
+                creativity
+              </span>{" "}
               and a fresh{" "}
-              <span className="p-2 font-serif italic text-4xl">
+              <span className="py-2 font-serif italic text-4xl">
                 perspective
               </span>{" "}
             </p>
-            <Link
-              href={"/"}
-              className="bg-black text-white py-2 px-3 rounded-2xl cursor-pointer"
-            >
-              Learn More
-            </Link>
+            <div className="flex">
+              <Link
+                href={"/"}
+                className="bg-black text-white py-2 px-3 rounded-2xl cursor-pointer"
+              >
+                Learn More
+              </Link>
+            </div>
           </div>
 
           {/* Image Container - must be relative and have defined height */}
