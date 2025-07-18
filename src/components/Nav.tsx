@@ -50,7 +50,7 @@ const Nav = () => {
             className={`${antonFont.className} transition-all duration-300 ${
               scrolled
                 ? "text-4xl text-[#0e0e0e]"
-                : "text-[170px] leading-40 text-[#f2ece5] -mx-5 sm:-mx-1 text-center"
+                : "text-[160px] leading-40 text-[#f2ece5] -mx-5 sm:-mx-1 text-center"
             }`}
           >
             <Link href={"/"}>CMMG</Link>
