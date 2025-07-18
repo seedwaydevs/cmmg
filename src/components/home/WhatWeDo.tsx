@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 import { GoDotFill } from "react-icons/go";
 import image from "../../../public/prodco.jpg";
-import WhatWeDoCarousel from "./WhatWeDoCarousel";
+import WhatWeDoCarousel from "./components/WhatWeDoCarousel";
 import { ArrowRight } from "lucide-react";
 
 type Props = {};

@@ -5,8 +5,8 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "../ui/carousel";
-import image from "../../../public/prodco.jpg";
+} from "../../ui/carousel";
+import image from "../../../../public/prodco.jpg";
 import Image from "next/image";
 import { Anton, Hanken_Grotesk } from "next/font/google";
 import { IoIosArrowRoundForward } from "react-icons/io";
@@ -78,75 +78,80 @@ const brandContentSections = [
   {
     title: (
       <>
-        Brand{" "}
+        Video{" "}
         <span className="font-serif lowercase italic text-[30px] leading-14">
           and
         </span>{" "}
-        content
+        film production
       </>
     ),
     description:
-      "From careful iconographic constructions to purposeful material generation, my method is to instill every endeavor with a unique identity and an intriguing narrative.",
-    items: ["Logo", "Branding", "Packaging", "Mockups", "Flyers"],
-    image: image, // replace with actual image
-  },
-  {
-    title: <>Digital product design</>,
-    description:
-      "Crafting seamless and intuitive digital experiences — from wireframes to interactive prototypes — that resonate with users and deliver results.",
+      "We produce cinematic video content that tells stories, captures emotion, and connects with audiences — from branded films to documentaries and social campaigns.",
     items: [
-      "UI Design",
-      "UX Research",
-      "Wireframes",
-      "Prototypes",
-      "Design Systems",
+      "Commercials",
+      "Documentaries",
+      "Social Videos",
+      "Promos",
+      "Interviews",
     ],
     image: image,
   },
   {
-    title: <>Visual storytelling</>,
+    title: <>Music production</>,
     description:
-      "Translating concepts into compelling visuals using photography, illustration, and motion to amplify the narrative behind every brand.",
+      "Our team of composers, producers, and engineers create original music for film, TV, and digital — perfectly tailored to elevate your message.",
     items: [
-      "Illustration",
-      "Photography",
-      "Animation",
-      "Motion Graphics",
-      "Storyboards",
+      "Custom Scores",
+      "Theme Music",
+      "Sonic Branding",
+      "Mixing",
+      "Mastering",
+    ],
+    image: image,
+  },
+  {
+    title: <>Production music library</>,
+    description:
+      "Browse and license from our curated music library — featuring a diverse selection of original tracks ready for use in content, ads, films, and podcasts.",
+    items: [
+      "Browse Tracks",
+      "License Music",
+      "Mood-Based Search",
+      "Genres",
+      "Stems",
     ],
     image: image,
   },
   {
     title: (
       <>
-        Strategy{" "}
+        Content strategy{" "}
         <span className="font-serif lowercase italic text-[30px] leading-14">
-          and
+          & delivery
         </span>{" "}
-        identity
       </>
     ),
     description:
-      "Defining the essence of a brand through research, positioning, and visual language to ensure consistency and purpose across every touchpoint.",
+      "We plan and execute content with purpose — aligning creative direction, messaging, and distribution for maximum impact across channels.",
     items: [
-      "Research",
-      "Positioning",
-      "Voice & Tone",
-      "Visual Systems",
-      "Brand Guidelines",
+      "Creative Direction",
+      "Storyboarding",
+      "Scripting",
+      "Publishing",
+      "Distribution",
     ],
     image: image,
   },
   {
-    title: <>Web development</>,
+    title: <>Post-production</>,
     description:
-      "Transforming design into performant, accessible, and scalable websites using modern technologies for a seamless user experience.",
+      "Our editors and motion designers bring projects to life with cinematic edits, seamless sound design, and captivating motion graphics.",
     items: [
-      "Frontend Dev",
-      "Backend Dev",
-      "CMS Integration",
-      "SEO Optimization",
-      "Deployment",
+      "Editing",
+      "Color Grading",
+      "Sound Design",
+      "Motion Graphics",
+      "Subtitles",
     ],
     image: image,
   },

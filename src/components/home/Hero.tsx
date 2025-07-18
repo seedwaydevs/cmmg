@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import HeroTextAnimation from "./HeroTextAnimation";
+import HeroTextAnimation from "./components/HeroTextAnimation";
 import { Hanken_Grotesk } from "next/font/google";
 import Link from "next/link";
 
