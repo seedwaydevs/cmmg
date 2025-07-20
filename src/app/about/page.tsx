@@ -1,8 +1,7 @@
 import { Anton, Hanken_Grotesk } from "next/font/google";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
-import { GoDotFill, GoArrowUpRight } from "react-icons/go";
+import { GoDotFill } from "react-icons/go";
 import { MdOutlineLibraryMusic, MdOutlineVideoLibrary } from "react-icons/md";
 
 import image from "../../../public/prodco.jpg";
