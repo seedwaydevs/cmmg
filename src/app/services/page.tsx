@@ -53,7 +53,9 @@ const Services = () => {
           </p>
         </div>
         <div>
-          <h1 className={`${antonFont.className} text-9xl uppercase py-2`}>
+          <h1
+            className={`${antonFont.className} text-5xl lg:text-9xl uppercase py-2`}
+          >
             Services
           </h1>
           <p className="md:text-xl md:max-w-lg">
