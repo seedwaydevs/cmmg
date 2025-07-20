@@ -128,12 +128,12 @@ const About = () => {
           </div>
           <div className="space-y-6 flex flex-col md:items-center py-5">
             <h2
-              className={`${antonFont.className} text-3xl lg:text-5xl lg:py-5 uppercase`}
+              className={`${antonFont.className} text-3xl md:text-5xl md:py-5 uppercase`}
             >
               Why Choose CMMG
             </h2>
             <div
-              className={`${hanken.className} space-y-3 lg:py-5 text-lg flex flex-col md:flex-row md:items-center lg:max-w-4xl lg:space-x-8`}
+              className={`${hanken.className} space-y-3 md:py-5 text-lg flex flex-col md:flex-row md:items-center lg:max-w-4xl lg:space-x-8`}
             >
               <div className="flex flex-col md:items-center md:text-center space-y-3">
                 <MdOutlineVideoLibrary className="hidden md:flex md:h-16 md:w-16 lg:h-26 lg:w-26" />
