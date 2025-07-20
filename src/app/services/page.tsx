@@ -3,6 +3,7 @@ import Image from "next/image";
 import React from "react";
 import { GoDotFill } from "react-icons/go";
 import image from "../../../public/prodco.jpg";
+import LibraryImageGrid from "@/components/home/components/LibraryImageGrid";
 const antonFont = Anton({ subsets: ["latin"], weight: "400" });
 const hanken = Hanken_Grotesk({
   subsets: ["latin"],
@@ -91,11 +92,11 @@ const Services = () => {
             </div>
           </div>
         </div>
-        {/*  */}
+        {/* Music Lib */}
         <div className="py-10 text-[#0e0e0e]">
           <div className="w-[90%] mx-auto">
-            <div className="flex flex-col lg:flex-row space-y-10">
-              <div className="flex flex-col justify-center flex-1 space-y-5">
+            <div className="flex flex-col lg:justify-center lg:items-center lg:flex-row space-y-10">
+              <div className="flex flex-col lg:justify-center flex-1 space-y-5">
                 <h1
                   className={`${antonFont.className} text-7xl uppercase tracking-wider max-w-md leading-20`}
                 >
@@ -105,6 +106,27 @@ const Services = () => {
                   Browse our extensive library of original tracks, ready for
                   licensing across TV, film, online content, and commercial
                   campaigns.
+                </p>
+              </div>
+              <div className="w-full h-[75vh] flex-1">
+                <LibraryImageGrid />
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Content Strategy & Development */}
+        <div className="bg-[#0e0e0e] py-10 text-white">
+          <div className="w-[90%] mx-auto">
+            <div className="flex flex-col lg:flex-row space-y-10">
+              <div className="flex flex-col justify-center flex-1 space-y-5">
+                <h1
+                  className={`${antonFont.className} text-7xl uppercase tracking-wider max-w-md leading-20`}
+                >
+                  Content Strategy & Development
+                </h1>
+                <p className="max-w-md text-xl">
+                  We help brands plan, produce, and distribute content that
+                  connects — from social media reels to full-scale campaigns.
                 </p>
               </div>
               <div className="w-full h-[50vh] flex-1">
