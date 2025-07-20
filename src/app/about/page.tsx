@@ -14,10 +14,10 @@ const hanken = Hanken_Grotesk({
 const About = () => {
   return (
     <div className="text-[#0e0e0e] w-full py-10 ">
-      <div className="w-[90%] mx-auto flex flex-col gap-16">
+      <div className="w-[90%] mx-auto flex flex-col gap-10">
         {/* Section 1: Introduction */}
-        <div className="flex flex-col lg:flex-row items-center gap-3">
-          <div className="lg:flex-1">
+        <div className="flex flex-col  items-center gap-3">
+          <div className="flex flex-col justify-center lg:items-center lg:max-w-3xl">
             <div className="flex items-center space-x-2 pb-3">
               <GoDotFill className="h-6 w-6" />
               <p className={`${hanken.className} text-lg font-semibold`}>
@@ -26,26 +26,48 @@ const About = () => {
             </div>
             <div className="space-y-8">
               <p
-                className={`${antonFont.className} text-4xl lg:text-5xl uppercase`}
+                className={`${antonFont.className} text-4xl lg:text-5xl lg:text-center uppercase pt-5`}
               >
                 We bring stories to life through world-class video, music, and
                 content production.
               </p>
-              <Link
-                href="/about"
-                className={`${hanken.className} border rounded-3xl text-lg py-1 px-6 inline-flex items-center gap-3 hover:bg-[#f2ece5] hover:text-[#0e0e0e]`}
+
+              <p
+                className={`${hanken.className} text-xl lg:text-center lg:max-w-2xl lg:mx-auto py-5`}
               >
-                More About Us
-                <GoArrowUpRight className="h-6 w-6" />
-              </Link>
-              <p className={`${hanken.className} text-xl`}>
                 At CMMG, we fuse creative storytelling with technical precision.
                 From branded content to original productions and music scoring,
                 our work is crafted to inspire and captivate across platforms.
               </p>
+              <div className="flex justify-between">
+                <div className="flex flex-col items-center">
+                  <p className={`${antonFont.className} text-6xl uppercase`}>
+                    20+
+                  </p>
+                  <p className={`${hanken.className} text-md tracking-widest`}>
+                    Employees
+                  </p>
+                </div>
+                <div className="flex flex-col items-center">
+                  <p className={`${antonFont.className} text-6xl uppercase`}>
+                    120+
+                  </p>
+                  <p className={`${hanken.className} text-md tracking-widest`}>
+                    Projects
+                  </p>
+                </div>
+                <div className="flex flex-col items-center">
+                  <p className={`${antonFont.className} text-6xl uppercase`}>
+                    5+
+                  </p>
+                  <p className={`${hanken.className} text-md tracking-widest`}>
+                    Experience
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="my-10 h-[60vh] w-full lg:flex-1 lg:h-full">
+          <div className="my-10 h-[60vh] w-full lg:h-full">
             <Image
               src={image}
               alt="Production team at work"
@@ -56,17 +78,40 @@ const About = () => {
 
         {/* Section 2: Our Mission */}
         <div className="space-y-6">
-          <h2
-            className={`${antonFont.className} text-3xl lg:text-4xl uppercase`}
-          >
-            Our Mission
-          </h2>
-          <p className={`${hanken.className} text-lg max-w-4xl`}>
-            We exist to empower brands, creators, and storytellers by delivering
-            compelling visual and audio content. Our goal is to set a new
-            standard in media production by merging innovation with
-            authenticity.
-          </p>
+          <div className="flex items-center space-x-2">
+            <GoDotFill className="h-6 w-6" />
+            <p className={`${hanken.className} text-lg font-semibold`}>
+              Mission/Vision
+            </p>
+          </div>
+          <div className="flex flex-col md:flex-row md:justify-end space-y-5 md:space-x-5 ">
+            <div className="space-y-4 md:max-w-lg p-2">
+              <h2
+                className={`${antonFont.className} text-6xl lg:text-7xl uppercase max-w-3xs`}
+              >
+                Our Vision.
+              </h2>
+              <p className={`${hanken.className} text-lg max-w-4xl`}>
+                Our vision is to redefine media production by empowering brands,
+                creators, and storytellers through immersive visual and audio
+                experiences — where innovation meets authenticity, and every
+                story leaves a lasting impact.
+              </p>
+            </div>
+            <div className="space-y-4 md:max-w-lg p-2">
+              <h2
+                className={`${antonFont.className} text-6xl lg:text-7xl uppercase max-w-3xs`}
+              >
+                Our Mission.
+              </h2>
+              <p className={`${hanken.className} text-lg max-w-4xl`}>
+                We exist to empower brands, creators, and storytellers by
+                delivering compelling visual and audio content. Our goal is to
+                set a new standard in media production by merging innovation
+                with authenticity.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Section 3: Why Choose Us */}
