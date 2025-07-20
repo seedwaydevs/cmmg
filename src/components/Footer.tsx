@@ -52,7 +52,7 @@ const Footer = (props: Props) => {
         </div>
         <div className="py-10 flex ">
           <h1
-            className={`${antonFont.className} text-[180px] leading-40  uppercase`}
+            className={`${antonFont.className} text-[150px] leading-40  uppercase`}
           >
             CMMG
           </h1>
