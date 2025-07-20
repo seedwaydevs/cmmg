@@ -7,6 +7,7 @@ import Link from "next/link";
 import { FaFacebookF } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import TeamCard from "./TeamCard";
 
 type Props = {};
 
@@ -31,115 +32,31 @@ const Team = (props: Props) => {
           >
             Meet our talented team.
           </h1>
-          <div className="py-10 grid grid-cols-1 lg:grid-cols-2 gap-20">
-            <div className="w-md">
-              <div className="h-[550px] w-md rounded-xl py-4">
-                <Image
-                  src={mrS}
-                  alt="abe"
-                  className="rounded-xl w-full object-cover object-top h-full"
-                />
-              </div>
-              <div className="flex items-center justify-between">
-                <p className={`${antonFont.className} text-3xl py-2 uppercase`}>
-                  <span className="font-serif italic lowercase">Abraham</span>{" "}
-                  Sibiya
-                </p>
-                <div className="flex items-center justify-evenly space-x-3">
-                  <Link href={"/"}>
-                    <FaFacebookF className="h-6 w-6" />
-                  </Link>
-                  <Link href={"/"}>
-                    <FaLinkedin className="h-6 w-6" />
-                  </Link>
-                  <Link href={"/"}>
-                    <FaXTwitter className="h-6 w-6" />
-                  </Link>
-                </div>
-              </div>
-              <p className="text-gray-600">Founder, CEO</p>
-            </div>
-            <div className="w-md">
-              <div className="h-[550px] w-md rounded-xl py-4">
-                <Image
-                  src={mrS}
-                  alt="abe"
-                  className="rounded-xl w-full object-cover object-top h-full"
-                />
-              </div>
-              <div className="flex items-center justify-between">
-                <p className={`${antonFont.className} text-3xl py-2 uppercase`}>
-                  <span className="font-serif italic lowercase">Abraham</span>{" "}
-                  Sibiya
-                </p>
-                <div className="flex items-center justify-evenly space-x-3">
-                  <Link href={"/"}>
-                    <FaFacebookF className="h-6 w-6" />
-                  </Link>
-                  <Link href={"/"}>
-                    <FaLinkedin className="h-6 w-6" />
-                  </Link>
-                  <Link href={"/"}>
-                    <FaXTwitter className="h-6 w-6" />
-                  </Link>
-                </div>
-              </div>
-              <p className="text-gray-600">Founder, CEO</p>
-            </div>
-            <div className="w-md">
-              <div className="h-[550px] w-md rounded-xl py-4">
-                <Image
-                  src={mrS}
-                  alt="abe"
-                  className="rounded-xl w-full object-cover object-top h-full"
-                />
-              </div>
-              <div className="flex items-center justify-between">
-                <p className={`${antonFont.className} text-3xl py-2 uppercase`}>
-                  <span className="font-serif italic lowercase">Abraham</span>{" "}
-                  Sibiya
-                </p>
-                <div className="flex items-center justify-evenly space-x-3">
-                  <Link href={"/"}>
-                    <FaFacebookF className="h-6 w-6" />
-                  </Link>
-                  <Link href={"/"}>
-                    <FaLinkedin className="h-6 w-6" />
-                  </Link>
-                  <Link href={"/"}>
-                    <FaXTwitter className="h-6 w-6" />
-                  </Link>
-                </div>
-              </div>
-              <p className="text-gray-600">Founder, CEO</p>
-            </div>
-            <div className="w-md">
-              <div className="h-[550px] w-md rounded-xl py-4">
-                <Image
-                  src={mrS}
-                  alt="abe"
-                  className="rounded-xl w-full object-cover object-top h-full"
-                />
-              </div>
-              <div className="flex items-center justify-between">
-                <p className={`${antonFont.className} text-3xl py-2 uppercase`}>
-                  <span className="font-serif italic lowercase">Abraham</span>{" "}
-                  Sibiya
-                </p>
-                <div className="flex items-center justify-evenly space-x-3">
-                  <Link href={"/"}>
-                    <FaFacebookF className="h-6 w-6" />
-                  </Link>
-                  <Link href={"/"}>
-                    <FaLinkedin className="h-6 w-6" />
-                  </Link>
-                  <Link href={"/"}>
-                    <FaXTwitter className="h-6 w-6" />
-                  </Link>
-                </div>
-              </div>
-              <p className="text-gray-600">Founder, CEO</p>
-            </div>
+          <div className="py-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-12">
+            <TeamCard
+              image={mrS}
+              name="Abraham Sibiya"
+              position="Founder, CEO"
+              font={antonFont}
+            />
+            <TeamCard
+              image={mrS}
+              name="Abraham Sibiya"
+              position="Founder, CEO"
+              font={antonFont}
+            />
+            <TeamCard
+              image={mrS}
+              name="Abraham Sibiya"
+              position="Founder, CEO"
+              font={antonFont}
+            />
+            <TeamCard
+              image={mrS}
+              name="Abraham Sibiya"
+              position="Founder, CEO"
+              font={antonFont}
+            />
           </div>
         </div>
       </div>
