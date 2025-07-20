@@ -8,6 +8,7 @@ import { MdOutlineLibraryMusic, MdOutlineVideoLibrary } from "react-icons/md";
 import image from "../../../public/prodco.jpg";
 import { TbFileDescription } from "react-icons/tb";
 import { GiStorkDelivery } from "react-icons/gi";
+import Team from "@/components/about/Team";
 
 const antonFont = Anton({ subsets: ["latin"], weight: "400" });
 const hanken = Hanken_Grotesk({
@@ -158,6 +159,11 @@ const About = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Section 4: Meet the team */}
+        <div>
+          <Team />
         </div>
       </div>
     </div>
