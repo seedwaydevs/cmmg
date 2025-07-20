@@ -14,7 +14,7 @@ const hanken = Hanken_Grotesk({
 
 const Hero = (props: Props) => {
   return (
-    <div className="w-full border">
+    <div className="w-full ">
       <div className="mx-auto md:w-[90%]">
         <div className="flex flex-col md:flex-row md:items-center">
           <div className="w-[90%] lg:w-full mx-auto py-16 text-[#0e0e0e] md:flex-1 space-y-8">
