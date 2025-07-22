@@ -1,6 +1,7 @@
 import Explore from "@/components/home/Explore";
 import Hero from "@/components/home/Hero";
 import TrustCarousel from "@/components/home/TrustCarousel";
+import WhatWeDo from "@/components/home/WhatWeDo";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <TrustCarousel />
       <Explore />
+      <WhatWeDo />
     </div>
   );
 }
