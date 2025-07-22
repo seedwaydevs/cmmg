@@ -18,7 +18,14 @@ import samro from "../public/trust/samro_logo.png";
 import barloworld from "../public/trust/barloworld-limited-logo-vector.png";
 import universal from "../public/trust/universal.png";
 
+import film from "../public/prodco.jpg";
+import library from "../public/pexels-tima-miroshnichenko-6827245.jpg";
+import sounddesign from "../public/sound-design.webp";
+
 export {
+  film,
+  library,
+  sounddesign,
   image1,
   image2,
   image3,
