@@ -30,8 +30,11 @@ const Explore = (props: Props) => {
                 designed to bring your film, TV, or digital project to life with
                 unforgettable sound.
               </p>
-              <Link href={"/"} className="bg-orange-600 py-2 px-3 text-white">
-                Explore
+              <Link
+                href={"/"}
+                className="text-orange-600 py-2 px-3 font-semibold"
+              >
+                Browse our library 
               </Link>
             </div>
             <div className="h-[30vh] lg:h-[30vh] bg-black">
