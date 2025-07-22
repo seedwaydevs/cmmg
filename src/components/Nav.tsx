@@ -6,7 +6,7 @@ import { FaSquareFacebook } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
-
+import { TbMenu } from "react-icons/tb";
 const antonFont = Anton({
   subsets: ["latin"],
   weight: "400",
@@ -18,66 +18,35 @@ const hanken = Hanken_Grotesk({
 });
 
 const Nav = () => {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   const navLinks = ["About", "Services", "Artists", "Contact"];
 
   return (
     <>
       {/* Navigation */}
-      <div
-        className={`${
-          scrolled ? "fixed bg-transparent py-5" : "bg-[#0e0e0e] py-5"
-        } w-full transition-all duration-300 z-50`}
-      >
-        <div
-          className={`w-[90%] mx-auto h-full transition-all duration-300 flex ${
-            scrolled
-              ? "flex-row items-center justify-between"
-              : "flex-col justify-center"
-          }`}
-        >
-          <h1
-            className={`${antonFont.className} transition-all duration-300 ${
-              scrolled
-                ? "text-4xl text-[#0e0e0e]"
-                : "text-[150px] leading-40 text-[#f2ece5] -mx-5 sm:-mx-1 text-center"
-            }`}
-          >
-            <Link href={"/"}>CMMG</Link>
+      {/* Navigation */}
+      <div className="w-full fixed top-0 left-0 z-50">
+        {/* Glass background */}
+        <div className="absolute w-full h-full backdrop-blur-md bg-white/10 z-0 py-2"></div>
+
+        {/* Black nav content */}
+        <div className="relative z-50 w-[95%] mx-auto bg-black p-4 my-2 flex justify-between items-center shadow-md">
+          <h1 className="text-white text-2xl tracking-tighter font-extrabold">
+            <Link className={`${hanken.className}`} href={"/"}>
+              CMMG
+            </Link>
           </h1>
-          <div
-            className={`transition-all duration-300 ${
-              scrolled ? "" : "flex justify-end md:justify-center w-full mt-4"
-            }`}
-          >
+          <div className="flex items-center">
             <button
               onClick={() => setMenuOpen(true)}
-              className={`${
-                hanken.className
-              } text-xl transition-all duration-300 ${
-                scrolled
-                  ? "text-[#0e0e0e] cursor-pointer text-xl"
-                  : "text-[#f2ece5] cursor-pointer text-xl"
-              }`}
+              className={`${hanken.className} text-white font-medium`}
             >
-              Menu
+              <TbMenu className="w-7 h-7" />
             </button>
           </div>
         </div>
       </div>
-
-      {/* Spacer for fixed nav */}
-      {scrolled && <div className="h-[150px]"></div>}
 
       {/* Fullscreen Overlay Menu */}
       {menuOpen && (
