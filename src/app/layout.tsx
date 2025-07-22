@@ -41,7 +41,7 @@ export default function RootLayout({
         )}
       >
         <Nav />
-        <div className="flex-1">{children}</div>
+        <div className="flex-1 realtive z-0">{children}</div>
         <Footer />
       </body>
     </html>
