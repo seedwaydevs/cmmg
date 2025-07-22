@@ -3,6 +3,10 @@ import Link from "next/link";
 import React from "react";
 import { TiArrowSortedUp } from "react-icons/ti";
 
+import film from "../../../public/prodco.jpg";
+import library from "../../../public/pexels-tima-miroshnichenko-6827245.jpg";
+import sounddesign from "../../../public/sound-design.webp";
+import Image from "next/image";
 const hanken = Hanken_Grotesk({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -22,46 +26,22 @@ const WhatWeDo = (props: Props) => {
         <div className="flex flex-col space-y-4">
           <div className="flex items-center">
             <TiArrowSortedUp className="text-orange-600 h-7 w-7 lg:h-10 lg:w-10" />
-            <p className="text-xs uppercase lg:text-lg">[ What we do ]</p>
+            <p className="text-xs uppercase lg:text-lg">[ Services ]</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {service.map((service, index) => (
-              <div
-                key={index}
-                className="relative group overflow-hidden border border-gray-300 p-6 h-[40vh] transition flex flex-col justify-between text-black hover:text-white"
-              >
-                {/* Hover background image */}
-                <div
-                  className="absolute inset-0 bg-center bg-cover opacity-0 group-hover:opacity-20 transition-opacity duration-300"
-                  style={{ backgroundImage: `url(${service.image})` }}
-                ></div>
-
-                {/* Blur overlay */}
-                <div className="absolute inset-0 bg-black/30 backdrop-blur-sm opacity-0 group-hover:opacity-80 transition-opacity duration-300 z-0"></div>
-
-                {/* Content */}
-                <div className="relative z-10 flex flex-col justify-between h-full">
-                  <div>
-                    <div className="text-3xl mb-4">{service.icon}</div>
-                    <h3
-                      className={`${inter.className} text-xl font-light mb-2`}
-                    >
-                      {service.title}
-                    </h3>
-                    <p
-                      className={`${inter.className} text-sm font-medium leading-relaxed`}
-                    >
-                      {service.description}
-                    </p>
-                  </div>
-                  <div>
-                    <Link href={"/"} className="underline">
-                      Learn more
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div>
+            <h1
+              className={`${hanken.className} text-6xl lg:text-7xl font-bold tracking-tighter`}
+            >
+              What We do<span className="text-orange-600">.</span>
+            </h1>
+            <p
+              className={`${inter.className} mt-4 text-base md:text-lg lg:text-xl text-gray-700 max-w-4xl`}
+            >
+              With years of experience across the music and media landscape, our
+              team specializes in original music production and licensable
+              tracks, content development for visual media, and
+              professional-grade studio hire for creators and collaborators.
+            </p>
           </div>
         </div>
       </div>
@@ -84,14 +64,15 @@ const service = [
     icon: "🎵",
     description:
       "Instant access to our curated music catalogue — ready-made tracks for film, TV, ads, games, and beyond. Fast clearance, high impact.",
-    image: "/images/library-music.jpg",
+    image: library,
   },
+
   {
     title: "Sound Design",
     icon: "🔊",
     description:
       "Crafted sonic textures and effects to bring your visuals or experiences to life. From subtle atmospheres to bold audio signatures.",
-    image: "/images/sound-design.jpg",
+    image: sounddesign,
   },
   {
     title: "Creative Consulting",
@@ -105,7 +86,7 @@ const service = [
     icon: "🎚️",
     description:
       "Rent our fully equipped music studio for writing, recording, mixing, and mastering. Ideal for artists, producers, and composers who need a professional space with top-tier gear.",
-    image: "/images/music-studio.jpg",
+    image: film,
   },
   {
     title: "Production Studio Hire",
