@@ -1,4 +1,4 @@
-import { Hanken_Grotesk, Inter_Tight } from "next/font/google";
+import { Anton, Hanken_Grotesk, Inter_Tight } from "next/font/google";
 import React from "react";
 import { TiArrowSortedUp } from "react-icons/ti";
 import star from "../../../public/icons/star.png";
@@ -14,6 +14,11 @@ const hanken = Hanken_Grotesk({
 const inter = Inter_Tight({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
+
+const antonFont = Anton({
+  subsets: ["latin"],
+  weight: "400",
 });
 
 type Props = {};
