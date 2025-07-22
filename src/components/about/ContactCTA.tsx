@@ -22,19 +22,19 @@ const antonFont = Anton({
 const ContactCTA = () => {
   return (
     <section className="bg-gray-50 w-full text-white py-5">
-      <div className=" py-2 lg:py-5 flex justify-between items-center md:justify-center px-10 space-x-5">
-        <p
-          className={`${antonFont.className} text-6xl lg:text-7xl text-black uppercase tracking-wide`}
-        >
-          Let's work together.
-        </p>
-        <div className="">
-          <Image src={mail2} alt="image" className="w-full h-full" />
-        </div>
-      </div>
       <div className="w-[90%] mx-auto py-5">
+        <div className=" flex justify-between items-center md:justify-center space-x-5">
+          <p
+            className={`${antonFont.className} text-6xl lg:text-7xl text-[#0e0e0e] uppercase tracking-wide`}
+          >
+            Let's work together.
+          </p>
+          <div>
+            <Image src={mail2} alt="image" height={50} width={50} />
+          </div>
+        </div>
         <div className="flex flex-col space-y-5 lg:flex-row lg:justify-between lg:items-center">
-          <div className="flex text-black items-center">
+          <div className="flex text-[#0e0e0e] items-center">
             <div className="h-[16vh] ">
               <Image src={mail} alt="image" className="w-full h-full" />
             </div>
