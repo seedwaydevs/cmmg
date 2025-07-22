@@ -69,7 +69,7 @@ export default function Floating() {
       onMouseMove={(e) => {
         manageMouseMove(e);
       }}
-      className={style.main}
+      className={`${style.main} bg-orange-900`}
     >
       <div ref={plane1} className={style.plane}>
         <Image alt="image" src={image1} width={300} />
@@ -86,7 +86,11 @@ export default function Floating() {
         <Image alt="image" src={image8} width={300} />
         <Image alt="image" src={image9} width={255} />
       </div>
-      <div className="w-full h-full relative bg-black opacity-20 flex flex-col justify-center items-center">
+      {/* Semi-transparent overlay above images */}
+      <div className="absolute top-0 left-0 w-full h-full z-20 bg-black/10 backdrop-blur-xs" />
+
+      {/* Text above everything */}
+      <div className="absolute top-0 left-0 w-full h-full z-30 flex justify-center items-center">
         <h1 className="text-9xl text-white font-bold">CMMG</h1>
       </div>
     </main>

@@ -3,6 +3,7 @@
     width:100vw;
     overflow: hidden;
     position: relative;
+    z-index: "10px";
 
     .plane{
         width: 100%;
@@ -23,7 +24,7 @@
                 }
                 &:nth-of-type(2){
                     left: 18%;
-                    top:55%;
+                    top:50%;
                 }
                 &:nth-of-type(3){
                     left: 35%;
