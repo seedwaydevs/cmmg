@@ -1,12 +1,11 @@
 import { Hanken_Grotesk, Inter_Tight } from "next/font/google";
-import Link from "next/link";
 import React from "react";
 import { TiArrowSortedUp } from "react-icons/ti";
-
-import film from "../../../public/prodco.jpg";
-import library from "../../../public/pexels-tima-miroshnichenko-6827245.jpg";
-import sounddesign from "../../../public/sound-design.webp";
+import star from "../../../public/icons/star.png";
+import asterisks from "../../../public/icons/asterisks.png";
+import lines from "../../../public/icons/lines.png";
 import Image from "next/image";
+
 const hanken = Hanken_Grotesk({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -42,6 +41,55 @@ const WhatWeDo = (props: Props) => {
               tracks, content development for visual media, and
               professional-grade studio hire for creators and collaborators.
             </p>
+            <div className="flex flex-col lg:flex-row space-y-5 py-10">
+              <div className="flex items-start space-x-5 border-b lg:border-b-0 lg:border-r border-gray-300 p-4 ">
+                <Image src={star} alt="star-image" width={30} height={30} />
+
+                <div className="space-y-5 ">
+                  <h3 className={`${hanken.className} text-3xl font-bold`}>
+                    Music Production
+                  </h3>
+                  <p className={`${inter.className} md:text-lg text-gray-700 `}>
+                    From custom compositions to licensable tracks, we craft
+                    soundscapes that bring stories to life. Our catalog is
+                    tailored for film, TV, ads, games, and more.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-5 border-b lg:border-b-0 lg:border-r border-gray-300 p-4">
+                <Image
+                  src={asterisks}
+                  alt="star-image"
+                  width={30}
+                  height={30}
+                />
+                <div className="space-y-5">
+                  <h3 className={`${hanken.className} text-3xl font-bold`}>
+                    Content Development
+                  </h3>
+                  <p className={`${inter.className} md:text-lg text-gray-700`}>
+                    We help develop powerful visual narratives through music
+                    supervision, licensing strategy, and creative
+                    consulting—bridging audio with vision.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-5 p-4">
+                <Image src={lines} alt="star-image" width={30} height={30} />
+                <div className="space-y-5">
+                  <h3 className={`${hanken.className} text-3xl font-bold`}>
+                    Studio Hire
+                  </h3>
+                  <p className={`${inter.className}  md:text-lg text-gray-700`}>
+                    Rent our professional-grade studios for music production,
+                    content creation, live sessions, podcasting, or video
+                    shoots—fully equipped and ready for your next project.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -50,49 +98,3 @@ const WhatWeDo = (props: Props) => {
 };
 
 export default WhatWeDo;
-
-const service = [
-  {
-    title: "Original Composition",
-    icon: "🎼",
-    description:
-      "Custom music tailored to your narrative — from cinematic scores to branded soundtracks. We create from scratch to match your vision.",
-    image: "/images/composition.jpg",
-  },
-  {
-    title: "Library Music Licensing",
-    icon: "🎵",
-    description:
-      "Instant access to our curated music catalogue — ready-made tracks for film, TV, ads, games, and beyond. Fast clearance, high impact.",
-    image: library,
-  },
-
-  {
-    title: "Sound Design",
-    icon: "🔊",
-    description:
-      "Crafted sonic textures and effects to bring your visuals or experiences to life. From subtle atmospheres to bold audio signatures.",
-    image: sounddesign,
-  },
-  {
-    title: "Creative Consulting",
-    icon: "🎧",
-    description:
-      "We offer music supervision, track curation, licensing strategy, and creative direction to elevate your project.",
-    image: "/images/consulting.jpg",
-  },
-  {
-    title: "Music Studio Hire",
-    icon: "🎚️",
-    description:
-      "Rent our fully equipped music studio for writing, recording, mixing, and mastering. Ideal for artists, producers, and composers who need a professional space with top-tier gear.",
-    image: film,
-  },
-  {
-    title: "Production Studio Hire",
-    icon: "🎥",
-    description:
-      "Hire our versatile production space for shoots, live sessions, podcasting, or creative direction. Designed for creators who need a dynamic, controlled environment.",
-    image: "/images/production-studio.jpg",
-  },
-];
