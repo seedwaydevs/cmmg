@@ -1,25 +1,37 @@
+"use client";
+
 import { useEffect, useRef } from "react";
-import pepsi from "../../assets/pepsi.png";
-import coke from "../../assets/coke.png";
-import atos from "../../assets/atos.png";
-import meltwater from "../../assets/meltwater.png";
-import kafka from "../../assets/kafka.png";
-import amazon from "../../assets/amazonmus.png";
 import Image from "next/image";
+import { barloworld, capasso, orchard, samro, trace, universal } from "@/data";
+
+const logos = [
+  { src: orchard, alt: "Orchard", height: "h-[40px]" },
+  { src: trace, alt: "Trace", height: "h-[50px]" },
+  { src: capasso, alt: "Capasso", height: "h-[55px] bg-blue-900 px-2" },
+  { src: samro, alt: "SAMRO", height: "h-[40px]" },
+  { src: barloworld, alt: "Barloworld", height: "h-[65px]" },
+  { src: universal, alt: "Universal", height: "h-[50px]" },
+];
 
 const TrustCarousel = () => {
-  const carouselRef = useRef(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const carousel = carouselRef.current;
-    let startPosition = 0;
+    const wrapper = wrapperRef.current;
+    if (!wrapper) return;
+
+    let x = 0;
 
     const animate = () => {
-      startPosition -= 1; // Adjust the speed by changing this value
-      if (startPosition <= -carousel.scrollWidth / 2) {
-        startPosition = 0; // Reset position to start for seamless loop
+      if (!wrapper) return;
+
+      x -= 1; // scroll speed
+      wrapper.style.transform = `translateX(${x}px)`;
+
+      if (Math.abs(x) >= wrapper.scrollWidth / 2) {
+        x = 0;
       }
-      carousel.style.transform = `translateX(${startPosition}px)`;
+
       requestAnimationFrame(animate);
     };
 
@@ -27,54 +39,30 @@ const TrustCarousel = () => {
   }, []);
 
   return (
-    <div className="w-full bg-[#830000] overflow-hidden flex flex-col items-center justify-center py-10 h-[30vh] md:h-[25vh]">
-      {" "}
-      {/* Added items-center and justify-center */}
-      <div className="w-[90%] mx-auto py-5">
-        <p className="text-xl text-white font-thin">They have trusted us.</p>
-      </div>
-      <div className="w-full py-5">
-        <div className="flex w-[200%] whitespace-nowrap" ref={carouselRef}>
-          {/* Wrap content twice for seamless loop */}
-          <div className="flex gap-10 text-white items-center justify-center h-full">
-            {" "}
-            {/* Added items-center and justify-center */}
-            {[pepsi, atos, kafka, meltwater, coke, amazon].map(
-              (image, index) => (
-                <span key={`image1-${index}`} className="carousel-item">
-                  <Image
-                    src={image}
-                    alt=""
-                    className="carousel-image h-[50px] object-contain"
-                  />{" "}
-                  {/* Adjusted height for better centering */}
-                </span>
-              )
-            )}
-            {/* Duplicate the items to create a seamless loop effect */}
-            {[pepsi, atos, kafka, meltwater, coke, amazon].map(
-              (image, index) => (
-                <span key={`image2-${index}`} className="carousel-item">
-                  <Image
-                    src={image}
-                    alt=""
-                    className="carousel-image h-[50px] object-contain"
-                  />
-                </span>
-              )
-            )}
-            {[pepsi, atos, kafka, meltwater, coke, amazon].map(
-              (image, index) => (
-                <span key={`image3-${index}`} className="carousel-item">
-                  <Image
-                    src={image}
-                    alt=""
-                    className="carousel-image h-[50px] object-contain"
-                  />
-                </span>
-              )
-            )}
-          </div>
+    <div className="w-full relative h-[10vh] md:h-[15vh] bg-white flex items-center justify-center overflow-hidden">
+      {/* Blur left and right edges */}
+      <div className="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
+
+      {/* Scrolling content */}
+      <div className="overflow-hidden w-full">
+        <div
+          ref={wrapperRef}
+          className="flex gap-10 py-10 w-max"
+          style={{ willChange: "transform" }}
+        >
+          {[...logos, ...logos].map((logo, idx) => (
+            <div
+              key={idx}
+              className="flex items-center justify-center min-w-[150px] "
+            >
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                className={`${logo.height} object-contain w-auto`}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </div>
