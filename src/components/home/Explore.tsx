@@ -1,4 +1,4 @@
-import { Hanken_Grotesk } from "next/font/google";
+import { Hanken_Grotesk, Inter_Tight } from "next/font/google";
 import Image from "next/image";
 import React from "react";
 import { TiArrowSortedUp } from "react-icons/ti";
@@ -8,6 +8,10 @@ type Props = {};
 const hanken = Hanken_Grotesk({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
+const inter = Inter_Tight({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 const Explore = (props: Props) => {
   return (
@@ -30,11 +34,8 @@ const Explore = (props: Props) => {
                 designed to bring your film, TV, or digital project to life with
                 unforgettable sound.
               </p>
-              <Link
-                href={"/"}
-                className="text-orange-600 py-2 px-3 font-semibold"
-              >
-                Browse our library 
+              <Link href={"/"} className="text-orange-600 py-2  font-semibold">
+                Browse our library
               </Link>
             </div>
             <div className="h-[30vh] lg:h-[30vh] bg-black">
@@ -46,11 +47,11 @@ const Explore = (props: Props) => {
             </div>
           </div>
           <hr className="" />
-          <div className="py-5 lg:py-10">
+          <div className="p-10 lg:p-16 lg:py-10 bg-orange-600 space-y-4">
             <p
-              className={`${hanken.className} text-4xl md:text-5xl lg:text-6xl tracking-tight text-gray-500 font-bold `}
+              className={`${hanken.className} text-4xl md:text-5xl lg:text-6xl tracking-tight text-gray-100 font-bold `}
             >
-              <span className="text-black">
+              <span className="text-blue-900">
                 We don’t follow trends — we set the tone.{" "}
               </span>{" "}
               <span>
@@ -58,6 +59,12 @@ const Explore = (props: Props) => {
                 Engineered to resonate.
               </span>
             </p>
+            <Link
+              href={"/"}
+              className={`${inter.className} bg-[#0e0e0e] text-gray-100 py-2 px-3 font-bold  lg:text-lg`}
+            >
+              About
+            </Link>
           </div>
           <hr className="" />
         </div>
