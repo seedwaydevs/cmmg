@@ -11,6 +11,13 @@ import image10 from "../public/images/CUT 4067.webp";
 import image11 from "../public/images/CUT 4068.webp";
 import image12 from "../public/images/CUT 3947.webp";
 
+import trace from "../public/trust/trace.png";
+import orchard from "../public/trust/The-Orchard-Logo-One-Blue-1.webp";
+import capasso from "../public/trust/capasso-2.png";
+import samro from "../public/trust/samro_logo.png";
+import barloworld from "../public/trust/barloworld-limited-logo-vector.png";
+import universal from "../public/trust/universal.png";
+
 export {
   image1,
   image2,
@@ -24,4 +31,10 @@ export {
   image10,
   image11,
   image12,
+  trace,
+  orchard,
+  capasso,
+  universal,
+  samro,
+  barloworld,
 };
