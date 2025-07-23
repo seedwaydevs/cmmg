@@ -1,4 +1,4 @@
-import ContactCTA from "@/components/about/ContactCTA";
+import ContactCTA from "@/components/home/ContactCTA";
 
 import Explore from "@/components/home/Explore";
 import Hero from "@/components/home/Hero";
