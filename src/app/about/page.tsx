@@ -46,7 +46,7 @@ const About = () => {
                 our work is crafted to inspire and captivate across platforms.
               </p>
               <div className="flex justify-between md:max-w-2xl md:mx-auto">
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center space-y-3">
                   <p className={`${antonFont.className} text-6xl uppercase`}>
                     20+
                   </p>
@@ -54,7 +54,7 @@ const About = () => {
                     Employees
                   </p>
                 </div>
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center space-y-3">
                   <p className={`${antonFont.className} text-6xl uppercase`}>
                     120+
                   </p>
@@ -62,7 +62,7 @@ const About = () => {
                     Projects
                   </p>
                 </div>
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center space-y-3">
                   <p className={`${antonFont.className} text-6xl uppercase`}>
                     5+
                   </p>
@@ -73,7 +73,7 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className=" h-[40vh] lg:w-[65vw] lg:h-[60vh]">
+          <div className=" py-10 h-[40vh] lg:w-[65vw] lg:h-[60vh]">
             <Image
               src={image}
               alt="Production team at work"
@@ -119,18 +119,27 @@ const About = () => {
         </div>
 
         {/* Section 3: Why Choose Us */}
-        <div className="bg-gray-100 py-10 rounded-md p-2 shadow-xl">
+        <div className="bg-gray-100 py-10 rounded-md p-2 shadow-xl space-y-5">
           <div className="flex items-center">
             <TiArrowSortedUp className="text-orange-600 h-7 w-7 lg:h-10 lg:w-10" />
             <p className="text-xs uppercase lg:text-lg">[ Why choose us ]</p>
           </div>
-          <div className="space-y-6 flex flex-col md:items-center ">
-            <h2
-              className={`${inter.className} text-3xl md:text-5xl p-2 md:p-10 font-extrabold `}
-            >
-              Why Choose CMMG<span className="text-orange-600">.</span>
-            </h2>
-            <div className="flex flex-col lg:flex-row space-y-5 lg:space-y-0 ">
+          <div className="space-y-5 flex flex-col md:items-center ">
+            <div className="space-y-3 p-2 md:p-10 ">
+              <h2
+                className={`${hanken.className} text-3xl md:text-5xl md:text-center font-extrabold uppercase tracking-tight`}
+              >
+                Production-level polish
+              </h2>
+              <p className={`${inter.className} md:text-center md:max-w-3xl`}>
+                We combine creative vision with technical precision to deliver
+                high-impact audio and visual content. Whether you're launching a
+                campaign, scoring a film, or recording in our studio, we bring a
+                sharp, professional edge to every project—without losing the
+                soul of your story.
+              </p>
+            </div>
+            <div className="flex flex-col lg:flex-row space-y-5  ">
               {/* Video Production */}
               <div className="flex items-start space-x-5 border-b lg:border-b-0 lg:border-r border-gray-300 p-4">
                 <p className="text-orange-600">01</p>
