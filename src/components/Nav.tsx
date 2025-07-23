@@ -52,7 +52,11 @@ const Nav = () => {
       {menuOpen && (
         <div className="fixed inset-0 bg-[#0e0e0e] z-[999] flex flex-col p-10 space-y-10 text-[#f2ece5] transition-all duration-300">
           <div className="flex justify-between items-start">
-            <h1 className={`${antonFont.className} text-5xl`}>CMMG.</h1>
+            <h1
+              className={`${hanken.className} text-5xl tracking-tighter font-extrabold`}
+            >
+              CMMG.
+            </h1>
             <button
               onClick={() => setMenuOpen(false)}
               className="w-full flex justify-end cursor-pointer text-xl font-bold"
@@ -86,7 +90,9 @@ const Nav = () => {
               <FaLinkedin className="h-8 w-8" />
             </Link>
           </div>
-          <button className="w-full border font-semibold rounded-3xl py-3 cursor-pointer hover:bg-[#f2ece5] hover:text-[#0e0e0e]">
+          <button
+            className={`${hanken.className} w-full border font-semibold  py-3 cursor-pointer hover:bg-[#f2ece5] hover:text-[#0e0e0e]`}
+          >
             Music Library
           </button>
         </div>
