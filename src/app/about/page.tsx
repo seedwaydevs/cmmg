@@ -119,42 +119,80 @@ const About = () => {
         </div>
 
         {/* Section 3: Why Choose Us */}
-        <div>
-          <div className="flex items-center space-x-2">
-            <GoDotFill className="h-6 w-6" />
-            <p className={`${hanken.className} text-lg font-semibold`}>
-              Why choose us.
-            </p>
+        <div className="bg-gray-100 py-10 rounded-md p-2 shadow-xl">
+          <div className="flex items-center">
+            <TiArrowSortedUp className="text-orange-600 h-7 w-7 lg:h-10 lg:w-10" />
+            <p className="text-xs uppercase lg:text-lg">[ Why choose us ]</p>
           </div>
-          <div className="space-y-6 flex flex-col md:items-center py-5">
+          <div className="space-y-6 flex flex-col md:items-center ">
             <h2
-              className={`${antonFont.className} text-3xl md:text-5xl md:py-5 uppercase`}
+              className={`${inter.className} text-3xl md:text-5xl p-2 md:p-10 font-extrabold `}
             >
-              Why Choose CMMG
+              Why Choose CMMG<span className="text-orange-600">.</span>
             </h2>
-            <div
-              className={`${hanken.className} space-y-3 md:py-5 text-lg flex flex-col md:flex-row md:items-center lg:max-w-4xl lg:space-x-8`}
-            >
-              <div className="flex flex-col md:items-center md:text-center space-y-3">
-                <MdOutlineVideoLibrary className="hidden md:flex md:h-16 md:w-16 lg:h-26 lg:w-26" />
-                <p>Industry-leading video and audio production services</p>
+            <div className="flex flex-col lg:flex-row space-y-5 lg:space-y-0 ">
+              {/* Video Production */}
+              <div className="flex items-start space-x-5 border-b lg:border-b-0 lg:border-r border-gray-300 p-4">
+                <p className="text-orange-600">01</p>
+                <div className="space-y-5">
+                  <h3
+                    className={`${hanken.className} leading-5 text-2xl font-bold`}
+                  >
+                    Video & Audio Production
+                  </h3>
+                  <p className={`${inter.className} md:text-lg text-gray-700`}>
+                    Industry-leading video and audio production services
+                    tailored for modern media needs.
+                  </p>
+                </div>
               </div>
-              <div className="flex flex-col md:items-center md:text-center space-y-3">
-                <MdOutlineLibraryMusic className="hidden md:flex md:h-16 md:w-16 lg:h-26 lg:w-26" />
-                <p>
-                  In-house music library with licensing for film, ads, and
-                  social
-                </p>
+
+              {/* Music Library */}
+              <div className="flex items-start space-x-5 border-b lg:border-b-0 lg:border-r border-gray-300 p-4">
+                <p className="text-orange-600">02</p>
+                <div className="space-y-5 ">
+                  <h3
+                    className={`${hanken.className}  leading-5 text-2xl font-bold`}
+                  >
+                    Music Library Licensing
+                  </h3>
+                  <p className={`${inter.className} md:text-lg text-gray-700`}>
+                    Access our in-house music library with flexible licensing
+                    for film, ads, and social content.
+                  </p>
+                </div>
               </div>
-              <div className="flex flex-col md:items-center md:text-center space-y-3">
-                <TbFileDescription className="hidden md:flex md:h-16 md:w-16 lg:h-26 lg:w-26" />
-                <p>
-                  Creative team with deep roots in storytelling and sound design
-                </p>
+
+              {/* Creative Team */}
+              <div className="flex items-start space-x-5 border-b lg:border-b-0 lg:border-r border-gray-300 p-4">
+                <p className="text-orange-600">03</p>
+                <div className="space-y-5">
+                  <h3
+                    className={`${hanken.className} leading-6 text-2xl font-bold`}
+                  >
+                    Creative Sound Design
+                  </h3>
+                  <p className={`${inter.className} md:text-lg text-gray-700`}>
+                    Work with our experienced creatives in storytelling, sound
+                    design, and audio branding.
+                  </p>
+                </div>
               </div>
-              <div className="flex flex-col md:items-center md:text-center space-y-3">
-                <GiStorkDelivery className="hidden md:flex md:h-16 md:w-16 lg:h-26 lg:w-26" />
-                <p>End-to-end content solutions from concept to delivery</p>
+
+              {/* End-to-End Content */}
+              <div className="flex items-start space-x-5 p-4">
+                <p className="text-orange-600">04</p>
+                <div className="space-y-5">
+                  <h3
+                    className={`${hanken.className} leading-6 text-2xl font-bold`}
+                  >
+                    End-to-End Solutions
+                  </h3>
+                  <p className={`${inter.className} md:text-lg text-gray-700`}>
+                    From ideation to final delivery, we offer full content
+                    production services that bring your vision to life.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
