@@ -13,7 +13,7 @@ const inter = Inter_Tight({
 });
 const Hero = (props: Props) => {
   return (
-    <div className="bg-[#0e0e0e] h-[50vh] md:h-[60vh]">
+    <div className="bg-[#0e0e0e] h-[50vh] md:h-[55vh]">
       <div className="w-[95%] mx-auto">
         <div className="mt-28 flex flex-col justify-center items-center text-white  md:py-5">
           <div className="space-y-3 max-w-md md:max-w-lg lg:max-w-2xl">
