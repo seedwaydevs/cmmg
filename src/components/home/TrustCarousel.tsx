@@ -2,10 +2,19 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import { barloworld, capasso, orchard, samro, trace, universal } from "@/data";
+import {
+  barloworld,
+  brownsense,
+  capasso,
+  orchard,
+  samro,
+  trace,
+  universal,
+} from "@/data";
 
 const logos = [
   { src: orchard, alt: "Orchard", height: "h-[40px]" },
+  { src: brownsense, alt: "Brownsense", height: "h-[45px]" },
   { src: trace, alt: "Trace", height: "h-[50px]" },
   { src: capasso, alt: "Capasso", height: "h-[55px] bg-blue-900 px-2" },
   { src: samro, alt: "SAMRO", height: "h-[40px]" },

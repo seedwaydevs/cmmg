@@ -17,6 +17,7 @@ import capasso from "../public/trust/capasso-2.png";
 import samro from "../public/trust/samro_logo.png";
 import barloworld from "../public/trust/barloworld-limited-logo-vector.png";
 import universal from "../public/trust/universal.png";
+import brownsense from "../public/trust/brownsense_Logo.jpg";
 
 import film from "../public/prodco.jpg";
 import library from "../public/pexels-tima-miroshnichenko-6827245.jpg";
@@ -44,4 +45,5 @@ export {
   universal,
   samro,
   barloworld,
+  brownsense,
 };
