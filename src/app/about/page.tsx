@@ -1,12 +1,7 @@
 import { Anton, Hanken_Grotesk, Inter_Tight } from "next/font/google";
 import Image from "next/image";
 import React from "react";
-import { GoDotFill } from "react-icons/go";
-import { MdOutlineLibraryMusic, MdOutlineVideoLibrary } from "react-icons/md";
-
 import image from "../../../public/prodco.jpg";
-import { TbFileDescription } from "react-icons/tb";
-import { GiStorkDelivery } from "react-icons/gi";
 import Team from "@/components/about/Team";
 import { TiArrowSortedUp } from "react-icons/ti";
 
@@ -29,7 +24,7 @@ const About = () => {
           <div className="flex flex-col justify-center w-full ">
             <div className="space-y-8 md:items-center md:max-w-3xl md:mx-auto ">
               <p
-                className={`${inter.className} font-bold text-3xl md:text-5xl lg:text-6xl text-center uppercase pt-5 leading-9 lg:leading-12`}
+                className={`${inter.className} font-bold  text-3xl md:text-5xl lg:text-6xl text-center uppercase pt-5 leading-9 lg:leading-12`}
               >
                 Bringing stories to life through{" "}
                 <span className="font-extrabold text-orange-600">

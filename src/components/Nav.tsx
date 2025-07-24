@@ -20,7 +20,28 @@ const hanken = Hanken_Grotesk({
 const Nav = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const navLinks = ["About", "Services", "Artists", "Contact"];
+  const navLinks = [
+    {
+      title: "Home",
+      link: "/",
+    },
+    {
+      title: "About",
+      link: "/about",
+    },
+    {
+      title: "Services",
+      link: "/services",
+    },
+    {
+      title: "Work",
+      link: "/work",
+    },
+    {
+      title: "Contact Us",
+      link: "/contact",
+    },
+  ];
 
   return (
     <>
@@ -65,33 +86,33 @@ const Nav = () => {
             </button>
           </div>
           <div className="flex flex-col">
-            {navLinks.map((link) => (
+            {navLinks.map((link, i) => (
               <Link
-                key={link}
-                href={`/${link.toLowerCase()}`}
+                key={i}
+                href={link.link}
                 onClick={() => setMenuOpen(false)}
                 className={`${hanken.className} text-6xl py-2 hover:text-orange-700 transition duration-200`}
               >
-                {link}
+                {link.title}
               </Link>
             ))}
           </div>
           <div className="flex space-x-3">
             <Link href={"/"}>
-              <FaInstagram className="h-8 w-8" />
+              <FaInstagram className="h-8 w-8 hover:bg-gradient-to-b" />
             </Link>
             <Link href={"/"}>
-              <FaSquareFacebook className="h-8 w-8" />
+              <FaSquareFacebook className="h-8 w-8 hover:text-blue-500" />
             </Link>
             <Link href={"/"}>
-              <FaYoutube className="h-8 w-8" />
+              <FaYoutube className="h-8 w-8 hover:text-red-600" />
             </Link>
             <Link href={"/"}>
-              <FaLinkedin className="h-8 w-8" />
+              <FaLinkedin className="h-8 w-8 hover:text-blue-600" />
             </Link>
           </div>
           <button
-            className={`${hanken.className} w-full border font-semibold  py-3 cursor-pointer hover:bg-[#f2ece5] hover:text-[#0e0e0e]`}
+            className={`${hanken.className} w-full border hover:border-orange-700  font-semibold  py-3 cursor-pointer hover:bg-orange-700  hover:text-[#f2ece5]`}
           >
             Music Library
           </button>
