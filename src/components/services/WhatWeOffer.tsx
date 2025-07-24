@@ -2,6 +2,11 @@ import { Anton, Hanken_Grotesk, Inter_Tight } from "next/font/google";
 import React from "react";
 import { TiArrowSortedUp } from "react-icons/ti";
 import ServicesGrid from "./ServicesGrid";
+import ServiceMusicLibrary from "./service-components/ServiceMusicLib";
+import ServiceSoundProduction from "./service-components/ServiceSoundProd";
+import ServiceStudioHire from "./service-components/ServiceStudioHire";
+import ServiceVideoProduction from "./service-components/ServiceVideoProduction";
+import ServiceEventEntertainment from "./service-components/ServiceEvent";
 
 type Props = {};
 
@@ -47,6 +52,20 @@ const WhatWeOffer = (props: Props) => {
             </div>
             <hr />
             <ServicesGrid />
+            <div>
+              <div className="py-5">
+                <h1
+                  className={`${hanken.className} text-6xl lg:text-7xl font-bold tracking-tighter`}
+                >
+                  Services<span className="text-orange-600">.</span>
+                </h1>
+              </div>
+              <ServiceMusicLibrary />
+              <ServiceSoundProduction />
+              <ServiceStudioHire />
+              <ServiceVideoProduction />
+              <ServiceEventEntertainment />
+            </div>
           </div>
         </div>
       </div>
