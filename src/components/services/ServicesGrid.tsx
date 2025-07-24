@@ -15,31 +15,37 @@ const inter = Inter_Tight({
 
 const services = [
   {
-    title: "Music Library Licensing",
+    id: "1",
+    title: "Production Music Library",
     description:
       "Instant access to a curated collection of licensable tracks for film, TV, digital, and more. Powered by our international music catalog.",
   },
   {
+    id: "2",
     title: "Sound Production",
     description:
       "Full-spectrum audio services including original music composition, final mix, radio jingle creation, and podcast production — all handled in-house by experienced engineers.",
   },
   {
+    id: "3",
     title: "Studio Hire",
     description:
       "Rent our professional-grade, soundproof studios with top-tier gear, solar backup, and 24/7 access — ideal for music, voiceover, and content sessions.",
   },
   {
+    id: "4",
     title: "Video Production",
     description:
       "From scripting to delivery, we create cinematic, brand-aligned video content for social, commercial, and film projects.",
   },
   {
+    id: "5",
     title: "Event Sound & Entertainment",
     description:
       "End-to-end live event support — from professional sound systems and engineers to DJs and camera crews for coverage.",
   },
   {
+    id: "6",
     title: "Creative Consulting",
     description:
       "Strategic support for music supervision, audio branding, licensing clearance, and content direction across media formats.",
@@ -71,7 +77,7 @@ const ServicesGrid = () => {
                 {s.description}
               </p>
               <Link
-                href={"#"}
+                href={`#${s.id}`}
                 className={`${inter.className} text-orange-600 font-semibold`}
               >
                 Learn More
