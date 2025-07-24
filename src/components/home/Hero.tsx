@@ -37,7 +37,7 @@ const Hero = (props: Props) => {
               <h1
                 className={`${hanken.className} text-8xl font-extrabold py-7`}
               >
-                CMMG<span className="text-orange-600 text-[50px]">.</span>
+                CMMG<span className="text-orange-600">.</span>
               </h1>
               <p className="text-[16px] uppercase font-bold tracking-tighter">
                 [ Media Group ]
