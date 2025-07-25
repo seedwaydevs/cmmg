@@ -28,7 +28,7 @@ const Hero = (props: Props) => {
             </p>
           </div>
           <p
-            className={`${inter.className} text-center py-5 max-w-md md:max-w-lg lg:max-w-2xl md:text-lg`}
+            className={`${inter.className} text-sm text-center py-5 max-w-md md:max-w-lg lg:max-w-2xl md:text-lg`}
           >
             We offer end-to-end audio and visual production services — from
             original compositions and final mix to studio hire, sound design,
