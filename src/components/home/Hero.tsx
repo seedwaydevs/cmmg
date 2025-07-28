@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-
+import hero from "./hero.module.css";
 import { Hanken_Grotesk, Schibsted_Grotesk } from "next/font/google";
-import Link from "next/link";
+
 
 type Props = {};
 
@@ -20,8 +20,11 @@ const sted = Schibsted_Grotesk({
 const Hero = (props: Props) => {
   return (
     <>
-      {/* <div className="h-[80px] border"></div> */}
-      <div className="py-16 w-full bg-[#0e0e0e] text-white h-screen">
+      {/* BG */}
+      <div
+        className={`py-16 w-full text-white h-screen ${hero.heroBackground}`}
+      >
+        {/* I want to add a bg image here */}
         <div className="w-[90%] md:w-[90%] mx-auto h-full">
           <div className="flex flex-col justify-between h-full">
             <div className="flex justify-end mt-16">
