@@ -1,5 +1,6 @@
 import { Hanken_Grotesk, Inter_Tight } from "next/font/google";
 import React from "react";
+import hero from "./service.module.css";
 
 type Props = {};
 const hanken = Hanken_Grotesk({
@@ -12,15 +13,15 @@ const inter = Inter_Tight({
 });
 const Hero = (props: Props) => {
   return (
-    <div className="bg-[#0e0e0e] h-[70vh] md:h-[75vh]">
+    <div className={`${hero.heroBackground}`}>
       <div className="w-[95%] mx-auto">
-        <div className="mt-28 flex flex-col justify-center items-center text-white  md:py-5">
+        <div className="mt-28 py-10 flex flex-col justify-center items-center text-white  md:py-5">
           <div className="space-y-3 max-w-md md:max-w-lg lg:max-w-2xl">
             <div className="flex items-center justify-center">
               <p className="text-xs uppercase lg:text-lg">[ services ]</p>
             </div>
             <p
-              className={`${hanken.className} text-orange-600 font-extrabold tracking-tight text-4xl md:text-5xl lg:text-6xl text-center uppercase`}
+              className={`${hanken.className} text-black font-extrabold tracking-tight text-4xl md:text-5xl lg:text-6xl text-center uppercase`}
             >
               built for production-grade impact
               <span className="text-white">.</span>
