@@ -1,6 +1,5 @@
 import { Hanken_Grotesk, Inter_Tight } from "next/font/google";
 import React from "react";
-import { TiArrowSortedUp } from "react-icons/ti";
 
 type Props = {};
 const hanken = Hanken_Grotesk({
