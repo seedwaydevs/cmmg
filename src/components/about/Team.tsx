@@ -54,12 +54,6 @@ const Team = (props: Props) => {
               position="Founder, CEO"
               font={antonFont}
             />
-            <TeamCard
-              image={mrS}
-              name="Abraham Sibiya"
-              position="Founder, CEO"
-              font={antonFont}
-            />
           </div>
         </div>
       </div>
