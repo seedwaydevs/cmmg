@@ -4,7 +4,9 @@ import React from "react";
 import { TiArrowSortedUp } from "react-icons/ti";
 import collage from "../../../public/CoverCollage.png";
 import Link from "next/link";
+
 type Props = {};
+
 const hanken = Hanken_Grotesk({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -13,6 +15,7 @@ const inter = Inter_Tight({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
 });
+
 const Explore = (props: Props) => {
   return (
     <div className="w-full py-5">
@@ -38,7 +41,7 @@ const Explore = (props: Props) => {
                 Browse our library
               </Link>
             </div>
-            <div className="h-[30vh] lg:h-[30vh] bg-black">
+            <div className="h-[30vh] lg:h-[70vh] bg-black">
               <Image
                 src={collage}
                 alt="image"

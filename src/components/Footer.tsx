@@ -1,4 +1,6 @@
+import { cmmg } from "@/data";
 import { Anton, Hanken_Grotesk } from "next/font/google";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -50,13 +52,15 @@ const Footer = (props: Props) => {
             </div>
           </div>
         </div>
-        <div className="py-10 flex ">
-          <h1
-            className={`${antonFont.className} text-[140px] leading-40  uppercase`}
-          >
-            CMMG
-          </h1>
+
+        <div className={`${antonFont.className} h-[20vh]`}>
+          <Image
+            src={cmmg}
+            alt="cmmg-logo"
+            className="w-fit h-full object-contain"
+          />
         </div>
+
         <div>
           <div className="flex space-x-3 items-center">
             <p className="text-xl">&copy;</p>

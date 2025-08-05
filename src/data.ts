@@ -23,6 +23,8 @@ import film from "../public/prodco.jpg";
 import library from "../public/pexels-tima-miroshnichenko-6827245.jpg";
 import sounddesign from "../public/sound-design.webp";
 
+import cmmg from "../public/images/cmmg-logo.png";
+
 export {
   film,
   library,
@@ -46,4 +48,5 @@ export {
   samro,
   barloworld,
   brownsense,
+  cmmg,
 };
