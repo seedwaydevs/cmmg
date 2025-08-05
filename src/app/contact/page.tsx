@@ -50,19 +50,19 @@ const ContactPage = () => {
     },
   ];
 
-  const handleBookingSubmit = (e) => {
+  const handleBookingSubmit = (e: any) => {
     e.preventDefault();
     console.log("Booking submitted:", bookingData);
     alert("Booking request submitted successfully!");
   };
 
-  const handleContactSubmit = (e) => {
+  const handleContactSubmit = (e: any) => {
     e.preventDefault();
     console.log("Contact submitted:", contactData);
     alert("Message sent successfully!");
   };
 
-  const handleFileUpload = (e) => {
+  const handleFileUpload = (e: any) => {
     const file = e.target.files[0];
     setBookingData({ ...bookingData, idCopy: file });
   };
@@ -228,7 +228,7 @@ const ContactPage = () => {
                     onChange={(e) =>
                       setBookingData({ ...bookingData, date: e.target.value })
                     }
-                    className="w-full p-4 rounded-xl bg-white/10 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+                    className="w-full p-4 rounded-xl bg-white/10 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-orange-600 focus:border-transparent"
                   />
                 </div>
                 <div>
@@ -243,7 +243,7 @@ const ContactPage = () => {
                     onChange={(e) =>
                       setBookingData({ ...bookingData, time: e.target.value })
                     }
-                    className="w-full p-4 rounded-xl bg-white/10 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+                    className="w-full p-4 rounded-xl bg-white/10 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-orange-600 focus:border-transparent"
                   />
                 </div>
               </div>
@@ -254,7 +254,7 @@ const ContactPage = () => {
                   <Upload className="w-4 h-4 inline mr-2" />
                   ID Copy Upload
                 </label>
-                <div className="border-2 border-dashed border-white/30 rounded-xl p-6 text-center hover:border-purple-400 transition-colors">
+                <div className="border-2 border-dashed border-white/30 rounded-xl p-6 text-center hover:border-orange-600 transition-colors">
                   <input
                     type="file"
                     accept="image/*,.pdf"
@@ -288,7 +288,7 @@ const ContactPage = () => {
                     setBookingData({ ...bookingData, message: e.target.value })
                   }
                   rows={4}
-                  className="w-full p-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent resize-none"
+                  className="w-full p-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-600 focus:border-transparent resize-none"
                   placeholder="Tell us more about your project or any special requirements..."
                 />
               </div>
@@ -296,7 +296,7 @@ const ContactPage = () => {
               <button
                 type="button"
                 onClick={handleBookingSubmit}
-                className="w-full py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold text-lg rounded-xl hover:from-purple-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="w-full py-4 bg-orange-600 text-white font-bold text-lg rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
                 Submit Booking Request
               </button>
@@ -369,7 +369,7 @@ const ContactPage = () => {
                     onChange={(e) =>
                       setContactData({ ...contactData, name: e.target.value })
                     }
-                    className="w-full p-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+                    className="w-full p-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-600 focus:border-transparent"
                     placeholder="Enter your full name"
                   />
                 </div>
@@ -385,7 +385,7 @@ const ContactPage = () => {
                     onChange={(e) =>
                       setContactData({ ...contactData, email: e.target.value })
                     }
-                    className="w-full p-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+                    className="w-full p-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-600 focus:border-transparent"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -403,7 +403,7 @@ const ContactPage = () => {
                   onChange={(e) =>
                     setContactData({ ...contactData, phone: e.target.value })
                   }
-                  className="w-full p-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+                  className="w-full p-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-600 focus:border-transparent"
                   placeholder="+27 XX XXX XXXX"
                 />
               </div>
@@ -421,7 +421,7 @@ const ContactPage = () => {
                     setContactData({ ...contactData, message: e.target.value })
                   }
                   rows={6}
-                  className="w-full p-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent resize-none"
+                  className="w-full p-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-600 focus:border-transparent resize-none"
                   placeholder="Tell us about your project, ask questions, or share any details that would help us assist you better..."
                 />
               </div>
@@ -429,7 +429,7 @@ const ContactPage = () => {
               <button
                 type="button"
                 onClick={handleContactSubmit}
-                className="w-full py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold text-lg rounded-xl hover:from-purple-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="w-full py-4 bg-orange-600 text-white font-bold text-lg rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
                 Send Message
               </button>
@@ -445,11 +445,11 @@ const ContactPage = () => {
             </h3>
             <div className="flex flex-col md:flex-row justify-center items-center gap-6 text-gray-300">
               <div className="flex items-center gap-2">
-                <Phone className="w-5 h-5 text-purple-400" />
+                <Phone className="w-5 h-5 text-orange-600" />
                 <span>+27 XX XXX XXXX</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-5 h-5 text-purple-400" />
+                <Mail className="w-5 h-5 text-orange-600" />
                 <span>hello@yourstudio.com</span>
               </div>
             </div>
