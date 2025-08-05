@@ -18,8 +18,8 @@ const inter = Inter_Tight({
 
 // Dummy album data - replace with your actual data
 const albumData = {
-  title: "Midnight Reverie",
-  artist: "Luna & The Dreamweavers",
+  title: "Live Culture",
+  artist: "Abe Sibiya",
   releaseDate: "March 15, 2024",
   coverImage: image2, // Replace with your album cover path
   tracks: [
