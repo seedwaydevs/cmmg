@@ -266,7 +266,7 @@ const ContactPage = () => {
                     <Upload className="w-12 h-12 text-gray-400 mx-auto mb-3" />
                     <p className="text-white font-medium">
                       {bookingData.idCopy
-                        ? bookingData.idCopy.name
+                        ? bookingData.idCopy
                         : "Click to upload ID copy"}
                     </p>
                     <p className="text-gray-400 text-sm mt-1">
