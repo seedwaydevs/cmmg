@@ -4,6 +4,7 @@ import React from "react";
 import { TiArrowSortedUp } from "react-icons/ti";
 import collage from "../../../public/CoverCollage.png";
 import Link from "next/link";
+import { MoveRight } from "lucide-react";
 
 type Props = {};
 
@@ -37,11 +38,17 @@ const Explore = (props: Props) => {
                 designed to bring your film, TV, or digital project to life with
                 unforgettable sound.
               </p>
-              <Link href={"/"} className="text-orange-600 py-2  font-semibold">
-                Browse our library
-              </Link>
+              <div className="flex gap-4 items-center">
+                <Link
+                  href={"/"}
+                  className="text-orange-600 py-2 text-xl font-semibold"
+                >
+                  Browse our library
+                </Link>
+                <MoveRight className="text-orange-600" />
+              </div>
             </div>
-            <div className="h-[30vh] lg:h-[70vh] bg-black">
+            <div className="h-[40vh] lg:h-[70vh] bg-black">
               <Image
                 src={collage}
                 alt="image"
