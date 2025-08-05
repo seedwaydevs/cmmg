@@ -7,6 +7,8 @@ import { FaInstagram } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { TbMenu } from "react-icons/tb";
+import Image from "next/image";
+import { cmmg } from "@/data";
 const antonFont = Anton({
   subsets: ["latin"],
   weight: "400",
@@ -53,11 +55,15 @@ const Nav = () => {
 
         {/* Black nav content */}
         <div className="relative z-50 w-[95%] mx-auto bg-black p-4 my-2 flex justify-between items-center shadow-md">
-          <h1 className="text-white text-2xl tracking-tighter font-extrabold">
+          <div className="h-[10vh] -my-5">
             <Link className={`${hanken.className}`} href={"/"}>
-              CMMG
+              <Image
+                src={cmmg}
+                alt="cmmg-logo"
+                className="w-full h-full object-contain"
+              />
             </Link>
-          </h1>
+          </div>
           <div className="flex items-center">
             <button
               onClick={() => setMenuOpen(true)}
