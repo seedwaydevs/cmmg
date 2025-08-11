@@ -34,7 +34,7 @@ const albumData = {
 
 const Latest = (props: Props) => {
   return (
-    <div className="w-full min-h-screen relative overflow-hidden">
+    <div className="w-full relative overflow-hidden">
       {/* Blurred Background */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -49,7 +49,7 @@ const Latest = (props: Props) => {
 
       {/* Content */}
       <div className="relative z-10 w-full h-full flex items-center py-8">
-        <div className="w-[90%] max-w-6xl mx-auto h-full">
+        <div className="w-[90%] mx-auto h-full">
           <div className="flex flex-col lg:flex-row gap-8 items-center lg:items-center h-full">
             {/* Album Cover Section */}
             <div className="flex-shrink-0 lg:w-1/3 w-full flex justify-center">
@@ -70,16 +70,18 @@ const Latest = (props: Props) => {
             <div className="flex-1 text-white w-full flex flex-col justify-center min-h-0">
               {/* Album Info */}
               <div className="mb-6">
-                <h1
-                  className={`${hanken.className} text-3xl lg:text-4xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300`}
-                >
-                  {albumData.title}
-                </h1>
-                <h2
-                  className={`${inter.className} text-lg lg:text-xl font-medium text-gray-300 mb-2`}
-                >
-                  by {albumData.artist}
-                </h2>
+                <div className="flex flex-col lg:flex-row lg:items-end lg:space-x-2">
+                  <h1
+                    className={`${hanken.className} text-3xl lg:text-4xl font-bold mb-3 lg:mb-0 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300`}
+                  >
+                    {albumData.title}
+                  </h1>
+                  <h2
+                    className={`${inter.className} text-lg lg:text-xl font-medium text-gray-300 mb-2 lg:mb-0`}
+                  >
+                    by {albumData.artist}
+                  </h2>
+                </div>
                 <p className={`${inter.className} text-gray-400 text-base`}>
                   Released {albumData.releaseDate}
                 </p>
