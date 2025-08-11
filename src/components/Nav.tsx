@@ -6,7 +6,8 @@ import { FaSquareFacebook } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
-import { TbMenu } from "react-icons/tb";
+import { GiHamburgerMenu } from "react-icons/gi";
+
 import Image from "next/image";
 import { cmmg } from "@/data";
 const antonFont = Anton({
@@ -36,8 +37,8 @@ const Nav = () => {
       link: "/services",
     },
     {
-      title: "Work",
-      link: "/work",
+      title: "Music",
+      link: "/commercial",
     },
     {
       title: "Contact Us",
@@ -69,7 +70,7 @@ const Nav = () => {
               onClick={() => setMenuOpen(true)}
               className={`${hanken.className} text-white font-medium`}
             >
-              <TbMenu className="w-7 h-7" />
+              <GiHamburgerMenu className="w-7 h-7" />
             </button>
           </div>
         </div>
