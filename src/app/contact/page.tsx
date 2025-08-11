@@ -150,7 +150,7 @@ const ContactPage = () => {
                               : "border-white/20 bg-white/5 hover:border-white/40"
                           }`}
                         >
-                          <IconComponent className="w-8 h-8 text-orange-400 mb-2 mx-auto" />
+                          <IconComponent className="w-8 h-8 text-white mb-2 mx-auto" />
                           <p className="text-white text-center font-medium">
                             {service.label}
                           </p>
@@ -175,7 +175,7 @@ const ContactPage = () => {
                     onChange={(e) =>
                       setBookingData({ ...bookingData, name: e.target.value })
                     }
-                    className="w-full p-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+                    className="w-full p-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-600 focus:border-transparent"
                     placeholder="Enter your full name"
                   />
                 </div>
@@ -191,7 +191,7 @@ const ContactPage = () => {
                     onChange={(e) =>
                       setBookingData({ ...bookingData, email: e.target.value })
                     }
-                    className="w-full p-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+                    className="w-full p-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-600 focus:border-transparent"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -209,7 +209,7 @@ const ContactPage = () => {
                   onChange={(e) =>
                     setBookingData({ ...bookingData, phone: e.target.value })
                   }
-                  className="w-full p-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+                  className="w-full p-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-600 focus:border-transparent"
                   placeholder="+27 XX XXX XXXX"
                 />
               </div>
@@ -340,11 +340,11 @@ const ContactPage = () => {
                         <div
                           className={`p-4 rounded-xl border-2 transition-all duration-300 ${
                             contactData.enquiryType === type.value
-                              ? "border-purple-400 bg-purple-500/20 scale-105"
+                              ? "border-orange-600 bg-orange-500/20 scale-105"
                               : "border-white/20 bg-white/5 hover:border-white/40"
                           }`}
                         >
-                          <IconComponent className="w-8 h-8 text-purple-400 mb-2 mx-auto" />
+                          <IconComponent className="w-8 h-8 text-white mb-2 mx-auto" />
                           <p className="text-white text-center font-medium">
                             {type.label}
                           </p>
