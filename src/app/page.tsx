@@ -12,7 +12,7 @@ export default function Home() {
     <div>
       <Hero />
       <TrustCarousel />
-      {/* <Latest /> */}
+      <Latest />
       <Explore />
       <WhatWeDo />
       <MusicServices />
