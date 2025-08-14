@@ -9,7 +9,7 @@ import {
   orchard,
   samro,
   trace,
-  universal,
+  ccli,
 } from "@/data";
 
 const logos = [
@@ -19,7 +19,7 @@ const logos = [
   { src: capasso, alt: "Capasso", height: "h-[55px] bg-blue-900 px-2" },
   { src: samro, alt: "SAMRO", height: "h-[40px]" },
   { src: barloworld, alt: "Barloworld", height: "h-[65px]" },
-  { src: universal, alt: "Universal", height: "h-[50px]" },
+  { src: ccli, alt: "CCLI", height: "h-[100px]" },
 ];
 
 const TrustCarousel = () => {
