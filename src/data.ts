@@ -16,7 +16,8 @@ import orchard from "../public/trust/The-Orchard-Logo-One-Blue-1.webp";
 import capasso from "../public/trust/capasso-2.png";
 import samro from "../public/trust/samro_logo.png";
 import barloworld from "../public/trust/barloworld-limited-logo-vector.png";
-import universal from "../public/trust/universal.png";
+import ccli from "../public/trust/ccli-removebg-preview.png";
+
 import brownsense from "../public/trust/brownsense_Logo.jpg";
 
 import film from "../public/prodco.jpg";
@@ -44,9 +45,9 @@ export {
   trace,
   orchard,
   capasso,
-  universal,
   samro,
   barloworld,
   brownsense,
   cmmg,
+  ccli
 };
