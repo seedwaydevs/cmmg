@@ -27,7 +27,7 @@ const ServiceSoundProduction = () => {
           <li>Audio clean-up and restoration</li>
         </ul>
         <a
-          href="/book"
+          href="/contact"
           className="inline-block mt-4 bg-orange-600 text-white px-6 py-2 rounded-sm"
         >
           Book Now

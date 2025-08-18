@@ -27,7 +27,7 @@ const ServiceMusicLibrary = () => {
           <li>Global licensing via Music House International</li>
         </ul>
         <Link
-          href="/"
+          href="https://cmmg-library.vercel.app/"
           className="inline-block mt-4 bg-orange-600 text-white px-6 py-2 rounded-sm"
         >
           Browse
