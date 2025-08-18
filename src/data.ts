@@ -11,6 +11,8 @@ import image10 from "../public/images/CUT 4067.webp";
 import image11 from "../public/images/CUT 4068.webp";
 import image12 from "../public/images/CUT 3947.webp";
 
+import yandi from "../public/yandi.jpg";
+
 import trace from "../public/trust/trace.png";
 import orchard from "../public/trust/The-Orchard-Logo-One-Blue-1.webp";
 import capasso from "../public/trust/capasso-2.png";
@@ -84,4 +86,5 @@ export {
   hire7,
   hire8,
   hire9,
+  yandi,
 };
