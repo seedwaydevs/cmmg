@@ -4,3 +4,9 @@
     background-position: center;
     background-repeat: no-repeat;
 }
+.secondBackground {
+    background-image: url('../../../public/yandi.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
