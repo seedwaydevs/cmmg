@@ -16,16 +16,42 @@ import orchard from "../public/trust/The-Orchard-Logo-One-Blue-1.webp";
 import capasso from "../public/trust/capasso-2.png";
 import samro from "../public/trust/samro_logo.png";
 import barloworld from "../public/trust/barloworld-limited-logo-vector.png";
-import universal from "../public/trust/universal.png";
+import ccli from "../public/trust/ccli-removebg-preview.png";
 import brownsense from "../public/trust/brownsense_Logo.jpg";
 
 import film from "../public/prodco.jpg";
 import library from "../public/pexels-tima-miroshnichenko-6827245.jpg";
 import sounddesign from "../public/sound-design.webp";
+import hire1 from "../public/hire/studio-1.jpg";
+import hire2 from "../public/hire/studio-2.jpg";
+import hire3 from "../public/hire/studio-3.jpg";
+import hire4 from "../public/hire/studio-4.jpg";
+import hire5 from "../public/hire/studio-5.jpg";
+import hire6 from "../public/hire/studio-6.jpg";
+import hire7 from "../public/hire/studio-7.jpg";
+import hire8 from "../public/hire/studio-8.jpg";
+import hire9 from "../public/hire/studio-9.jpg";
 
 import cmmg from "../public/images/cmmg-logo.png";
 
+import stu1 from "../public/studio/IMG_1037.jpg";
+import stu2 from "../public/studio/IMG_1038.jpg";
+import stu3 from "../public/studio/IMG_1086.jpg";
+import stu4 from "../public/studio/IMG_1063.jpg";
+import stu5 from "../public/studio/IMG_1079.jpg";
+import stu6 from "../public/studio/IMG_1094.jpg";
+import stu7 from "../public/studio/IMG_1093.jpg";
+import stu8 from "../public/studio/IMG_1094.jpg";
+
 export {
+  stu1,
+  stu2,
+  stu3,
+  stu4,
+  stu5,
+  stu6,
+  stu7,
+  stu8,
   film,
   library,
   sounddesign,
@@ -44,9 +70,18 @@ export {
   trace,
   orchard,
   capasso,
-  universal,
   samro,
   barloworld,
   brownsense,
   cmmg,
+  ccli,
+  hire1,
+  hire2,
+  hire3,
+  hire4,
+  hire5,
+  hire6,
+  hire7,
+  hire8,
+  hire9,
 };
