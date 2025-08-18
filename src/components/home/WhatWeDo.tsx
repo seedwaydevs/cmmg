@@ -5,6 +5,7 @@ import star from "../../../public/icons/star.png";
 import asterisks from "../../../public/icons/asterisks.png";
 import lines from "../../../public/icons/lines.png";
 import Image from "next/image";
+import Link from "next/link";
 
 const hanken = Hanken_Grotesk({
   subsets: ["latin"],
@@ -32,7 +33,7 @@ const WhatWeDo = (props: Props) => {
             <TiArrowSortedUp className="text-orange-600 h-7 w-7 lg:h-10 lg:w-10" />
             <p className="text-xs uppercase lg:text-lg">[ Services ]</p>
           </div>
-          <div>
+          <div className="space-y-5">
             <h1
               className={`${hanken.className} text-6xl lg:text-7xl font-bold tracking-tighter`}
             >
@@ -46,6 +47,12 @@ const WhatWeDo = (props: Props) => {
               tracks, content development for visual media, and
               professional-grade studio hire for creators and collaborators.
             </p>
+            <Link
+              href={"/services"}
+              className="bg-orange-600 py-2 px-3 text-white text-lg  font-semibold"
+            >
+              Services
+            </Link>
             <div className="flex flex-col lg:flex-row space-y-5 py-10">
               <div className="flex items-start space-x-5 border-b lg:border-b-0 lg:border-r border-gray-300 p-4 ">
                 <Image src={star} alt="star-image" width={30} height={30} />

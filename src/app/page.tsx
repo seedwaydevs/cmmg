@@ -14,8 +14,8 @@ export default function Home() {
       <TrustCarousel />
       <Latest />
       <Explore />
-      <WhatWeDo />
       <MusicServices />
+      <WhatWeDo />
       <ContactCTA />
     </div>
   );

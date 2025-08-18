@@ -77,7 +77,7 @@ const ServiceStudioHire = () => {
           <li>Engineer available on request</li>
         </ul>
         <a
-          href="/book"
+          href="/conatct"
           className="inline-block mt-4 bg-orange-600 text-white px-6 py-2 rounded-sm"
         >
           Book a Studio
