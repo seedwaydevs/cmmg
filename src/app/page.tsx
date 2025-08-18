@@ -12,8 +12,8 @@ export default function Home() {
     <div>
       <Hero />
       <TrustCarousel />
-      <Explore />
       <Latest />
+      <Explore />
       <WhatWeDo />
       <MusicServices />
       <ContactCTA />

@@ -62,7 +62,7 @@ const MusicServices = () => {
               </p>
               <div className="flex gap-4 items-center">
                 <Link
-                  href="/production-music"
+                  href="/production"
                   className="text-orange-600 py-2 text-xl font-semibold hover:underline"
                 >
                   Browse Production Library
@@ -125,7 +125,7 @@ const MusicServices = () => {
               </p>
               <div className="flex gap-4 items-center">
                 <Link
-                  href="/commercial-music"
+                  href="/commercial"
                   className="text-orange-600 py-2 text-xl font-semibold hover:underline"
                 >
                   Explore Commercial Music
