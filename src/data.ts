@@ -32,7 +32,6 @@ import hire5 from "../public/hire/studio-5.jpg";
 import hire6 from "../public/hire/studio-6.jpg";
 import hire7 from "../public/hire/studio-7.jpg";
 import hire8 from "../public/hire/studio-8.jpg";
-import hire9 from "../public/hire/studio-9.jpg";
 
 import cmmg from "../public/images/cmmg-logo.png";
 
@@ -85,6 +84,5 @@ export {
   hire6,
   hire7,
   hire8,
-  hire9,
   yandi,
 };
