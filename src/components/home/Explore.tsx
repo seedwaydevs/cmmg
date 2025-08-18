@@ -40,11 +40,14 @@ const Explore = (props: Props) => {
               </p>
               <div className="flex gap-4 items-center">
                 <Link
-                  href={"/"}
+                  href="https://cmmg-library.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-orange-600 py-2 text-xl font-semibold"
                 >
                   Browse our library
                 </Link>
+
                 <MoveRight className="text-orange-600" />
               </div>
             </div>
