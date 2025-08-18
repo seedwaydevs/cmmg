@@ -3,17 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 
 // Dummy image imports - replace these with your actual images
-import {
-  hire1,
-  hire2,
-  hire3,
-  hire4,
-  hire5,
-  hire6,
-  hire7,
-  hire8,
-  hire9,
-} from "@/data";
+import { hire1, hire2, hire3, hire4, hire5, hire6, hire7, hire8 } from "@/data";
 
 const ServiceStudioHire = () => {
   // Image gallery data
@@ -56,11 +46,6 @@ const ServiceStudioHire = () => {
     {
       id: 8,
       src: hire8,
-      alt: "Live recording session",
-    },
-    {
-      id: 9,
-      src: hire9,
       alt: "Live recording session",
     },
   ];
