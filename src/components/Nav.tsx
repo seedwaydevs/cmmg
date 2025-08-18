@@ -41,6 +41,10 @@ const Nav = () => {
       link: "/commercial",
     },
     {
+      title: "Gallery",
+      link: "/gallery",
+    },
+    {
       title: "Contact Us",
       link: "/contact",
     },
@@ -65,7 +69,15 @@ const Nav = () => {
               />
             </Link>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center space-x-5">
+            <div>
+              <Link
+                href={"https://cmmg-library.vercel.app/"}
+                className="hidden md:block text-white font-semibold text-lg hover:text-orange-600"
+              >
+                Production Music Library
+              </Link>
+            </div>
             <button
               onClick={() => setMenuOpen(true)}
               className={`${hanken.className} text-white font-medium`}
@@ -98,7 +110,7 @@ const Nav = () => {
                 key={i}
                 href={link.link}
                 onClick={() => setMenuOpen(false)}
-                className={`${hanken.className} text-6xl py-2 hover:text-orange-700 transition duration-200`}
+                className={`${hanken.className} text-4xl font-semibold py-2 hover:text-orange-700 transition duration-200`}
               >
                 {link.title}
               </Link>
@@ -118,11 +130,12 @@ const Nav = () => {
               <FaLinkedin className="h-8 w-8 hover:text-blue-600" />
             </Link>
           </div>
-          <button
-            className={`${hanken.className} w-full border hover:border-orange-700  font-semibold  py-3 cursor-pointer hover:bg-orange-700  hover:text-[#f2ece5]`}
+          <Link
+            href={"https://cmmg-library.vercel.app/"}
+            className={`${hanken.className} text-center w-full border hover:border-orange-700  font-semibold  py-3 cursor-pointer hover:bg-orange-700  hover:text-[#f2ece5]`}
           >
-            Music Library
-          </button>
+            Production Music Library
+          </Link>
         </div>
       )}
     </>
