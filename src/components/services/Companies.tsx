@@ -3,10 +3,10 @@ import {
   barloworld,
   brownsense,
   capasso,
+  ccli,
   orchard,
   samro,
   trace,
-  universal,
 } from "@/data";
 import { TiArrowSortedUp } from "react-icons/ti";
 import { Hanken_Grotesk, Inter_Tight } from "next/font/google";
@@ -19,7 +19,7 @@ const logos = [
   { src: capasso, alt: "Capasso", height: "h-[55px] bg-blue-900 px-2 w-fit" },
   { src: samro, alt: "SAMRO", height: "h-[40px]" },
   { src: barloworld, alt: "Barloworld", height: "h-[65px]" },
-  { src: universal, alt: "Universal", height: "h-[50px]" },
+  { src: ccli, alt: "CCLI", height: "h-[70px]" },
 ];
 
 type Props = {};
