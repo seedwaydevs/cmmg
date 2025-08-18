@@ -1,7 +1,73 @@
+"use client";
+import { useState } from "react";
 import Image from "next/image";
-import studioImg1 from "../../../../public/pexels-clam-lo-1782448-3469712.jpg";
+
+// Dummy image imports - replace these with your actual images
+import {
+  hire1,
+  hire2,
+  hire3,
+  hire4,
+  hire5,
+  hire6,
+  hire7,
+  hire8,
+  hire9,
+} from "@/data";
 
 const ServiceStudioHire = () => {
+  // Image gallery data
+  const studioImages = [
+    {
+      id: 1,
+      src: hire1,
+      alt: "Studio interior overview",
+    },
+    {
+      id: 2,
+      src: hire2,
+      alt: "Acoustically treated recording booth",
+    },
+    {
+      id: 3,
+      src: hire3,
+      alt: "Professional mixing desk",
+    },
+    {
+      id: 4,
+      src: hire4,
+      alt: "Client lounge area",
+    },
+    {
+      id: 5,
+      src: hire5,
+      alt: "Live recording session",
+    },
+    {
+      id: 6,
+      src: hire6,
+      alt: "Live recording session",
+    },
+    {
+      id: 7,
+      src: hire7,
+      alt: "Live recording session",
+    },
+    {
+      id: 8,
+      src: hire8,
+      alt: "Live recording session",
+    },
+    {
+      id: 9,
+      src: hire9,
+      alt: "Live recording session",
+    },
+  ];
+
+  // State to track the currently selected main image
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
   return (
     <section
       id="3"
@@ -33,9 +99,37 @@ const ServiceStudioHire = () => {
         </a>
       </div>
 
-      {/* Image */}
-      <div className="flex-1 grid grid-cols-1 gap-4">
-        <Image src={studioImg1} alt="Studio interior" className="rounded" />
+      {/* Image Gallery */}
+      <div className="flex-1 space-y-4">
+        {/* Main Image */}
+        <div className="w-full">
+          <Image
+            src={studioImages[selectedImageIndex].src}
+            alt={studioImages[selectedImageIndex].alt}
+            className="rounded w-full h-80 object-cover"
+          />
+        </div>
+
+        {/* Thumbnail Gallery */}
+        <div className="grid grid-cols-5 gap-2">
+          {studioImages.map((image, index) => (
+            <button
+              key={image.id}
+              onClick={() => setSelectedImageIndex(index)}
+              className={`relative overflow-hidden rounded transition-all duration-200 ${
+                selectedImageIndex === index
+                  ? "ring-2 ring-orange-600 opacity-100"
+                  : "opacity-70 hover:opacity-100"
+              }`}
+            >
+              <Image
+                src={image.src}
+                alt={image.alt}
+                className="w-full h-16 object-cover"
+              />
+            </button>
+          ))}
+        </div>
       </div>
     </section>
   );
