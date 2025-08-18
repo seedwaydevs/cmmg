@@ -82,77 +82,105 @@ const albumsData = [
 ];
 
 const Latest = (props: Props) => {
-  const [selectedAlbumIndex, setSelectedAlbumIndex] = useState(0);
-  const selectedAlbum = albumsData[selectedAlbumIndex];
+  const [selectedAlbumIndex, setSelectedAlbumIndex] = useState<number | null>(
+    null
+  );
+  const selectedAlbum =
+    selectedAlbumIndex !== null ? albumsData[selectedAlbumIndex] : null;
 
   return (
-    <div className="w-full relative overflow-hidden">
+    <div className="w-full relative overflow-hidden ">
       {/* Blurred Background */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src={selectedAlbum.coverImage}
-          alt={`${selectedAlbum.title} background`}
-          fill
-          className="object-cover blur-xl scale-110 opacity-40"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/30"></div>
+        {selectedAlbum && (
+          <>
+            <Image
+              src={selectedAlbum.coverImage}
+              alt={`${selectedAlbum.title} background`}
+              fill
+              className="object-cover blur-xl scale-110 opacity-30"
+              priority
+            />
+            <div className="absolute inset-0 bg-black/50"></div>
+          </>
+        )}
+        {!selectedAlbum && (
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-700 via-white to-gray-400"></div>
+        )}
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full h-full flex items-center py-8">
-        <div className="w-[90%] mx-auto h-full">
-          <div className="py-10 text-white">
-            <h1 className="text-lg lg:text-4xl font-bold">Latest Albums</h1>
+      <div className="relative z-10 w-full h-full">
+        <div className="w-[90%] mx-auto h-full py-10 pb-10">
+          {/* Header */}
+          <div className="text-white py-10">
+            <h1 className="text-4xl lg:text-5xl font-bold">
+              Latest Commercial Albums
+            </h1>
             <p>Indulge in our latest commercial releases.</p>
           </div>
-          <div className="flex flex-col lg:flex-row gap-8 items-center lg:items-center h-full">
-            {/* Album Cover Section */}
-            <div className="flex-shrink-0 lg:w-1/3 w-full flex flex-col items-center">
-              {/* Main Album Cover */}
-              <div className="relative group mb-6">
-                <Image
-                  src={selectedAlbum.coverImage}
-                  alt={selectedAlbum.title}
-                  width={350}
-                  height={350}
-                  className="w-80 h-80 lg:w-96 lg:h-96 rounded-2xl shadow-2xl"
-                  priority
-                />
-              </div>
 
-              {/* Album Thumbnails Gallery */}
-              <div className="grid grid-cols-4 gap-3 w-full max-w-sm">
-                {albumsData.map((album, index) => (
-                  <button
-                    key={album.id}
-                    onClick={() => setSelectedAlbumIndex(index)}
-                    className={`relative overflow-hidden rounded-lg transition-all duration-300 ${
-                      selectedAlbumIndex === index
-                        ? "ring-2 ring-orange-600 opacity-100 scale-105"
-                        : "opacity-60 hover:opacity-90 hover:scale-102"
-                    }`}
-                  >
-                    <Image
-                      src={album.coverImage}
-                      alt={album.title}
-                      width={80}
-                      height={80}
-                      className="w-full h-20 object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/20 hover:bg-black/10 transition-colors"></div>
-                  </button>
-                ))}
-              </div>
-            </div>
+          {/* Album Grid */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-8">
+            {albumsData.map((album, index) => (
+              <button
+                key={album.id}
+                onClick={() =>
+                  setSelectedAlbumIndex(
+                    selectedAlbumIndex === index ? null : index
+                  )
+                }
+                className={`relative group transition-all duration-300 ${
+                  selectedAlbumIndex === index
+                    ? "scale-105 ring-2 ring-orange-600 rounded-2xl"
+                    : "hover:scale-102 hover:shadow-2xl"
+                }`}
+              >
+                <div className="relative overflow-hidden rounded-2xl">
+                  <Image
+                    src={album.coverImage}
+                    alt={album.title}
+                    width={300}
+                    height={300}
+                    className="w-full h-64 lg:h-80 object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
 
-            {/* Album Info and Tracklist */}
-            <div className="flex-1 text-white w-full flex flex-col justify-center min-h-0">
-              {/* Album Info */}
-              <div className="mb-6">
-                <div className="flex flex-col lg:flex-row lg:items-end lg:space-x-2">
+                  {/* Overlay Info */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                    <h3
+                      className={`${hanken.className} text-white font-bold text-lg lg:text-xl mb-1`}
+                    >
+                      {album.title}
+                    </h3>
+                    <p
+                      className={`${inter.className} text-gray-300 text-sm lg:text-base`}
+                    >
+                      {album.artist}
+                    </p>
+                  </div>
+
+                  {/* Selected Indicator */}
+                  {selectedAlbumIndex === index && (
+                    <div className="absolute top-4 right-4">
+                      <div className="bg-orange-600 rounded-full p-2">
+                        <TiArrowSortedUp className="text-white w-4 h-4 rotate-180" />
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </button>
+            ))}
+          </div>
+
+          {/* Selected Album Details */}
+          {selectedAlbum && (
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 mb-8 animate-in slide-in-from-bottom duration-300">
+              {/* Album Header */}
+              <div className="mb-6 text-center lg:text-left">
+                <div className="flex flex-col lg:flex-row lg:space-x-4 items-center lg:items-end">
                   <h1
-                    className={`${hanken.className} text-3xl lg:text-4xl font-bold mb-3 lg:mb-0 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300`}
+                    className={`${hanken.className} text-2xl lg:text-3xl font-bold mb-2 lg:mb-0 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300`}
                   >
                     {selectedAlbum.title}
                   </h1>
@@ -168,22 +196,22 @@ const Latest = (props: Props) => {
               </div>
 
               {/* Tracklist */}
-              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-5 border border-white/10 flex-1 min-h-0">
+              <div>
                 <h3
                   className={`${hanken.className} text-xl font-semibold mb-4 text-white`}
                 >
                   Tracklist
                 </h3>
 
-                <div className="space-y-1 overflow-y-auto max-h-64">
+                <div className="space-y-1 max-h-80 overflow-y-auto">
                   {selectedAlbum.tracks.map((track, index) => (
                     <div
                       key={track.id}
-                      className="flex items-center justify-between p-2.5 rounded-lg hover:bg-white/10 transition-colors duration-200 group cursor-pointer"
+                      className="flex items-center justify-between p-3 rounded-lg hover:bg-white/10 transition-colors duration-200 group cursor-pointer"
                     >
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-4">
                         <span
-                          className={`${inter.className} text-gray-400 font-medium w-6 text-center group-hover:text-white transition-colors text-sm`}
+                          className={`${inter.className} text-gray-400 font-medium w-8 text-center group-hover:text-white transition-colors text-sm`}
                         >
                           {track.id.toString().padStart(2, "0")}
                         </span>
@@ -203,7 +231,7 @@ const Latest = (props: Props) => {
                 </div>
 
                 {/* Album Stats */}
-                <div className="mt-4 pt-4 border-t border-white/10 flex flex-wrap gap-4 text-sm text-gray-400">
+                <div className="mt-6 pt-4 border-t border-white/10 flex flex-wrap gap-6 text-sm text-gray-400">
                   <span className={inter.className}>
                     {selectedAlbum.tracks.length} tracks
                   </span>
@@ -230,7 +258,7 @@ const Latest = (props: Props) => {
                 </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </div>
