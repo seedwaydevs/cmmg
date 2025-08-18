@@ -3,12 +3,19 @@ import React, { useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Hanken_Grotesk } from "next/font/google";
 import { stu1, stu2, stu3, stu4, stu5, stu6, stu7, stu8 } from "@/data";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 const hanken = Hanken_Grotesk({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
+
+// Define type for gallery item
+type GalleryItem = {
+  id: number;
+  url: string | StaticImageData;
+  caption: string;
+};
 
 // Test data for gallery images
 const galleryData = [
@@ -50,10 +57,10 @@ const galleryData = [
 ];
 
 const PhotoGallery = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
 
-  const openModal = (image, index) => {
+  const openModal = (image: GalleryItem, index: number) => {
     setSelectedImage(image);
     setCurrentIndex(index);
   };
@@ -75,7 +82,7 @@ const PhotoGallery = () => {
     setSelectedImage(galleryData[prevIndex]);
   };
 
-  const handleKeyPress = (e) => {
+  const handleKeyPress = (e: KeyboardEvent) => {
     if (e.key === "ArrowRight") nextImage();
     if (e.key === "ArrowLeft") prevImage();
     if (e.key === "Escape") closeModal();
@@ -184,7 +191,7 @@ const PhotoGallery = () => {
               className="flex-1 flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
-              <img
+              <Image
                 src={selectedImage.url}
                 alt={selectedImage.caption}
                 className="max-w-full max-h-[80vh] object-contain"
