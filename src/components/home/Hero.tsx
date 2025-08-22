@@ -1,9 +1,11 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Component } from "react";
 import hero from "./hero.module.css";
 import { Hanken_Grotesk, Schibsted_Grotesk } from "next/font/google";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Landing from "./heroSlides/Landing";
+import Catalog from "./heroSlides/Catalog";
 
 type Props = {};
 
@@ -24,29 +26,13 @@ const Hero = (props: Props) => {
   const slides = [
     {
       id: 1,
-      tag: "[ Content and Music ]",
-      description:
-        "Crafting original music libraries and immersive content for film, television, and digital storytelling.",
-      title: "CMMG",
-      subtitle: "[ Media Group ]",
+      Component: Landing,
       backgroundClass: hero.heroBackground, // Your existing background
     },
     {
       id: 2,
-      tag: "[ Upcoming Music ]",
-      description: "NJALO by Yandii, our most anticipated release.",
-      title: "NJALO",
-      subtitle: "[ Coming Soon ]",
-      backgroundClass: hero.secondBackground, // Add a second background class or use the same
-    },
-    {
-      id: 3,
-      tag: "[ Creative Solutions ]",
-      description:
-        "From concept to completion, we bring your creative vision to life with cutting-edge technology.",
-      title: "CREATE",
-      subtitle: "[ Innovation ]",
-      backgroundClass: hero.heroBackground, // Add a third background class or use the same
+      Component: Catalog,
+      backgroundClass: hero.secondBackground, // Your existing background
     },
   ];
 
@@ -74,12 +60,12 @@ const Hero = (props: Props) => {
   return (
     <>
       {/* Carousel Container */}
-      <div className="relative w-full h-screen overflow-hidden">
+      <div className="relative w-full h-[90vh] md:h-[85vh] overflow-hidden flex justify-center items-center">
         {slides.map((slide, index) => (
           <div
             key={slide.id}
             className={`absolute inset-0 w-full h-screen text-white transition-transform duration-700 ease-in-out ${
-              slide.backgroundClass
+              slide.backgroundClass || ""
             } ${
               index === currentSlide
                 ? "translate-x-0"
@@ -88,29 +74,7 @@ const Hero = (props: Props) => {
                 : "translate-x-full"
             }`}
           >
-            <div className="w-[90%] md:w-[90%] mx-auto h-full py-16">
-              <div className="flex flex-col justify-between h-full">
-                <div className="flex justify-end mt-16">
-                  <p className="text-[16px] uppercase font-bold tracking-tighter">
-                    {slide.tag}
-                  </p>
-                </div>
-                <div className={`${sted.className}`}>
-                  <p className="text-lg font-medium max-w-xs md:max-w-sm">
-                    {slide.description}
-                  </p>
-                  <h1
-                    className={`${hanken.className} text-8xl font-extrabold py-7`}
-                  >
-                    {slide.title}
-                    <span className="text-orange-600">.</span>
-                  </h1>
-                  <p className="text-[16px] uppercase font-bold tracking-tighter">
-                    {slide.subtitle}
-                  </p>
-                </div>
-              </div>
-            </div>
+            <slide.Component />
           </div>
         ))}
 
@@ -132,7 +96,7 @@ const Hero = (props: Props) => {
         </button>
 
         {/* Slide Indicators */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex space-x-2">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex space-x-2 ">
           {slides.map((_, index) => (
             <button
               key={index}
