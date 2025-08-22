@@ -30,9 +30,9 @@ const Hero = (props: Props) => {
       backgroundClass: hero.heroBackground, // Your existing background
     },
     {
-      id: 1,
+      id: 2,
       Component: Catalog,
-      //backgroundClass: , // Your existing background
+      backgroundClass: hero.secondBackground, // Your existing background
     },
   ];
 
