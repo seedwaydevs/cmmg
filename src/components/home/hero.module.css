@@ -5,8 +5,8 @@
     background-repeat: no-repeat;
 }
 .secondBackground {
-    background-image: url('../../../public/yandi.jpg');
+    background-image: url('../../../public/images/speaker.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
 }
