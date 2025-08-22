@@ -14,7 +14,7 @@ const sted = Schibsted_Grotesk({
 const Catalog = () => {
   return (
     <div>
-      <div className="w-[90%] md:w-[90%] mx-auto h-[80vh] text-red-600">
+      <div className="w-[90%] md:w-[90%] mx-auto h-[80vh] ">
         <div className="flex flex-col justify-between h-full">
           <div className="flex justify-end mt-19">
             <p className="text-[16px] uppercase font-bold tracking-tighter">
@@ -26,12 +26,12 @@ const Catalog = () => {
               Crafting original music libraries and immersive content for film,
               television, and digital storytelling.
             </p>
-            <h1
-              className={`${hanken.className} text-8xl font-extrabold py-7 text-red-700`}
-            >
+            <h1 className={`${hanken.className} text-9xl font-extrabold py-7`}>
               CMMG
               <span className="text-orange-600">.</span>
             </h1>
+          </div>
+          <div className="flex justify-start ">
             <p className="text-[16px] uppercase font-bold tracking-tighter">
               [ Media Group ]
             </p>
