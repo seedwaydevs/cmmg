@@ -178,7 +178,7 @@ const MusicPage = () => {
           <div className="w-[90%] lg:w-[80%] mx-auto">
             <div className="max-w-2xl space-y-6">
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                CMMG
+                Commercial
                 <span className="text-orange-500 block">Music</span>
               </h1>
               <p className="text-xl text-gray-300 leading-relaxed">
