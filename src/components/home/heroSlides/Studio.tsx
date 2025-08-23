@@ -2,6 +2,7 @@ import React from "react";
 import { Hanken_Grotesk, Schibsted_Grotesk } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
+import { studio } from "@/data";
 
 const hanken = Hanken_Grotesk({
   subsets: ["latin"],
@@ -13,12 +14,12 @@ const sted = Schibsted_Grotesk({
   weight: ["400", "500", "600", "700", "800", "900"],
 });
 
-const Studio = () => {
+const StudioBooking = () => {
   return (
     <section className="relative min-h-screen z-10">
       <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8 h-screen flex flex-col">
         {/* Header Badge */}
-        <div className="flex justify-start mt-28">
+        <div className="flex justify-start mt-28 ">
           <span
             className={`${hanken.className} text-sm font-bold tracking-widest uppercase text-neutral-200/80 
                        backdrop-blur-sm bg-white/5 px-4 py-2 rounded-full border border-white/10`}
@@ -36,31 +37,14 @@ const Studio = () => {
                 className="relative overflow-hidden rounded-2xl shadow-2xl w-[85%] sm:w-[70%] lg:w-full max-w-sm lg:max-w-md xl:max-w-lg 
                              h-[35vh] sm:h-[40vh] md:h-[45vh] lg:h-[55vh] xl:h-[60vh]"
               >
-                {/* Placeholder for studio image - replace with your studio image */}
-                <div className="w-full h-full bg-gradient-to-br from-neutral-800 via-neutral-700 to-neutral-900 flex items-center justify-center">
-                  <div className="text-center space-y-4">
-                    <div className="w-16 h-16 mx-auto bg-orange-500/20 rounded-full flex items-center justify-center">
-                      <svg
-                        className="w-8 h-8 text-orange-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"
-                        />
-                      </svg>
-                    </div>
-                    <p
-                      className={`${hanken.className} text-neutral-400 text-sm`}
-                    >
-                      Studio Preview
-                    </p>
-                  </div>
-                </div>
+                <Image
+                  src={studio}
+                  alt="Professional recording studio with mixing console and monitors"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 85vw, (max-width: 1024px) 70vw, 50vw"
+                  priority
+                />
 
                 {/* Image overlay effects */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-60" />
@@ -127,13 +111,13 @@ const Studio = () => {
               <div className="space-y-4 lg:space-y-6">
                 <div className="space-y-2">
                   <p
-                    className={`${hanken.className} text-sm lg:text-base text-blue-300/90 font-medium 
+                    className={`${hanken.className} text-sm lg:text-base text-blue-600 font-medium 
                                tracking-wide uppercase`}
                   >
                     Professional Recording
                   </p>
                   <h1
-                    className={`${sted.className} text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 
+                    className={`${sted.className} text-4xl  lg:text-7xl xl:text-8xl 
                                font-black leading-[0.85] text-white tracking-tighter`}
                   >
                     BOOK
@@ -144,7 +128,7 @@ const Studio = () => {
                 </div>
 
                 <p
-                  className={`${hanken.className} text-base lg:text-lg text-neutral-400 font-light leading-relaxed 
+                  className={`${hanken.className} text-base lg:text-lg text-neutral-100 font-light leading-relaxed 
                              max-w-md lg:max-w-lg`}
                 >
                   State-of-the-art recording facilities with professional-grade
@@ -153,7 +137,7 @@ const Studio = () => {
               </div>
 
               {/* Features */}
-              <div className="grid grid-cols-2 gap-4 py-2">
+              <div className="hidden lg:grid grid-cols-2 gap-4">
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                   <span
@@ -244,12 +228,12 @@ const Studio = () => {
         <div className="flex justify-between items-end pb-8 md:pb-12 lg:pb-16">
           <span
             className={`${hanken.className} text-xs lg:text-sm font-bold tracking-widest uppercase 
-                       text-neutral-400/80`}
+                       text-neutral-200`}
           >
             Professional Grade
           </span>
 
-          <div className="flex items-center gap-2 text-neutral-500">
+          <div className="flex items-center gap-2 text-neutral-100">
             <div className="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-blue-500 rounded-full animate-pulse"></div>
             <span
               className={`${hanken.className} text-xs font-medium tracking-wide`}
@@ -263,4 +247,4 @@ const Studio = () => {
   );
 };
 
-export default Studio;
+export default StudioBooking;
