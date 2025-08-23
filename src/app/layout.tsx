@@ -40,7 +40,7 @@ export default function RootLayout({
           geistMono
         )}
       >
-        {/* <Nav /> */}
+        <Nav />
         <div className="flex-1 realtive z-0">{children}</div>
         <Footer />
       </body>
