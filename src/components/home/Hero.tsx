@@ -7,6 +7,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Landing from "./heroSlides/Landing";
 import Catalog from "./heroSlides/Catalog";
 import NewReleases from "./heroSlides/NewReleases";
+import Studio from "./heroSlides/Studio";
 
 type Props = {};
 
@@ -38,7 +39,12 @@ const Hero = (props: Props) => {
     {
       id: 3,
       Component: NewReleases,
-      backgroundClass: hero.thirdBackground, // Your existing background
+      backgroundClass: hero.fourthBackground, // Your existing background
+    },
+    {
+      id: 4,
+      Component: Studio,
+      //backgroundClass: hero.thirdBackground, // Your existing background
     },
   ];
 
