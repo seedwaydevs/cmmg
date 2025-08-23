@@ -6,6 +6,7 @@ import { Hanken_Grotesk, Schibsted_Grotesk } from "next/font/google";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Landing from "./heroSlides/Landing";
 import Catalog from "./heroSlides/Catalog";
+import NewReleases from "./heroSlides/NewReleases";
 
 type Props = {};
 
@@ -34,13 +35,18 @@ const Hero = (props: Props) => {
       Component: Catalog,
       backgroundClass: hero.secondBackground, // Your existing background
     },
+    {
+      id: 3,
+      Component: NewReleases,
+      backgroundClass: hero.thirdBackground, // Your existing background
+    },
   ];
 
   //Auto-advance slides every 5 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 10000);
+    }, 1200000);
 
     return () => clearInterval(timer);
   }, [slides.length]);
@@ -60,7 +66,7 @@ const Hero = (props: Props) => {
   return (
     <>
       {/* Carousel Container */}
-      <div className="relative w-full h-[90vh] md:h-[85vh] overflow-hidden flex justify-center items-center">
+      <div className="relative w-full min-h-screen overflow-hidden flex justify-center items-center">
         {slides.map((slide, index) => (
           <div
             key={slide.id}
