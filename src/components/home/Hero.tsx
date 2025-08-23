@@ -39,12 +39,12 @@ const Hero = (props: Props) => {
     {
       id: 3,
       Component: NewReleases,
-      backgroundClass: hero.fourthBackground, // Your existing background
+      backgroundClass: hero.thirdBackground, // Your existing background
     },
     {
       id: 4,
       Component: Studio,
-      //backgroundClass: hero.thirdBackground, // Your existing background
+      backgroundClass: hero.fourthBackground, // Your existing background
     },
   ];
 
