@@ -19,7 +19,7 @@ const StudioBooking = () => {
     <section className="relative min-h-screen z-10">
       <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8 h-screen flex flex-col">
         {/* Header Badge */}
-        <div className="flex justify-start mt-28 ">
+        <div className="flex justify-start mt-22 sm:mt-36 lg:mt-28 ">
           <span
             className={`${hanken.className} text-sm font-bold tracking-widest uppercase text-neutral-200/80 
                        backdrop-blur-sm bg-white/5 px-4 py-2 rounded-full border border-white/10`}
@@ -32,10 +32,10 @@ const StudioBooking = () => {
         <div className="flex-1 flex items-center py-8 lg:py-16">
           <div className="w-full grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Image Section - Left on desktop */}
-            <div className="relative group order-1 lg:order-1 flex justify-center">
+            <div className="hidden relative group order-1 lg:order-1 lg:flex justify-center">
               <div
-                className="relative overflow-hidden rounded-2xl shadow-2xl w-[85%] sm:w-[70%] lg:w-full max-w-sm lg:max-w-md xl:max-w-lg 
-                             h-[35vh] sm:h-[40vh] md:h-[45vh] lg:h-[55vh] xl:h-[60vh]"
+                className="relative overflow-hidden rounded-2xl shadow-2xl w-[90%]  lg:w-full max-w-xl lg:max-w-md xl:max-w-lg 
+                             h-[35vh] sm:h-[40vh] md:h-[40vh] lg:h-[55vh] xl:h-[60vh]"
               >
                 <Image
                   src={studio}
@@ -175,7 +175,7 @@ const StudioBooking = () => {
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 pt-2">
                 <Link
-                  href="/booking"
+                  href="/contact"
                   className={`${sted.className} group relative inline-flex items-center justify-center gap-2 
                              bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 
                              text-white font-bold px-6 py-3 lg:px-8 lg:py-4 rounded-full transition-all duration-300 
@@ -225,7 +225,7 @@ const StudioBooking = () => {
         </div>
 
         {/* Footer Badge */}
-        <div className="flex justify-between items-end pb-8 md:pb-12 lg:pb-16">
+        <div className="flex justify-between items-end pb-12 lg:pb-16">
           <span
             className={`${hanken.className} text-xs lg:text-sm font-bold tracking-widest uppercase 
                        text-neutral-200`}
