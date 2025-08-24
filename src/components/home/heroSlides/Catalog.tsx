@@ -15,10 +15,10 @@ const sted = Schibsted_Grotesk({
 const Catalog = () => {
   return (
     <div className="relative z-10">
-      <div className="w-[90%] md:w-[90%] mx-auto h-[80vh]">
+      <div className="w-[90%] md:w-[90%] mx-auto h-[90vh]">
         <div className="flex flex-col justify-between h-full">
           {/* Top Badge */}
-          <div className="flex justify-end mt-32">
+          <div className="flex justify-end mt-28">
             <div className="backdrop-blur-sm bg-white/5 px-4 py-2 rounded-lg border border-white/10">
               <p
                 className={`${hanken.className} text-[14px] uppercase font-bold tracking-widest text-white/90`}
@@ -37,7 +37,7 @@ const Catalog = () => {
             </p>
 
             <h1
-              className={`${sted.className} text-7xl md:text-8xl 2xl:text-9xl font-black md:max-w-[100%] lg:max-w-[75%] xl:max-w-[65%] leading-[0.85] text-white tracking-tight`}
+              className={`${sted.className} text-6xl md:text-8xl 2xl:text-9xl font-black md:max-w-[100%] lg:max-w-[75%] xl:max-w-[65%] leading-[0.85] text-white tracking-tight`}
             >
               Production Music Library
               <span className="text-orange-500">.</span>
