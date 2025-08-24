@@ -70,10 +70,10 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-neutral-50 py-20 px-4">
+    <div className="min-h-screen bg-neutral-200 py-20 px-4">
       <div className="w-[90%] mx-auto">
         {/* Header Section */}
-        <div className="text-center mt-5 mb-16">
+        <div className="text-center mt-5 lg:mt-10 mb-16">
           <div className="inline-flex items-center px-4 py-2 bg-neutral-100 rounded-full text-sm font-medium text-neutral-600 mb-6">
             <Mail className="w-4 h-4 mr-2" />
             Professional Services
