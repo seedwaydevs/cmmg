@@ -17,7 +17,7 @@ const Landing = () => {
       <div className="w-[90%] md:w-[90%] mx-auto h-[90vh]">
         <div className="flex flex-col justify-between h-full">
           {/* Top Badge */}
-          <div className="flex justify-end mt-28">
+          <div className="flex justify-end mt-24 sm:mt-36">
             <div className="backdrop-blur-sm bg-white/5 px-4 py-2 rounded-lg border border-white/10">
               <p
                 className={`${hanken.className} text-[14px] uppercase font-bold tracking-widest text-white/90`}
