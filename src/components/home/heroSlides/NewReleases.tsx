@@ -19,7 +19,7 @@ const NewReleases = () => {
     <section className="relative min-h-screen z-10">
       <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8 h-screen flex flex-col">
         {/* Header Badge */}
-        <div className="flex justify-end mt-28">
+        <div className="flex justify-end mt-22 sm:mt-32">
           <span
             className={`${hanken.className} text-sm font-bold tracking-widest uppercase text-neutral-200/80 
                        backdrop-blur-sm bg-white/5 px-4 py-2 rounded-full border border-white/10`}
@@ -30,10 +30,10 @@ const NewReleases = () => {
 
         {/* Main Content */}
         <div className="flex-1 flex items-center py-8 lg:py-16">
-          <div className="w-full grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="w-full grid lg:grid-cols-2 gap-5 lg:gap-12 items-center">
             {/* Content Section - Left on desktop */}
-            <div className="space-y-6 lg:space-y-8 order-2 lg:order-2">
-              <div className="space-y-4 lg:space-y-6">
+            <div className="space-y-3 lg:space-y-8 order-2 lg:order-2">
+              <div className="space-y-2 lg:space-y-6">
                 <div className="space-y-2">
                   <p
                     className={`${hanken.className} text-sm lg:text-base text-neutral-300/90 font-medium 
@@ -51,7 +51,7 @@ const NewReleases = () => {
                 </div>
 
                 <p
-                  className={`${sted.className} text-base lg:text-lg text-neutral-100 font-light leading-relaxed 
+                  className={`${sted.className} text-base lg:text-lg text-neutral-100 font-light  
                              max-w-md lg:max-w-lg`}
                 >
                   Yandi Sibi brings the heat with her latest album
@@ -59,7 +59,7 @@ const NewReleases = () => {
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 pt-2">
+              <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 ">
                 <Link
                   href="/production"
                   className={`${sted.className} group relative inline-flex items-center justify-center gap-2 
@@ -85,7 +85,7 @@ const NewReleases = () => {
                 </Link>
 
                 <button
-                  className={`${sted.className} group inline-flex items-center justify-center gap-2 
+                  className={`${sted.className} hidden group md:inline-flex items-center justify-center gap-2 
                              bg-transparent hover:bg-white/10 text-white font-semibold px-6 py-3 lg:px-8 lg:py-4 
                              rounded-full border-2 border-white/20 hover:border-white/40 
                              transition-all duration-300 text-sm lg:text-base`}
@@ -111,7 +111,7 @@ const NewReleases = () => {
             {/* Image Section - Right on desktop */}
             <div className="relative group order-1 lg:order-1 flex justify-center">
               <div
-                className="relative overflow-hidden rounded-2xl shadow-2xl w-[85%] sm:w-[70%] lg:w-full max-w-sm lg:max-w-md xl:max-w-lg 
+                className="relative overflow-hidden rounded-2xl shadow-2xl w-[85%] sm:w-[70%] lg:w-full max-w-sm md:max-w-lg lg:max-w-md xl:max-w-lg 
                              h-[35vh] sm:h-[40vh] md:h-[45vh] lg:h-[55vh] xl:h-[60vh]"
               >
                 <Image
@@ -139,15 +139,15 @@ const NewReleases = () => {
         </div>
 
         {/* Footer Badge */}
-        <div className="flex justify-between items-end pb-12 lg:pb-16">
+        <div className="hidden md:flex justify-between items-end pb-12 lg:pb-16">
           <span
             className={`${hanken.className} text-sm font-bold tracking-widest uppercase 
-                       text-neutral-400/80`}
+                       text-neutral-100`}
           >
             Coming Soon
           </span>
 
-          <div className="flex items-center gap-2 text-neutral-500">
+          <div className="flex items-center gap-2 text-neutral-100">
             <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
             <span
               className={`${hanken.className} text-xs font-medium tracking-wide`}
