@@ -1,27 +1,22 @@
 import { cmmg } from "@/data";
-import { Anton, Hanken_Grotesk } from "next/font/google";
+import { Schibsted_Grotesk } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 type Props = {};
-const antonFont = Anton({
+const sted = Schibsted_Grotesk({
   subsets: ["latin"],
-  weight: "400",
-});
-
-const hanken = Hanken_Grotesk({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 const Footer = (props: Props) => {
   return (
-    <div className={`bg-[#0e0e0e] py-14 text-[#f2ece5] ${hanken.className}`}>
+    <div className={`bg-[#0e0e0e] py-14 text-[#f2ece5] ${sted.className}`}>
       <div className="w-[90%] mx-auto space-y-5">
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-10">
           <div className="space-y-3">
-            <h2 className={`${antonFont.className} text-xl uppercase`}>
+            <h2 className={`${sted.className} text-xl capitalize font-bold`}>
               Company
             </h2>
             <div className="flex flex-col space-y-2">
@@ -33,7 +28,7 @@ const Footer = (props: Props) => {
             </div>
           </div>
           <div className="space-y-3">
-            <h2 className={`${antonFont.className} text-xl uppercase`}>
+            <h2 className={`${sted.className} text-xl capitalize font-bold`}>
               Utility Pages
             </h2>
             <div className="flex flex-col space-y-2">
@@ -42,7 +37,7 @@ const Footer = (props: Props) => {
             </div>
           </div>
           <div className="space-y-3">
-            <h2 className={`${antonFont.className} text-xl uppercase`}>
+            <h2 className={`${sted.className} text-xl capitalize font-bold`}>
               Contact
             </h2>
             <div className="flex flex-col space-y-2">
@@ -53,7 +48,7 @@ const Footer = (props: Props) => {
           </div>
         </div>
 
-        <div className={`${antonFont.className} h-[20vh]`}>
+        <div className={`${sted.className} h-[20vh]`}>
           <Image
             src={cmmg}
             alt="cmmg-logo"

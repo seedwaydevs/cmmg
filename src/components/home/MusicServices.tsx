@@ -1,8 +1,9 @@
+"use client";
 import { Hanken_Grotesk, Inter_Tight } from "next/font/google";
 import Image from "next/image";
 import React from "react";
 import { TiArrowSortedUp } from "react-icons/ti";
-import { MoveRight, Music, Headphones } from "lucide-react";
+import { MoveRight, Headphones, Play, ExternalLink } from "lucide-react";
 import Link from "next/link";
 
 // Import your images
@@ -30,172 +31,280 @@ const inter = Inter_Tight({
 });
 
 const MusicServices = () => {
+  // Sample artist/album data - replace with your actual data
+  const albums = [
+    {
+      image: image1,
+      artist: "Artist Name",
+      album: "Album Title",
+      genre: "Electronic",
+    },
+    {
+      image: image2,
+      artist: "Artist Name",
+      album: "Album Title",
+      genre: "Hip-Hop",
+    },
+    {
+      image: image3,
+      artist: "Artist Name",
+      album: "Album Title",
+      genre: "Jazz",
+    },
+    {
+      image: image4,
+      artist: "Artist Name",
+      album: "Album Title",
+      genre: "Rock",
+    },
+    {
+      image: image5,
+      artist: "Artist Name",
+      album: "Album Title",
+      genre: "Pop",
+    },
+    {
+      image: image6,
+      artist: "Artist Name",
+      album: "Album Title",
+      genre: "Ambient",
+    },
+    {
+      image: image7,
+      artist: "Artist Name",
+      album: "Album Title",
+      genre: "R&B",
+    },
+    {
+      image: image8,
+      artist: "Artist Name",
+      album: "Album Title",
+      genre: "Alternative",
+    },
+    {
+      image: image9,
+      artist: "Artist Name",
+      album: "Album Title",
+      genre: "Classical",
+    },
+    {
+      image: image13,
+      artist: "Artist Name",
+      album: "Album Title",
+      genre: "World",
+    },
+  ];
+
   return (
-    <div className="w-full py-5">
+    <div className="w-full py-5 text-neutral-800">
       <div className="w-[90%] mx-auto">
         <div className="flex flex-col space-y-4">
           {/* Header */}
           <div className="flex items-center">
-            <TiArrowSortedUp className="text-orange-600 h-7 w-7 lg:h-10 lg:w-10" />
-            <p className="text-xs uppercase lg:text-lg">[ Our Music ]</p>
+            <TiArrowSortedUp className="text-orange-500 h-7 w-7 lg:h-10 lg:w-10" />
+            <div className="backdrop-blur-sm bg-white/5 px-4 py-2 rounded-lg border border-white/10 ml-2">
+              <p
+                className={`${hanken.className} text-xs uppercase lg:text-sm font-bold tracking-widest `}
+              >
+                [ Our Artists ]
+              </p>
+            </div>
           </div>
 
-          {/* Production Music Section */}
-          <div className="flex flex-col lg:items-center lg:justify-between lg:flex-row space-y-7 pb-5">
-            <div className="space-y-7 lg:flex-1">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center">
-                  <Music className="text-white w-6 h-6" />
-                </div>
-                <span className="text-orange-600 font-semibold uppercase tracking-wide">
-                  Production Library
+          {/* Main heading and intro */}
+          <div className="space-y-6 mb-8">
+            <h1
+              className={`${hanken.className} font-black text-5xl lg:text-7xl  tracking-tight leading-none`}
+            >
+              Commercial Music Releases
+              <span className="text-orange-500">.</span>
+            </h1>
+            <p
+              className={`${hanken.className} text-xl lg:text-2xl  font-light leading-relaxed max-w-4xl`}
+            >
+              Discover exceptional talent and groundbreaking releases from our
+              curated roster of artists.
+            </p>
+          </div>
+
+          {/* Scrollable carousel */}
+          <div className="mb-12">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center shadow-lg">
+                <Headphones className="text-white w-6 h-6" />
+              </div>
+              <div className="backdrop-blur-sm bg-orange-500/10 px-3 py-1 rounded-lg border border-orange-400/20">
+                <span
+                  className={`${hanken.className} text-neutral-900 font-semibold uppercase tracking-wide text-sm`}
+                >
+                  Latest Releases
                 </span>
               </div>
-              <h1
-                className={`${hanken.className} font-bold text-4xl lg:text-6xl lg:max-w-lg`}
-              >
-                Professional Music for Media
-              </h1>
-              <p className="lg:text-xl lg:max-w-2xl text-gray-700">
-                High-quality production music for film, TV, advertising, and
-                digital content. Easy licensing with transparent pricing and
-                instant access to professional-grade tracks.
-              </p>
-              <div className="flex gap-4 items-center">
-                <Link
-                  href="https://www.library.cmmg.co.za/"
-                  className="text-orange-600 py-2 text-xl font-semibold hover:underline"
-                >
-                  Browse Production Library
-                </Link>
-                <MoveRight className="text-orange-600" />
-              </div>
             </div>
-            <div className="lg:flex-1 lg:ml-8">
-              <div className="grid grid-cols-2 gap-2 h-[40vh] lg:h-[50vh]">
-                <div className="space-y-2">
-                  <Image
-                    src={image1}
-                    alt="Production music"
-                    className="w-full h-32 lg:h-32 object-cover rounded"
-                  />
-                  <Image
-                    src={image13}
-                    alt="Production music"
-                    className="w-full h-32 lg:h-32 object-cover rounded"
-                  />
-                </div>
-                <div className="space-y-2 pt-4">
-                  <Image
-                    src={image3}
-                    alt="Production music"
-                    className="w-full h-32 lg:h-32 object-cover rounded"
-                  />
-                  <Image
-                    src={image4}
-                    alt="Production music"
-                    className="w-full h-32 lg:h-32 object-cover rounded"
-                  />
+
+            <div className="relative">
+              <div
+                className="flex gap-4 overflow-x-auto scrollbar-hide pb-4"
+                style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+              >
+                <style jsx>{`
+                  .scrollbar-hide::-webkit-scrollbar {
+                    display: none;
+                  }
+                `}</style>
+                {albums.map((album, index) => (
+                  <div
+                    key={index}
+                    className="flex-shrink-0 w-64 group cursor-pointer"
+                  >
+                    <div className="relative overflow-hidden rounded-lg bg-white/5 backdrop-blur-sm border border-white/10 hover:border-orange-400/30 transition-all duration-300 hover:scale-105">
+                      <div className="aspect-square relative">
+                        <Image
+                          src={album.image}
+                          alt={`${album.artist} - ${album.album}`}
+                          className="w-full h-full object-cover"
+                        />
+                        {/* Hover overlay */}
+                        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                          <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center">
+                            <Play
+                              className="text-white w-8 h-8 ml-1"
+                              fill="currentColor"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="p-4 space-y-2">
+                        <h3
+                          className={`${hanken.className}  font-bold text-lg truncate`}
+                        >
+                          {album.album}
+                        </h3>
+                        <p className="text-neutral-900 text-sm truncate">
+                          {album.artist}
+                        </p>
+                        <span className="inline-block px-2 py-1 bg-orange-500/20 text-neutral-800 text-xs rounded-full">
+                          {album.genre}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Gradient fade on right */}
+              <div className="absolute top-0 left-0 w-16 h-full bg-gradient-to-r from-orange-300 to-transparent pointer-events-none" />
+
+              <div className="absolute top-0 right-0 w-16 h-full bg-gradient-to-l from-orange-300 to-transparent pointer-events-none" />
+            </div>
+
+            <div className="flex gap-4 items-center group mt-6">
+              <Link
+                href="/releases"
+                className={`${hanken.className} backdrop-blur-sm bg-orange-500/10 hover:bg-orange-500/20 border border-orange-400/20 px-6 py-3 rounded-lg text-neutral-800 text-lg font-semibold tracking-wide transition-all duration-300 hover:scale-105`}
+              >
+                View All Releases
+              </Link>
+              <MoveRight className="text-orange-500 group-hover:translate-x-1 transition-transform duration-300" />
+            </div>
+          </div>
+
+          <hr className="border-black/10 my-8" />
+
+          {/* Label Philosophy Section */}
+          <div className="space-y-8">
+            <h2
+              className={`${hanken.className} font-black text-4xl lg:text-5xl  tracking-tight leading-none`}
+            >
+              Our Label Philosophy
+              <span className="text-orange-500">.</span>
+            </h2>
+
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+              <div className="space-y-6">
+                <p
+                  className={`${hanken.className} text-lg lg:text-xl text-neutral-900 font-light leading-relaxed`}
+                >
+                  At CMMG, we believe music is more than entertainment — it's a
+                  catalyst for connection, emotion, and cultural evolution. We
+                  don't just sign artists; we partner with visionaries who
+                  challenge conventions and redefine what's possible.
+                </p>
+                <p
+                  className={`${hanken.className} text-lg lg:text-xl text-neutral-900 font-light leading-relaxed`}
+                >
+                  Our approach is artist-first, always. We provide the creative
+                  freedom, resources, and strategic support needed to transform
+                  raw talent into lasting artistic legacies.
+                </p>
+              </div>
+
+              <div className="space-y-6">
+                <div className="backdrop-blur-sm bg-white/5 p-6 rounded-lg border border-white/10">
+                  <h3
+                    className={`${hanken.className} text-neutral-600 font-bold text-3xl mb-3`}
+                  >
+                    What Sets Us Apart
+                  </h3>
+                  <ul className="space-y-2 text-neutral-900">
+                    <li className="flex items-start">
+                      <span className="text-orange-500 mr-2">•</span>
+                      <span>
+                        Genre-agnostic approach to exceptional artistry
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-orange-500 mr-2">•</span>
+                      <span>Full creative control for our artists</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-orange-500 mr-2">•</span>
+                      <span>Transparent, artist-friendly contracts</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-orange-500 mr-2">•</span>
+                      <span>Integrated media production capabilities</span>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
 
-          <hr className="my-8" />
-
-          {/* Commercial Music Section */}
-          <div className="flex flex-col lg:items-center lg:justify-between lg:flex-row-reverse space-y-7 pb-5">
-            <div className="space-y-7 lg:flex-1">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center">
-                  <Headphones className="text-white w-6 h-6" />
-                </div>
-                <span className="text-orange-600 font-semibold uppercase tracking-wide">
-                  Commercial Releases
-                </span>
-              </div>
-              <h1
-                className={`${hanken.className} font-bold text-4xl lg:text-6xl lg:max-w-lg`}
-              >
-                Discover New Artists & Releases
-              </h1>
-              <p className="lg:text-xl lg:max-w-2xl text-gray-700">
-                Premium commercial releases from our signed artists and
-                established musicians. Stream, purchase, and discover your next
-                favorite tracks across all genres.
-              </p>
-              <div className="flex gap-4 items-center">
-                <Link
-                  href="/commercial"
-                  className="text-orange-600 py-2 text-xl font-semibold hover:underline"
-                >
-                  Explore Commercial Music
-                </Link>
-                <MoveRight className="text-orange-600" />
-              </div>
-            </div>
-            <div className="lg:flex-1 lg:mr-8">
-              <div className="grid grid-cols-2 gap-2 h-[40vh] lg:h-[50vh]">
-                <div className="space-y-2 pt-4">
-                  <Image
-                    src={image5}
-                    alt="Commercial music"
-                    className="w-full h-24 lg:h-32 object-cover rounded"
-                  />
-                  <Image
-                    src={image6}
-                    alt="Commercial music"
-                    className="w-full h-24 lg:h-32 object-cover rounded"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Image
-                    src={image7}
-                    alt="Commercial music"
-                    className="w-full h-24 lg:h-32 object-cover rounded"
-                  />
-                  <Image
-                    src={image8}
-                    alt="Commercial music"
-                    className="w-full h-24 lg:h-32 object-cover rounded"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <hr className="my-8" />
+          <hr className="border-white/10 my-8" />
 
           {/* CTA Section */}
-          <div className="p-10 lg:p-16 lg:py-10 bg-orange-600 space-y-4">
+          <div className="p-10 lg:p-16 lg:py-10 bg-orange-600 space-y-6 rounded-lg relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 via-transparent to-orange-700/20" />
+
             <p
-              className={`${hanken.className} text-4xl md:text-5xl lg:text-6xl tracking-tight text-gray-100 font-bold`}
+              className={`${hanken.className} text-4xl md:text-5xl lg:text-6xl tracking-tight font-black leading-tight relative z-10`}
             >
-              <span className="text-blue-900">
-                From production to commercial —
-              </span>{" "}
-              <span>
-                we deliver the sound that moves your audience. Professional
-                quality, every single time.
+              <span className="text-blue-900">More than a record label.</span>{" "}
+              <span className="text-gray-100">
+                We are a creative collective dedicated to developing artists,
+                producing groundbreaking releases, and shaping the future of
+                music with integrity and innovation.
               </span>
             </p>
-            <div className="flex gap-4 flex-wrap">
+
+            <div className="flex gap-4 flex-wrap relative z-10">
               <Link
                 href="/about"
-                className={`${inter.className} bg-[#0e0e0e] text-gray-100 py-2 px-3 font-bold lg:text-lg hover:bg-gray-800 transition-colors`}
+                className={`${hanken.className} inline-block bg-[#0e0e0e] hover:bg-black text-gray-100 py-3 px-6 font-bold lg:text-lg tracking-wide rounded-lg transition-all duration-300 hover:scale-105 border border-gray-800/50`}
               >
-                About Us
+                Learn More
               </Link>
               <Link
                 href="/contact"
-                className={`${inter.className} bg-transparent border-2 border-[#0e0e0e] text-[#0e0e0e] py-2 px-3 font-bold lg:text-lg hover:bg-[#0e0e0e] hover:text-gray-100 transition-colors`}
+                className={`${hanken.className} inline-block bg-transparent border-2 border-[#0e0e0e] text-[#0e0e0e] py-3 px-6 font-bold lg:text-lg hover:bg-[#0e0e0e] hover:text-gray-100 transition-all duration-300 rounded-lg`}
               >
                 Get In Touch
               </Link>
             </div>
           </div>
 
-          <hr className="" />
+          <hr className="border-white/10" />
         </div>
       </div>
     </div>
