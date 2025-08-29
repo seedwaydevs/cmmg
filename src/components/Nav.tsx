@@ -72,7 +72,7 @@ const Nav = () => {
           <div className="flex items-center space-x-5">
             <div>
               <Link
-                href={"https://cmmg-library.vercel.app/"}
+                href={"https://www.library.cmmg.co.za/"}
                 className="hidden md:block text-white font-semibold text-lg hover:text-orange-600"
               >
                 Production Music Library

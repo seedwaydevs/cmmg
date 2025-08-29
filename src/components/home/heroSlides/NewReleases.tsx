@@ -2,7 +2,7 @@ import React from "react";
 import { Hanken_Grotesk, Schibsted_Grotesk } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
-import { yandi } from "@/data";
+import { njalo } from "@/data";
 
 const hanken = Hanken_Grotesk({
   subsets: ["latin"],
@@ -115,7 +115,7 @@ const NewReleases = () => {
                              h-[35vh] sm:h-[40vh] md:h-[45vh] lg:h-[55vh] xl:h-[60vh]"
               >
                 <Image
-                  src={yandi}
+                  src={njalo}
                   alt="NJALO Production Music - Professional audio content"
                   className="object-cover transition-all duration-700 group-hover:scale-105"
                   fill

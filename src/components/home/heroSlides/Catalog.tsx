@@ -46,7 +46,7 @@ const Catalog = () => {
             <div className="pt-2">
               <Link
                 className={`${sted.className} inline-flex items-center gap-2 py-3 px-6 bg-orange-600 hover:bg-orange-500 text-white font-semibold rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl`}
-                href={"/production"}
+                href={"https://www.library.cmmg.co.za/"}
               >
                 Browse
                 <svg
