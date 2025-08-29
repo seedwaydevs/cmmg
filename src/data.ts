@@ -10,8 +10,11 @@ import image9 from "../public/images/CUT 4062 MIRRORS.webp";
 import image10 from "../public/images/CUT 4067.webp";
 import image11 from "../public/images/CUT 4068.webp";
 import image12 from "../public/images/CUT 3947.webp";
+import image13 from "../public/images/alloy.png";
 
 import yandi from "../public/yandi.jpg";
+import njalo from "../public/njalo.jpg";
+import landj from "../public/landj.jpg";
 
 import trace from "../public/trust/trace.png";
 import orchard from "../public/trust/The-Orchard-Logo-One-Blue-1.webp";
@@ -89,4 +92,7 @@ export {
   hire8,
   yandi,
   studio,
+  njalo,
+  image13,
+  landj,
 };

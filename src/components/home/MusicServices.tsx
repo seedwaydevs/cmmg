@@ -16,6 +16,7 @@ import {
   image7,
   image8,
   image9,
+  image13,
 } from "@/data";
 
 const hanken = Hanken_Grotesk({
@@ -62,7 +63,7 @@ const MusicServices = () => {
               </p>
               <div className="flex gap-4 items-center">
                 <Link
-                  href="/production"
+                  href="https://www.library.cmmg.co.za/"
                   className="text-orange-600 py-2 text-xl font-semibold hover:underline"
                 >
                   Browse Production Library
@@ -76,24 +77,24 @@ const MusicServices = () => {
                   <Image
                     src={image1}
                     alt="Production music"
-                    className="w-full h-24 lg:h-32 object-cover rounded"
+                    className="w-full h-32 lg:h-32 object-cover rounded"
                   />
                   <Image
-                    src={image2}
+                    src={image13}
                     alt="Production music"
-                    className="w-full h-24 lg:h-32 object-cover rounded"
+                    className="w-full h-32 lg:h-32 object-cover rounded"
                   />
                 </div>
                 <div className="space-y-2 pt-4">
                   <Image
                     src={image3}
                     alt="Production music"
-                    className="w-full h-24 lg:h-32 object-cover rounded"
+                    className="w-full h-32 lg:h-32 object-cover rounded"
                   />
                   <Image
                     src={image4}
                     alt="Production music"
-                    className="w-full h-24 lg:h-32 object-cover rounded"
+                    className="w-full h-32 lg:h-32 object-cover rounded"
                   />
                 </div>
               </div>

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { TiArrowSortedUp } from "react-icons/ti";
 import Link from "next/link";
-import { image2, yandi, image8, image9 } from "@/data";
+import { image2, yandi, landj, njalo } from "@/data";
 
 type Props = {};
 
@@ -52,31 +52,25 @@ const albumsData = [
   },
   {
     id: 3,
-    title: "Analog Waves",
-    artist: "Sound Engineers",
-    releaseDate: "November 22, 2023",
-    coverImage: image8, // Replace with third album cover
-    tracks: [
-      { id: 1, title: "Vintage Frequencies", duration: "4:45" },
-      { id: 2, title: "Tape Machine Blues", duration: "3:29" },
-      { id: 3, title: "Warm Compression", duration: "4:07" },
-      { id: 4, title: "Studio Sessions", duration: "3:52" },
-      { id: 5, title: "Analog Dreams", duration: "4:28" },
-    ],
+    title: "Njalo",
+    artist: "Yandii",
+    releaseDate: "September 25, 2025",
+    coverImage: njalo, // Replace with third album cover
+    tracks: [{ id: 1, title: "Njalo", duration: "4:45" }],
   },
   {
     id: 4,
-    title: "Midnight Jazz",
-    artist: "Luna Quartet",
-    releaseDate: "September 5, 2023",
-    coverImage: image9, // Replace with fourth album cover
+    title: "",
+    artist: "L & J CSTAZ",
+    releaseDate: "September 9, 2025",
+    coverImage: landj, // Replace with fourth album cover
     tracks: [
-      { id: 1, title: "Blue Hour", duration: "5:12" },
-      { id: 2, title: "Smoky Lounge", duration: "4:38" },
-      { id: 3, title: "After Hours", duration: "4:55" },
-      { id: 4, title: "Cool Breeze", duration: "3:47" },
-      { id: 5, title: "Night Train", duration: "4:22" },
-      { id: 6, title: "Dawn Breaks", duration: "4:03" },
+      { id: 1, title: "Heavenly Hour", duration: "5:12" },
+      { id: 2, title: "Sacred Praise", duration: "4:38" },
+      { id: 3, title: "In His Presence", duration: "4:55" },
+      { id: 4, title: "Spirit Wind", duration: "3:47" },
+      { id: 5, title: "Glory Train", duration: "4:22" },
+      { id: 6, title: "Morning Mercy", duration: "4:03" },
     ],
   },
 ];
