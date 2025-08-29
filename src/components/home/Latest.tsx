@@ -1,5 +1,5 @@
 "use client";
-import { Hanken_Grotesk, Inter_Tight } from "next/font/google";
+import { Schibsted_Grotesk } from "next/font/google";
 import React, { useState } from "react";
 import Image from "next/image";
 import { TiArrowSortedUp } from "react-icons/ti";
@@ -8,13 +8,9 @@ import { image2, yandi, landj, njalo } from "@/data";
 
 type Props = {};
 
-const hanken = Hanken_Grotesk({
+const sted = Schibsted_Grotesk({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
-const inter = Inter_Tight({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 // Album gallery data - replace with your actual albums
@@ -99,7 +95,7 @@ const Latest = (props: Props) => {
           </>
         )}
         {!selectedAlbum && (
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-700 via-white to-gray-400"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-orange-600 via-orange-400 to-neutral-200"></div>
         )}
       </div>
 
@@ -107,84 +103,101 @@ const Latest = (props: Props) => {
       <div className="relative z-10 w-full h-full">
         <div className="w-[90%] mx-auto h-full py-10 pb-10">
           {/* Header */}
-          <div className="text-white py-10">
-            <h1 className="text-4xl lg:text-5xl font-bold">
+          <div className="text-neutral-200 py-10 flex flex-col justify-center items-center text-center space-y-5">
+            <h1
+              className={`${sted.className} text-4xl lg:text-6xl font-bold  text-neutral-100`}
+            >
               Latest Commercial Albums
             </h1>
-            <p>Indulge in our latest commercial releases.</p>
+            <div className="max-w-2xl mx-auto">
+              <p
+                className={`${sted.className} text-lg lg:text-xl text-neutral-100 leading-relaxed mb-4`}
+              >
+                Discover our most recent commercial releases, featuring our
+                exceptional artists and captivating soundscapes that define
+                contemporary music.
+              </p>
+            </div>
+            <div>
+              <p className="capitalize font-semibold text-neutral-100 hover:text-white hover:bg-neutral-800 px-3 py-2 rounded-xl cursor-pointer">
+                [ choose a cover ]
+              </p>
+            </div>
           </div>
 
           {/* Album Grid */}
-          <div className="grid grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-8 mb-8">
-            {albumsData.map((album, index) => (
-              <button
-                key={album.id}
-                onClick={() =>
-                  setSelectedAlbumIndex(
-                    selectedAlbumIndex === index ? null : index
-                  )
-                }
-                className={`relative group transition-all duration-300 ${
-                  selectedAlbumIndex === index
-                    ? "scale-105 ring-2 ring-orange-600 rounded-2xl"
-                    : "hover:scale-102 hover:shadow-2xl"
-                }`}
-              >
-                <div className="relative overflow-hidden rounded-2xl">
-                  <Image
-                    src={album.coverImage}
-                    alt={album.title}
-                    width={300}
-                    height={800}
-                    className="w-full h-64 lg:h-100 object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+          <div className="flex justify-center mb-12">
+            <div className="grid grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-8 mb-8">
+              {albumsData.map((album, index) => (
+                <button
+                  key={album.id}
+                  onClick={() =>
+                    setSelectedAlbumIndex(
+                      selectedAlbumIndex === index ? null : index
+                    )
+                  }
+                  className={`relative group transition-all duration-300 ${
+                    selectedAlbumIndex === index
+                      ? "scale-105 ring-2 ring-orange-600 rounded-2xl"
+                      : "hover:scale-102 hover:shadow-2xl"
+                  }`}
+                >
+                  <div className="relative overflow-hidden rounded-2xl">
+                    <Image
+                      src={album.coverImage}
+                      alt={album.title}
+                      width={300}
+                      height={800}
+                      className="w-full h-64 lg:h-100 object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
 
-                  {/* Overlay Info */}
-                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-                    <h3
-                      className={`${hanken.className} text-white font-bold text-lg lg:text-xl mb-1`}
-                    >
-                      {album.title}
-                    </h3>
-                    <p
-                      className={`${inter.className} text-gray-300 text-sm lg:text-base`}
-                    >
-                      {album.artist}
-                    </p>
-                  </div>
-
-                  {/* Selected Indicator */}
-                  {selectedAlbumIndex === index && (
-                    <div className="absolute top-4 right-4">
-                      <div className="bg-orange-600 rounded-full p-2">
-                        <TiArrowSortedUp className="text-white w-4 h-4 rotate-180" />
-                      </div>
+                    {/* Overlay Info */}
+                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                      <h3
+                        className={`${sted.className} text-white font-bold text-lg lg:text-xl mb-1`}
+                      >
+                        {album.title}
+                      </h3>
+                      <p
+                        className={`${sted.className} text-gray-300 text-sm lg:text-base`}
+                      >
+                        {album.artist}
+                      </p>
                     </div>
-                  )}
-                </div>
-              </button>
-            ))}
+
+                    {/* Selected Indicator */}
+                    {selectedAlbumIndex === index && (
+                      <div className="absolute top-4 right-4">
+                        <div className="bg-orange-600 rounded-full p-2">
+                          <TiArrowSortedUp className="text-white w-4 h-4 rotate-180" />
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Selected Album Details */}
           {selectedAlbum && (
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 mb-8 animate-in slide-in-from-bottom duration-300">
+            <div className="lg:w-[80%] mx-auto bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 mb-8 animate-in slide-in-from-bottom duration-300">
               {/* Album Header */}
               <div className="mb-6 text-center lg:text-left">
                 <div className="flex flex-col lg:flex-row lg:space-x-4 items-center lg:items-end">
                   <h1
-                    className={`${hanken.className} text-2xl lg:text-3xl font-bold mb-2 lg:mb-0 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300`}
+                    className={`${sted.className} text-2xl lg:text-3xl font-bold mb-2 lg:mb-0 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300`}
                   >
                     {selectedAlbum.title}
                   </h1>
                   <h2
-                    className={`${inter.className} text-lg lg:text-xl font-medium text-gray-300 mb-2 lg:mb-0`}
+                    className={`${sted.className} text-lg lg:text-xl font-medium text-gray-300 mb-2 lg:mb-0`}
                   >
                     by {selectedAlbum.artist}
                   </h2>
                 </div>
-                <p className={`${inter.className} text-gray-400 text-base`}>
+                <p className={`${sted.className} text-gray-400 text-base`}>
                   Released {selectedAlbum.releaseDate}
                 </p>
               </div>
@@ -192,7 +205,7 @@ const Latest = (props: Props) => {
               {/* Tracklist */}
               <div>
                 <h3
-                  className={`${hanken.className} text-xl font-semibold mb-4 text-white`}
+                  className={`${sted.className} text-xl font-semibold mb-4 text-white`}
                 >
                   Tracklist
                 </h3>
@@ -201,22 +214,22 @@ const Latest = (props: Props) => {
                   {selectedAlbum.tracks.map((track, index) => (
                     <div
                       key={track.id}
-                      className="flex items-center justify-between p-3 rounded-lg hover:bg-white/10 transition-colors duration-200 group cursor-pointer"
+                      className="flex items-center justify-between p-3 rounded-lg hover:bg-white/10 transition-colors duration-200 group cursor-posted"
                     >
                       <div className="flex items-center gap-4">
                         <span
-                          className={`${inter.className} text-gray-400 font-medium w-8 text-center group-hover:text-white transition-colors text-sm`}
+                          className={`${sted.className} text-gray-400 font-medium w-8 text-center group-hover:text-white transition-colors text-sm`}
                         >
                           {track.id.toString().padStart(2, "0")}
                         </span>
                         <span
-                          className={`${inter.className} text-white font-medium group-hover:text-gray-100 text-sm lg:text-base`}
+                          className={`${sted.className} text-white font-medium group-hover:text-gray-100 text-sm lg:text-base`}
                         >
                           {track.title}
                         </span>
                       </div>
                       <span
-                        className={`${inter.className} text-gray-400 font-medium group-hover:text-gray-300 transition-colors text-sm`}
+                        className={`${sted.className} text-gray-400 font-medium group-hover:text-gray-300 transition-colors text-sm`}
                       >
                         {track.duration}
                       </span>
@@ -226,10 +239,10 @@ const Latest = (props: Props) => {
 
                 {/* Album Stats */}
                 <div className="mt-6 pt-4 border-t border-white/10 flex flex-wrap gap-6 text-sm text-gray-400">
-                  <span className={inter.className}>
+                  <span className={sted.className}>
                     {selectedAlbum.tracks.length} tracks
                   </span>
-                  <span className={inter.className}>
+                  <span className={sted.className}>
                     Total duration:{" "}
                     {Math.floor(
                       selectedAlbum.tracks.reduce((acc, track) => {

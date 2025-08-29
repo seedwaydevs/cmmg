@@ -1,6 +1,6 @@
 import Image from "next/image";
 import musicLibraryImg2 from "../../../public/pexels-stephendn-63703.jpg";
-import musicLibraryImg1 from "../../../../public/CoverCollage.png";
+import musicLibraryImg1 from "../../../../public/new_collage.png";
 import Link from "next/link";
 
 const ServiceMusicLibrary = () => {

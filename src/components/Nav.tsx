@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Anton, Hanken_Grotesk } from "next/font/google";
+import { Anton, Schibsted_Grotesk } from "next/font/google";
 import Link from "next/link";
 import { FaSquareFacebook } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa6";
@@ -10,14 +10,9 @@ import { GiHamburgerMenu } from "react-icons/gi";
 
 import Image from "next/image";
 import { cmmg } from "@/data";
-const antonFont = Anton({
+const sted = Schibsted_Grotesk({
   subsets: ["latin"],
-  weight: "400",
-});
-
-const hanken = Hanken_Grotesk({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 const Nav = () => {
@@ -61,7 +56,7 @@ const Nav = () => {
         {/* Black nav content */}
         <div className="relative z-50 w-[95%] mx-auto bg-black p-4 my-2 flex justify-between items-center shadow-md">
           <div className="h-[10vh] -my-5">
-            <Link className={`${hanken.className}`} href={"/"}>
+            <Link className={`${sted.className}`} href={"/"}>
               <Image
                 src={cmmg}
                 alt="cmmg-logo"
@@ -80,7 +75,7 @@ const Nav = () => {
             </div>
             <button
               onClick={() => setMenuOpen(true)}
-              className={`${hanken.className} text-white font-medium`}
+              className={`${sted.className} text-white font-medium`}
             >
               <GiHamburgerMenu className="w-7 h-7" />
             </button>
@@ -93,7 +88,7 @@ const Nav = () => {
         <div className="fixed inset-0 bg-[#0e0e0e] z-[999] flex flex-col p-10 space-y-10 text-[#f2ece5] transition-all duration-300">
           <div className="flex justify-between items-start">
             <h1
-              className={`${hanken.className} text-5xl tracking-tighter font-extrabold`}
+              className={`${sted.className} text-5xl tracking-tighter font-extrabold`}
             >
               CMMG.
             </h1>
@@ -110,7 +105,7 @@ const Nav = () => {
                 key={i}
                 href={link.link}
                 onClick={() => setMenuOpen(false)}
-                className={`${hanken.className} text-4xl font-semibold py-2 hover:text-orange-700 transition duration-200`}
+                className={`${sted.className} text-4xl font-semibold py-2 hover:text-orange-700 transition duration-200`}
               >
                 {link.title}
               </Link>
@@ -132,7 +127,7 @@ const Nav = () => {
           </div>
           <Link
             href={"https://cmmg-library.vercel.app/"}
-            className={`${hanken.className} text-center w-full border hover:border-orange-700  font-semibold  py-3 cursor-pointer hover:bg-orange-700  hover:text-[#f2ece5]`}
+            className={`${sted.className} text-center w-full border hover:border-orange-700  font-semibold  py-3 cursor-pointer hover:bg-orange-700  hover:text-[#f2ece5]`}
           >
             Production Music Library
           </Link>
