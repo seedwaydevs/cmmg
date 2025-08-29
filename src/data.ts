@@ -20,6 +20,7 @@ import samro from "../public/trust/samro_logo.png";
 import barloworld from "../public/trust/barloworld-limited-logo-vector.png";
 import ccli from "../public/trust/ccli-removebg-preview.png";
 import brownsense from "../public/trust/brownsense_Logo.jpg";
+import orcheezy from "../public/trust/orchard.jpg";
 
 import film from "../public/prodco.jpg";
 import library from "../public/pexels-tima-miroshnichenko-6827245.jpg";
@@ -76,6 +77,7 @@ export {
   barloworld,
   brownsense,
   cmmg,
+  orcheezy,
   ccli,
   hire1,
   hire2,

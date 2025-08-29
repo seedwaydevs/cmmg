@@ -6,14 +6,14 @@ import {
   barloworld,
   brownsense,
   capasso,
-  orchard,
   samro,
   trace,
   ccli,
+  orcheezy,
 } from "@/data";
 
 const logos = [
-  { src: orchard, alt: "Orchard", height: "h-[40px]" },
+  { src: orcheezy, alt: "Orchard", height: "h-[50px]" },
   { src: brownsense, alt: "Brownsense", height: "h-[45px]" },
   { src: trace, alt: "Trace", height: "h-[50px]" },
   { src: capasso, alt: "Capasso", height: "h-[55px] bg-blue-900 px-2" },
