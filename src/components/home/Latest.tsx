@@ -60,7 +60,7 @@ const albumsData = [
   },
   {
     id: 4,
-    title: "",
+    title: "Jesu Msindisi",
     artist: "L & J CSTAZ",
     releaseDate: "September 9, 2025",
     coverImage: landj, // Replace with fourth album cover
