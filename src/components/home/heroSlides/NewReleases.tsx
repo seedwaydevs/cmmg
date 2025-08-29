@@ -19,20 +19,20 @@ const NewReleases = () => {
     <section className="relative min-h-screen z-10">
       <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8 h-screen flex flex-col">
         {/* Header Badge */}
-        <div className="flex justify-end mt-22 sm:mt-32">
+        <div className="flex justify-end mt-24 sm:mt-34 xl:mt-32">
           <span
             className={`${hanken.className} text-sm font-bold tracking-widest uppercase text-neutral-200/80 
-                       backdrop-blur-sm bg-white/5 px-4 py-2 rounded-full border border-white/10`}
+                       backdrop-blur-sm bg-white/5 px-4 py-2 rounded-lg border border-white/10`}
           >
-            New Releases
+            [ New Releases ]
           </span>
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 flex items-center py-8 lg:py-16">
-          <div className="w-full grid lg:grid-cols-2 gap-5 lg:gap-12 items-center">
+        <div className="flex-1 flex items-center py-5 lg:py-10 ">
+          <div className="w-full grid lg:grid-cols-2 gap-7 lg:gap-12 items-center">
             {/* Content Section - Left on desktop */}
-            <div className="space-y-3 lg:space-y-8 order-2 lg:order-2">
+            <div className="space-y-5 lg:space-y-8 order-2 lg:order-2">
               <div className="space-y-2 lg:space-y-6">
                 <div className="space-y-2">
                   <p
@@ -112,7 +112,7 @@ const NewReleases = () => {
             <div className="relative group order-1 lg:order-1 flex justify-center">
               <div
                 className="relative overflow-hidden rounded-2xl shadow-2xl w-[85%] sm:w-[70%] lg:w-full max-w-sm md:max-w-lg lg:max-w-md xl:max-w-lg 
-                             h-[35vh] sm:h-[40vh] md:h-[45vh] lg:h-[55vh] xl:h-[60vh]"
+                             h-[40vh] sm:h-[40vh] md:h-[45vh] lg:h-[55vh] xl:h-[60vh]"
               >
                 <Image
                   src={njalo}
@@ -139,7 +139,7 @@ const NewReleases = () => {
         </div>
 
         {/* Footer Badge */}
-        <div className="hidden md:flex justify-between items-end pb-12 lg:pb-16">
+        <div className="hidden lg:flex justify-between items-end pb-12 lg:pb-16">
           <span
             className={`${hanken.className} text-sm font-bold tracking-widest uppercase 
                        text-neutral-100`}
