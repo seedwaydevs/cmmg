@@ -269,7 +269,7 @@ const MusicPage = () => {
                   </Link>
 
                   <Link
-                    href="/production"
+                    href="www.library.cmmg.co.za"
                     className="group inline-flex items-center justify-center gap-2 bg-transparent border-2 border-white/30 text-white hover:bg-white hover:text-black px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 backdrop-blur-sm"
                   >
                     Production Library
