@@ -48,14 +48,13 @@ const Nav = () => {
   return (
     <>
       {/* Navigation */}
-      {/* Navigation */}
       <div className="w-full fixed top-0 left-0 z-50">
         {/* Glass background */}
         <div className="absolute w-full h-full backdrop-blur-md bg-white/10 z-0 py-2"></div>
 
         {/* Black nav content */}
-        <div className="relative z-50 w-[95%] mx-auto bg-black p-4 my-2 flex justify-between items-center shadow-md">
-          <div className="h-[10vh] -my-5">
+        <div className="relative z-50 w-[90%] mx-auto bg-black p-4 my-2 flex flex-row justify-between items-center shadow-md">
+          <div className="h-[6vh]">
             <Link className={`${sted.className}`} href={"/"}>
               <Image
                 src={cmmg}

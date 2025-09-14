@@ -62,16 +62,18 @@ const Companies = () => {
       id="companies"
       className="w-full py-20 bg-gradient-to-br from-slate-50 to-gray-100"
     >
-      <div className="w-[95%] mx-auto">
+      <div className="w-[90%] lg:w-[85%] mx-auto">
         <div
           className={`flex flex-col transform transition-all duration-1000 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
           }`}
         >
           {/* Section Header */}
-          <div className="flex items-center mb-12">
-            <ArrowUp className="text-orange-600 h-7 w-7 lg:h-10 lg:w-10 rotate-90 mr-4" />
-            <span className="text-xs uppercase lg:text-lg tracking-widest text-gray-600 font-semibold">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="flex items-center justify-center w-10 h-10 bg-orange-500 rounded-full">
+              <TiArrowSortedUp className="text-white h-5 w-5" />
+            </div>
+            <span className="text-sm font-medium uppercase tracking-wider text-gray-600 bg-white px-4 py-2 rounded-full border">
               Clients
             </span>
           </div>

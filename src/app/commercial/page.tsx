@@ -25,9 +25,19 @@ import {
   image10,
   image11,
   yandi,
+  njalo,
 } from "@/data";
 
 import bg from "../../../public/servicebg.jpeg";
+import { BsSpotify } from "react-icons/bs";
+import { SiApplemusic, SiYoutubemusic } from "react-icons/si";
+import { FaDeezer } from "react-icons/fa6";
+import { Schibsted_Grotesk } from "next/font/google";
+
+const sted = Schibsted_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
 
 // Mock data for albums
 const latestAlbums = [
@@ -109,25 +119,38 @@ const latestTracks = [
 
 // Featured album data
 const featuredAlbum = {
-  title: "Cosmic Journey",
-  artist: "Stellar Dynamics",
-  image: image9,
+  title: "Njalo",
+  artist: "YandiSibi",
+  image: njalo,
   releaseDate: "2024",
   description:
-    "An epic voyage through sound and space, featuring 12 tracks that blend electronic elements with orchestral arrangements.",
-  tracks: [
-    { title: "Launchpad", duration: "4:21" },
-    { title: "Asteroid Belt", duration: "3:45" },
-    { title: "Nebula Dance", duration: "5:12" },
-    { title: "Solar Winds", duration: "4:33" },
-    { title: "Black Hole", duration: "6:08" },
-    { title: "Galactic Highway", duration: "3:57" },
-    { title: "Starlight", duration: "4:44" },
-    { title: "Cosmic Storm", duration: "5:21" },
-    { title: "Planetary Alignment", duration: "4:15" },
-    { title: "Interstellar", duration: "7:02" },
-    { title: "Return to Earth", duration: "4:38" },
-    { title: "Landing", duration: "3:29" },
+    "Yandi finally drops her highly anticipated single, Njalo! With an electrifying performance that’s guaranteed to get you on your feet, she’s bringing pure energy and vibes.",
+  tracks: [{ title: "Njalo", duration: "4:21" }],
+  links: [
+    {
+      id: 1,
+      name: "Spotify",
+      icon: <BsSpotify className="w-5 h-5 text-neutral-100" />,
+      link: "https://open.spotify.com/album/5h2VjDhjhrJMHkZFvAf8QM?si=rSxSoLsbQXOH3jaE7PWp_w",
+    },
+    {
+      id: 2,
+      name: "Apple Music",
+      icon: <SiApplemusic className="w-5 h-5 text-neutral-100" />,
+      link: "https://music.apple.com/za/album/njalo/1837463602?i=1837463617",
+    },
+    {
+      id: 3,
+      name: "Deezer",
+      icon: <FaDeezer className="w-5 h-5 text-neutral-100" />,
+      link: "https://link.deezer.com/s/312O7qMbJFBNYJWDTRZtD",
+    },
+    {
+      id: 4,
+      name: "YouTube Music",
+      icon: <SiYoutubemusic className="w-5 h-5 text-neutral-100" />,
+      link: "https://music.youtube.com/watch?v=VbaR7iUSnVg&si=kd8KAW6WabhEfqiq",
+    },
   ],
 };
 
@@ -173,7 +196,7 @@ const MusicPage = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src={yandi}
+            src={njalo}
             alt="Recording artist in professional studio"
             fill
             className="object-cover object-center"
@@ -184,7 +207,7 @@ const MusicPage = () => {
 
         <div className="absolute inset-0">
           <Image
-            src={yandi}
+            src={njalo}
             alt="Recording artist in professional studio"
             fill
             className="object-cover object-center"
@@ -216,7 +239,7 @@ const MusicPage = () => {
                     <span className="text-orange-500 block">Music</span>
                   </h1>
 
-                  <p className="text-lg lg:text-xl text-gray-200 leading-relaxed max-w-lg font-light">
+                  <p className="text-lg lg:text-lg text-gray-200 md:leading-snug max-w-lg font-light">
                     Premium commercial releases from our signed artists and
                     established musicians. Discover the latest singles, albums,
                     and exclusive tracks ready for streaming and purchase.
@@ -295,7 +318,7 @@ const MusicPage = () => {
                   {/* Album Cover */}
                   <div className="relative w-80 h-80 rounded-2xl overflow-hidden shadow-2xl transform group-hover:scale-105 transition-transform duration-500">
                     <Image
-                      src={yandi}
+                      src={njalo}
                       alt="Featured album cover"
                       fill
                       className="object-cover"
@@ -389,28 +412,25 @@ const MusicPage = () => {
       </section>
 
       {/* Latest Tracks Section */}
-      <section className="py-16 bg-white">
+      {/* <section className="py-16 bg-white">
         <div className="w-[90%] lg:w-[80%] mx-auto">
           <div className="flex justify-between items-center mb-8">
             <h2 className="text-3xl font-bold text-black">Latest Tracks</h2>
-            <Button className="bg-transparent text-orange-500 hover:bg-orange-50 border border-orange-500">
-              View All Tracks
-            </Button>
           </div>
 
           <div className="space-y-4">
             {latestTracks.map((track, index) => (
               <div
                 key={track.id}
-                className="flex items-center gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors group"
+                className="flex flex-row items-center gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors group"
               >
-                <div className="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center relative overflow-hidden">
+                <div className="w-16 h-16 bg-gray-200 rounded-lg border flex items-center justify-center relative overflow-hidden">
                   <Image
                     src={track.image}
                     alt={track.title}
                     width={64}
                     height={64}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full border object-cover"
                   />
                   <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                     <Play className="text-white w-6 h-6" />
@@ -427,11 +447,11 @@ const MusicPage = () => {
                 <div className="text-sm text-gray-500 w-12 text-right">
                   {track.duration}
                 </div>
-
-                <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                
+                <div className="hidden md:flex gap-2 ">
                   <Button
                     size="sm"
-                    className="bg-transparent text-gray-600 hover:text-orange-500 p-1"
+                    className="bg-transparent text-neutral-500 hover:text-orange-500 p-1"
                   >
                     <Heart className="w-4 h-4" />
                   </Button>
@@ -452,7 +472,7 @@ const MusicPage = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Featured Album Section */}
       <section className="py-16 bg-black text-white">
@@ -482,12 +502,12 @@ const MusicPage = () => {
                 </p>
 
                 <div className="flex gap-4 justify-center lg:justify-start">
-                  <Button className="bg-orange-500 hover:bg-orange-600 text-white">
+                  <Button
+                    variant="link"
+                    className="bg-orange-500 hover:bg-orange-600 text-white"
+                  >
                     <Play className="w-4 h-4 mr-2" />
-                    Play Album
-                  </Button>
-                  <Button className="bg-transparent border border-gray-600 text-white hover:bg-gray-800">
-                    Add to Library
+                    Stream Album
                   </Button>
                 </div>
               </div>
@@ -510,11 +530,18 @@ const MusicPage = () => {
                         <p className="font-medium">{track.title}</p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-4">
-                      <span className="text-gray-400 text-sm">
-                        {track.duration}
-                      </span>
-                      <Play className="w-4 h-4 text-orange-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="flex justify-end items-center">
+                      <div
+                        className={`${sted.className}  text-white font-medium group-hover:text-gray-300 transition-colors text-sm`}
+                      >
+                        <ul className="flex flex-row justify-between space-x-5">
+                          {featuredAlbum.links.map((plat) => (
+                            <li key={plat.id}>
+                              <Link href={plat.link}>{plat.icon}</Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -525,7 +552,7 @@ const MusicPage = () => {
       </section>
 
       {/* Genres/Moods Carousel */}
-      <section className="py-16 bg-gray-50">
+      {/* <section className="py-16 bg-gray-50">
         <div className="w-[90%] lg:w-[80%] mx-auto">
           <div className="flex justify-between items-center mb-8">
             <h2 className="text-3xl font-bold text-black">Browse by Genre</h2>
@@ -552,14 +579,16 @@ const MusicPage = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <div className="hidden lg:block">
+              <CarouselPrevious />
+              <CarouselNext />
+            </div>
           </Carousel>
         </div>
-      </section>
+      </section> */}
 
       {/* Latest Albums Carousel */}
-      <section className="py-16 bg-white">
+      {/* <section className="py-16 bg-white">
         <div className="w-[90%] lg:w-[80%] mx-auto">
           <div className="flex justify-between items-center mb-8">
             <h2 className="text-3xl font-bold text-black">Latest Albums</h2>
@@ -602,27 +631,13 @@ const MusicPage = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <div className="hidden lg:block">
+              <CarouselPrevious />
+              <CarouselNext />
+            </div>
           </Carousel>
         </div>
-      </section>
-
-      {/* Footer CTA */}
-      <section className="py-16 bg-black text-white">
-        <div className="w-[90%] lg:w-[80%] mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-4">
-            Ready to Start Your Musical Journey?
-          </h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Join thousands of music lovers discovering new sounds every day.
-            Premium quality, unlimited streaming.
-          </p>
-          <Button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 text-lg">
-            Get Started Today
-          </Button>
-        </div>
-      </section>
+      </section> */}
     </div>
   );
 };
