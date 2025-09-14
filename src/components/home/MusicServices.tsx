@@ -1,5 +1,9 @@
 "use client";
-import { Hanken_Grotesk, Inter_Tight } from "next/font/google";
+import {
+  Hanken_Grotesk,
+  Inter_Tight,
+  Schibsted_Grotesk,
+} from "next/font/google";
 import Image from "next/image";
 import React from "react";
 import { TiArrowSortedUp } from "react-icons/ti";
@@ -18,6 +22,8 @@ import {
   image8,
   image9,
   image13,
+  njalo,
+  landj,
 } from "@/data";
 
 const hanken = Hanken_Grotesk({
@@ -25,74 +31,75 @@ const hanken = Hanken_Grotesk({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
-const inter = Inter_Tight({
+const sted = Schibsted_Grotesk({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 const MusicServices = () => {
   // Sample artist/album data - replace with your actual data
   const albums = [
     {
-      image: image1,
-      artist: "Artist Name",
-      album: "Album Title",
-      genre: "Electronic",
+      image: njalo,
+      artist: "YandiSibi",
+      album: "Njalo",
+      genre: "Amapiano",
+    },
+    {
+      image: landj,
+      artist: "L & J Cstaz",
+      album: "Jesu Msindisi",
+      genre: "Gospel",
     },
     {
       image: image2,
-      artist: "Artist Name",
-      album: "Album Title",
-      genre: "Hip-Hop",
-    },
-    {
-      image: image3,
-      artist: "Artist Name",
-      album: "Album Title",
+      artist: "Abe Sibiya",
+      album: "Live Culture",
       genre: "Jazz",
     },
-    {
-      image: image4,
-      artist: "Artist Name",
-      album: "Album Title",
-      genre: "Rock",
-    },
-    {
-      image: image5,
-      artist: "Artist Name",
-      album: "Album Title",
-      genre: "Pop",
-    },
-    {
-      image: image6,
-      artist: "Artist Name",
-      album: "Album Title",
-      genre: "Ambient",
-    },
-    {
-      image: image7,
-      artist: "Artist Name",
-      album: "Album Title",
-      genre: "R&B",
-    },
-    {
-      image: image8,
-      artist: "Artist Name",
-      album: "Album Title",
-      genre: "Alternative",
-    },
-    {
-      image: image9,
-      artist: "Artist Name",
-      album: "Album Title",
-      genre: "Classical",
-    },
-    {
-      image: image13,
-      artist: "Artist Name",
-      album: "Album Title",
-      genre: "World",
-    },
+
+    // {
+    //   image: image4,
+    //   artist: "Artist Name",
+    //   album: "Album Title",
+    //   genre: "Rock",
+    // },
+    // {
+    //   image: image5,
+    //   artist: "Artist Name",
+    //   album: "Album Title",
+    //   genre: "Pop",
+    // },
+    // {
+    //   image: image6,
+    //   artist: "Artist Name",
+    //   album: "Album Title",
+    //   genre: "Ambient",
+    // },
+    // {
+    //   image: image7,
+    //   artist: "Artist Name",
+    //   album: "Album Title",
+    //   genre: "R&B",
+    // },
+    // {
+    //   image: image8,
+    //   artist: "Artist Name",
+    //   album: "Album Title",
+    //   genre: "Alternative",
+    // },
+    // {
+    //   image: image9,
+    //   artist: "Artist Name",
+    //   album: "Album Title",
+    //   genre: "Classical",
+    // },
+    // {
+    //   image: image13,
+    //   artist: "Artist Name",
+    //   album: "Album Title",
+    //   genre: "World",
+    // },
   ];
 
   return (
@@ -104,15 +111,14 @@ const MusicServices = () => {
             <TiArrowSortedUp className="text-orange-500 h-7 w-7 lg:h-10 lg:w-10" />
             <div className="backdrop-blur-sm bg-white/5 px-4 py-2 rounded-lg border border-white/10 ml-2">
               <p
-                className={`${hanken.className} text-xs uppercase lg:text-sm font-bold tracking-widest `}
+                className={`${sted.className} text-xs uppercase lg:text-sm font-bold tracking-widest `}
               >
-                [ Our Artists ]
+                [ Our Philosophy ]
               </p>
             </div>
           </div>
-
           {/* Main heading and intro */}
-          <div className="space-y-6 mb-8">
+          {/* <div className="space-y-6 mb-8">
             <h1
               className={`${hanken.className} font-black text-5xl lg:text-7xl  tracking-tight leading-none`}
             >
@@ -125,11 +131,10 @@ const MusicServices = () => {
               Discover exceptional talent and groundbreaking releases from our
               curated roster of artists.
             </p>
-          </div>
-
+          </div> */}
           {/* Scrollable carousel */}
-          <div className="mb-12">
-            <div className="flex items-center gap-4 mb-6">
+          <div className="mb-1">
+            {/* <div className="flex items-center gap-4 mb-6">
               <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center shadow-lg">
                 <Headphones className="text-white w-6 h-6" />
               </div>
@@ -140,9 +145,9 @@ const MusicServices = () => {
                   Latest Releases
                 </span>
               </div>
-            </div>
+            </div> */}
 
-            <div className="relative">
+            {/* <div className="relative">
               <div
                 className="flex gap-4 overflow-x-auto scrollbar-hide pb-4"
                 style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
@@ -164,7 +169,7 @@ const MusicServices = () => {
                           alt={`${album.artist} - ${album.album}`}
                           className="w-full h-full object-cover"
                         />
-                        {/* Hover overlay */}
+                        
                         <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                           <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center">
                             <Play
@@ -192,13 +197,13 @@ const MusicServices = () => {
                 ))}
               </div>
 
-              {/* Gradient fade on right */}
-              <div className="absolute top-0 left-0 w-16 h-full bg-gradient-to-r from-orange-300 to-transparent pointer-events-none" />
+             
+              <div className="absolute top-0 left-0 w-16 h-full  pointer-events-none" />
 
               <div className="absolute top-0 right-0 w-16 h-full bg-gradient-to-l from-orange-300 to-transparent pointer-events-none" />
-            </div>
+            </div> */}
 
-            <div className="flex gap-4 items-center group mt-6">
+            {/* <div className="flex gap-4 items-center group mt-6">
               <Link
                 href="/releases"
                 className={`${hanken.className} backdrop-blur-sm bg-orange-500/10 hover:bg-orange-500/20 border border-orange-400/20 px-6 py-3 rounded-lg text-neutral-800 text-lg font-semibold tracking-wide transition-all duration-300 hover:scale-105`}
@@ -206,15 +211,13 @@ const MusicServices = () => {
                 View All Releases
               </Link>
               <MoveRight className="text-orange-500 group-hover:translate-x-1 transition-transform duration-300" />
-            </div>
+            </div> */}
           </div>
-
-          <hr className="border-black/10 my-8" />
-
+          {/* <hr className="border-black/10 my-8" /> */}
           {/* Label Philosophy Section */}
           <div className="space-y-8">
             <h2
-              className={`${hanken.className} font-black text-4xl lg:text-5xl  tracking-tight leading-none`}
+              className={`${sted.className} font-black text-4xl lg:text-6xl  tracking-tight leading-none`}
             >
               Our Label Philosophy
               <span className="text-orange-500">.</span>
@@ -223,7 +226,7 @@ const MusicServices = () => {
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
               <div className="space-y-6">
                 <p
-                  className={`${hanken.className} text-lg lg:text-xl text-neutral-900 font-light leading-relaxed`}
+                  className={`${sted.className} text-lg lg:text-xl text-neutral-900 font-light leading-relaxed`}
                 >
                   At CMMG, we believe music is more than entertainment — it's a
                   catalyst for connection, emotion, and cultural evolution. We
@@ -231,7 +234,7 @@ const MusicServices = () => {
                   challenge conventions and redefine what's possible.
                 </p>
                 <p
-                  className={`${hanken.className} text-lg lg:text-xl text-neutral-900 font-light leading-relaxed`}
+                  className={`${sted.className} text-lg lg:text-xl text-neutral-900 font-light leading-relaxed`}
                 >
                   Our approach is artist-first, always. We provide the creative
                   freedom, resources, and strategic support needed to transform
@@ -242,7 +245,7 @@ const MusicServices = () => {
               <div className="space-y-6">
                 <div className="backdrop-blur-sm bg-white/5 p-6 rounded-lg border border-white/10">
                   <h3
-                    className={`${hanken.className} text-neutral-600 font-bold text-3xl mb-3`}
+                    className={`${sted.className} text-neutral-600 font-bold text-3xl mb-3`}
                   >
                     What Sets Us Apart
                   </h3>
@@ -270,15 +273,13 @@ const MusicServices = () => {
               </div>
             </div>
           </div>
-
           <hr className="border-white/10 my-8" />
-
           {/* CTA Section */}
           <div className="p-10 lg:p-16 lg:py-10 bg-orange-600 space-y-6 rounded-lg relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 via-transparent to-orange-700/20" />
 
             <p
-              className={`${hanken.className} text-4xl md:text-5xl lg:text-6xl tracking-tight font-black leading-tight relative z-10`}
+              className={`${sted.className} text-4xl md:text-5xl lg:text-6xl tracking-tight font-black leading-tight relative z-10`}
             >
               <span className="text-blue-900">More than a record label.</span>{" "}
               <span className="text-gray-100">
@@ -291,19 +292,18 @@ const MusicServices = () => {
             <div className="flex gap-4 flex-wrap relative z-10">
               <Link
                 href="/about"
-                className={`${hanken.className} inline-block bg-[#0e0e0e] hover:bg-black text-gray-100 py-3 px-6 font-bold lg:text-lg tracking-wide rounded-lg transition-all duration-300 hover:scale-105 border border-gray-800/50`}
+                className={`${sted.className} inline-block bg-[#0e0e0e] hover:bg-black text-gray-100 py-3 px-6 font-bold lg:text-lg tracking-wide rounded-lg transition-all duration-300 hover:scale-105 border border-gray-800/50`}
               >
                 Learn More
               </Link>
               <Link
                 href="/contact"
-                className={`${hanken.className} inline-block bg-transparent border-2 border-[#0e0e0e] text-[#0e0e0e] py-3 px-6 font-bold lg:text-lg hover:bg-[#0e0e0e] hover:text-gray-100 transition-all duration-300 rounded-lg`}
+                className={`${sted.className} inline-block bg-transparent border-2 border-[#0e0e0e] text-[#0e0e0e] py-3 px-6 font-bold lg:text-lg hover:bg-[#0e0e0e] hover:text-gray-100 transition-all duration-300 rounded-lg`}
               >
                 Get In Touch
               </Link>
             </div>
           </div>
-
           <hr className="border-white/10" />
         </div>
       </div>

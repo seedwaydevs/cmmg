@@ -61,14 +61,14 @@ const NewReleases = () => {
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 ">
                 <Link
-                  href="/production"
+                  href="https://open.spotify.com/album/5h2VjDhjhrJMHkZFvAf8QM?si=rSxSoLsbQXOH3jaE7PWp_w"
                   className={`${sted.className} group relative inline-flex items-center justify-center gap-2 
-                             bg-gradient-to-r from-blue-900 to-blue-400 hover:from-blue-400 hover:to-blue-900 
+                             bg-gradient-to-r from-orange-700 to-orange-400 hover:from-orange-400 hover:to-orange-700 
                              text-white font-bold px-6 py-3 lg:px-8 lg:py-4 rounded-full transition-all duration-300 
                              shadow-xl hover:shadow-white/10 transform hover:-translate-y-0.5 
                               text-sm lg:text-base`}
                 >
-                  <span>Browse Library</span>
+                  <span>Stream Now</span>
                   <svg
                     className="w-4 h-4 lg:w-5 lg:h-5 transition-transform duration-300 group-hover:translate-x-1"
                     fill="none"
@@ -141,10 +141,10 @@ const NewReleases = () => {
         {/* Footer Badge */}
         <div className="hidden lg:flex justify-between items-end pb-12 lg:pb-16">
           <span
-            className={`${hanken.className} text-sm font-bold tracking-widest uppercase 
-                       text-neutral-100`}
+            className={`${hanken.className} text-sm font-bold tracking-widest uppercase text-neutral-200/80 
+                       backdrop-blur-sm bg-white/5 px-4 py-2 rounded-lg border border-white/10`}
           >
-            Coming Soon
+            Out Now
           </span>
 
           <div className="flex items-center gap-2 text-neutral-100">

@@ -5,6 +5,10 @@ import Image from "next/image";
 import { TiArrowSortedUp } from "react-icons/ti";
 import Link from "next/link";
 import { image2, yandi, landj, njalo } from "@/data";
+import { GrAppleMusic } from "react-icons/gr";
+import { BsApple, BsSpotify } from "react-icons/bs";
+import { SiApplemusic, SiYoutubemusic } from "react-icons/si";
+import { FaDeezer } from "react-icons/fa6";
 
 type Props = {};
 
@@ -29,6 +33,7 @@ const albumsData = [
       { id: 5, title: "Electric Hearts", duration: "3:36" },
       { id: 6, title: "Moonbeam Dance", duration: "4:08" },
     ],
+    links: [],
   },
   // {
   //   id: 2,
@@ -49,10 +54,42 @@ const albumsData = [
   {
     id: 2,
     title: "Njalo",
-    artist: "Yandii",
-    releaseDate: "September 25, 2025",
+    artist: "YandiSibi",
+    releaseDate: "September 12, 2025",
     coverImage: njalo, // Replace with third album cover
-    tracks: [{ id: 1, title: "Njalo", duration: "4:45" }],
+    tracks: [
+      {
+        id: 1,
+        title: "Njalo",
+        duration: "4:45",
+      },
+    ],
+    links: [
+      {
+        id: 1,
+        name: "Spotify",
+        icon: <BsSpotify className="w-5 h-5 text-neutral-100" />,
+        link: "https://open.spotify.com/album/5h2VjDhjhrJMHkZFvAf8QM?si=rSxSoLsbQXOH3jaE7PWp_w",
+      },
+      {
+        id: 2,
+        name: "Apple Music",
+        icon: <SiApplemusic className="w-5 h-5 text-neutral-100" />,
+        link: "https://music.apple.com/za/album/njalo/1837463602?i=1837463617",
+      },
+      {
+        id: 3,
+        name: "Deezer",
+        icon: <FaDeezer className="w-5 h-5 text-neutral-100" />,
+        link: "https://link.deezer.com/s/312O7qMbJFBNYJWDTRZtD",
+      },
+      {
+        id: 4,
+        name: "YouTube Music",
+        icon: <SiYoutubemusic className="w-5 h-5 text-neutral-100" />,
+        link: "https://music.youtube.com/watch?v=VbaR7iUSnVg&si=kd8KAW6WabhEfqiq",
+      },
+    ],
   },
   // {
   //   id: 4,
@@ -228,11 +265,17 @@ const Latest = (props: Props) => {
                           {track.title}
                         </span>
                       </div>
-                      <span
-                        className={`${sted.className} text-gray-400 font-medium group-hover:text-gray-300 transition-colors text-sm`}
+                      <div
+                        className={`${sted.className} text-white font-medium group-hover:text-gray-300 transition-colors text-sm`}
                       >
-                        {track.duration}
-                      </span>
+                        <ul className="flex space-x-5">
+                          {selectedAlbum.links.map((plat) => (
+                            <li key={plat.id}>
+                              <Link href={plat.link}>{plat.icon}</Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   ))}
                 </div>

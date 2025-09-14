@@ -8,6 +8,8 @@ import {
   Calendar,
   ArrowUp,
 } from "lucide-react";
+import Image from "next/image";
+import prod from "../../../public/prodco.jpg";
 
 const About = () => {
   const [isVisible, setIsVisible] = useState({
@@ -81,7 +83,7 @@ const About = () => {
       <section id="hero" className="relative h-screen overflow-hidden">
         {/* Background Image - Using placeholder gradient */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-900 to-black"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-500  to-orange-600"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
         </div>
 
@@ -101,20 +103,14 @@ const About = () => {
                 }`}
               >
                 {/* Badge */}
-                <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-                  <div className="w-2 h-2 bg-orange-500 rounded-full mr-2"></div>
-                  <span className="text-sm font-medium tracking-wide">
-                    ABOUT CMMG
-                  </span>
-                </div>
 
-                <div className="space-y-6">
+                <div className="space-y-6 mt-5">
                   <h1 className="text-5xl lg:text-7xl xl:text-8xl font-black leading-[0.9] tracking-tight">
                     Bringing stories
-                    <span className="text-orange-500 block">to life</span>
+                    <span className="text-blue-700 block">to life</span>
                   </h1>
 
-                  <p className="text-lg lg:text-xl text-gray-200 leading-relaxed max-w-lg font-light">
+                  <p className="text-lg lg:text-xl text-white leading-relaxed max-w-lg font-light">
                     At CMMG, we fuse creative storytelling with technical
                     precision. From branded content to original productions and
                     music scoring, our work is crafted to inspire and captivate
@@ -129,7 +125,7 @@ const About = () => {
                       <div className="text-2xl lg:text-3xl font-bold text-white">
                         {stat.number}
                       </div>
-                      <div className="text-sm text-gray-400 uppercase tracking-wide">
+                      <div className="text-sm text-neutral-100 uppercase tracking-wide">
                         {stat.label}
                       </div>
                     </div>
@@ -141,12 +137,14 @@ const About = () => {
               <div className="hidden lg:flex justify-end">
                 <div className="relative group">
                   <div className="relative w-80 h-80 rounded-2xl overflow-hidden shadow-2xl transform group-hover:scale-105 transition-transform duration-500">
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-900"></div>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center text-white/60">
-                        <Play className="w-16 h-16 mx-auto mb-4 opacity-60" />
-                        <p className="text-lg">Production team at work</p>
-                      </div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-900">
+                      <Image
+                        src={prod}
+                        alt="image"
+                        fill
+                        className="object-cover"
+                        sizes="320px"
+                      />
                     </div>
                   </div>
 
@@ -193,7 +191,7 @@ const About = () => {
 
       {/* Mission & Vision */}
       <section id="mission" className="relative py-32">
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black"></div>
+        <div className="absolute inset-0 bg-white"></div>
         <div className="relative z-10 w-[90%] lg:w-[80%] mx-auto">
           <div
             className={`transform transition-all duration-1000 ${
@@ -204,7 +202,7 @@ const About = () => {
           >
             <div className="flex items-center mb-16">
               <div className="w-2 h-2 bg-orange-500 rounded-full mr-4"></div>
-              <span className="text-sm uppercase tracking-widest text-gray-400 font-semibold">
+              <span className="text-sm uppercase tracking-widest text-neutral-900 font-semibold">
                 Mission / Vision
               </span>
             </div>
@@ -212,12 +210,12 @@ const About = () => {
             <div className="grid lg:grid-cols-2 gap-16">
               <div className="group">
                 <div className="relative">
-                  <div className="absolute inset-0 backdrop-blur-2xl bg-white/5 rounded-2xl border border-white/10 group-hover:bg-white/10 transition-all duration-500"></div>
+                  <div className="absolute inset-0 backdrop-blur-2xl bg-black/0 shadow-2xl shadow-orange-600 rounded-2xl border border-black/10 group-hover:bg-white/10 transition-all duration-500"></div>
                   <div className="relative p-10">
-                    <h2 className="text-5xl lg:text-6xl font-black mb-8 leading-none">
+                    <h2 className="text-5xl lg:text-6xl font-black text-neutral-900 mb-8 leading-none">
                       Our <span className="text-orange-500">Vision</span>.
                     </h2>
-                    <p className="text-lg text-gray-300 leading-relaxed">
+                    <p className="text-lg text-neutral-800 leading-relaxed">
                       Our vision is to redefine media production by empowering
                       brands, creators, and storytellers through immersive
                       visual and audio experiences — where innovation meets
@@ -229,12 +227,12 @@ const About = () => {
 
               <div className="group">
                 <div className="relative">
-                  <div className="absolute inset-0 backdrop-blur-2xl bg-white/5 rounded-2xl border border-white/10 group-hover:bg-white/10 transition-all duration-500"></div>
+                  <div className="absolute inset-0 backdrop-blur-2xl bg-black/0 shadow-2xl shadow-orange-600 rounded-2xl border border-black/10 group-hover:bg-white/10 transition-all duration-500"></div>
                   <div className="relative p-10">
-                    <h2 className="text-5xl lg:text-6xl font-black mb-8 leading-none">
+                    <h2 className="text-5xl lg:text-6xl font-black text-neutral-800 mb-8 leading-none">
                       Our <span className="text-orange-500">Mission</span>.
                     </h2>
-                    <p className="text-lg text-gray-300 leading-relaxed">
+                    <p className="text-lg text-neutral-900 leading-relaxed">
                       We exist to empower brands, creators, and storytellers by
                       delivering compelling visual and audio content. Our goal
                       is to set a new standard in media production by merging

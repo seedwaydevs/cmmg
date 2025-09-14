@@ -13,14 +13,14 @@ const sted = Schibsted_Grotesk({
 
 const Landing = () => {
   return (
-    <div className="relative z-10">
-      <div className="w-[90%] md:w-[90%] mx-auto h-[90vh]">
+    <div className="relative z-10 backdrop-blur-xl bg-white/1 h-full">
+      <div className="w-[90%] md:w-[90%] mx-auto h-[90vh] ">
         <div className="flex flex-col justify-between h-full">
           {/* Top Badge */}
           <div className="flex justify-end mt-24 sm:mt-34 xl:mt-32">
-            <div className="backdrop-blur-sm bg-white/5 px-4 py-2 rounded-lg border border-white/10">
+            <div className="backdrop-blur-sm bg-white/5 px-4 py-2 rounded-lg border border-orange-500">
               <p
-                className={`${hanken.className} text-[14px] uppercase font-bold tracking-widest text-white/90`}
+                className={`${hanken.className} text-[14px] uppercase font-bold tracking-widest text-neutral-100`}
               >
                 [ Content and Music ]
               </p>

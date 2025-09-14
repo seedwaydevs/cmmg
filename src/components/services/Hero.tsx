@@ -55,7 +55,7 @@ const Hero = () => {
               </div>
 
               <div className="space-y-3  md:max-w-lg lg:max-w-6xl">
-                <h1 className="font-black tracking-tight text-3xl md:text-5xl lg:text-7xl text-center uppercase leading-[0.9]">
+                <h1 className="font-black tracking-tight text-3xl md:text-5xl lg:text-7xl text-center leading-[0.9]">
                   Built for production-grade
                   <span className="text-orange-500 block">impact</span>
                 </h1>
@@ -69,23 +69,8 @@ const Hero = () => {
                 </p>
               </div>
 
-              {/* Enhanced Audio Waveform Visualization */}
-              <div className=" lg:mt-12 flex items-center justify-center gap-1">
-                {[...Array(24)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="w-1 bg-gradient-to-t from-orange-500 to-orange-300 rounded-full animate-pulse"
-                    style={{
-                      height: `${Math.random() * 40 + 20}px`,
-                      animationDelay: `${i * 0.1}s`,
-                      opacity: 0.7,
-                    }}
-                  />
-                ))}
-              </div>
-
               {/* Service Quick Links */}
-              <div className="hidden mt-16 md:flex flex-wrap justify-center gap-4">
+              <div className="hidden my-3 md:flex flex-wrap justify-center gap-4">
                 {[
                   {
                     label: "Audio Production",
