@@ -67,7 +67,7 @@ const Nav = () => {
             <div>
               <Link
                 href={"https://www.library.cmmg.co.za/"}
-                className="hidden md:block text-white font-semibold text-lg hover:text-blue-700 bg-orange-600 py-2 px-3"
+                className="hidden md:block text-white font-semibold text-lg rounded-md hover:text-blue-700 bg-orange-600 py-2 px-3"
               >
                 Production Music Library
               </Link>
@@ -87,9 +87,9 @@ const Nav = () => {
         <div className="fixed inset-0 bg-[#0e0e0e] z-[999] flex flex-col p-10 space-y-10 text-[#f2ece5] transition-all duration-300">
           <div className="flex justify-between items-start">
             <h1
-              className={`${sted.className} text-5xl tracking-tighter font-extrabold`}
+              className={`${sted.className} flex flex-row text-5xl tracking-tighter font-extrabold`}
             >
-              CMMG.
+              CMMG <span className="text-orange-600">.</span>
             </h1>
             <button
               onClick={() => setMenuOpen(false)}
@@ -126,7 +126,7 @@ const Nav = () => {
           </div>
           <Link
             href={"https://cmmg-library.vercel.app/"}
-            className={`${sted.className} text-center w-full bg-orange-700  font-semibold  py-3 cursor-pointer   hover:text-[#f2ece5]`}
+            className={`${sted.className} text-center w-full bg-orange-700  font-semibold  py-3 cursor-pointer hover:bg-orange-800  hover:text-neutral-100`}
           >
             Production Music Library
           </Link>
