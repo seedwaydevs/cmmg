@@ -141,14 +141,12 @@ const Latest = (props: Props) => {
         <div className="w-[90%] mx-auto h-full py-10 pb-10">
           {/* Header */}
           <div className="text-neutral-200 py-10 flex flex-col justify-center items-center text-center space-y-5">
-            <h1
-              className={`${sted.className} text-4xl lg:text-6xl font-bold  text-neutral-100`}
-            >
+            <h1 className={` text-4xl lg:text-6xl font-bold  text-neutral-100`}>
               Latest Commercial Albums
             </h1>
             <div className="max-w-2xl mx-auto">
               <p
-                className={`${sted.className} text-lg lg:text-xl text-neutral-100 leading-relaxed mb-4`}
+                className={`text-lg lg:text-xl text-neutral-100 leading-relaxed mb-4`}
               >
                 Discover our most recent commercial releases, featuring our
                 exceptional artists and captivating soundscapes that define
@@ -192,13 +190,11 @@ const Latest = (props: Props) => {
                     {/* Overlay Info */}
                     <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
                       <h3
-                        className={`${sted.className} text-white font-bold text-lg lg:text-xl mb-1`}
+                        className={` text-white font-bold text-lg lg:text-xl mb-1`}
                       >
                         {album.title}
                       </h3>
-                      <p
-                        className={`${sted.className} text-gray-300 text-sm lg:text-base`}
-                      >
+                      <p className={` text-gray-300 text-sm lg:text-base`}>
                         {album.artist}
                       </p>
                     </div>
@@ -224,26 +220,24 @@ const Latest = (props: Props) => {
               <div className="mb-6 text-center lg:text-left">
                 <div className="flex flex-col lg:flex-row lg:space-x-4 items-center lg:items-end">
                   <h1
-                    className={`${sted.className} text-2xl lg:text-3xl font-bold mb-2 lg:mb-0 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300`}
+                    className={` text-2xl lg:text-3xl font-bold mb-2 lg:mb-0 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300`}
                   >
                     {selectedAlbum.title}
                   </h1>
                   <h2
-                    className={`${sted.className} text-lg lg:text-xl font-medium text-gray-300 mb-2 lg:mb-0`}
+                    className={` text-lg lg:text-xl font-medium text-gray-300 mb-2 lg:mb-0`}
                   >
                     by {selectedAlbum.artist}
                   </h2>
                 </div>
-                <p className={`${sted.className} text-gray-400 text-base`}>
+                <p className={` text-gray-400 text-base`}>
                   Released {selectedAlbum.releaseDate}
                 </p>
               </div>
 
               {/* Tracklist */}
               <div>
-                <h3
-                  className={`${sted.className} text-xl font-semibold mb-4 text-white`}
-                >
+                <h3 className={`text-xl font-semibold mb-4 text-white`}>
                   Tracklist
                 </h3>
 
@@ -255,18 +249,18 @@ const Latest = (props: Props) => {
                     >
                       <div className="flex items-center gap-4">
                         <span
-                          className={`${sted.className} text-gray-400 font-medium w-8 text-center group-hover:text-white transition-colors text-sm`}
+                          className={`text-gray-400 font-medium w-8 text-center group-hover:text-white transition-colors text-sm`}
                         >
                           {track.id.toString().padStart(2, "0")}
                         </span>
                         <span
-                          className={`${sted.className} text-white font-medium group-hover:text-gray-100 text-sm lg:text-base`}
+                          className={`text-white font-medium group-hover:text-gray-100 text-sm lg:text-base`}
                         >
                           {track.title}
                         </span>
                       </div>
                       <div
-                        className={`${sted.className} text-white font-medium group-hover:text-gray-300 transition-colors text-sm`}
+                        className={`text-white font-medium group-hover:text-gray-300 transition-colors text-sm`}
                       >
                         <ul className="flex space-x-5">
                           {selectedAlbum.links.map((plat) => (
@@ -282,10 +276,8 @@ const Latest = (props: Props) => {
 
                 {/* Album Stats */}
                 <div className="mt-6 pt-4 border-t border-white/10 flex flex-wrap gap-6 text-sm text-gray-400">
-                  <span className={sted.className}>
-                    {selectedAlbum.tracks.length} tracks
-                  </span>
-                  <span className={sted.className}>
+                  <span>{selectedAlbum.tracks.length} tracks</span>
+                  <span>
                     Total duration:{" "}
                     {Math.floor(
                       selectedAlbum.tracks.reduce((acc, track) => {

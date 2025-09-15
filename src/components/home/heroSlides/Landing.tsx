@@ -20,7 +20,7 @@ const Landing = () => {
           <div className="flex justify-end mt-24 sm:mt-34 xl:mt-32">
             <div className="backdrop-blur-sm bg-white/5 px-4 py-2 rounded-lg border border-orange-500">
               <p
-                className={`${hanken.className} text-[14px] uppercase font-bold tracking-widest text-neutral-100`}
+                className={`text-[14px] uppercase font-bold tracking-widest text-neutral-100`}
               >
                 [ Content and Music ]
               </p>
@@ -28,9 +28,9 @@ const Landing = () => {
           </div>
 
           {/* Main Content */}
-          <div className={`${sted.className} space-y-8`}>
+          <div className={` space-y-8`}>
             <p
-              className={`${hanken.className} text-lg md:text-xl font-light max-w-xs md:max-w-lg text-white/80 leading-relaxed`}
+              className={` text-lg md:text-xl font-light max-w-xs md:max-w-lg text-white/80 leading-relaxed`}
             >
               Crafting original music libraries and immersive content for film,
               television, and digital storytelling.
@@ -39,7 +39,7 @@ const Landing = () => {
             {/* Main Logo/Title */}
             <div className="relative">
               <h1
-                className={`${hanken.className} text-8xl md:text-9xl 2xl:text-[10rem] font-black text-white tracking-tight leading-none`}
+                className={` text-8xl md:text-9xl 2xl:text-[10rem] font-black text-white tracking-tight leading-none`}
               >
                 CMMG
                 <span className="text-orange-500">.</span>
@@ -54,7 +54,7 @@ const Landing = () => {
           <div className="flex items-center gap-3 pt-2">
             <div className="backdrop-blur-sm bg-white/5 px-4 py-2 rounded-lg border border-orange-400/20">
               <p
-                className={`${hanken.className} text-[14px] uppercase font-bold tracking-widest text-orange-100`}
+                className={`text-[14px] uppercase font-bold tracking-widest text-orange-100`}
               >
                 [ Media Group ]
               </p>
