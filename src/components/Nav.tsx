@@ -54,7 +54,7 @@ const Nav = () => {
 
         {/* Black nav content */}
         <div className="relative z-50 w-[90%] mx-auto bg-black p-4 my-2 flex flex-row justify-between items-center shadow-md">
-          <div className="h-[6vh]">
+          <div className="h-[6vh] border -my-5">
             <Link className={`${sted.className}`} href={"/"}>
               <Image
                 src={cmmg}
@@ -63,11 +63,11 @@ const Nav = () => {
               />
             </Link>
           </div>
-          <div className="flex items-center space-x-5">
+          <div className="flex flex-row items-center space-x-5">
             <div>
               <Link
                 href={"https://www.library.cmmg.co.za/"}
-                className="hidden md:block text-white font-semibold text-lg hover:text-orange-600"
+                className="hidden md:block text-white font-semibold text-lg hover:text-blue-700 bg-orange-600 py-2 px-3"
               >
                 Production Music Library
               </Link>
@@ -112,21 +112,21 @@ const Nav = () => {
           </div>
           <div className="flex space-x-3">
             <Link href={"/"}>
-              <FaInstagram className="h-8 w-8 hover:bg-gradient-to-b" />
+              <FaInstagram className="h-10 w-10 p-2 hover:bg-gradient-to-b from-pink-600 to-purple-600" />
             </Link>
             <Link href={"/"}>
-              <FaSquareFacebook className="h-8 w-8 hover:text-blue-500" />
+              <FaSquareFacebook className="h-10 w-10 p-2  hover:bg-blue-500" />
             </Link>
             <Link href={"/"}>
-              <FaYoutube className="h-8 w-8 hover:text-red-600" />
+              <FaYoutube className="h-10 w-10 p-2 hover:bg-red-600" />
             </Link>
             <Link href={"/"}>
-              <FaLinkedin className="h-8 w-8 hover:text-blue-600" />
+              <FaLinkedin className="h-10 w-10 p-2 hover:bg-blue-600" />
             </Link>
           </div>
           <Link
             href={"https://cmmg-library.vercel.app/"}
-            className={`${sted.className} text-center w-full border hover:border-orange-700  font-semibold  py-3 cursor-pointer hover:bg-orange-700  hover:text-[#f2ece5]`}
+            className={`${sted.className} text-center w-full bg-orange-700  font-semibold  py-3 cursor-pointer   hover:text-[#f2ece5]`}
           >
             Production Music Library
           </Link>
