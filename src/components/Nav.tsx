@@ -54,7 +54,7 @@ const Nav = () => {
 
         {/* Black nav content */}
         <div className="relative z-50 w-[90%] mx-auto bg-black p-4 my-2 flex flex-row justify-between items-center shadow-md">
-          <div className="h-[6vh] border -my-5">
+          <div className="h-[10vh] -my-5">
             <Link className={`${sted.className}`} href={"/"}>
               <Image
                 src={cmmg}
