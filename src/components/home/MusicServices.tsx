@@ -276,8 +276,6 @@ const MusicServices = () => {
           <hr className="border-white/10 my-8" />
           {/* CTA Section */}
           <div className="p-10 lg:p-16 lg:py-10 bg-orange-600 space-y-6 rounded-lg relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 via-transparent to-orange-700/20" />
-
             <p
               className={`${sted.className} text-4xl md:text-5xl lg:text-6xl tracking-tight font-black leading-tight relative z-10`}
             >
