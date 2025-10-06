@@ -215,7 +215,7 @@ const WhatWeDo = (props: Props) => {
                 <div
                   className={`${sted.className} text-4xl lg:text-5xl font-black text-orange-500`}
                 >
-                  500+
+                  4500+
                 </div>
                 <p className=" text-sm uppercase tracking-wide">
                   Tracks Produced
