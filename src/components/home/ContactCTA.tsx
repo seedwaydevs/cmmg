@@ -121,7 +121,7 @@ const ContactCTA = () => {
 
         {/* Bottom CTA */}
         <div className="text-center mt-8 sm:mt-12 lg:mt-16">
-          <div className="backdrop-blur-sm bg-orange-500 border border-orange-400/20 rounded-lg p-4 sm:p-6 lg:p-8 max-w-4xl mx-auto">
+          <div className="backdrop-blur-sm bg-orange-500 border border-orange-400/20 rounded-lg p-4 sm:p-6 lg:p-8 w-full mx-auto">
             <p
               className={`${sted.className} text-lg sm:text-xl lg:text-2xl xl:text-3xl font-light text-white/80 leading-tight mb-4 sm:mb-6 break-words`}
             >
