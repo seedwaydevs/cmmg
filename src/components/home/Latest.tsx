@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { TiArrowSortedUp } from "react-icons/ti";
 import Link from "next/link";
-import { image2, yandi, landj, njalo } from "@/data";
+import { image2, yandi, landj, njalo, cstaz } from "@/data";
 import { GrAppleMusic } from "react-icons/gr";
 import { BsApple, BsSpotify } from "react-icons/bs";
 import { SiApplemusic, SiYoutubemusic } from "react-icons/si";
@@ -80,7 +80,7 @@ const albumsData = [
     title: "Jesu Msindisi",
     artist: "L & J CSTAZ",
     releaseDate: "Coming Soon",
-    coverImage: landj, // Replace with fourth album cover
+    coverImage: cstaz, // Replace with fourth album cover
     tracks: [
       { id: 1, title: "Heavenly Hour", duration: "5:12" },
       { id: 2, title: "Sacred Praise", duration: "4:38" },
