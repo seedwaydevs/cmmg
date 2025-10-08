@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Volume2, Play, Music } from "lucide-react";
+import Image from "next/image";
+import { servicebg1 } from "@/data";
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -14,12 +16,13 @@ const Hero = () => {
     <section className="relative h-screen overflow-hidden bg-black">
       {/* Background with gradient */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-900 to-black"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+        {/* <div className="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-900 to-black"></div> */}
+        <Image src={servicebg1} alt={""} className="w-full h-full" />
+        <div className="absolute inset-0 bg-gradient-to-t  via-transparent to-transparent"></div>
       </div>
 
       {/* Frosted Glass Overlay */}
-      <div className="absolute inset-0 backdrop-blur-2xl bg-white/10 z-10" />
+      <div className="absolute inset-0 backdrop-blur-lg bg-black/10 z-10" />
 
       {/* Floating Audio Visualizer Elements */}
       <div className="absolute top-20 left-10 w-8 h-8 text-orange-400 animate-bounce opacity-30">
@@ -47,11 +50,13 @@ const Hero = () => {
               }`}
             >
               {/* Badge */}
-              <div className=" inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-8">
-                <div className="w-2 h-2 bg-orange-500 rounded-full mr-2"></div>
-                <span className="text-sm font-medium tracking-wide uppercase">
-                  Services
-                </span>
+              <div className="flex justify-center">
+                <div className=" inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-8">
+                  <div className="w-2 h-2 bg-orange-500 rounded-full mr-2"></div>
+                  <span className="text-sm font-medium tracking-wide uppercase">
+                    Services
+                  </span>
+                </div>
               </div>
 
               <div className="space-y-3  md:max-w-lg lg:max-w-6xl">
