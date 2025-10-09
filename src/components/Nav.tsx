@@ -40,6 +40,10 @@ const Nav = () => {
       link: "/gallery",
     },
     {
+      title: "Blog",
+      link: "/blog",
+    },
+    {
       title: "Contact Us",
       link: "/contact",
     },

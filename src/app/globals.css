@@ -1,6 +1,49 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+
+/* Custom prose styles for MDX */
+.prose {
+  @apply text-neutral-800 dark:text-neutral-200;
+}
+
+.prose p {
+  @apply mb-4 leading-7;
+}
+
+.prose h2 {
+  @apply text-2xl font-semibold mt-8 mb-4 tracking-tight;
+}
+
+.prose h3 {
+  @apply text-xl font-semibold mt-6 mb-3 tracking-tight;
+}
+
+.prose strong {
+  @apply font-semibold text-neutral-900 dark:text-neutral-100;
+}
+
+.prose ul,
+.prose ol {
+  @apply my-4 ml-6;
+}
+
+.prose li {
+  @apply mb-2;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-neutral-300 pl-4 italic my-4;
+}
+
+.prose code {
+  @apply bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded text-sm;
+}
+
+.prose pre {
+  @apply bg-neutral-900 dark:bg-neutral-950 p-4 rounded-lg overflow-x-auto my-4;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
