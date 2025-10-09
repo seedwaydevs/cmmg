@@ -87,24 +87,29 @@ const WhatWeDo = (props: Props) => {
                   <p
                     className={`${sted.className} text-lg  font-light leading-relaxed`}
                   >
-                    From custom compositions to licensable tracks, we craft
-                    soundscapes that bring stories to life. Our catalog is
-                    tailored for film, TV, ads, games, and more.
+                    From recording to final mix, we produce music that captures
+                    emotion and purpose. Whether it&apos;s for artists,
+                    commercials, films, or digital campaigns, our team delivers
+                    professional sound with creative precision.
                   </p>
 
                   {/* Feature list */}
                   <div className="space-y-2 text-md">
                     <div className="flex items-center">
                       <span className="text-orange-500 mr-2">•</span>
-                      Original compositions
+                      Songwriting and composition
                     </div>
                     <div className="flex items-center">
                       <span className="text-orange-500 mr-2">•</span>
-                      Licensable track library
+                      Mixing and mastering
                     </div>
                     <div className="flex items-center">
                       <span className="text-orange-500 mr-2">•</span>
-                      Multi-genre expertise
+                      Sound design and scoring
+                    </div>
+                    <div className="flex items-center">
+                      <span className="text-orange-500 mr-2">•</span>
+                      Production Music Library
                     </div>
                   </div>
                 </div>
@@ -136,24 +141,29 @@ const WhatWeDo = (props: Props) => {
                   <p
                     className={`${sted.className} text-lg  font-light leading-relaxed`}
                   >
-                    We help develop powerful visual narratives through music
-                    supervision, licensing strategy, and creative
-                    consulting—bridging audio with vision.
+                    We create compelling visual and audio content that connects
+                    with audiences across industries. From corporate
+                    communication to brand storytelling, our team manages every
+                    stage of production—from concept to final edit.
                   </p>
 
                   {/* Feature list */}
                   <div className="space-y-2 text-md">
                     <div className="flex items-center ">
                       <span className="text-orange-500 mr-2">•</span>
-                      Music supervision
+                      Training & induction videos
                     </div>
                     <div className="flex items-center">
                       <span className="text-orange-500 mr-2">•</span>
-                      Licensing strategy
+                      Corporate and promotional videos
                     </div>
                     <div className="flex items-center  ">
                       <span className="text-orange-500 mr-2">•</span>
-                      Creative consulting
+                      Radio & TV commercials
+                    </div>
+                    <div className="flex items-center  ">
+                      <span className="text-orange-500 mr-2">•</span>
+                      Voice-over production
                     </div>
                   </div>
                 </div>
@@ -185,9 +195,11 @@ const WhatWeDo = (props: Props) => {
                   <p
                     className={`${sted.className} text-lg  font-light leading-relaxed`}
                   >
-                    Rent our professional-grade studios for music production,
-                    content creation, live sessions, podcasting, or video
-                    shoots—fully equipped and ready for your next project.
+                    Our state-of-the-art studios are available for hire,
+                    offering an ideal space for music recording, voice-overs,
+                    podcast production, or video shoots. Each room is
+                    acoustically treated and supported by professional engineers
+                    on request.
                   </p>
 
                   {/* Feature list */}
@@ -202,7 +214,7 @@ const WhatWeDo = (props: Props) => {
                     </div>
                     <div className="flex items-center ">
                       <span className="text-orange-500 mr-2">•</span>
-                      Technical support
+                      On-site technical assistance
                     </div>
                   </div>
                 </div>

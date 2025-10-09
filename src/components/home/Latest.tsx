@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { TiArrowSortedUp } from "react-icons/ti";
 import Link from "next/link";
-import { image2, yandi, landj, njalo, cstaz } from "@/data";
+import { image2, yandi, landj, njalo, cstaz, tms } from "@/data";
 import { GrAppleMusic } from "react-icons/gr";
 import { BsApple, BsSpotify } from "react-icons/bs";
 import { SiApplemusic, SiYoutubemusic } from "react-icons/si";
@@ -21,22 +21,6 @@ const sted = Schibsted_Grotesk({
 const albumsData = [
   {
     id: 1,
-    title: "Live Culture",
-    artist: "Abe Sibiya",
-    releaseDate: "Coming Soon",
-    coverImage: image2, // Replace with your album cover path
-    tracks: [
-      { id: 1, title: "Celestial Nights", duration: "3:42" },
-      { id: 2, title: "Whispers in the Dark", duration: "4:15" },
-      { id: 3, title: "Neon Dreams", duration: "3:28" },
-      { id: 4, title: "Starlight Serenade", duration: "4:52" },
-      { id: 5, title: "Electric Hearts", duration: "3:36" },
-      { id: 6, title: "Moonbeam Dance", duration: "4:08" },
-    ],
-    links: [],
-  },
-  {
-    id: 2,
     title: "Njalo",
     artist: "YandiSibi",
     releaseDate: "September 12, 2025",
@@ -76,19 +60,43 @@ const albumsData = [
     ],
   },
   {
-    id: 4,
+    id: 2,
     title: "Jesu Msindisi",
     artist: "L & J CSTAZ",
     releaseDate: "Coming Soon",
     coverImage: cstaz, // Replace with fourth album cover
     tracks: [
-      { id: 1, title: "Heavenly Hour", duration: "5:12" },
-      { id: 2, title: "Sacred Praise", duration: "4:38" },
-      { id: 3, title: "In His Presence", duration: "4:55" },
-      { id: 4, title: "Spirit Wind", duration: "3:47" },
-      { id: 5, title: "Glory Train", duration: "4:22" },
-      { id: 6, title: "Morning Mercy", duration: "4:03" },
+      { id: 1, title: "Bless The Lord", duration: "03:46" },
+      { id: 2, title: "Jesu Msindisi", duration: "04:10" },
+      { id: 3, title: "Kungokwami Ukuthula", duration: "02:34" },
+      { id: 4, title: "Ngitsheliwe", duration: "03:54" },
+      { id: 5, title: "Uyalalelwa Umoya", duration: "03:00" },
     ],
+  },
+  {
+    id: 3,
+    title: "Live Culture",
+    artist: "Abe Sibiya",
+    releaseDate: "Coming Soon",
+    coverImage: image2, // Replace with your album cover path
+    tracks: [
+      { id: 1, title: "Celestial Nights", duration: "3:42" },
+      { id: 2, title: "Whispers in the Dark", duration: "4:15" },
+      { id: 3, title: "Neon Dreams", duration: "3:28" },
+      { id: 4, title: "Starlight Serenade", duration: "4:52" },
+      { id: 5, title: "Electric Hearts", duration: "3:36" },
+      { id: 6, title: "Moonbeam Dance", duration: "4:08" },
+    ],
+    links: [],
+  },
+  {
+    id: 4,
+    title: "The Morning Service",
+    artist: "Abe Sibiya",
+    releaseDate: "Coming Soon",
+    coverImage: tms, // Replace with your album cover path
+    tracks: [{ id: 1, title: "The Morning Service", duration: "3:42" }],
+    links: [],
   },
 ];
 
@@ -122,10 +130,10 @@ const Latest = (props: Props) => {
 
       {/* Content */}
       <div className="relative z-10 w-full h-full">
-        <div className="w-[90%] mx-auto h-full py-5 pb-5">
+        <div className="w-[90%] mx-auto h-full py-10 pb-5">
           {/* Header */}
-          <div className="text-neutral-200 py-5 flex flex-col justify-center items-center text-center space-y-5">
-            <h1 className={`text-4xl lg:text-5xl font-bold  text-neutral-100`}>
+          <div className="text-neutral-200 py-10 flex flex-col justify-center items-center text-center space-y-5">
+            <h1 className={`text-4xl lg:text-6xl font-bold  text-neutral-100`}>
               Latest Commercial Albums
             </h1>
             <div className="max-w-2xl mx-auto">
@@ -146,7 +154,7 @@ const Latest = (props: Props) => {
 
           {/* Album Grid */}
           <div className="flex justify-center mb-12">
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-8">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-8">
               {albumsData.map((album, index) => (
                 <button
                   key={album.id}
@@ -165,9 +173,9 @@ const Latest = (props: Props) => {
                     <Image
                       src={album.coverImage}
                       alt={album.title}
-                      width={300}
-                      height={600}
-                      className="w-full h-64 lg:h-100 object-cover transition-transform duration-300 group-hover:scale-105"
+                      width={200}
+                      height={400}
+                      className="w-full h-64 lg:h-72 object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
 

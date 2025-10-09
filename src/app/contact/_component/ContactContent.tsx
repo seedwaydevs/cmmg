@@ -43,7 +43,7 @@ const ContactContent = () => {
       label: "Sound Production",
       icon: Headphones,
     },
-    { value: "green-screen", label: "Green Screen Studio", icon: Camera },
+    // { value: "green-screen", label: "Green Screen Studio", icon: Camera },
   ];
 
   const enquiryTypes = [
@@ -138,7 +138,7 @@ const ContactContent = () => {
                   <label className="block text-neutral-900 font-semibold mb-4 text-lg">
                     Select Service
                   </label>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {bookingServices.map((service) => {
                       const IconComponent = service.icon;
                       return (

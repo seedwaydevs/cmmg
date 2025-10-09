@@ -28,8 +28,8 @@ const services = [
   },
   {
     icon: Camera,
-    title: "Professional Shoots",
-    description: "On-location and in-studio shoots",
+    title: "Coporate Videos",
+    description: "Training and Induction Videos",
   },
   {
     icon: Video,
@@ -38,8 +38,8 @@ const services = [
   },
   {
     icon: Film,
-    title: "Multi-Cam Setup",
-    description: "Multi-cam setup and lighting",
+    title: "TV Commercials",
+    description: "Full commercial crew with sound and score produciton",
   },
   {
     icon: Palette,
@@ -110,7 +110,7 @@ const ServiceVideoProduction = () => {
               </div>
 
               {/* Background decoration */}
-              <div className="absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-br from-red-200 to-orange-200 rounded-2xl opacity-20 -z-10"></div>
+              <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-gradient-to-br from-red-200 to-orange-200 rounded-2xl opacity-20 -z-10"></div>
               <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br from-orange-200 to-pink-200 rounded-full opacity-15 -z-10"></div>
             </div>
           </div>
@@ -188,45 +188,6 @@ const ServiceVideoProduction = () => {
                 Start Your Project
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
-            </div>
-
-            {/* Production Stats */}
-            <div className="flex items-center gap-8 pt-4">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900">4K</div>
-                <div className="text-sm text-gray-600">Resolution</div>
-              </div>
-              <div className="w-px h-12 bg-gray-200"></div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900">Multi</div>
-                <div className="text-sm text-gray-600">Camera</div>
-              </div>
-              <div className="w-px h-12 bg-gray-200"></div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900">Full</div>
-                <div className="text-sm text-gray-600">Service</div>
-              </div>
-            </div>
-
-            {/* Production Process Indicator */}
-            <div className="bg-gradient-to-r from-red-50 to-orange-50 p-6 rounded-xl border border-red-100">
-              <h4 className="font-semibold text-gray-900 mb-3">Our Process</h4>
-              <div className="flex items-center justify-between text-sm">
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                  <span className="text-gray-600">Concept</span>
-                </div>
-                <div className="flex-1 h-px bg-gray-300 mx-2"></div>
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-red-400 rounded-full"></div>
-                  <span className="text-gray-600">Production</span>
-                </div>
-                <div className="flex-1 h-px bg-gray-300 mx-2"></div>
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
-                  <span className="text-gray-600">Delivery</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>

@@ -48,9 +48,15 @@ import stu5 from "../public/studio/IMG_1079.jpg";
 import stu6 from "../public/studio/IMG_1094.jpg";
 import stu7 from "../public/studio/IMG_1093.jpg";
 import stu8 from "../public/studio/IMG_1094.jpg";
-import cstaz from '../public/jsm001.jpeg'
+import cstaz from "../public/jsm001.jpeg";
+import tms from "../public/tms001.png";
+import servicebg1 from "../public/ServicesBg1.jpeg";
+import servicebg2 from "../public/ServicesBg2.jpeg";
 
 export {
+  servicebg1,
+  servicebg2,
+  tms,
   cstaz,
   stu1,
   stu2,

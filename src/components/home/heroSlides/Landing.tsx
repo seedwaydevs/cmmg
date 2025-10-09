@@ -18,25 +18,25 @@ const Landing = () => {
       icon: Music,
       title: "Library Music",
       description: "Browse our collection",
-      href: "#library",
+      href: "https://www.library.cmmg.co.za",
     },
     {
       icon: Mic2,
       title: "Commercial Music",
       description: "Custom tracks",
-      href: "#commercial",
+      href: "/commercial",
     },
     {
       icon: Calendar,
       title: "Book Studio",
       description: "Reserve your session",
-      href: "#booking",
+      href: "/contact",
     },
     {
       icon: Camera,
       title: "Content",
       description: "Social media & gallery",
-      href: "#content",
+      href: "/gallery",
     },
   ];
 

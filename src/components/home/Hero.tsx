@@ -52,7 +52,7 @@ const Hero = (props: Props) => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 1200000);
+    }, 8000);
 
     return () => clearInterval(timer);
   }, [slides.length]);
