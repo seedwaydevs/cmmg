@@ -124,84 +124,91 @@ const Latest = (props: Props) => {
           </>
         )}
         {!selectedAlbum && (
-          <div className="absolute inset-0 bg-gradient-to-b from-orange-600 via-orange-400 to-neutral-200"></div>
+          <>
+            <div className="absolute inset-0 blur-md bg-[#bdb4a5]"></div>
+            <div className="absolute inset-0 bg-black/10"></div>
+          </>
         )}
       </div>
 
       {/* Content */}
       <div className="relative z-10 w-full h-full">
-        <div className="w-[90%] mx-auto h-full py-10 pb-5">
-          {/* Header */}
-          <div className="text-neutral-200 py-10 flex flex-col justify-center items-center text-center space-y-5">
-            <h1 className={`text-4xl lg:text-6xl font-bold  text-neutral-100`}>
-              Latest Commercial Albums
-            </h1>
-            <div className="max-w-2xl mx-auto">
-              <p
-                className={`text-md lg:text-lg text-neutral-100 leading-relaxed mb-4`}
+        <div className="w-[90%] mx-auto h-full py-14">
+          <div className="flex flex-col xl:flex-row items-center justify-center gap-5 mb-8 px-10">
+            {/* Header */}
+            <div className=" text-neutral-200 py-10 flex flex-col md:items-center md:text-center xl:items-start xl:text-start justify-center space-y-5">
+              <h1
+                className={`text-4xl lg:text-6xl lg:max-w-2xl font-bold  text-neutral-100 `}
               >
-                Discover our most recent commercial releases, featuring our
-                exceptional artists and captivating soundscapes that define
-                contemporary music.
-              </p>
-            </div>
-            <div>
-              <p className="capitalize font-semibold text-neutral-100 hover:text-white hover:bg-neutral-800 px-3 py-2 rounded-xl cursor-pointer">
-                [ choose a cover ]
-              </p>
-            </div>
-          </div>
-
-          {/* Album Grid */}
-          <div className="flex justify-center mb-12">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-8">
-              {albumsData.map((album, index) => (
-                <button
-                  key={album.id}
-                  onClick={() =>
-                    setSelectedAlbumIndex(
-                      selectedAlbumIndex === index ? null : index
-                    )
-                  }
-                  className={`relative group transition-all duration-300 ${
-                    selectedAlbumIndex === index
-                      ? "scale-105 ring-2 ring-orange-600 rounded-2xl"
-                      : "hover:scale-102 hover:shadow-2xl"
-                  }`}
+                Latest Commercial Albums
+              </h1>
+              <div className="max-w-2xl md:text-center xl:text-start">
+                <p
+                  className={`text-md lg:text-lg lg:max-w-xl text-neutral-100 leading-relaxed mb-4`}
                 >
-                  <div className="relative overflow-hidden rounded-2xl">
-                    <Image
-                      src={album.coverImage}
-                      alt={album.title}
-                      width={200}
-                      height={400}
-                      className="w-full h-64 lg:h-72 object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+                  Discover our most recent commercial releases, featuring our
+                  exceptional artists and captivating soundscapes that define
+                  contemporary music.
+                </p>
+              </div>
+              <div>
+                <p className="capitalize font-semibold text-neutral-100 hover:text-white hover:bg-neutral-800 px-3 py-2 rounded-xl cursor-pointer">
+                  [ choose a cover ]
+                </p>
+              </div>
+            </div>
 
-                    {/* Overlay Info */}
-                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-                      <h3
-                        className={` text-white font-bold text-lg lg:text-xl mb-1`}
-                      >
-                        {album.title}
-                      </h3>
-                      <p className={` text-gray-300 text-sm lg:text-base`}>
-                        {album.artist}
-                      </p>
-                    </div>
+            {/* Album Grid */}
+            <div className="flex justify-center">
+              <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-2  gap-6">
+                {albumsData.map((album, index) => (
+                  <button
+                    key={album.id}
+                    onClick={() =>
+                      setSelectedAlbumIndex(
+                        selectedAlbumIndex === index ? null : index
+                      )
+                    }
+                    className={`relative group transition-all duration-300 ${
+                      selectedAlbumIndex === index
+                        ? "scale-105 ring-2 ring-orange-600 rounded-2xl"
+                        : "hover:scale-102 hover:shadow-2xl"
+                    }`}
+                  >
+                    <div className="relative overflow-hidden rounded-2xl">
+                      <Image
+                        src={album.coverImage}
+                        alt={album.title}
+                        width={200}
+                        height={400}
+                        className="w-full h-64 lg:h-72 object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
 
-                    {/* Selected Indicator */}
-                    {selectedAlbumIndex === index && (
-                      <div className="absolute top-4 right-4">
-                        <div className="bg-orange-600 rounded-full p-2">
-                          <TiArrowSortedUp className="text-white w-4 h-4 rotate-180" />
-                        </div>
+                      {/* Overlay Info */}
+                      <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                        <h3
+                          className={` text-white font-bold text-lg lg:text-xl mb-1`}
+                        >
+                          {album.title}
+                        </h3>
+                        <p className={` text-gray-300 text-sm lg:text-base`}>
+                          {album.artist}
+                        </p>
                       </div>
-                    )}
-                  </div>
-                </button>
-              ))}
+
+                      {/* Selected Indicator */}
+                      {selectedAlbumIndex === index && (
+                        <div className="absolute top-4 right-4">
+                          <div className="bg-orange-600 rounded-full p-2">
+                            <TiArrowSortedUp className="text-white w-4 h-4 rotate-180" />
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 

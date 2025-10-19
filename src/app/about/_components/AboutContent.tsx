@@ -10,6 +10,8 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import prod from "../../../../public/prodco.jpg";
+import MissionVisionTiles from "./MissionVisionTiles";
+import { title } from "process";
 
 type Props = {};
 
@@ -77,6 +79,23 @@ const AboutContent = (props: Props) => {
     { number: "20+", label: "Employees" },
     { number: "120+", label: "Projects" },
     { number: "5+", label: "Years Experience" },
+  ];
+
+  const missionvision = [
+    {
+      id: 1,
+      heading1: "Our",
+      heading2: "Vision",
+      paragraph:
+        "Our vision is to redefine media production by empowering brands, creators, and storytellers through immersive visual and audio experiences — where innovation meets authenticity, and every story leaves a lasting impact.",
+    },
+    {
+      id: 2,
+      heading1: "Our",
+      heading2: "Mission",
+      paragraph:
+        "We exist to empower brands, creators, and storytellers by delivering compelling visual and audio content. Our goal is to set a new standard in media production by merging innovation with authenticity.",
+    },
   ];
 
   return (
@@ -210,39 +229,14 @@ const AboutContent = (props: Props) => {
             </div>
 
             <div className="grid lg:grid-cols-2 gap-16">
-              <div className="group">
-                <div className="relative">
-                  <div className="absolute inset-0 backdrop-blur-2xl bg-black/0 shadow-2xl shadow-orange-600 rounded-2xl border border-black/10 group-hover:bg-white/10 transition-all duration-500"></div>
-                  <div className="relative p-10">
-                    <h2 className="text-5xl lg:text-6xl font-black text-neutral-900 mb-8 leading-none">
-                      Our <span className="text-orange-500">Vision</span>.
-                    </h2>
-                    <p className="text-lg text-neutral-800 leading-relaxed">
-                      Our vision is to redefine media production by empowering
-                      brands, creators, and storytellers through immersive
-                      visual and audio experiences — where innovation meets
-                      authenticity, and every story leaves a lasting impact.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="group">
-                <div className="relative">
-                  <div className="absolute inset-0 backdrop-blur-2xl bg-black/0 shadow-2xl shadow-orange-600 rounded-2xl border border-black/10 group-hover:bg-white/10 transition-all duration-500"></div>
-                  <div className="relative p-10">
-                    <h2 className="text-5xl lg:text-6xl font-black text-neutral-800 mb-8 leading-none">
-                      Our <span className="text-orange-500">Mission</span>.
-                    </h2>
-                    <p className="text-lg text-neutral-900 leading-relaxed">
-                      We exist to empower brands, creators, and storytellers by
-                      delivering compelling visual and audio content. Our goal
-                      is to set a new standard in media production by merging
-                      innovation with authenticity.
-                    </p>
-                  </div>
-                </div>
-              </div>
+              {missionvision.map((tile) => (
+                <MissionVisionTiles
+                  key={tile.id}
+                  heading1={tile.heading1}
+                  heading2={tile.heading2}
+                  paragraph={tile.paragraph}
+                />
+              ))}
             </div>
           </div>
         </div>
@@ -250,7 +244,7 @@ const AboutContent = (props: Props) => {
 
       {/* Why Choose Us */}
       <section id="services" className="relative py-32">
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-800 to-black"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-gray-800 to-black"></div>
         <div className="relative z-10 w-[90%] lg:w-[80%] mx-auto">
           <div
             className={`transform transition-all duration-1000 ${
@@ -261,7 +255,7 @@ const AboutContent = (props: Props) => {
           >
             <div className="flex items-center mb-16">
               <div className="w-2 h-2 bg-orange-500 rounded-full mr-4"></div>
-              <span className="text-sm uppercase tracking-widest text-gray-400 font-semibold">
+              <span className="text-sm uppercase tracking-widest text-gray-200 font-semibold">
                 Why choose us
               </span>
             </div>
@@ -298,7 +292,7 @@ const AboutContent = (props: Props) => {
                     <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-orange-500 transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-gray-300 leading-relaxed">
+                    <p className="text-gray-300 leading-snug">
                       {service.description}
                     </p>
                     <ChevronRight className="w-6 h-6 text-orange-500 mt-4 transform group-hover:translate-x-2 transition-transform" />

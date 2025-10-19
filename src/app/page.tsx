@@ -1,7 +1,6 @@
-"use client";
 
-import { useEffect, useState } from "react";
-import Link from "next/link";
+
+
 import ContactCTA from "@/components/home/ContactCTA";
 import Explore from "@/components/home/Explore";
 import Hero from "@/components/home/Hero";
@@ -15,8 +14,8 @@ export default function Home() {
     <div>
       <Hero />
       <TrustCarousel />
-      <Explore />
       <Latest />
+      <Explore />
       <MusicServices />
       <WhatWeDo />
       <ContactCTA />
