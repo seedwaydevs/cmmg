@@ -35,6 +35,56 @@ import { FaDeezer } from "react-icons/fa6";
 import { Schibsted_Grotesk } from "next/font/google";
 
 type Props = {};
+
+// Featured albums array - ready for 3 more entries
+const featuredAlbums = [
+  {
+    title: "Njalo",
+    artist: "YandiSibi",
+    image: njalo,
+    releaseDate: "2025",
+    description:
+      "Yandi finally drops her highly anticipated single, Njalo! With an electrifying performance that's guaranteed to get you on your feet, she's bringing pure energy and vibes.",
+    tracks: [{ title: "Njalo", duration: "4:21" }],
+    links: [
+      {
+        id: 1,
+        name: "Spotify",
+        icon: <BsSpotify className="w-5 h-5 text-neutral-100" />,
+        link: "https://open.spotify.com/album/5h2VjDhjhrJMHkZFvAf8QM?si=rSxSoLsbQXOH3jaE7PWp_w",
+      },
+      {
+        id: 2,
+        name: "Apple Music",
+        icon: <SiApplemusic className="w-5 h-5 text-neutral-100" />,
+        link: "https://music.apple.com/za/album/njalo/1837463602?i=1837463617",
+      },
+      {
+        id: 3,
+        name: "Deezer",
+        icon: <FaDeezer className="w-5 h-5 text-neutral-100" />,
+        link: "https://link.deezer.com/s/312O7qMbJFBNYJWDTRZtD",
+      },
+      {
+        id: 4,
+        name: "YouTube Music",
+        icon: <SiYoutubemusic className="w-5 h-5 text-neutral-100" />,
+        link: "https://music.youtube.com/watch?v=VbaR7iUSnVg&si=kd8KAW6WabhEfqiq",
+      },
+    ],
+  },
+  // Add 3 more albums here tomorrow with the same structure
+  // {
+  //   title: "Album Title 2",
+  //   artist: "Artist Name",
+  //   image: imageVariable,
+  //   releaseDate: "2025",
+  //   description: "Album description...",
+  //   tracks: [{ title: "Track name", duration: "3:45" }],
+  //   links: [...],
+  // },
+];
+
 // Mock data for albums
 const latestAlbums = [
   {
@@ -66,121 +116,6 @@ const latestAlbums = [
     title: "Lost Highway",
     image: image6,
     artist: "Amanda Brown",
-  },
-];
-
-// Mock data for latest tracks
-const latestTracks = [
-  {
-    id: 1,
-    title: "Njalo",
-    artist: "Yandi Sibi",
-    duration: "3:24",
-    genre: "Amapiano",
-    image: yandi,
-  },
-  {
-    id: 2,
-    title: "Midnight Drive",
-    artist: "The Velvet Collective",
-    duration: "4:12",
-    genre: "Indie Rock",
-    image: image8,
-  },
-  {
-    id: 3,
-    title: "Golden Hour",
-    artist: "Luna Sol",
-    duration: "3:56",
-    genre: "Pop",
-    image: image9,
-  },
-  {
-    id: 4,
-    title: "Urban Jungle",
-    artist: "Street Symphony",
-    duration: "2:48",
-    genre: "Hip Hop",
-    image: image10,
-  },
-  {
-    id: 5,
-    title: "Ocean Waves",
-    artist: "Coastal Breeze",
-    duration: "5:32",
-    genre: "Ambient",
-    image: image11,
-  },
-];
-
-// Featured album data
-const featuredAlbum = {
-  title: "Njalo",
-  artist: "YandiSibi",
-  image: njalo,
-  releaseDate: "2024",
-  description:
-    "Yandi finally drops her highly anticipated single, Njalo! With an electrifying performance that’s guaranteed to get you on your feet, she’s bringing pure energy and vibes.",
-  tracks: [{ title: "Njalo", duration: "4:21" }],
-  links: [
-    {
-      id: 1,
-      name: "Spotify",
-      icon: <BsSpotify className="w-5 h-5 text-neutral-100" />,
-      link: "https://open.spotify.com/album/5h2VjDhjhrJMHkZFvAf8QM?si=rSxSoLsbQXOH3jaE7PWp_w",
-    },
-    {
-      id: 2,
-      name: "Apple Music",
-      icon: <SiApplemusic className="w-5 h-5 text-neutral-100" />,
-      link: "https://music.apple.com/za/album/njalo/1837463602?i=1837463617",
-    },
-    {
-      id: 3,
-      name: "Deezer",
-      icon: <FaDeezer className="w-5 h-5 text-neutral-100" />,
-      link: "https://link.deezer.com/s/312O7qMbJFBNYJWDTRZtD",
-    },
-    {
-      id: 4,
-      name: "YouTube Music",
-      icon: <SiYoutubemusic className="w-5 h-5 text-neutral-100" />,
-      link: "https://music.youtube.com/watch?v=VbaR7iUSnVg&si=kd8KAW6WabhEfqiq",
-    },
-  ],
-};
-
-// Genres/Moods data
-const genresMoods = [
-  {
-    name: "Chill Vibes",
-    image: bg,
-    color: "from-orange-400 to-orange-600",
-  },
-  {
-    name: "Electronic",
-    image: bg,
-    color: "from-black to-gray-800",
-  },
-  {
-    name: "Indie Rock",
-    image: bg,
-    color: "from-orange-500 to-red-600",
-  },
-  {
-    name: "Hip Hop",
-    image: bg,
-    color: "from-gray-900 to-black",
-  },
-  {
-    name: "Jazz Fusion",
-    image: bg,
-    color: "from-orange-300 to-yellow-500",
-  },
-  {
-    name: "Ambient",
-    image: bg,
-    color: "from-gray-600 to-gray-900",
   },
 ];
 
@@ -412,233 +347,184 @@ const CommercialContent = (props: Props) => {
         </div>
       </section>
 
-      {/* Latest Tracks Section */}
-      {/* <section className="py-16 bg-white">
+      {/* Featured Albums Section - Enhanced Layout */}
+      <section className="py-24 bg-gradient-to-b from-black to-gray-900 text-white">
         <div className="w-[90%] lg:w-[80%] mx-auto">
-          <div className="flex justify-between items-center mb-8">
-            <h2 className="text-3xl font-bold text-black">Latest Tracks</h2>
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center px-4 py-2 bg-orange-500/10 backdrop-blur-sm rounded-full border border-orange-500/20 mb-6">
+              <div className="w-2 h-2 bg-orange-500 rounded-full mr-2"></div>
+              <span className="text-sm font-medium tracking-wide text-orange-400">
+                FEATURED RELEASES
+              </span>
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+              Latest Albums
+            </h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              Explore our newest releases from talented artists
+            </p>
           </div>
 
-          <div className="space-y-4">
-            {latestTracks.map((track, index) => (
+          {/* Albums Grid */}
+          <div className="space-y-24">
+            {featuredAlbums.map((album, index) => (
               <div
-                key={track.id}
-                className="flex flex-row items-center gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors group"
+                key={index}
+                className={`grid lg:grid-cols-2 gap-12 items-start ${
+                  index % 2 === 1 ? "lg:grid-flow-dense" : ""
+                }`}
               >
-                <div className="w-16 h-16 bg-gray-200 rounded-lg border flex items-center justify-center relative overflow-hidden">
-                  <Image
-                    src={track.image}
-                    alt={track.title}
-                    width={64}
-                    height={64}
-                    className="w-full h-full border object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                    <Play className="text-white w-6 h-6" />
+                {/* Album Art */}
+                <div
+                  className={`space-y-6 ${
+                    index % 2 === 1 ? "lg:col-start-2" : ""
+                  }`}
+                >
+                  <div className="relative w-full max-w-md mx-auto lg:mx-0 group">
+                    <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl">
+                      <Image
+                        src={album.image}
+                        alt={album.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                      {/* Play Button Overlay */}
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <button className="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center shadow-2xl hover:bg-orange-400 transition-all transform hover:scale-110">
+                          <Play
+                            className="w-10 h-10 text-white ml-1"
+                            fill="white"
+                          />
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Decorative Elements */}
+                    <div className="absolute -z-10 -inset-4 bg-gradient-to-br from-orange-500/20 to-transparent rounded-3xl blur-2xl" />
                   </div>
                 </div>
 
-                <div className="flex-1">
-                  <h3 className="font-semibold text-black">{track.title}</h3>
-                  <p className="text-gray-600 text-sm">{track.artist}</p>
-                </div>
+                {/* Album Info and Tracks */}
+                <div
+                  className={`space-y-8 ${
+                    index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""
+                  }`}
+                >
+                  {/* Album Details */}
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3 text-sm text-gray-400">
+                      <span className="uppercase tracking-wider">
+                        {album.releaseDate}
+                      </span>
+                      <span>•</span>
+                      <span>
+                        {album.tracks.length} Track
+                        {album.tracks.length > 1 ? "s" : ""}
+                      </span>
+                    </div>
 
-                <div className="text-sm text-gray-500">{track.genre}</div>
+                    <h3 className="text-4xl lg:text-5xl font-bold leading-tight">
+                      {album.title}
+                    </h3>
 
-                <div className="text-sm text-gray-500 w-12 text-right">
-                  {track.duration}
-                </div>
-                
-                <div className="hidden md:flex gap-2 ">
-                  <Button
-                    size="sm"
-                    className="bg-transparent text-neutral-500 hover:text-orange-500 p-1"
-                  >
-                    <Heart className="w-4 h-4" />
-                  </Button>
-                  <Button
-                    size="sm"
-                    className="bg-transparent text-gray-600 hover:text-orange-500 p-1"
-                  >
-                    <Share2 className="w-4 h-4" />
-                  </Button>
-                  <Button
-                    size="sm"
-                    className="bg-transparent text-gray-600 hover:text-orange-500 p-1"
-                  >
-                    <Download className="w-4 h-4" />
-                  </Button>
+                    <p className="text-2xl text-orange-400 font-semibold">
+                      {album.artist}
+                    </p>
+
+                    <p className="text-gray-300 text-lg leading-relaxed">
+                      {album.description}
+                    </p>
+                  </div>
+
+                  {/* Action Button */}
+                  <div>
+                    <Button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-orange-500/25 transform hover:-translate-y-0.5">
+                      <Play className="w-5 h-5 mr-2" />
+                      Stream Album
+                    </Button>
+                  </div>
+
+                  {/* Track List */}
+                  <div className="space-y-4 pt-4">
+                    <h4 className="text-xl font-semibold text-gray-300 uppercase tracking-wide">
+                      Track List
+                    </h4>
+
+                    <div className="space-y-3">
+                      {album.tracks.map((track, trackIndex) => (
+                        <div
+                          key={trackIndex}
+                          className="group flex items-center justify-between p-4 rounded-xl hover:bg-white/5 transition-all duration-300 cursor-pointer border border-transparent hover:border-white/10"
+                        >
+                          <div className="flex items-center gap-4">
+                            <span className="text-gray-500 font-medium w-8 text-center group-hover:text-orange-400 transition-colors">
+                              {trackIndex + 1}
+                            </span>
+                            <div>
+                              <p className="font-semibold text-lg group-hover:text-orange-400 transition-colors">
+                                {track.title}
+                              </p>
+                              <p className="text-sm text-gray-500">
+                                {track.duration}
+                              </p>
+                            </div>
+                          </div>
+
+                          {/* Platform Links */}
+                          <div className={`${sted.className}`}>
+                            <ul className="flex items-center gap-4">
+                              {album.links.map((platform) => (
+                                <li key={platform.id}>
+                                  <Link
+                                    href={platform.link}
+                                    className="opacity-60 hover:opacity-100 transition-all duration-300 hover:scale-110 transform inline-block"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    {platform.icon}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Platform Links Section */}
+                  <div className="pt-6 border-t border-white/10">
+                    <p className="text-sm text-gray-400 mb-4 uppercase tracking-wide">
+                      Available on
+                    </p>
+                    <div className="flex flex-wrap gap-3">
+                      {album.links.map((platform) => (
+                        <Link
+                          key={platform.id}
+                          href={platform.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-5 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg transition-all duration-300 hover:border-orange-500/50 group"
+                        >
+                          <span className="group-hover:scale-110 transition-transform">
+                            {platform.icon}
+                          </span>
+                          <span className="text-sm font-medium">
+                            {platform.name}
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
-      </section> */}
-
-      {/* Featured Album Section */}
-      <section className="py-16 bg-black text-white">
-        <div className="w-[90%] lg:w-[80%] mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Album Art and Info */}
-            <div className="space-y-6">
-              <div className="w-full max-w-md mx-auto lg:mx-0">
-                <Image
-                  src={featuredAlbum.image}
-                  alt={featuredAlbum.title}
-                  width={400}
-                  height={400}
-                  className="w-full aspect-square object-cover rounded-lg"
-                />
-              </div>
-
-              <div className="text-center lg:text-left">
-                <h2 className="text-4xl font-bold mb-2">
-                  {featuredAlbum.title}
-                </h2>
-                <p className="text-xl text-orange-400 mb-2">
-                  {featuredAlbum.artist}
-                </p>
-                <p className="text-gray-300 mb-6">
-                  {featuredAlbum.description}
-                </p>
-
-                <div className="flex gap-4 justify-center lg:justify-start">
-                  <Button
-                    variant="link"
-                    className="bg-orange-500 hover:bg-orange-600 text-white"
-                  >
-                    <Play className="w-4 h-4 mr-2" />
-                    Stream Album
-                  </Button>
-                </div>
-              </div>
-            </div>
-
-            {/* Track List */}
-            <div className="space-y-4">
-              <h3 className="text-2xl font-semibold mb-6">Track List</h3>
-              <div className="space-y-2">
-                {featuredAlbum.tracks.map((track, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center justify-between p-3 rounded hover:bg-gray-800 transition-colors group cursor-pointer"
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className="text-gray-400 text-sm w-6">
-                        {index + 1}
-                      </span>
-                      <div>
-                        <p className="font-medium">{track.title}</p>
-                      </div>
-                    </div>
-                    <div className="flex justify-end items-center">
-                      <div
-                        className={`${sted.className}  text-white font-medium group-hover:text-gray-300 transition-colors text-sm`}
-                      >
-                        <ul className="flex flex-row justify-between space-x-5">
-                          {featuredAlbum.links.map((plat) => (
-                            <li key={plat.id}>
-                              <Link href={plat.link}>{plat.icon}</Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
-
-      {/* Genres/Moods Carousel */}
-      {/* <section className="py-16 bg-gray-50">
-        <div className="w-[90%] lg:w-[80%] mx-auto">
-          <div className="flex justify-between items-center mb-8">
-            <h2 className="text-3xl font-bold text-black">Browse by Genre</h2>
-          </div>
-
-          <Carousel>
-            <CarouselContent className="-ml-4">
-              {genresMoods.map((genre, index) => (
-                <CarouselItem
-                  key={index}
-                  className="pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4"
-                >
-                  <div className="relative h-48 rounded-lg overflow-hidden cursor-pointer group">
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-br ${genre.color}`}
-                    />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
-                    <div className="absolute bottom-4 left-4">
-                      <h3 className="text-white font-bold text-lg">
-                        {genre.name}
-                      </h3>
-                    </div>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <div className="hidden lg:block">
-              <CarouselPrevious />
-              <CarouselNext />
-            </div>
-          </Carousel>
-        </div>
-      </section> */}
-
-      {/* Latest Albums Carousel */}
-      {/* <section className="py-16 bg-white">
-        <div className="w-[90%] lg:w-[80%] mx-auto">
-          <div className="flex justify-between items-center mb-8">
-            <h2 className="text-3xl font-bold text-black">Latest Albums</h2>
-            <Button className="bg-transparent text-orange-500 hover:bg-orange-50 border border-orange-500">
-              <Link href="/albums" className="uppercase">
-                Show all
-              </Link>
-            </Button>
-          </div>
-
-          <Carousel>
-            <CarouselContent className="-ml-1">
-              {latestAlbums.map((album, index) => (
-                <CarouselItem
-                  key={index}
-                  className="pl-1 basis-1/2 md:basis-1/3 lg:basis-1/4"
-                >
-                  <div className="space-y-3 group cursor-pointer">
-                    <div className="relative overflow-hidden rounded-lg">
-                      <Image
-                        src={album.image}
-                        alt={album.title}
-                        width={300}
-                        height={300}
-                        className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-                        <Play className="text-white w-12 h-12 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      </div>
-                    </div>
-                    <div>
-                      <p className="uppercase font-semibold text-black group-hover:text-orange-500 transition-colors">
-                        {album.title}
-                      </p>
-                      <p className="text-xs font-light uppercase text-gray-600">
-                        {album.artist}
-                      </p>
-                    </div>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <div className="hidden lg:block">
-              <CarouselPrevious />
-              <CarouselNext />
-            </div>
-          </Carousel>
-        </div>
-      </section> */}
     </div>
   );
 };
