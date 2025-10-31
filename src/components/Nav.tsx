@@ -115,10 +115,12 @@ const Nav = () => {
             ))}
           </div>
           <div className="flex space-x-3">
-            <Link href={"/"}>
+            <Link href={"/https://www.instagram.com/cmmg_records/"}>
               <FaInstagram className="h-10 w-10 p-2 hover:bg-gradient-to-b from-pink-600 to-purple-600" />
             </Link>
-            <Link href={"/"}>
+            <Link
+              href={"/https://www.facebook.com/profile.php?id=61582923471298"}
+            >
               <FaSquareFacebook className="h-10 w-10 p-2  hover:bg-blue-500" />
             </Link>
             <Link href={"/"}>
@@ -129,7 +131,7 @@ const Nav = () => {
             </Link>
           </div>
           <Link
-            href={"https://cmmg-library.vercel.app/"}
+            href={"https://www.library.cmmg.co.za/library"}
             className={`${sted.className} text-center w-full bg-orange-700  font-semibold  py-3 cursor-pointer hover:bg-orange-800  hover:text-neutral-100`}
           >
             Production Music Library
