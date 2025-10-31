@@ -70,7 +70,7 @@ const Nav = () => {
           <div className="flex flex-row items-center space-x-5">
             <div>
               <Link
-                href={"https://www.library.cmmg.co.za/"}
+                href={"https://www.library.cmmg.co.za/library"}
                 className="hidden md:block text-white font-semibold text-lg rounded-md hover:text-blue-700 bg-orange-600 py-2 px-3"
               >
                 Production Music Library
