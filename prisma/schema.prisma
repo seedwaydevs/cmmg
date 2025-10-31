@@ -13,3 +13,57 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Booking {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Personal Information
+  name      String
+  email     String
+  phone     String
+
+  // Service Selection
+  service   ServiceType
+
+  // Booking Details
+  date      DateTime
+  time      String
+  message   String?
+
+  // ID Document
+  idCopyUrl String?  // URL to stored file (e.g., S3, Cloudinary)
+
+  // Booking Status
+  status    BookingStatus @default(PENDING)
+
+  @@index([email])
+  @@index([date])
+  @@index([status])
+}
+
+model Article {
+  id          String   @id @default(uuid())
+  title       String
+  slug        String   @unique
+  content     String
+  imageUrl    String?
+  author      String?
+  views       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+
+enum ServiceType {
+  MUSIC_STUDIO
+  SOUND_PRODUCTION
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+}
