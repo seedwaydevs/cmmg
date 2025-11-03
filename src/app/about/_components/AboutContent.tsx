@@ -126,7 +126,7 @@ const AboutContent = (props: Props) => {
                 {/* Badge */}
 
                 <div className="space-y-6 mt-5">
-                  <h1 className="text-5xl lg:text-7xl xl:text-8xl font-black leading-[0.9] tracking-tight">
+                  <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black leading-[1] tracking-tight">
                     Bringing stories
                     <span className="text-blue-700 block">to life</span>
                   </h1>
@@ -157,14 +157,14 @@ const AboutContent = (props: Props) => {
               {/* Right Content - Hero Image */}
               <div className="hidden lg:flex justify-end">
                 <div className="relative group">
-                  <div className="relative w-80 h-80 rounded-2xl overflow-hidden shadow-2xl transform group-hover:scale-105 transition-transform duration-500">
+                  <div className="relative w-90 h-90 rounded-2xl overflow-hidden shadow-2xl transform group-hover:scale-105 transition-transform duration-500">
                     <div className="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-900">
                       <Image
                         src={prod}
                         alt="image"
                         fill
                         className="object-cover"
-                        sizes="320px"
+                        sizes="400px"
                       />
                     </div>
                   </div>
@@ -188,7 +188,7 @@ const AboutContent = (props: Props) => {
         </div>
 
         {/* Bottom Navigation Hint */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+        <div className="absolute bottom-8 md:bottom-2 left-1/2 transform -translate-x-1/2 z-20">
           <div className="flex flex-col items-center gap-2 text-white/60">
             <span className="text-sm font-medium tracking-wide">
               DISCOVER MORE
@@ -243,7 +243,7 @@ const AboutContent = (props: Props) => {
       </section>
 
       {/* Why Choose Us */}
-      <section id="services" className="relative py-32">
+      <section id="services" className="relative py-16">
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-gray-800 to-black"></div>
         <div className="relative z-10 w-[90%] lg:w-[80%] mx-auto">
           <div

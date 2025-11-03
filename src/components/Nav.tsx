@@ -10,6 +10,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 
 import Image from "next/image";
 import { cmmg } from "@/data";
+import SocialMediaLinks from "./Nav/SocialMediaLinks";
 const sted = Schibsted_Grotesk({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
@@ -54,10 +55,10 @@ const Nav = () => {
       {/* Navigation */}
       <div className="w-full fixed top-0 left-0 z-50">
         {/* Glass background */}
-        <div className="absolute w-full h-full backdrop-blur-md bg-white/10 z-0 py-2"></div>
+        <div className="absolute w-full h-full backdrop-blur-md bg-white/10 z-0 "></div>
 
         {/* Black nav content */}
-        <div className="relative z-50 w-[90%] mx-auto p-4 my-2 flex flex-row justify-between items-center">
+        <div className="relative z-50 w-[80%] mx-auto py-4 flex flex-row justify-between items-center">
           <div className="h-[10vh] -my-5">
             <Link className={`${sted.className}`} href={"/"}>
               <Image
@@ -114,22 +115,7 @@ const Nav = () => {
               </Link>
             ))}
           </div>
-          <div className="flex space-x-3">
-            <Link href={"https://www.instagram.com/cmmg_records/"}>
-              <FaInstagram className="h-10 w-10 p-2 rounded-md hover:bg-gradient-to-br from-pink-600 to-purple-600" />
-            </Link>
-            <Link
-              href={"https://www.facebook.com/profile.php?id=61582923471298"}
-            >
-              <FaSquareFacebook className="h-10 w-10 p-2 rounded-md  hover:bg-blue-600" />
-            </Link>
-            <Link href={"https://www.youtube.com/@CMMGRecord"}>
-              <FaYoutube className="h-10 w-10 p-2 rounded-md hover:bg-red-600" />
-            </Link>
-            <Link href={"https://www.tiktok.com/@cmmg_records"}>
-              <FaTiktok className="h-10 w-10 p-2 rounded-md hover:bg-pink-600" />
-            </Link>
-          </div>
+          <SocialMediaLinks />
           <Link
             href={"https://www.library.cmmg.co.za/library"}
             className={`${sted.className} text-center w-full rounded-md bg-gradient-to-r from-orange-500 to-orange-700  font-semibold  py-3 cursor-pointer hover:bg-gradient-to-l  hover:text-neutral-100`}
