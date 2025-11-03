@@ -108,7 +108,7 @@ const Latest = (props: Props) => {
     selectedAlbumIndex !== null ? albumsData[selectedAlbumIndex] : null;
 
   return (
-    <div className="w-full relative overflow-hidden ">
+    <div className="w-full relative overflow-hidden py-5">
       {/* Blurred Background */}
       <div className="absolute inset-0 z-0">
         {selectedAlbum && (
@@ -214,7 +214,7 @@ const Latest = (props: Props) => {
 
           {/* Selected Album Details */}
           {selectedAlbum && (
-            <div className="lg:w-[80%] mx-auto bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 mb-8 animate-in slide-in-from-bottom duration-300">
+            <div className="lg:w-[90%] mx-auto bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 mb-8 animate-in slide-in-from-bottom duration-300">
               {/* Album Header */}
               <div className="mb-6 text-center lg:text-left">
                 <div className="flex flex-col lg:flex-row lg:space-x-4 items-center lg:items-end">
