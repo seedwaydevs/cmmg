@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Anton, Schibsted_Grotesk } from "next/font/google";
 import Link from "next/link";
-import { FaSquareFacebook } from "react-icons/fa6";
+import { FaSquareFacebook, FaTiktok } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
@@ -57,7 +57,7 @@ const Nav = () => {
         <div className="absolute w-full h-full backdrop-blur-md bg-white/10 z-0 py-2"></div>
 
         {/* Black nav content */}
-        <div className="relative z-50 w-[90%] mx-auto bg-black p-4 my-2 flex flex-row justify-between items-center shadow-md">
+        <div className="relative z-50 w-[90%] mx-auto p-4 my-2 flex flex-row justify-between items-center">
           <div className="h-[10vh] -my-5">
             <Link className={`${sted.className}`} href={"/"}>
               <Image
@@ -108,31 +108,31 @@ const Nav = () => {
                 key={i}
                 href={link.link}
                 onClick={() => setMenuOpen(false)}
-                className={`${sted.className} text-4xl font-semibold py-2 hover:text-orange-700 transition duration-200`}
+                className={`${sted.className} text-4xl font-semibold py-1 hover:text-orange-700 transition duration-200`}
               >
                 {link.title}
               </Link>
             ))}
           </div>
           <div className="flex space-x-3">
-            <Link href={"/https://www.instagram.com/cmmg_records/"}>
-              <FaInstagram className="h-10 w-10 p-2 hover:bg-gradient-to-b from-pink-600 to-purple-600" />
+            <Link href={"https://www.instagram.com/cmmg_records/"}>
+              <FaInstagram className="h-10 w-10 p-2 rounded-md hover:bg-gradient-to-br from-pink-600 to-purple-600" />
             </Link>
             <Link
-              href={"/https://www.facebook.com/profile.php?id=61582923471298"}
+              href={"https://www.facebook.com/profile.php?id=61582923471298"}
             >
-              <FaSquareFacebook className="h-10 w-10 p-2  hover:bg-blue-500" />
+              <FaSquareFacebook className="h-10 w-10 p-2 rounded-md  hover:bg-blue-600" />
             </Link>
-            <Link href={"/"}>
-              <FaYoutube className="h-10 w-10 p-2 hover:bg-red-600" />
+            <Link href={"https://www.youtube.com/@CMMGRecord"}>
+              <FaYoutube className="h-10 w-10 p-2 rounded-md hover:bg-red-600" />
             </Link>
-            <Link href={"/"}>
-              <FaLinkedin className="h-10 w-10 p-2 hover:bg-blue-600" />
+            <Link href={"https://www.tiktok.com/@cmmg_records"}>
+              <FaTiktok className="h-10 w-10 p-2 rounded-md hover:bg-pink-600" />
             </Link>
           </div>
           <Link
             href={"https://www.library.cmmg.co.za/library"}
-            className={`${sted.className} text-center w-full bg-orange-700  font-semibold  py-3 cursor-pointer hover:bg-orange-800  hover:text-neutral-100`}
+            className={`${sted.className} text-center w-full rounded-md bg-gradient-to-r from-orange-500 to-orange-700  font-semibold  py-3 cursor-pointer hover:bg-gradient-to-l  hover:text-neutral-100`}
           >
             Production Music Library
           </Link>

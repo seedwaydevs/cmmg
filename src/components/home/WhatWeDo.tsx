@@ -14,7 +14,7 @@ type Props = {};
 
 const WhatWeDo = (props: Props) => {
   return (
-    <div className="py-10 w-full text-neutral-200 bg-blue-800">
+    <div className="py-5 w-full text-neutral-200 bg-blue-800">
       <div className="w-[90%] mx-auto">
         <div className="flex flex-col space-y-4">
           {/* Header - matching Landing style */}
@@ -39,7 +39,7 @@ const WhatWeDo = (props: Props) => {
                 <span className="text-orange-500">.</span>
               </h1>
               <p
-                className={`${sted.className} text-lg md:text-xl lg:text-2xl  font-light leading-relaxed max-w-4xl`}
+                className={`${sted.className} text-lg lg:text-xl  font-light leading-snug max-w-4xl`}
               >
                 With years of experience across the music and media landscape,
                 our team specializes in original music production and licensable
