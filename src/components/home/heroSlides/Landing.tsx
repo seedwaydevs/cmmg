@@ -46,7 +46,7 @@ const Landing = () => {
       <div className="w-[90%] md:w-[80%] mx-auto h-[90vh]">
         <div className="flex flex-col justify-between h-full">
           {/* Top Badge */}
-          <HeroBadge content="Content and Music" />
+          <HeroBadge content="Content and Music" color="orange" />
 
           {/* Main Content - Split on Desktop */}
           <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-8 lg:gap-12">
@@ -134,7 +134,7 @@ const Landing = () => {
           </div>
 
           {/* Bottom Badge */}
-          <HeroBadge position="bottom" content="Media group" />
+          <HeroBadge position="bottom" content="Media group" color="orange" />
         </div>
       </div>
     </div>

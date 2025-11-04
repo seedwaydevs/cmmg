@@ -3,6 +3,7 @@ import { Hanken_Grotesk, Schibsted_Grotesk } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
 import { njalo } from "@/data";
+import HeroBadge from "@/components/HeroBadge";
 
 const hanken = Hanken_Grotesk({
   subsets: ["latin"],
@@ -17,19 +18,12 @@ const sted = Schibsted_Grotesk({
 const NewReleases = () => {
   return (
     <section className="relative min-h-screen z-10">
-      <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8 h-screen flex flex-col">
+      <div className="w-[90%] lg:w-[80%] mx-auto h-[90vh] space-y-6">
         {/* Header Badge */}
-        <div className="flex justify-end mt-24 sm:mt-34 xl:mt-32">
-          <span
-            className={`${hanken.className} text-sm font-bold tracking-widest uppercase text-neutral-200/80 
-                       backdrop-blur-sm bg-white/5 px-4 py-2 rounded-lg border border-white/10`}
-          >
-            [ New Releases ]
-          </span>
-        </div>
+        <HeroBadge content="New Releases" color="orange" />
 
         {/* Main Content */}
-        <div className="flex-1 flex items-center py-5 lg:py-10 ">
+        <div className="flex-1 flex items-start ">
           <div className="w-full grid lg:grid-cols-2 gap-7 lg:gap-12 items-center">
             {/* Content Section - Left on desktop */}
             <div className="space-y-5 lg:space-y-8 order-2 lg:order-2">
@@ -42,29 +36,30 @@ const NewReleases = () => {
                     New release
                   </p>
                   <h1
-                    className={`${sted.className} text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 
+                    className={` capitalize text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 
                                font-black leading-[0.85] text-white tracking-tighter`}
                   >
-                    NJALO
+                    brand new music
                     <span className="text-orange-500">.</span>
                   </h1>
                 </div>
 
                 <p
                   className={`${sted.className} text-base lg:text-lg text-neutral-100 font-light  
-                             max-w-md lg:max-w-lg`}
+                             max-w-md`}
                 >
-                  Yandi Sibi brings the heat with her latest album
+                  Explore our record labels latest music offerings from our in
+                  house artists.
                 </p>
               </div>
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 ">
                 <Link
-                  href="https://open.spotify.com/album/5h2VjDhjhrJMHkZFvAf8QM?si=rSxSoLsbQXOH3jaE7PWp_w"
+                  href="/commercial"
                   className={`${sted.className} group relative inline-flex items-center justify-center gap-2 
                              bg-gradient-to-r from-orange-700 to-orange-400 hover:from-orange-400 hover:to-orange-700 
-                             text-white font-bold px-6 py-3 lg:px-8 lg:py-4 rounded-full transition-all duration-300 
+                             text-white font-bold px-6 py-3 lg:px-8 lg:py-4 rounded-md transition-all duration-300 
                              shadow-xl hover:shadow-white/10 transform hover:-translate-y-0.5 
                               text-sm lg:text-base`}
                 >
@@ -87,32 +82,19 @@ const NewReleases = () => {
                 <button
                   className={`${sted.className} hidden group md:inline-flex items-center justify-center gap-2 
                              bg-transparent hover:bg-white/10 text-white font-semibold px-6 py-3 lg:px-8 lg:py-4 
-                             rounded-full border-2 border-white/20 hover:border-white/40 
+                             rounded-md border-2 border-white/20 hover:border-white/40 
                              transition-all duration-300 text-sm lg:text-base`}
                 >
-                  <span>Preview</span>
-                  <svg
-                    className="w-4 h-4 lg:w-5 lg:h-5 transition-transform duration-300 group-hover:scale-110"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-7 4h12l-2-2m0 4l2-2"
-                    />
-                  </svg>
+                  <span>Learn More</span>
                 </button>
               </div>
             </div>
 
             {/* Image Section - Right on desktop */}
-            <div className="relative group order-1 lg:order-1 flex justify-center">
+            <div className="relative group order-1 lg:order-1 flex ">
               <div
-                className="relative overflow-hidden rounded-2xl shadow-2xl w-[85%] sm:w-[70%] lg:w-full max-w-sm md:max-w-lg lg:max-w-md xl:max-w-lg 
-                             h-[40vh] sm:h-[40vh] md:h-[45vh] lg:h-[55vh] xl:h-[60vh]"
+                className="relative overflow-hidden rounded-2xl shadow-2xl w-[85%] sm:w-[70%] lg:w-[85%] 
+                             h-[40vh] sm:h-[40vh] md:h-[45vh] lg:h-[60vh]"
               >
                 <Image
                   src={njalo}
@@ -139,23 +121,7 @@ const NewReleases = () => {
         </div>
 
         {/* Footer Badge */}
-        <div className="hidden lg:flex justify-between items-end pb-12 lg:pb-16">
-          <span
-            className={`${hanken.className} text-sm font-bold tracking-widest uppercase text-neutral-200/80 
-                       backdrop-blur-sm bg-white/5 px-4 py-2 rounded-lg border border-white/10`}
-          >
-            Out Now
-          </span>
-
-          <div className="flex items-center gap-2 text-neutral-100">
-            <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
-            <span
-              className={`${hanken.className} text-xs font-medium tracking-wide`}
-            >
-              Live Preview Available
-            </span>
-          </div>
-        </div>
+        <HeroBadge position="bottom" content="Out now" color="orange" />
       </div>
     </section>
   );
