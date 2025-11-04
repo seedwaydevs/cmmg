@@ -1,6 +1,7 @@
 import React from "react";
 import { Hanken_Grotesk, Schibsted_Grotesk } from "next/font/google";
 import Link from "next/link";
+import HeroBadge from "@/components/HeroBadge";
 
 const hanken = Hanken_Grotesk({
   subsets: ["latin"],
@@ -18,20 +19,12 @@ const Catalog = () => {
       <div className="w-[90%] md:w-[90%] mx-auto h-[90vh]">
         <div className="flex flex-col justify-between h-full">
           {/* Top Badge */}
-          <div className="flex justify-end mt-24 sm:mt-34 xl:mt-32">
-            <div className="backdrop-blur-sm bg-white/5 px-4 py-2 rounded-lg border border-white/10">
-              <p
-                className={`${hanken.className} text-[14px] uppercase font-bold tracking-widest text-white/90`}
-              >
-                [ Production Music ]
-              </p>
-            </div>
-          </div>
+          <HeroBadge content="Production Music" color="green" />
 
           {/* Main Content */}
-          <div className={`${sted.className} space-y-6`}>
+          <div className={`space-y-6`}>
             <p
-              className={`${hanken.className} text-lg font-light max-w-xs md:max-w-sm text-white/80 leading-relaxed`}
+              className={`${hanken.className} text-lg lg:text-xl font-light max-w-xs md:max-w-sm text-white/80 leading-relaxed`}
             >
               Curated, high-quality tracks for film, TV, and digital projects.
             </p>
@@ -45,7 +38,11 @@ const Catalog = () => {
 
             <div className="pt-2">
               <Link
-                className={`${sted.className} inline-flex items-center gap-2 py-3 px-6 bg-orange-600 hover:bg-orange-500 text-white font-semibold rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl`}
+                className={`group relative inline-flex items-center justify-center gap-2 
+                             bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-500 hover:to-orange-600 
+                             text-white font-bold px-6 py-3 lg:px-8 lg:py-4 rounded-md transition-all duration-300 
+                             shadow-xl hover:shadow-orange-500/25 transform hover:-translate-y-0.5 
+                             border border-orange-400/20 text-sm lg:text-base`}
                 href={"https://www.library.cmmg.co.za/"}
               >
                 Browse
@@ -67,18 +64,11 @@ const Catalog = () => {
           </div>
 
           {/* Bottom Badge */}
-          <div className="flex justify-start">
-            <div className="backdrop-blur-sm bg-white/5 px-4 py-2 rounded-lg border border-green-400/20">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                <p
-                  className={`${hanken.className} text-[14px] uppercase font-bold tracking-widest text-white/90`}
-                >
-                  [ Ready to License ]
-                </p>
-              </div>
-            </div>
-          </div>
+          <HeroBadge
+            position="bottom"
+            content="ready to license"
+            color="green"
+          />
         </div>
       </div>
     </div>

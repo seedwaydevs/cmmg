@@ -132,13 +132,24 @@ const Latest = (props: Props) => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full h-full">
-        <div className="w-[90%] mx-auto h-full py-14">
-          <div className="flex flex-col xl:flex-row items-center justify-center gap-5 mb-8 px-10">
+      <div className="relative z-10 w-full ">
+        <div className="w-[90%] lg:w-[80%] mx-auto h-full py-5">
+          <div className="flex items-center">
+            <TiArrowSortedUp className="text-orange-500 h-7 w-7 lg:h-10 lg:w-10" />
+            <div className="backdrop-blur-sm bg-white/5 px-4 py-2 rounded-lg border border-white/10 ml-2">
+              <p
+                className={`${sted.className} text-xs uppercase lg:text-sm font-bold tracking-widest text-white/90`}
+              >
+                [ Record Label ]
+              </p>
+            </div>
+          </div>
+          {/* Content */}
+          <div className="flex flex-col xl:flex-row items-center justify-between gap-5 mb-8">
             {/* Header */}
-            <div className=" text-neutral-200 py-10 flex flex-col md:items-center md:text-center xl:items-start xl:text-start justify-center space-y-5">
+            <div className="text-neutral-200 py-10 flex flex-col md:items-center md:text-center xl:items-start xl:text-start justify-center space-y-5">
               <h1
-                className={`text-4xl lg:text-6xl lg:max-w-2xl font-bold  text-neutral-100 `}
+                className={`text-4xl lg:text-7xl lg:max-w-2xl font-extrabold  text-neutral-100 `}
               >
                 Latest Commercial Albums
               </h1>
@@ -160,7 +171,7 @@ const Latest = (props: Props) => {
 
             {/* Album Grid */}
             <div className="flex justify-center">
-              <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-2  gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-2  gap-3">
                 {albumsData.map((album, index) => (
                   <button
                     key={album.id}
@@ -181,7 +192,7 @@ const Latest = (props: Props) => {
                         alt={album.title}
                         width={200}
                         height={400}
-                        className="w-full h-64 lg:h-72 object-cover transition-transform duration-300 group-hover:scale-105"
+                        className="w-full h-68 lg:h-60 object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
 

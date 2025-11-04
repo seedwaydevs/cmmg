@@ -3,6 +3,7 @@ import { Hanken_Grotesk, Schibsted_Grotesk } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
 import { studio } from "@/data";
+import HeroBadge from "@/components/HeroBadge";
 
 const hanken = Hanken_Grotesk({
   subsets: ["latin"],
@@ -17,25 +18,18 @@ const sted = Schibsted_Grotesk({
 const StudioBooking = () => {
   return (
     <section className="relative min-h-screen z-10">
-      <div className="w-[90%] mx-auto px-4 sm:px-6 lg:px-8 h-screen flex flex-col">
+      <div className="w-[90%] lg:w-[80%] mx-auto h-[90vh] space-y-6">
         {/* Header Badge */}
-        <div className="flex justify-start mt-24 sm:mt-34 xl:mt-32 ">
-          <span
-            className={`${hanken.className} text-sm font-bold tracking-widest uppercase text-neutral-200/80 
-                       backdrop-blur-sm bg-white/5 px-4 py-2 rounded-lg border border-white/10`}
-          >
-            [ Studio Sessions ]
-          </span>
-        </div>
+        <HeroBadge content="Studio Session" color="blue" />
 
         {/* Main Content */}
-        <div className="flex-1 flex items-center py-8 lg:py-10 ">
+        <div className="flex-1 flex items-start">
           <div className="w-full grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Image Section - Left on desktop */}
-            <div className="hidden relative group order-1 lg:order-1 lg:flex justify-center">
+            <div className="hidden relative group order-1 lg:order-1 lg:flex justify-start">
               <div
-                className="relative overflow-hidden rounded-2xl shadow-2xl w-[90%]  lg:w-full max-w-xl lg:max-w-md xl:max-w-lg 
-                             h-[35vh] sm:h-[40vh] md:h-[40vh] lg:h-[55vh] xl:h-[60vh]"
+                className="relative overflow-hidden rounded-2xl shadow-2xl w-[85%] sm:w-[70%] lg:w-[85%] 
+                             h-[40vh] sm:h-[40vh] md:h-[45vh] lg:h-[60vh]"
               >
                 <Image
                   src={studio}
@@ -107,22 +101,20 @@ const StudioBooking = () => {
             </div>
 
             {/* Content Section - Right on desktop */}
-            <div className="space-y-6 lg:space-y-8 order-2 lg:order-2">
+            <div className="space-y-6  order-2 lg:order-2">
               <div className="space-y-4 lg:space-y-6">
                 <div className="space-y-2">
                   <p
-                    className={`${hanken.className} text-sm lg:text-base text-blue-600 font-medium 
+                    className={`${hanken.className} text-sm lg:text-base text-blue-800 text-shadow-md text-shadow-white/10 font-medium 
                                tracking-wide uppercase`}
                   >
                     Professional Recording
                   </p>
                   <h1
-                    className={`${sted.className} text-4xl  lg:text-7xl xl:text-8xl 
+                    className={`capitalize text-4xl sm:text-5xl md:text-6xl lg:text-7xl  
                                font-black leading-[0.85] text-white tracking-tighter`}
                   >
-                    BOOK
-                    <br />
-                    STUDIO
+                    Book Studio
                     <span className="text-blue-500">.</span>
                   </h1>
                 </div>
@@ -178,7 +170,7 @@ const StudioBooking = () => {
                   href="/contact"
                   className={`${sted.className} group relative inline-flex items-center justify-center gap-2 
                              bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 
-                             text-white font-bold px-6 py-3 lg:px-8 lg:py-4 rounded-full transition-all duration-300 
+                             text-white font-bold px-6 py-3 lg:px-8 lg:py-4 rounded-md transition-all duration-300 
                              shadow-xl hover:shadow-blue-500/25 transform hover:-translate-y-0.5 
                              border border-blue-400/20 text-sm lg:text-base`}
                 >
@@ -201,7 +193,7 @@ const StudioBooking = () => {
                 <button
                   className={`${sted.className} group inline-flex items-center justify-center gap-2 
                              bg-transparent hover:bg-white/10 text-white font-semibold px-6 py-3 lg:px-8 lg:py-4 
-                             rounded-full border-2 border-white/20 hover:border-white/40 
+                             rounded-md border-2 border-white/20 hover:border-white/40 
                              transition-all duration-300 text-sm lg:text-base`}
                 >
                   <span>View Rates</span>
@@ -226,12 +218,11 @@ const StudioBooking = () => {
 
         {/* Footer Badge */}
         <div className="flex justify-between items-end pb-12 lg:pb-16">
-          <span
-            className={`${hanken.className} text-xs lg:text-sm font-bold tracking-widest uppercase 
-                       text-neutral-200`}
-          >
-            Professional Grade
-          </span>
+          <HeroBadge
+            position="bottom"
+            content="Professional Grade"
+            color="blue"
+          />
 
           <div className="flex items-center gap-2 text-neutral-100">
             <div className="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-blue-500 rounded-full animate-pulse"></div>

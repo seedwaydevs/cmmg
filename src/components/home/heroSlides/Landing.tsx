@@ -1,6 +1,7 @@
 import React from "react";
 import { Hanken_Grotesk, Schibsted_Grotesk } from "next/font/google";
 import { Music, Mic2, Calendar, Camera } from "lucide-react";
+import HeroBadge from "@/components/HeroBadge";
 
 const hanken = Hanken_Grotesk({
   subsets: ["latin"],
@@ -23,7 +24,7 @@ const Landing = () => {
     {
       icon: Mic2,
       title: "Commercial Music",
-      description: "Custom tracks",
+      description: "Records from our artists",
       href: "/commercial",
     },
     {
@@ -42,23 +43,15 @@ const Landing = () => {
 
   return (
     <div className="relative z-10 backdrop-blur-xl bg-white/1 h-full">
-      <div className="w-[90%] md:w-[90%] mx-auto h-[90vh]">
+      <div className="w-[90%] md:w-[80%] mx-auto h-[90vh]">
         <div className="flex flex-col justify-between h-full">
           {/* Top Badge */}
-          <div className="flex justify-end mt-24 sm:mt-34 xl:mt-32">
-            <div className="backdrop-blur-sm bg-white/5 px-4 py-2 rounded-lg border border-orange-500">
-              <p
-                className={`text-[14px] uppercase font-bold tracking-widest text-neutral-100 ${hanken.className}`}
-              >
-                [ Content and Music ]
-              </p>
-            </div>
-          </div>
+          <HeroBadge content="Content and Music" color="orange" />
 
           {/* Main Content - Split on Desktop */}
           <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-8 lg:gap-12">
             {/* Left Side - Text Content */}
-            <div className="space-y-8 lg:flex-1">
+            <div className="space-y-6 lg:flex-1">
               <p
                 className={`text-lg md:text-xl font-light max-w-xs md:max-w-lg text-white/80 leading-relaxed ${hanken.className}`}
               >
@@ -109,7 +102,7 @@ const Landing = () => {
                 <a
                   key={idx}
                   href={option.href}
-                  className="group relative overflow-hidden backdrop-blur-sm bg-white/5 border border-white/10 rounded-xl p-3 hover:bg-white/10 hover:border-orange-500/50 transition-all duration-300 hover:scale-105"
+                  className="group relative overflow-hidden backdrop-blur-sm bg-white/1 border border-orange-400/20 rounded-xl p-3 hover:bg-white/10 hover:border-orange-500/50 transition-all duration-300 hover:scale-105"
                 >
                   <div className="flex flex-col items-start gap-3">
                     <div className="p-3 rounded-lg bg-orange-500/10 border border-orange-500/20 group-hover:bg-orange-500/20 transition-colors duration-300">
@@ -141,15 +134,7 @@ const Landing = () => {
           </div>
 
           {/* Bottom Badge */}
-          <div className="flex items-center gap-3 pt-2">
-            <div className="backdrop-blur-sm bg-white/5 px-4 py-2 rounded-lg border border-orange-400/20">
-              <p
-                className={`text-[14px] uppercase font-bold tracking-widest text-orange-100 ${hanken.className}`}
-              >
-                [ Media Group ]
-              </p>
-            </div>
-          </div>
+          <HeroBadge position="bottom" content="Media group" color="orange" />
         </div>
       </div>
     </div>
