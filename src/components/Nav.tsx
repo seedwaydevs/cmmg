@@ -58,7 +58,7 @@ const Nav = () => {
         <div className="absolute w-full h-full backdrop-blur-md bg-white/10 z-0 "></div>
 
         {/* Black nav content */}
-        <div className="relative z-50 w-[80%] mx-auto py-4 flex flex-row justify-between items-center">
+        <div className="relative z-50 w-[90%] lg:w-[80%] mx-auto py-4 flex flex-row justify-between items-center">
           <div className="h-[10vh] -my-5">
             <Link className={`${sted.className}`} href={"/"}>
               <Image
@@ -115,7 +115,11 @@ const Nav = () => {
               </Link>
             ))}
           </div>
+
+          {/* SOCIAL MEDIA LINKS */}
           <SocialMediaLinks />
+
+          {/* Menu Library Button */}
           <Link
             href={"https://www.library.cmmg.co.za/library"}
             className={`${sted.className} text-center w-full rounded-md bg-gradient-to-r from-orange-500 to-orange-700  font-semibold  py-3 cursor-pointer hover:bg-gradient-to-l  hover:text-neutral-100`}
