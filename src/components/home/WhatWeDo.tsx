@@ -4,6 +4,8 @@ import { TiArrowSortedUp } from "react-icons/ti";
 
 import Link from "next/link";
 import { Music, Video, Mic, ArrowRight } from "lucide-react";
+import { AccordionDemo } from "../Accordian";
+import LinkButton from "../LinkButton";
 
 const sted = Schibsted_Grotesk({
   subsets: ["latin"],
@@ -15,10 +17,10 @@ type Props = {};
 const WhatWeDo = (props: Props) => {
   return (
     <div className="py-5 w-full text-neutral-200 bg-blue-800">
-      <div className="w-[90%] mx-auto">
-        <div className="flex flex-col space-y-4">
+      <div className="w-[90%] lg:w-[80%] mx-auto">
+        <div className="flex flex-col space-y-5">
           {/* Header - matching Landing style */}
-          <div className="flex items-center">
+          <div className="flex items-center py-5">
             <TiArrowSortedUp className="text-orange-500 h-7 w-7 lg:h-10 lg:w-10" />
             <div className="backdrop-blur-sm bg-white/5 px-4 py-2 rounded-lg border border-white/10 ml-2">
               <p
@@ -29,18 +31,16 @@ const WhatWeDo = (props: Props) => {
             </div>
           </div>
 
-          <div className="space-y-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 space-y-5 py-5">
             {/* Main heading */}
-            <div className="space-y-6">
+            <div className="flex flex-col justify-center py-10 space-y-5">
               <h1
-                className={`${sted.className} font-black text-6xl lg:text-7xl  tracking-tight leading-none`}
+                className={`font-black text-6xl   tracking-tight leading-none`}
               >
                 What We Do
                 <span className="text-orange-500">.</span>
               </h1>
-              <p
-                className={`${sted.className} text-lg lg:text-xl  font-light leading-snug max-w-4xl`}
-              >
+              <p className={`text-lg  font-light leading-relaxed max-w-xl `}>
                 With years of experience across the music and media landscape,
                 our team specializes in original music production and licensable
                 tracks, content development for visual media, and
@@ -49,211 +49,66 @@ const WhatWeDo = (props: Props) => {
 
               {/* Enhanced CTA button */}
               <div className="flex gap-4 items-center group">
-                <Link
-                  href={"/services"}
-                  className={`${sted.className} backdrop-blur-sm bg-orange-500/10 hover:bg-orange-500/20 border border-orange-400/20 px-6 py-3 rounded-lg  text-lg font-semibold tracking-wide transition-all duration-300 hover:scale-105`}
-                >
-                  Our Services
-                </Link>
-                <ArrowRight className="text-orange-500 group-hover:translate-x-1 transition-transform duration-300" />
+                <LinkButton
+                  url={"/services"}
+                  text="Our Services"
+                  color="blue"
+                  svg="M9 5l7 7-7 7"
+                />
               </div>
             </div>
 
-            {/* Services grid */}
-            <div className="grid lg:grid-cols-3 gap-8 pt-10">
-              {/* Music Production */}
-              <div className="backdrop-blur-sm bg-white/5 border border-white/10 rounded-lg p-8 hover:scale-105 transition-all duration-300 hover:border-orange-400/30 group">
-                <div className="space-y-5">
-                  {/* Icon and badge */}
-                  <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center shadow-lg">
-                      <Music className="text-white w-8 h-8" />
-                    </div>
-                    <div className="backdrop-blur-sm bg-orange-500/10 px-3 py-1 rounded-lg border border-orange-400/20">
-                      <span
-                        className={`${sted.className}  font-semibold uppercase tracking-wide text-xs`}
-                      >
-                        Production
-                      </span>
-                    </div>
+            <div className="flex flex-col items-center z-10 bg-white/10 backdrop-blur-md rounded-2xl p-6 lg:p-8 border border-white/20 shadow-2xl ">
+              <AccordionDemo services={services} />
+              {/* Bottom stats/highlights section */}
+              <div className="grid grid-cols-3 md:grid-cols-3 gap-6 py-5  text-white rounded-xl">
+                <div className="text-center space-y-2">
+                  <div
+                    className={`${sted.className} text-3xl lg:text-4xl font-black relative`}
+                  >
+                    <span className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-300 to-blue-500 bg-clip-text text-transparent blur-sm">
+                      4500+
+                    </span>
+                    <span className="relative bg-gradient-to-br from-white/90 via-blue-100/80 to-white/70 bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]">
+                      4500+
+                    </span>
                   </div>
-
-                  <h3
-                    className={`${sted.className} text-3xl lg:text-4xl font-bold  tracking-tight`}
-                  >
-                    Music Production
-                  </h3>
-
-                  <p
-                    className={`${sted.className} text-lg  font-light leading-relaxed`}
-                  >
-                    From recording to final mix, we produce music that captures
-                    emotion and purpose. Whether it&apos;s for artists,
-                    commercials, films, or digital campaigns, our team delivers
-                    professional sound with creative precision.
+                  <p className=" text-sm capitalize font-semibold tracking-wide">
+                    Tracks Produced
                   </p>
-
-                  {/* Feature list */}
-                  <div className="space-y-2 text-md">
-                    <div className="flex items-center">
-                      <span className="text-orange-500 mr-2">•</span>
-                      Songwriting and composition
-                    </div>
-                    <div className="flex items-center">
-                      <span className="text-orange-500 mr-2">•</span>
-                      Mixing and mastering
-                    </div>
-                    <div className="flex items-center">
-                      <span className="text-orange-500 mr-2">•</span>
-                      Sound design and scoring
-                    </div>
-                    <div className="flex items-center">
-                      <span className="text-orange-500 mr-2">•</span>
-                      Production Music Library
-                    </div>
-                  </div>
                 </div>
-              </div>
 
-              {/* Content Development */}
-              <div className="backdrop-blur-sm bg-white/5 border border-white/10 rounded-lg p-8 hover:scale-105 transition-all duration-300 hover:border-orange-400/30 group">
-                <div className="space-y-5">
-                  {/* Icon and badge */}
-                  <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center shadow-lg">
-                      <Video className="text-white w-8 h-8" />
-                    </div>
-                    <div className="backdrop-blur-sm bg-orange-500/10 px-3 py-1 rounded-lg border border-orange-400/20">
-                      <span
-                        className={`${sted.className}  font-semibold uppercase tracking-wide text-xs`}
-                      >
-                        Development
-                      </span>
-                    </div>
+                <div className="text-center space-y-2">
+                  <div
+                    className={`${sted.className} text-3xl lg:text-4xl font-black relative`}
+                  >
+                    <span className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-300 to-blue-500 bg-clip-text text-transparent blur-sm">
+                      50+
+                    </span>
+                    <span className="relative bg-gradient-to-br from-white/90 via-blue-100/80 to-white/70 bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]">
+                      50+
+                    </span>
                   </div>
-
-                  <h3
-                    className={`${sted.className} text-3xl lg:text-4xl font-bold  tracking-tight`}
-                  >
-                    Content Development
-                  </h3>
-
-                  <p
-                    className={`${sted.className} text-lg  font-light leading-relaxed`}
-                  >
-                    We create compelling visual and audio content that connects
-                    with audiences across industries. From corporate
-                    communication to brand storytelling, our team manages every
-                    stage of production—from concept to final edit.
+                  <p className=" text-sm capitalize font-semibold tracking-wide">
+                    Projects Completed
                   </p>
-
-                  {/* Feature list */}
-                  <div className="space-y-2 text-md">
-                    <div className="flex items-center ">
-                      <span className="text-orange-500 mr-2">•</span>
-                      Training & induction videos
-                    </div>
-                    <div className="flex items-center">
-                      <span className="text-orange-500 mr-2">•</span>
-                      Corporate and promotional videos
-                    </div>
-                    <div className="flex items-center  ">
-                      <span className="text-orange-500 mr-2">•</span>
-                      Radio & TV commercials
-                    </div>
-                    <div className="flex items-center  ">
-                      <span className="text-orange-500 mr-2">•</span>
-                      Voice-over production
-                    </div>
-                  </div>
                 </div>
-              </div>
 
-              {/* Studio Hire */}
-              <div className="backdrop-blur-sm bg-white/5 border border-white/10 rounded-lg p-8 hover:scale-105 transition-all duration-300 hover:border-orange-400/30 group">
-                <div className="space-y-5">
-                  {/* Icon and badge */}
-                  <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center shadow-lg">
-                      <Mic className="text-white w-8 h-8" />
-                    </div>
-                    <div className="backdrop-blur-sm bg-orange-500/10 px-3 py-1 rounded-lg border border-orange-400/20">
-                      <span
-                        className={`${sted.className}  font-semibold uppercase tracking-wide text-xs`}
-                      >
-                        Studio
-                      </span>
-                    </div>
+                <div className="text-center space-y-2">
+                  <div
+                    className={`${sted.className} text-3xl lg:text-4xl font-black relative`}
+                  >
+                    <span className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-300 to-blue-500 bg-clip-text text-transparent blur-sm">
+                      360&deg;
+                    </span>
+                    <span className="relative bg-gradient-to-br from-white/90 via-blue-100/80 to-white/70 bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]">
+                      360&deg;
+                    </span>
                   </div>
-
-                  <h3
-                    className={`${sted.className} text-3xl lg:text-4xl font-bold  tracking-tight`}
-                  >
-                    Studio Hire
-                  </h3>
-
-                  <p
-                    className={`${sted.className} text-lg  font-light leading-relaxed`}
-                  >
-                    Our state-of-the-art studios are available for hire,
-                    offering an ideal space for music recording, voice-overs,
-                    podcast production, or video shoots. Each room is
-                    acoustically treated and supported by professional engineers
-                    on request.
+                  <p className=" text-sm capitalize font-semibold tracking-wide">
+                    Studio Solution
                   </p>
-
-                  {/* Feature list */}
-                  <div className="space-y-2 text-md">
-                    <div className="flex items-center  ">
-                      <span className="text-orange-500 mr-2">•</span>
-                      Professional equipment
-                    </div>
-                    <div className="flex items-center  ">
-                      <span className="text-orange-500 mr-2">•</span>
-                      Multi-purpose spaces
-                    </div>
-                    <div className="flex items-center ">
-                      <span className="text-orange-500 mr-2">•</span>
-                      On-site technical assistance
-                    </div>
-                  </div>
                 </div>
-              </div>
-            </div>
-
-            {/* Bottom stats/highlights section */}
-            <div className="grid md:grid-cols-3 gap-6 py-10  text-white rounded-xl">
-              <div className="text-center space-y-2">
-                <div
-                  className={`${sted.className} text-4xl lg:text-5xl font-black text-orange-500`}
-                >
-                  4500+
-                </div>
-                <p className=" text-sm uppercase tracking-wide">
-                  Tracks Produced
-                </p>
-              </div>
-
-              <div className="text-center space-y-2">
-                <div
-                  className={`${sted.className} text-4xl lg:text-5xl font-black text-orange-500`}
-                >
-                  50+
-                </div>
-                <p className=" text-sm uppercase tracking-wide">
-                  Projects Completed
-                </p>
-              </div>
-
-              <div className="text-center space-y-2">
-                <div
-                  className={`${sted.className} text-4xl lg:text-5xl font-black text-orange-500`}
-                >
-                  360&deg;
-                </div>
-                <p className=" text-sm uppercase tracking-wide">
-                  Studio Solution
-                </p>
               </div>
             </div>
           </div>
@@ -264,3 +119,47 @@ const WhatWeDo = (props: Props) => {
 };
 
 export default WhatWeDo;
+
+const services = [
+  {
+    id: 1,
+    title: "Music Production",
+    icon: "Music",
+    badge: "Production",
+    content:
+      "From recording to final mix, we produce music that captures emotion and purpose. Whether it's for artists, commercials, films, or digital campaigns, our team delivers professional sound with creative precision.",
+    bullets: [
+      "Songwriting and composition",
+      "Mixing and mastering",
+      "Sound design and scoring",
+      "Production Music Library",
+    ],
+  },
+  {
+    id: 2,
+    title: "Content Development",
+    icon: "Video",
+    badge: "Development",
+    content:
+      "We create compelling visual and audio content that connects with audiences across industries. From corporate communication to brand storytelling, our team manages every stage of production—from concept to final edit.",
+    bullets: [
+      "Training & induction videos",
+      "Corporate and promotional videos",
+      "Radio & TV commercials",
+      "Voice-over production",
+    ],
+  },
+  {
+    id: 3,
+    title: "Studio Hire",
+    icon: "Mic",
+    badge: "Studio",
+    content:
+      "Our state-of-the-art studios are available for hire, offering an ideal space for music recording, voice-overs, podcast production, or video shoots. Each room is acoustically treated and supported by professional engineers on request.",
+    bullets: [
+      "Professional equipment",
+      "Multi-purpose spaces",
+      "On-site technical assistance",
+    ],
+  },
+];

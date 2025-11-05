@@ -9,6 +9,7 @@ import { TiArrowSortedUp } from "react-icons/ti";
 import collage from "../../../public/new_collage.png";
 import Link from "next/link";
 import { MoveRight } from "lucide-react";
+import LinkButton from "../LinkButton";
 
 type Props = {};
 
@@ -29,22 +30,22 @@ const sted = Schibsted_Grotesk({
 const Explore = (props: Props) => {
   return (
     <div className="w-full py-5">
-      <div className="w-[90%] mx-auto">
-        <div className="flex flex-col space-y-4">
+      <div className="w-[90%] lg:w-[80%] mx-auto">
+        <div className="flex flex-col space-y-4 py-7">
           {/* Top Badge - matching Landing style */}
           <div className="flex items-center">
             <TiArrowSortedUp className="text-orange-500 h-7 w-7 lg:h-10 lg:w-10" />
-            <div className="backdrop-blur-sm bg-white/5 px-4 py-2 rounded-lg border border-white/10 ml-2">
+            <div className="backdrop-blur-sm bg-orange-600/5 px-4 py-2 rounded-lg border border-orange-600/20 ml-2">
               <p
-                className={`${sted.className} text-xs uppercase lg:text-sm font-bold tracking-widest text-black/90`}
+                className={`${sted.className} text-xs uppercase lg:text-sm font-bold tracking-widest text-neutral-400`}
               >
                 [ Explore ]
               </p>
             </div>
           </div>
 
-          <div className="flex flex-col lg:items-center lg:justify-between lg:flex-row space-y-7 pb-5 lg:space-x-10">
-            <div className="space-y-7">
+          <div className="flex flex-col py-5 lg:items-center lg:justify-between lg:flex-row space-y-7 lg:space-x-10">
+            <div className="space-y-6">
               {/* Main heading with Landing component styling */}
               <h1
                 className={`${sted.className} font-black text-5xl lg:text-7xl lg:max-w-lg flex-1 text-neutral-800 tracking-tight leading-none`}
@@ -55,7 +56,7 @@ const Explore = (props: Props) => {
 
               {/* Description with improved styling */}
               <p
-                className={`${sted.className} lg:text-xl lg:max-w-2xl text-neutral-800 font-light leading-relaxed`}
+                className={`${sted.className} lg:text-xl lg:max-w-xl text-neutral-800 font-light leading-relaxed`}
               >
                 Explore a curated library of high-impact production music —
                 designed to bring your film, TV, or digital project to life with
@@ -64,20 +65,17 @@ const Explore = (props: Props) => {
 
               {/* Enhanced CTA button */}
               <div className="flex gap-4 items-center group">
-                <Link
-                  href="https://www.library.cmmg.co.za/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${sted.className} backdrop-blur-sm bg-orange-500/10 hover:bg-orange-500/20 border border-orange-400/20 px-6 py-3 rounded-lg text-neutral-600 text-lg font-semibold tracking-wide transition-all duration-300 hover:scale-105`}
-                >
-                  Browse our library
-                </Link>
-                <MoveRight className="text-orange-500 group-hover:translate-x-1 transition-transform duration-300" />
+                <LinkButton
+                  color="orange"
+                  text="Browse Library"
+                  url="https://www.library.cmmg.co.za/"
+                  svg="M9 5l7 7-7 7"
+                />
               </div>
             </div>
 
             {/* Image with subtle glow effect */}
-            <div className="h-[40vh] lg:h-[70vh] bg-black relative">
+            <div className="h-[40vh] lg:h-[70vh]  relative">
               <Image
                 src={collage}
                 alt="image"
@@ -87,39 +85,42 @@ const Explore = (props: Props) => {
               <div className="absolute inset-0 bg-gradient-to-l from-orange-400 via-transparent to-transparent blur-xl -z-10 scale-110 rounded-lg" />
             </div>
           </div>
+        </div>
+      </div>
+      {/* Bottom section with enhanced styling */}
+      <div className=" bg-orange-600/90 space-y-6 relative overflow-hidden">
+        {/* <div className="w-[90%] lg:w-[80%] mx-auto py-10">
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-500/60 via-transparent to-orange-700/70"></div>
+          <div className="flex">
+            <div className="relative">
+              <h1></h1>
+            </div>
 
-          <hr className="border-white/10" />
-
-          {/* Bottom section with enhanced styling */}
-          <div className="p-10 lg:p-16 lg:py-10 bg-orange-600 space-y-6 rounded-lg relative overflow-hidden">
-            {/* Subtle background pattern */}
-            <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 via-transparent to-orange-700/20" />
-
-            <p
-              className={`${sted.className} text-3xl md:text-5xl lg:text-6xl tracking-tight font-black leading-tight relative z-10 max-w-7xl`}
-            >
-              <span className="text-blue-900">
-                We don't follow trends — we set the tone.{" "}
-              </span>{" "}
-              <span className="text-white">
-                We're a content and music powerhouse. Built for impact.
-                Engineered to resonate.
-              </span>
-            </p>
-
-            {/* Enhanced About button */}
-            <div className="relative z-10">
-              <Link
-                href={"/about"}
-                className={`${hanken.className} backdrop-blur-sm bg-black/90 hover:bg-black/70 border border-black px-6 py-3 rounded-lg text-neutral-100 text-lg font-semibold tracking-wide transition-all duration-300 hover:scale-105`}
+            
+            <div className="relative z-10 bg-white/10 backdrop-blur-md rounded-2xl p-6 lg:p-8 border border-white/20 shadow-2xl">
+              <p
+                className={`text-3xl md:text-5xl lg:text-6xl tracking-tight text-shadow-lg/10 text-shadow-neutral-600 font-black leading-tight mb-6`}
               >
-                About
-              </Link>
+                <span className="text-white bg-clip-text">
+                  We don't follow [ trends ] — we set the [tone] .{" "}
+                </span>{" "}
+                <span className="text-white">
+                  We're a content and music powerhouse. Built for{" "}
+                  <span className="bg-blue-700 px-3">impact</span>. Engineered
+                  to resonate.
+                </span>
+              </p>
+
+              
+              <LinkButton
+                svg="M9 5l7 7-7 7"
+                url={"/about"}
+                text="About"
+                color="orange"
+              />
             </div>
           </div>
-
-          <hr className="border-white/10" />
-        </div>
+        </div> */}
       </div>
     </div>
   );
