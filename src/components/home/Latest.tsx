@@ -3,12 +3,9 @@ import { Schibsted_Grotesk } from "next/font/google";
 import React, { useState } from "react";
 import Image from "next/image";
 import { TiArrowSortedUp } from "react-icons/ti";
+
+import { image2, njalo, cstaz, tms } from "@/data";
 import Link from "next/link";
-import { image2, yandi, landj, njalo, cstaz, tms } from "@/data";
-import { GrAppleMusic } from "react-icons/gr";
-import { BsApple, BsSpotify } from "react-icons/bs";
-import { SiApplemusic, SiYoutubemusic } from "react-icons/si";
-import { FaDeezer } from "react-icons/fa6";
 
 type Props = {};
 
@@ -25,39 +22,7 @@ const albumsData = [
     artist: "YandiSibi",
     releaseDate: "September 12, 2025",
     coverImage: njalo, // Replace with third album cover
-    tracks: [
-      {
-        id: 1,
-        title: "Njalo",
-        duration: "4:45",
-      },
-    ],
-    links: [
-      {
-        id: 1,
-        name: "Spotify",
-        icon: <BsSpotify className="w-5 h-5 text-neutral-100" />,
-        link: "https://open.spotify.com/album/5h2VjDhjhrJMHkZFvAf8QM?si=rSxSoLsbQXOH3jaE7PWp_w",
-      },
-      {
-        id: 2,
-        name: "Apple Music",
-        icon: <SiApplemusic className="w-5 h-5 text-neutral-100" />,
-        link: "https://music.apple.com/za/album/njalo/1837463602?i=1837463617",
-      },
-      {
-        id: 3,
-        name: "Deezer",
-        icon: <FaDeezer className="w-5 h-5 text-neutral-100" />,
-        link: "https://link.deezer.com/s/312O7qMbJFBNYJWDTRZtD",
-      },
-      {
-        id: 4,
-        name: "YouTube Music",
-        icon: <SiYoutubemusic className="w-5 h-5 text-neutral-100" />,
-        link: "https://music.youtube.com/watch?v=VbaR7iUSnVg&si=kd8KAW6WabhEfqiq",
-      },
-    ],
+    link: "https://open.spotify.com/embed/track/7DtN0ksb5UH0TSl0aFfdVB?utm_source=generator",
   },
   {
     id: 2,
@@ -65,29 +30,19 @@ const albumsData = [
     artist: "L & J CSTAZ",
     releaseDate: "Coming Soon",
     coverImage: cstaz, // Replace with fourth album cover
-    tracks: [
-      { id: 1, title: "Bless The Lord", duration: "03:46" },
-      { id: 2, title: "Jesu Msindisi", duration: "04:10" },
-      { id: 3, title: "Kungokwami Ukuthula", duration: "02:34" },
-      { id: 4, title: "Ngitsheliwe", duration: "03:54" },
-      { id: 5, title: "Uyalalelwa Umoya", duration: "03:00" },
-    ],
+    link: "https://open.spotify.com/embed/album/3HeSTciM2xJ9omxiyrijOc?utm_source=generator",
   },
+
+  /*
+   *<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/7DtN0ksb5UH0TSl0aFfdVB?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+   */
   {
     id: 3,
     title: "Live Culture",
     artist: "Abe Sibiya",
     releaseDate: "Coming Soon",
     coverImage: image2, // Replace with your album cover path
-    tracks: [
-      { id: 1, title: "Celestial Nights", duration: "3:42" },
-      { id: 2, title: "Whispers in the Dark", duration: "4:15" },
-      { id: 3, title: "Neon Dreams", duration: "3:28" },
-      { id: 4, title: "Starlight Serenade", duration: "4:52" },
-      { id: 5, title: "Electric Hearts", duration: "3:36" },
-      { id: 6, title: "Moonbeam Dance", duration: "4:08" },
-    ],
-    links: [],
+    link: "https://open.spotify.com/embed/album/7ET7RwAOI658wECgo2gq3o?utm_source=generator",
   },
   {
     id: 4,
@@ -95,8 +50,7 @@ const albumsData = [
     artist: "Abe Sibiya",
     releaseDate: "Coming Soon",
     coverImage: tms, // Replace with your album cover path
-    tracks: [{ id: 1, title: "The Morning Service", duration: "3:42" }],
-    links: [],
+    link: "",
   },
 ];
 
@@ -125,8 +79,8 @@ const Latest = (props: Props) => {
         )}
         {!selectedAlbum && (
           <>
-            <div className="absolute inset-0 blur-md bg-[#bdb4a5]"></div>
-            <div className="absolute inset-0 bg-black/10"></div>
+            <div className="absolute inset-0  bg-[#828180]"></div>
+            <div className="absolute inset-0 bg-white/30"></div>
           </>
         )}
       </div>
@@ -149,7 +103,11 @@ const Latest = (props: Props) => {
             {/* Header */}
             <div className="text-neutral-200 py-10 flex flex-col md:items-center md:text-center xl:items-start xl:text-start justify-center space-y-5">
               <h1
-                className={`text-4xl lg:text-7xl lg:max-w-2xl font-extrabold  text-neutral-100 `}
+                className={`text-4xl lg:text-7xl lg:max-w-2xl font-extrabold  text-neutral-100 text-shadow-lg ${
+                  selectedAlbum
+                    ? "text-shadow-neutral-600/20"
+                    : "text-shadow-neutral-400"
+                } `}
               >
                 Latest Commercial Albums
               </h1>
@@ -162,10 +120,55 @@ const Latest = (props: Props) => {
                   contemporary music.
                 </p>
               </div>
-              <div>
-                <p className="capitalize font-semibold text-neutral-100 hover:text-white hover:bg-neutral-800 px-3 py-2 rounded-xl cursor-pointer">
-                  [ choose a cover ]
-                </p>
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 pt-2">
+                <button
+                  onClick={() => setSelectedAlbumIndex(1)}
+                  className={`${sted.className} group relative inline-flex items-center justify-center gap-2 
+                             bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-500 hover:to-orange-600 
+                             text-white font-bold px-6 py-3 lg:px-8 lg:py-4 rounded-md transition-all duration-300 
+                             shadow-xl hover:shadow-orange-500/25 transform hover:-translate-y-0.5 
+                             border border-orange-400/20 text-sm lg:text-base`}
+                >
+                  <span>Pick An Album</span>
+                  <svg
+                    className="w-4 h-4 lg:w-5 lg:h-5 transition-transform duration-300 group-hover:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 12v3m3-6v9m3-12v15m3-12v9m3-6v3"
+                    />
+                  </svg>
+                </button>
+
+                <Link
+                  href={"/commercial"}
+                  className={`${sted.className} group inline-flex items-center justify-center gap-2 
+                             bg-transparent hover:bg-white/10 text-white font-semibold px-6 py-3 lg:px-8 lg:py-4 
+                             rounded-md border-2 border-white/20 hover:border-white/40 
+                             transition-all duration-300 text-sm lg:text-base`}
+                >
+                  <span>Learn More</span>
+
+                  <svg
+                    className="w-4 h-4 lg:w-5 lg:h-5 transition-transform duration-300 group-hover:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </Link>
               </div>
             </div>
 
@@ -182,7 +185,7 @@ const Latest = (props: Props) => {
                     }
                     className={`relative group transition-all duration-300 ${
                       selectedAlbumIndex === index
-                        ? "scale-105 ring-2 ring-orange-600 rounded-2xl"
+                        ? "scale-105 ring-2 ring-orange-500/70 rounded-2xl"
                         : "hover:scale-102 hover:shadow-2xl"
                     }`}
                   >
@@ -225,90 +228,59 @@ const Latest = (props: Props) => {
 
           {/* Selected Album Details */}
           {selectedAlbum && (
-            <div className="lg:w-[90%] mx-auto bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 mb-8 animate-in slide-in-from-bottom duration-300">
+            <div className=" mx-auto bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 mb-8 animate-in slide-in-from-bottom duration-300">
               {/* Album Header */}
-              <div className="mb-6 text-center lg:text-left">
-                <div className="flex flex-col lg:flex-row lg:space-x-4 items-center lg:items-end">
-                  <h1
-                    className={` text-2xl lg:text-3xl font-bold mb-2 lg:mb-0 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300`}
-                  >
-                    {selectedAlbum.title}
-                  </h1>
-                  <h2
-                    className={` text-lg lg:text-xl font-medium text-gray-300 mb-2 lg:mb-0`}
-                  >
-                    by {selectedAlbum.artist}
-                  </h2>
-                </div>
-                <p className={` text-gray-400 text-base`}>
-                  Released {selectedAlbum.releaseDate}
-                </p>
-              </div>
-
-              {/* Tracklist */}
-              <div>
-                <h3 className={`text-xl font-semibold mb-4 text-white`}>
-                  Tracklist
-                </h3>
-
-                <div className="space-y-1 max-h-80 overflow-y-auto">
-                  {selectedAlbum.tracks.map((track, index) => (
-                    <div
-                      key={track.id}
-                      className="flex items-center justify-between p-3 rounded-lg hover:bg-white/10 transition-colors duration-200 group cursor-posted"
-                    >
-                      <div className="flex items-center gap-4">
-                        <span
-                          className={`text-gray-400 font-medium w-8 text-center group-hover:text-white transition-colors text-sm`}
-                        >
-                          {track.id.toString().padStart(2, "0")}
-                        </span>
-                        <span
-                          className={`text-white font-medium group-hover:text-gray-100 text-sm lg:text-base`}
-                        >
-                          {track.title}
-                        </span>
-                      </div>
-                      <div
-                        className={`text-white font-medium group-hover:text-gray-300 transition-colors text-sm`}
+              {selectedAlbum?.link === "" ? (
+                <div className="flex flex-col items-center justify-center py-16 px-6">
+                  {/* Icon */}
+                  <div className="mb-6 relative">
+                    <div className="absolute inset-0 bg-orange-500/20 blur-xl rounded-full"></div>
+                    <div className="relative bg-gradient-to-br from-blue-orange/10 to-orange-500/10 p-6 rounded-full border border-orange-400/20">
+                      <svg
+                        className="w-12 h-12 text-orange-200"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
                       >
-                        <ul className="flex space-x-5">
-                          {selectedAlbum.links?.map((plat) => (
-                            <li key={plat.id}>
-                              <Link href={plat.link}>{plat.icon}</Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={1.5}
+                          d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"
+                        />
+                      </svg>
                     </div>
-                  ))}
-                </div>
+                  </div>
 
-                {/* Album Stats */}
-                <div className="mt-6 pt-4 border-t border-white/10 flex flex-wrap gap-6 text-sm text-gray-400">
-                  <span>{selectedAlbum.tracks.length} tracks</span>
-                  <span>
-                    Total duration:{" "}
-                    {Math.floor(
-                      selectedAlbum.tracks.reduce((acc, track) => {
-                        const [minutes, seconds] = track.duration
-                          .split(":")
-                          .map(Number);
-                        return acc + minutes * 60 + seconds;
-                      }, 0) / 60
-                    )}
-                    :
-                    {String(
-                      selectedAlbum.tracks.reduce((acc, track) => {
-                        const [minutes, seconds] = track.duration
-                          .split(":")
-                          .map(Number);
-                        return acc + minutes * 60 + seconds;
-                      }, 0) % 60
-                    ).padStart(2, "0")}
-                  </span>
+                  {/* Text */}
+                  <h2 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-orange-300 via-orange-400 to-orange-500 bg-clip-text text-transparent mb-3">
+                    Coming Soon
+                  </h2>
+                  <p className="text-gray-300 text-center max-w-md">
+                    This album is currently in production. Check back soon to
+                    listen!
+                  </p>
+
+                  {/* Optional: Animated dots */}
+                  <div className="flex gap-2 mt-6">
+                    <span className="w-2 h-2 bg-orange-300 rounded-full animate-pulse"></span>
+                    <span className="w-2 h-2 bg-orange-400 rounded-full animate-pulse delay-75"></span>
+                    <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse delay-150"></span>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <iframe
+                  data-testid="embed-iframe"
+                  className="border-radius:12px"
+                  src={selectedAlbum.link}
+                  width="100%"
+                  height="352"
+                  frameBorder="0"
+                  // allowfullscreen="false"
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  loading="lazy"
+                ></iframe>
+              )}
             </div>
           )}
         </div>
