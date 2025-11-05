@@ -16,12 +16,7 @@ type AccordianProps = {
 
 export function AccordionDemo({ services }: AccordianProps) {
   return (
-    <Accordion
-      type="single"
-      collapsible
-      className="w-full"
-      defaultValue="item-1"
-    >
+    <Accordion type="single" collapsible className="w-full">
       {services.map((service, i) => (
         <AccordionItem
           key={service.id}

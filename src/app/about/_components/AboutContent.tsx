@@ -125,17 +125,19 @@ const AboutContent = (props: Props) => {
               >
                 {/* Badge */}
 
-                <div className="space-y-6 mt-5">
-                  <h1 className="text-5xl lg:text-6xl xl:text-7xl font-black leading-[1] tracking-tight">
-                    Bringing stories
-                    <span className="text-blue-700 block">to life</span>
+                <div className="space-y-6 mt-">
+                  <h1 className="text-5xl lg:text-6xl  font-black leading-[1] tracking-tight">
+                    Amplifying voices
+                    <span className="text-blue-700 block">
+                      that move the world
+                    </span>
                   </h1>
 
                   <p className="text-lg lg:text-xl text-white leading-relaxed max-w-lg font-light">
-                    At CMMG, we fuse creative storytelling with technical
-                    precision. From branded content to original productions and
-                    music scoring, our work is crafted to inspire and captivate
-                    across platforms.
+                    At CMMG, we craft sound that speaks. From artist development
+                    to production and distribution, our mission is to bring
+                    powerful music and authentic stories to audiences
+                    everywhere.
                   </p>
                 </div>
 

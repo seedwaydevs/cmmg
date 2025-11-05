@@ -13,7 +13,7 @@ const sted = Schibsted_Grotesk({
 const Footer = (props: Props) => {
   return (
     <div className={`bg-[#0e0e0e] py-14 text-[#f2ece5] ${sted.className}`}>
-      <div className="w-[90%] mx-auto space-y-5">
+      <div className="w-[90%] lg:w-[80%] mx-auto space-y-5">
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-10">
           <div className="space-y-3">
             <h2 className={`${sted.className} text-xl capitalize font-bold`}>
