@@ -142,7 +142,7 @@ const MusicPlayer = () => {
 
       {/* Modal */}
       {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4">
+        <div className="fixed inset-0 mt-19 bg-black/80 flex items-start justify-center z-50 p-4">
           <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl shadow-2xl w-full max-w-md border border-slate-700 overflow-hidden">
             {/* Header */}
             <div className="flex items-center justify-between p-6 border-b border-slate-700">
@@ -160,18 +160,18 @@ const MusicPlayer = () => {
             </div>
 
             {/* Current Track Display */}
-            <div className="p-6 text-center">
-              <div className="w-32 h-32 mx-auto mb-4 bg-gradient-to-br from-orange-500 to-orange-700 rounded-full flex items-center justify-center shadow-lg">
-                <Music size={64} className="text-white" />
+            <div className="p-3 text-center">
+              <div className="w-18 h-18 mx-auto mb-4 bg-gradient-to-br from-orange-500 to-orange-700 rounded-full flex items-center justify-center shadow-lg">
+                <Music size={30} className="text-white" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-1">
+              <h3 className="text-lg font-bold text-white">
                 {tracks[currentTrack].title}
               </h3>
               <p className="text-slate-400">{tracks[currentTrack].artist}</p>
             </div>
 
             {/* Progress Bar */}
-            <div className="px-6">
+            <div className="px-10">
               <input
                 type="range"
                 min="0"
@@ -187,15 +187,7 @@ const MusicPlayer = () => {
             </div>
 
             {/* Controls */}
-            <div className="flex items-center justify-center gap-4 p-6">
-              <button
-                onClick={toggleMute}
-                className="p-3 hover:bg-slate-700 rounded-full transition-colors text-slate-300 hover:text-white"
-                aria-label="Toggle mute"
-              >
-                {isMuted ? <VolumeX size={24} /> : <Volume2 size={24} />}
-              </button>
-
+            <div className="flex items-center justify-center gap-4 p-2">
               <button
                 onClick={prevTrack}
                 className="p-3 hover:bg-slate-700 rounded-full transition-colors text-slate-300 hover:text-white"
