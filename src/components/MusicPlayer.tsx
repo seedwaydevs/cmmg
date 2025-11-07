@@ -8,8 +8,10 @@ import {
   SkipForward,
   Volume2,
   VolumeX,
-  ChevronDown,
+  Music,
+  X,
 } from "lucide-react";
+import { cstaz, image2, tms2 } from "@/data";
 
 const MusicPlayer = () => {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -18,50 +20,38 @@ const MusicPlayer = () => {
   const [currentTrack, setCurrentTrack] = useState(0);
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [showPlaylist, setShowPlaylist] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const tracks = [
     {
       id: 1,
-      title: "Track One",
-      artist: "Artist Name",
+      title: "The Long Drive",
+      artist: "Abe Sibiya",
+      img: image2,
       url: "https://firebasestorage.googleapis.com/v0/b/musicapp-e347f.firebasestorage.app/o/cmmgweb%2F08%20The%20Long%20Drive.wav?alt=media&token=392d0194-9656-4b75-b255-49be56ab4963",
     },
     {
       id: 2,
-      title: "Track Two",
-      artist: "Artist Name",
+      title: "Bless The Lord",
+      artist: "L & J Cstaz",
+      img: cstaz,
       url: "https://firebasestorage.googleapis.com/v0/b/musicapp-e347f.firebasestorage.app/o/cmmgweb%2FBless%20The%20Lord.wav?alt=media&token=99f8e69b-cf03-40b8-bfe7-c6dd8922bbe9",
     },
     {
       id: 3,
-      title: "Track Three",
-      artist: "Artist Name",
+      title: "Jesu Msindisi",
+      artist: "L & J Cstaz",
+      img: cstaz,
       url: "https://firebasestorage.googleapis.com/v0/b/musicapp-e347f.firebasestorage.app/o/cmmgweb%2FJesu%20Msindisi.wav?alt=media&token=6ff7336b-501b-464a-8360-eea72626ccec",
     },
-
     {
       id: 4,
-      title: "Track Five",
-      artist: "Artist Name",
+      title: "The Blessing",
+      artist: "Abe Sibiya",
+      img: tms2,
       url: "https://firebasestorage.googleapis.com/v0/b/musicapp-e347f.firebasestorage.app/o/cmmgweb%2FThe%20blessing.mp3?alt=media&token=33278536-c348-45e9-9b5e-f74127a27c88",
     },
   ];
-
-  // ===== AUTOPLAY LOGIC - EASY TO REMOVE =====
-  // To disable autoplay: comment out or delete the useEffect block below
-  useEffect(() => {
-    const playOnLoad = () => {
-      if (audioRef.current) {
-        audioRef.current.play().catch((err) => {
-          console.log("Autoplay prevented:", err);
-        });
-        setIsPlaying(true);
-      }
-    };
-    playOnLoad();
-  }, []);
-  // ===== END AUTOPLAY LOGIC =====
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -114,7 +104,6 @@ const MusicPlayer = () => {
 
   const selectTrack = (index: number) => {
     setCurrentTrack(index);
-    setShowPlaylist(false);
   };
 
   const handleProgressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -136,114 +125,144 @@ const MusicPlayer = () => {
     <>
       <audio ref={audioRef} src={tracks[currentTrack].url} muted={isMuted} />
 
-      <div className="fixed bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 to-slate-800 border-t border-slate-700 shadow-2xl z-50">
-        {/* Progress Bar */}
-        <input
-          type="range"
-          min="0"
-          max={duration || 0}
-          value={progress}
-          onChange={handleProgressChange}
-          className="w-full h-1 bg-slate-700 cursor-pointer accent-orange-500 hover:accent-orange-400"
+      {/* Floating Music Note Button */}
+      <button
+        onClick={() => setShowModal(true)}
+        className="fixed bottom-8 right-8 w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 z-50 group"
+        aria-label="Open music player"
+      >
+        <Music
+          size={28}
+          className="text-white group-hover:scale-110 transition-transform"
         />
+        {isPlaying && (
+          <div className="absolute inset-0 rounded-full animate-ping bg-orange-400 opacity-75"></div>
+        )}
+      </button>
 
-        <div className="px-4 py-2 md:px-6 md:py-2">
-          {/* Main Player */}
-          <div className="flex items-center justify-between gap-4">
-            {/* Track Info */}
-            <div className="min-w-0 flex-1">
-              <p className="text-sm font-semibold text-white truncate">
+      {/* Modal */}
+      {showModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4">
+          <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl shadow-2xl w-full max-w-md border border-slate-700 overflow-hidden">
+            {/* Header */}
+            <div className="flex items-center justify-between p-6 border-b border-slate-700">
+              <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                <Music size={24} className="text-orange-500" />
+                Music Player
+              </h2>
+              <button
+                onClick={() => setShowModal(false)}
+                className="p-2 hover:bg-slate-700 rounded-lg transition-colors text-slate-400 hover:text-white"
+                aria-label="Close"
+              >
+                <X size={24} />
+              </button>
+            </div>
+
+            {/* Current Track Display */}
+            <div className="p-6 text-center">
+              <div className="w-32 h-32 mx-auto mb-4 bg-gradient-to-br from-orange-500 to-orange-700 rounded-full flex items-center justify-center shadow-lg">
+                <Music size={64} className="text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-1">
                 {tracks[currentTrack].title}
-              </p>
-              <p className="text-xs text-slate-400 truncate">
-                {tracks[currentTrack].artist}
-              </p>
+              </h3>
+              <p className="text-slate-400">{tracks[currentTrack].artist}</p>
+            </div>
+
+            {/* Progress Bar */}
+            <div className="px-6">
+              <input
+                type="range"
+                min="0"
+                max={duration || 0}
+                value={progress}
+                onChange={handleProgressChange}
+                className="w-full h-2 bg-slate-700 rounded-lg cursor-pointer accent-orange-500 hover:accent-orange-400"
+              />
+              <div className="flex justify-between text-xs text-slate-400 mt-2">
+                <span>{formatTime(progress)}</span>
+                <span>{formatTime(duration)}</span>
+              </div>
             </div>
 
             {/* Controls */}
-            <div className="flex items-center gap-2">
-              {/* Mute Button */}
+            <div className="flex items-center justify-center gap-4 p-6">
               <button
                 onClick={toggleMute}
-                className="p-2 hover:bg-slate-700 rounded-lg transition-colors text-slate-300 hover:text-white"
+                className="p-3 hover:bg-slate-700 rounded-full transition-colors text-slate-300 hover:text-white"
                 aria-label="Toggle mute"
               >
-                {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
+                {isMuted ? <VolumeX size={24} /> : <Volume2 size={24} />}
               </button>
 
-              {/* Previous Button */}
               <button
                 onClick={prevTrack}
-                className="p-2 hover:bg-slate-700 rounded-lg transition-colors text-slate-300 hover:text-white"
+                className="p-3 hover:bg-slate-700 rounded-full transition-colors text-slate-300 hover:text-white"
                 aria-label="Previous track"
               >
-                <SkipBack size={18} />
+                <SkipBack size={28} />
               </button>
 
-              {/* Play/Pause Button */}
               <button
                 onClick={togglePlay}
-                className="p-3 bg-orange-600 hover:bg-orange-500 rounded-lg transition-colors text-white"
+                className="p-5 bg-orange-600 hover:bg-orange-500 rounded-full transition-all hover:scale-105 text-white shadow-lg"
                 aria-label={isPlaying ? "Pause" : "Play"}
               >
                 {isPlaying ? (
-                  <Pause size={20} fill="currentColor" />
+                  <Pause size={32} fill="currentColor" />
                 ) : (
-                  <Play size={20} fill="currentColor" />
+                  <Play size={32} fill="currentColor" />
                 )}
               </button>
 
-              {/* Next Button */}
               <button
                 onClick={nextTrack}
-                className="p-2 hover:bg-slate-700 rounded-lg transition-colors text-slate-300 hover:text-white"
+                className="p-3 hover:bg-slate-700 rounded-full transition-colors text-slate-300 hover:text-white"
                 aria-label="Next track"
               >
-                <SkipForward size={18} />
+                <SkipForward size={28} />
               </button>
+            </div>
 
-              {/* Time Display */}
-              <div className="text-xs text-slate-400 min-w-fit ml-2">
-                {formatTime(progress)} / {formatTime(duration)}
-              </div>
-
-              {/* Playlist Button */}
-              <div className="relative">
+            {/* Playlist */}
+            <div className="border-t border-slate-700 max-h-64 overflow-y-auto">
+              {tracks.map((track, index) => (
                 <button
-                  onClick={() => setShowPlaylist(!showPlaylist)}
-                  className="p-2 hover:bg-slate-700 rounded-lg transition-colors text-slate-300 hover:text-white ml-2"
-                  aria-label="Show playlist"
+                  key={track.id}
+                  onClick={() => selectTrack(index)}
+                  className={`w-full text-left px-6 py-4 hover:bg-slate-700 transition-colors border-b border-slate-700 last:border-b-0 ${
+                    index === currentTrack
+                      ? "bg-slate-700 text-orange-500"
+                      : "text-slate-300"
+                  }`}
                 >
-                  <ChevronDown size={18} />
-                </button>
-
-                {/* Playlist Dropdown */}
-                {showPlaylist && (
-                  <div className="absolute bottom-full right-0 mb-2 w-64 bg-slate-800 border border-slate-700 rounded-lg shadow-lg max-h-72 overflow-y-auto">
-                    {tracks.map((track, index) => (
-                      <button
-                        key={track.id}
-                        onClick={() => selectTrack(index)}
-                        className={`w-full text-left px-4 py-3 hover:bg-slate-700 transition-colors border-b border-slate-700 last:border-b-0 ${
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Music
+                        size={20}
+                        className={
                           index === currentTrack
-                            ? "bg-slate-700 text-orange-500"
-                            : "text-slate-300"
-                        }`}
-                      >
-                        <p className="text-sm font-medium">{track.title}</p>
-                        <p className="text-xs text-slate-500">{track.artist}</p>
-                      </button>
-                    ))}
+                            ? "text-orange-500"
+                            : "text-slate-500"
+                        }
+                      />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-sm font-medium truncate">
+                        {track.title}
+                      </p>
+                      <p className="text-xs text-slate-500 truncate">
+                        {track.artist}
+                      </p>
+                    </div>
                   </div>
-                )}
-              </div>
+                </button>
+              ))}
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Spacer to prevent content overlap */}
-      <div className="h-24" />
+      )}
     </>
   );
 };

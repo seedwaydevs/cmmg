@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { TiArrowSortedUp } from "react-icons/ti";
 
-import { image2, njalo, cstaz, tms } from "@/data";
+import { image2, njalo, cstaz, tms, tms2 } from "@/data";
 import Link from "next/link";
 
 type Props = {};
@@ -49,7 +49,7 @@ const albumsData = [
     title: "The Morning Service",
     artist: "Abe Sibiya",
     releaseDate: "Coming Soon",
-    coverImage: tms, // Replace with your album cover path
+    coverImage: tms2, // Replace with your album cover path
     link: "",
   },
 ];

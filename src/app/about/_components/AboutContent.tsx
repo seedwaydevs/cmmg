@@ -12,6 +12,7 @@ import Image from "next/image";
 import prod from "../../../../public/prodco.jpg";
 import MissionVisionTiles from "./MissionVisionTiles";
 import { title } from "process";
+import Team from "@/components/about/Team";
 
 type Props = {};
 
@@ -114,7 +115,7 @@ const AboutContent = (props: Props) => {
         {/* Content */}
         <div className="relative z-20 h-full flex items-center">
           <div className="w-[90%] lg:w-[80%] mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-6 items-center">
               {/* Left Content */}
               <div
                 className={`space-y-8 transform transition-all duration-1000 ${
@@ -125,12 +126,10 @@ const AboutContent = (props: Props) => {
               >
                 {/* Badge */}
 
-                <div className="space-y-6 mt-">
-                  <h1 className="text-5xl lg:text-6xl  font-black leading-[1] tracking-tight">
-                    Amplifying voices
-                    <span className="text-blue-700 block">
-                      that move the world
-                    </span>
+                <div className="space-y-6">
+                  <h1 className="text-6xl md:text-5xl  font-black leading-[1] tracking-tight">
+                    Amplifying voices around the
+                    <span className="text-blue-700 "> world</span>
                   </h1>
 
                   <p className="text-lg lg:text-xl text-white leading-relaxed max-w-lg font-light">
@@ -246,7 +245,7 @@ const AboutContent = (props: Props) => {
 
       {/* Why Choose Us */}
       <section id="services" className="relative py-16">
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-gray-800 to-black"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-800 via-blue-900 to-black"></div>
         <div className="relative z-10 w-[90%] lg:w-[80%] mx-auto">
           <div
             className={`transform transition-all duration-1000 ${
@@ -334,13 +333,14 @@ const AboutContent = (props: Props) => {
 
               {/* Team component placeholder with matching design */}
               <div className="relative">
-                <div className="absolute inset-0 backdrop-blur-2xl bg-white/5 rounded-2xl border border-white/10"></div>
-                <div className="relative p-16">
+                {/* <div className="absolute inset-0 backdrop-blur-2xl bg-white/5 rounded-2xl border border-white/10"></div> */}
+                <Team />
+                {/* <div className="relative p-16">
                   <Users className="w-24 h-24 mx-auto text-orange-500/60 mb-8" />
                   <p className="text-gray-400 text-lg">
                     Team component will be integrated here
                   </p>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

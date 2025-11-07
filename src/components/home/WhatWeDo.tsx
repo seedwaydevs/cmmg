@@ -17,10 +17,10 @@ type Props = {};
 const WhatWeDo = (props: Props) => {
   return (
     <div className="py-5 w-full text-neutral-200 bg-blue-800">
-      <div className="w-[90%] lg:w-[80%] mx-auto">
-        <div className="flex flex-col space-y-5">
+      <div className="w-[90%] lg:w-[80%] mx-auto pb-5">
+        <div className="flex flex-col ">
           {/* Header - matching Landing style */}
-          <div className="flex items-center py-5">
+          <div className="flex items-center py-5 ">
             <TiArrowSortedUp className="text-orange-500 h-7 w-7 lg:h-10 lg:w-10" />
             <div className="backdrop-blur-sm bg-white/5 px-4 py-2 rounded-lg border border-white/10 ml-2">
               <p
@@ -31,9 +31,9 @@ const WhatWeDo = (props: Props) => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 space-y-5 py-5">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 space-y-5 lg:py-5 ">
             {/* Main heading */}
-            <div className="flex flex-col justify-center py-10 space-y-5">
+            <div className="flex flex-col justify-center py-10 space-y-8">
               <h1
                 className={`font-black text-6xl   tracking-tight leading-none`}
               >

@@ -50,12 +50,14 @@ import stu7 from "../public/studio/IMG_1093.jpg";
 import stu8 from "../public/studio/IMG_1094.jpg";
 import cstaz from "../public/jsm001.jpeg";
 import tms from "../public/tms001.png";
+import tms2 from "../public/tms002.jpg";
 import servicebg1 from "../public/ServicesBg1.jpeg";
 import servicebg2 from "../public/ServicesBg2.jpeg";
 
 //music
 
 export {
+  tms2,
   servicebg1,
   servicebg2,
   tms,
