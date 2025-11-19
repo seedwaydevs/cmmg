@@ -72,7 +72,7 @@ const ContactCTA = () => {
                 </a>
 
                 <a
-                  href="tel:+27123456789"
+                  href="tel:+27617889902"
                   className={`  inline-flex flex-col sm:flex-row items-center justify-center rounded-br-2xl gap-2 bg-neutral-900 hover:bg-orange-500/20 px-6 py-8 text-neutral-100 text-base sm:text-lg font-semibold tracking-wide transition-all duration-300`}
                 >
                   <span className="truncate">Call Us</span>

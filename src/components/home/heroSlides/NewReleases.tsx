@@ -91,7 +91,7 @@ const NewReleases = () => {
             </div>
 
             {/* Image Section - Right on desktop */}
-            <div className="relative group order-1 lg:order-1 flex ">
+            <div className="relative group order-1 lg:order-1 flex justify-center lg:justify-center ">
               <div
                 className="relative overflow-hidden rounded-2xl shadow-2xl w-[85%] sm:w-[70%] lg:w-[85%] 
                              h-[40vh] sm:h-[40vh] md:h-[45vh] lg:h-[60vh]"

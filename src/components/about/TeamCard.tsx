@@ -14,7 +14,7 @@ const TeamCard = ({ image, name, position, font }: Props) => {
   const [first, ...last] = name.split(" ");
   return (
     <div className="space-y-3">
-      <div className="h-140 sm:h-[450px] lg:h-[600px] xl:h-[550px] rounded-xl overflow-hidden">
+      <div className="h-140 sm:h-[450px] lg:h-[400px] xl:h-[500px] rounded-xl overflow-hidden">
         <Image
           src={image}
           alt={name}
