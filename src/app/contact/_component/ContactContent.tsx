@@ -469,7 +469,7 @@ const ContactContent = () => {
                   <Phone className="w-6 h-6 text-white" />
                 </div>
                 <h4 className="font-semibold text-neutral-900 mb-2">Phone</h4>
-                <p className="text-neutral-600">+27 XX XXX XXXX</p>
+                <p className="text-neutral-600">+27 61-788-9902</p>
               </div>
               <div className="text-center">
                 <div className="w-12 h-12 bg-neutral-900 rounded-xl flex items-center justify-center mx-auto mb-4">

@@ -1,13 +1,8 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { Anton, Schibsted_Grotesk } from "next/font/google";
+import React, { useState } from "react";
+import { Schibsted_Grotesk } from "next/font/google";
 import Link from "next/link";
-import { FaSquareFacebook, FaTiktok } from "react-icons/fa6";
-import { FaInstagram } from "react-icons/fa6";
-import { FaYoutube } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
-
 import Image from "next/image";
 import { cmmg } from "@/data";
 import SocialMediaLinks from "./Nav/SocialMediaLinks";
@@ -58,7 +53,7 @@ const Nav = () => {
         <div className="absolute w-full h-full backdrop-blur-md bg-white/10 z-0 "></div>
 
         {/* Black nav content */}
-        <div className="relative z-50 w-[90%] lg:w-[80%] mx-auto py-4 flex flex-row justify-between items-center">
+        <div className="relative z-50 w-[90%] md:w-[80%] mx-auto py-4 flex flex-row justify-between items-center">
           <div className="h-[10vh] -my-5">
             <Link className={`${sted.className}`} href={"/"}>
               <Image
@@ -72,7 +67,7 @@ const Nav = () => {
             <div>
               <Link
                 href={"https://www.library.cmmg.co.za/library"}
-                className="hidden md:block text-white font-semibold text-lg rounded-md hover:text-blue-700 bg-orange-600 py-2 px-3"
+                className="hidden md:block text-white font-semibold text-lg rounded-md hover:text-blue-700 bg-orange-600 py-1 px-3"
               >
                 Production Music Library
               </Link>
@@ -81,7 +76,7 @@ const Nav = () => {
               onClick={() => setMenuOpen(true)}
               className={`${sted.className} text-white font-medium`}
             >
-              <GiHamburgerMenu className="w-7 h-7" />
+              <GiHamburgerMenu className="w-8 h-8" />
             </button>
           </div>
         </div>
