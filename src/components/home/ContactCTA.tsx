@@ -5,7 +5,7 @@ const ContactCTA = () => {
     <section className="w-full py-8 sm:py-12 lg:py-16 overflow-hidden">
       <div className="w-[90%] lg:w-[80%] mx-auto space-y-10">
         {/* Main heading */}
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 text-center">
+        <div className="flex flex-row justify-center items-center gap-4 text-center">
           <h1
             className={`  text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-neutral-800 uppercase tracking-tight`}
           >
@@ -61,7 +61,7 @@ const ContactCTA = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 flex-1 border-t border-white/10">
                 <a
                   href="mailto:info@cmmg.co.za"
-                  className="inline-flex flex-col sm:flex-row items-center justify-center gap-3 bg-neutral-900 hover:bg-orange-500/20 border-b sm:border-b-0 sm:border-r border-white/10 px-6 py-8 transition-all duration-300"
+                  className="inline-flex flex-row items-center justify-center gap-3 bg-neutral-900 hover:bg-orange-500/20 border-b sm:border-b-0 sm:border-r border-white/10 px-6 py-8 transition-all duration-300"
                 >
                   <ArrowRight className="text-neutral-100 w-5 h-5 flex-shrink-0" />
                   <span
@@ -73,7 +73,7 @@ const ContactCTA = () => {
 
                 <a
                   href="tel:+27617889902"
-                  className={`  inline-flex flex-col sm:flex-row items-center justify-center rounded-br-2xl gap-2 bg-neutral-900 hover:bg-orange-500/20 px-6 py-8 text-neutral-100 text-base sm:text-lg font-semibold tracking-wide transition-all duration-300`}
+                  className={`  inline-flex flex-row items-center justify-center rounded-br-2xl gap-2 bg-neutral-900 hover:bg-orange-500/20 px-6 py-8 text-neutral-100 text-base sm:text-lg font-semibold tracking-wide transition-all duration-300`}
                 >
                   <span className="truncate">Call Us</span>
                   <Zap className="w-5 h-5 flex-shrink-0" />

@@ -111,7 +111,7 @@ const StudioBooking = () => {
                     Professional Recording
                   </p>
                   <h1
-                    className={`capitalize text-4xl sm:text-5xl md:text-6xl lg:text-7xl  
+                    className={`capitalize text-7xl  
                                font-black leading-[0.85] text-white tracking-tighter`}
                   >
                     Book Studio
@@ -129,7 +129,7 @@ const StudioBooking = () => {
               </div>
 
               {/* Features */}
-              <div className="hidden lg:grid grid-cols-2 gap-4">
+              <div className="grid lg:grid grid-cols-2 gap-4">
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                   <span

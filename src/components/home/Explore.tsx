@@ -68,7 +68,7 @@ const Explore = (props: Props) => {
                 <LinkButton
                   color="orange"
                   text="Browse Library"
-                  url="https://www.library.cmmg.co.za/"
+                  url="https://www.library.cmmg.co.za/library"
                   svg="M9 5l7 7-7 7"
                 />
               </div>
