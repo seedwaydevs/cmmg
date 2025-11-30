@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
 import MusicPlayer from "@/components/MusicPlayer";
+import InitialLoader from "@/components/InitialLoader";
 
 const sted = Schibsted_Grotesk({
   subsets: ["latin"],
@@ -63,10 +64,12 @@ export default function RootLayout({
           sted.className
         )}
       >
-        <Nav />
-        <div className="flex-1 realtive z-0">{children}</div>
-        <Footer />
-        <MusicPlayer />
+        <InitialLoader>
+          <Nav />
+          <div className="flex-1 relative z-0">{children}</div>
+          <Footer />
+          <MusicPlayer />
+        </InitialLoader>
       </body>
     </html>
   );

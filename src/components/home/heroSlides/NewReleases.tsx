@@ -36,7 +36,7 @@ const NewReleases = () => {
                     New release
                   </p>
                   <h1
-                    className={` capitalize text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 
+                    className={` capitalize text-3xl sm:text-4xl lg:text-7xl xl:text-8xl 
                                font-black leading-[0.85] text-white tracking-tighter`}
                   >
                     brand new music
@@ -45,7 +45,7 @@ const NewReleases = () => {
                 </div>
 
                 <p
-                  className={`${sted.className} text-base lg:text-lg text-neutral-100 font-light  
+                  className={`${sted.className} text-sm lg:text-lg text-neutral-100 font-light  
                              max-w-md`}
                 >
                   Explore our record labels latest music offerings from our in
@@ -93,8 +93,8 @@ const NewReleases = () => {
             {/* Image Section - Right on desktop */}
             <div className="relative group order-1 lg:order-1 flex justify-center lg:justify-center ">
               <div
-                className="relative overflow-hidden rounded-2xl shadow-2xl w-[85%] sm:w-[70%] lg:w-[85%] 
-                             h-[40vh] sm:h-[40vh] md:h-[45vh] lg:h-[60vh]"
+                className="relative overflow-hidden rounded-2xl shadow-2xl w-[55%] md:w-[50%]  lg:w-[85%] 
+                             h-[30vh] md:h-[30vh] lg:h-[60vh]"
               >
                 <Image
                   src={njalo}

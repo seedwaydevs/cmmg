@@ -53,7 +53,7 @@ const Landing = () => {
             {/* Left Side - Text Content */}
             <div className="space-y-6 lg:flex-1">
               <p
-                className={`text-lg md:text-xl font-light max-w-xs md:max-w-lg text-white/80 leading-relaxed ${hanken.className}`}
+                className={`text-lg md:text-xl font-light max-w-xs md:max-w-lg text-white/80 leading-tight ${hanken.className}`}
               >
                 Crafting original music libraries and immersive content for
                 film, television, and digital storytelling.

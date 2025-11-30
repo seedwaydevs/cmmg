@@ -12,6 +12,7 @@ import {
   X,
 } from "lucide-react";
 import { cstaz, image2, tms2 } from "@/data";
+import Image from "next/image";
 
 const MusicPlayer = () => {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -142,12 +143,12 @@ const MusicPlayer = () => {
 
       {/* Modal */}
       {showModal && (
-        <div className="fixed inset-0 mt-19 bg-black/80 flex items-start justify-center z-50 p-4">
+        <div className="fixed inset-0 mt-16 bg-black/80 flex items-start justify-center z-50 p-4">
           <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl shadow-2xl w-full max-w-md border border-slate-700 overflow-hidden">
             {/* Header */}
-            <div className="flex items-center justify-between p-6 border-b border-slate-700">
-              <h2 className="text-xl font-bold text-white flex items-center gap-2">
-                <Music size={24} className="text-orange-500" />
+            <div className="flex items-center justify-between py-3 px-6 border-b border-slate-700">
+              <h2 className="text-lg font-bold text-white flex items-center gap-2">
+                <Music size={20} className="text-orange-500" />
                 Music Player
               </h2>
               <button
@@ -161,13 +162,15 @@ const MusicPlayer = () => {
 
             {/* Current Track Display */}
             <div className="p-3 text-center">
-              <div className="w-18 h-18 mx-auto mb-4 bg-gradient-to-br from-orange-500 to-orange-700 rounded-full flex items-center justify-center shadow-lg">
-                <Music size={30} className="text-white" />
+              <div className="w-18 h-18 mx-auto mb-4  flex items-center justify-center shadow-lg">
+                <Image src={tracks[currentTrack].img} alt="Song Cover Image" />
               </div>
-              <h3 className="text-lg font-bold text-white">
+              <h3 className="text-md font-bold text-white">
                 {tracks[currentTrack].title}
               </h3>
-              <p className="text-slate-400">{tracks[currentTrack].artist}</p>
+              <p className="text-slate-400 text-sm">
+                {tracks[currentTrack].artist}
+              </p>
             </div>
 
             {/* Progress Bar */}
@@ -180,50 +183,50 @@ const MusicPlayer = () => {
                 onChange={handleProgressChange}
                 className="w-full h-2 bg-slate-700 rounded-lg cursor-pointer accent-orange-500 hover:accent-orange-400"
               />
-              <div className="flex justify-between text-xs text-slate-400 mt-2">
+              <div className="flex justify-between text-xs text-slate-400 mt-1">
                 <span>{formatTime(progress)}</span>
                 <span>{formatTime(duration)}</span>
               </div>
             </div>
 
             {/* Controls */}
-            <div className="flex items-center justify-center gap-4 p-2">
+            <div className="flex items-center justify-center gap-4 mb-1">
               <button
                 onClick={prevTrack}
-                className="p-3 hover:bg-slate-700 rounded-full transition-colors text-slate-300 hover:text-white"
+                className="p-1 hover:bg-slate-700 rounded-full transition-colors text-slate-300 hover:text-white"
                 aria-label="Previous track"
               >
-                <SkipBack size={28} />
+                <SkipBack size={20} />
               </button>
 
               <button
                 onClick={togglePlay}
-                className="p-5 bg-orange-600 hover:bg-orange-500 rounded-full transition-all hover:scale-105 text-white shadow-lg"
+                className="p-2 bg-orange-600 hover:bg-orange-500 rounded-full transition-all hover:scale-105 text-white shadow-lg"
                 aria-label={isPlaying ? "Pause" : "Play"}
               >
                 {isPlaying ? (
-                  <Pause size={32} fill="currentColor" />
+                  <Pause size={20} fill="currentColor" />
                 ) : (
-                  <Play size={32} fill="currentColor" />
+                  <Play size={20} fill="currentColor" />
                 )}
               </button>
 
               <button
                 onClick={nextTrack}
-                className="p-3 hover:bg-slate-700 rounded-full transition-colors text-slate-300 hover:text-white"
+                className="p-1 hover:bg-slate-700 rounded-full transition-colors text-slate-300 hover:text-white"
                 aria-label="Next track"
               >
-                <SkipForward size={28} />
+                <SkipForward size={20} />
               </button>
             </div>
 
             {/* Playlist */}
-            <div className="border-t border-slate-700 max-h-64 overflow-y-auto">
+            <div className="border-t border-slate-700 max-h-64 overflow-y-auto mt-3">
               {tracks.map((track, index) => (
                 <button
                   key={track.id}
                   onClick={() => selectTrack(index)}
-                  className={`w-full text-left px-6 py-4 hover:bg-slate-700 transition-colors border-b border-slate-700 last:border-b-0 ${
+                  className={`w-full text-left px-6 py-2 hover:bg-slate-700 transition-colors border-b border-slate-700 last:border-b-0 ${
                     index === currentTrack
                       ? "bg-slate-700 text-orange-500"
                       : "text-slate-300"
@@ -231,14 +234,7 @@ const MusicPlayer = () => {
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Music
-                        size={20}
-                        className={
-                          index === currentTrack
-                            ? "text-orange-500"
-                            : "text-slate-500"
-                        }
-                      />
+                      <Image src={track.img} alt="Song cover image" />
                     </div>
                     <div className="min-w-0 flex-1">
                       <p className="text-sm font-medium truncate">
