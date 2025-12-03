@@ -23,6 +23,7 @@ export default function Home() {
       <Explore />
       <WhatWeDo />
       <Studio />
+      <hr className="w-[80%] mx-auto" />
       <ContactCTA />
     </div>
   );
