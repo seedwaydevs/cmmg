@@ -114,7 +114,7 @@ const StudioBooking = () => {
                     className={`capitalize text-7xl  
                                font-black leading-[0.85] text-white tracking-tighter`}
                   >
-                    Book Studio
+                    Our Studio
                     <span className="text-blue-500">.</span>
                   </h1>
                 </div>
