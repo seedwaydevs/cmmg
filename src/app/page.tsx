@@ -9,6 +9,7 @@ import MusicServices from "@/components/home/MusicServices";
 import TrustCarousel from "@/components/home/TrustCarousel";
 import WhatWeDo from "@/components/home/WhatWeDo";
 import LoadingScreen from "@/components/LoadingScreen";
+import Studio from "@/components/home/Studio";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -21,6 +22,7 @@ export default function Home() {
       <Latest />
       <Explore />
       <WhatWeDo />
+      <Studio />
       <ContactCTA />
     </div>
   );
