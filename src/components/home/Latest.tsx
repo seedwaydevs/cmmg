@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { TiArrowSortedUp } from "react-icons/ti";
 
-import { image2, njalo, cstaz, tms, tms2 } from "@/data";
+import { image2, njalo, cstaz, tms, tms2, nkanyamba } from "@/data";
 import Link from "next/link";
 
 type Props = {};
@@ -50,6 +50,14 @@ const albumsData = [
     artist: "Abe Sibiya",
     releaseDate: "Coming Soon",
     coverImage: tms2, // Replace with your album cover path
+    link: "https://open.spotify.com/embed/album/7ycsy7jxkODp286ZmGACnC?utm_source=generator",
+  },
+  {
+    id: 5,
+    title: "Imfihlo Kamakoti",
+    artist: "Nkanyamba",
+    releaseDate: "Coming Soon",
+    coverImage: nkanyamba, // Replace with your album cover path
     link: "",
   },
 ];
@@ -173,8 +181,9 @@ const Latest = (props: Props) => {
             </div>
 
             {/* Album Grid */}
+            {/* Album Grid */}
             <div className="flex justify-center">
-              <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-2  gap-3">
+              <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-3 gap-4 md:gap-6 w-full max-w-7xl">
                 {albumsData.map((album, index) => (
                   <button
                     key={album.id}
@@ -189,24 +198,22 @@ const Latest = (props: Props) => {
                         : "hover:scale-102 hover:shadow-2xl"
                     }`}
                   >
-                    <div className="relative overflow-hidden rounded-2xl">
+                    <div className="relative overflow-hidden rounded-2xl aspect-square">
                       <Image
                         src={album.coverImage}
                         alt={album.title}
-                        width={200}
+                        width={400}
                         height={400}
-                        className="w-full h-68 lg:h-60 object-cover transition-transform duration-300 group-hover:scale-105"
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
 
                       {/* Overlay Info */}
-                      <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-                        <h3
-                          className={` text-white font-bold text-lg lg:text-xl mb-1`}
-                        >
+                      <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 bg-gradient-to-t from-black/80 to-transparent">
+                        <h3 className="text-white font-bold text-sm md:text-base lg:text-lg mb-1">
                           {album.title}
                         </h3>
-                        <p className={` text-gray-300 text-sm lg:text-base`}>
+                        <p className="text-gray-300 text-xs md:text-sm">
                           {album.artist}
                         </p>
                       </div>
