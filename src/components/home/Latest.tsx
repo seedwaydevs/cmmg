@@ -58,7 +58,7 @@ const albumsData = [
     artist: "Nkanyamba",
     releaseDate: "Coming Soon",
     coverImage: nkanyamba, // Replace with your album cover path
-    link: "",
+    link: "https://open.spotify.com/embed/album/6zmGMomhs1gfMgA9gHkxdO?utm_source=generator",
   },
 ];
 
@@ -107,7 +107,7 @@ const Latest = (props: Props) => {
             </div>
           </div>
           {/* Content */}
-          <div className="flex flex-col xl:flex-row items-center justify-between gap-5 mb-8">
+          <div className="flex flex-col xl:flex-row items-center justify-between gap-10 mb-8">
             {/* Header */}
             <div className="text-neutral-200 py-10 flex flex-col md:items-center md:text-center xl:items-start xl:text-start justify-center space-y-5">
               <h1
@@ -181,9 +181,8 @@ const Latest = (props: Props) => {
             </div>
 
             {/* Album Grid */}
-            {/* Album Grid */}
             <div className="flex justify-center">
-              <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-3 gap-4 md:gap-6 w-full max-w-7xl">
+              <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-3 gap-4 md:gap-5 w-full max-w-7xl">
                 {albumsData.map((album, index) => (
                   <button
                     key={album.id}
@@ -202,8 +201,8 @@ const Latest = (props: Props) => {
                       <Image
                         src={album.coverImage}
                         alt={album.title}
-                        width={400}
-                        height={400}
+                        width={300}
+                        height={300}
                         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
