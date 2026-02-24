@@ -1,6 +1,3 @@
-"use client";
-
-import { useEffect, useRef } from "react";
 import Image from "next/image";
 import {
   barloworld,
@@ -13,69 +10,109 @@ import {
 } from "@/data";
 
 const logos = [
-  { src: orcheezy, alt: "Orchard", height: "h-[50px]" },
-  { src: brownsense, alt: "Brownsense", height: "h-[45px]" },
-  { src: trace, alt: "Trace", height: "h-[50px]" },
-  { src: capasso, alt: "Capasso", height: "h-[55px] bg-blue-900 px-2" },
-  { src: samro, alt: "SAMRO", height: "h-[40px]" },
-  { src: barloworld, alt: "Barloworld", height: "h-[65px]" },
-  { src: ccli, alt: "CCLI", height: "h-[70px]" },
+  { src: orcheezy, alt: "Orchard", height: 50 },
+  { src: brownsense, alt: "Brownsense", height: 45 },
+  { src: trace, alt: "Trace", height: 50 },
+  //{ src: capasso, alt: "Capasso", height: 55 },
+  { src: samro, alt: "SAMRO", height: 40 },
+  { src: barloworld, alt: "Barloworld", height: 65 },
+  { src: ccli, alt: "CCLI", height: 70 },
 ];
 
-const TrustCarousel = () => {
-  const wrapperRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const wrapper = wrapperRef.current;
-    if (!wrapper) return;
-
-    let x = 0;
-
-    const animate = () => {
-      if (!wrapper) return;
-
-      x -= 1; // scroll speed
-      wrapper.style.transform = `translateX(${x}px)`;
-
-      if (Math.abs(x) >= wrapper.scrollWidth / 2) {
-        x = 0;
-      }
-
-      requestAnimationFrame(animate);
-    };
-
-    animate();
-  }, []);
-
+const TrustGrid = () => {
   return (
-    <div className="w-full relative h-[10vh] md:h-[15vh] bg-white flex items-center justify-center overflow-hidden">
-      {/* Blur left and right edges */}
-      <div className="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap');
 
-      {/* Scrolling content */}
-      <div className="overflow-hidden w-full">
-        <div
-          ref={wrapperRef}
-          className="flex gap-10 py-10 w-max"
-          style={{ willChange: "transform" }}
-        >
-          {[...logos, ...logos].map((logo, idx) => (
-            <div
-              key={idx}
-              className="flex items-center justify-center min-w-[150px] "
-            >
+        .trust-root {
+          width: 100%;
+          background: #ffffff;
+          border-top: 1px solid rgba(0,0,0,0.08);
+          border-bottom: 1px solid rgba(0,0,0,0.08);
+          padding: 3rem;
+        }
+
+        /* Eyebrow */
+        .trust-eyebrow {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          margin-bottom: 2.5rem;
+        }
+        .trust-eyebrow-line {
+          width: 28px;
+          height: 1px;
+          background: #f05a1a;
+          flex-shrink: 0;
+        }
+        .trust-eyebrow-text {
+          font-family: 'Manrope', sans-serif;
+          font-size: 0.65rem;
+          font-weight: 600;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: rgba(0,0,0,0.35);
+        }
+
+        /* Grid — border on container + cells, no gap */
+        .trust-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          border-left: 1px solid rgba(0,0,0,0.08);
+          border-top: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .trust-grid-cell {
+          border-right: 1px solid rgba(0,0,0,0.08);
+          border-bottom: 1px solid rgba(0,0,0,0.08);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 2.5rem 2rem;
+          filter: grayscale(100%);
+          opacity: 0.4;
+          transition: opacity 0.25s ease, filter 0.25s ease, background 0.25s ease;
+          cursor: default;
+        }
+        .trust-grid-cell:hover {
+          opacity: 1;
+          filter: grayscale(0%);
+          background: rgba(0,0,0,0.02);
+        }
+
+        /* Responsive breakpoints */
+        @media (max-width: 1024px) {
+          .trust-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 640px) {
+          .trust-root { padding: 2rem 1.5rem; }
+          .trust-grid { grid-template-columns: repeat(2, 1fr); }
+          .trust-grid-cell { padding: 1.75rem 1.25rem; }
+        }
+      `}</style>
+
+      <div className="trust-root">
+        <div className="trust-eyebrow">
+          <span className="trust-eyebrow-line" />
+          <span className="trust-eyebrow-text">Trusted & Licensed By</span>
+        </div>
+
+        <div className="trust-grid">
+          {logos.map((logo, idx) => (
+            <div key={idx} className="trust-grid-cell">
               <Image
                 src={logo.src}
                 alt={logo.alt}
-                className={`${logo.height} object-contain w-auto`}
+                height={logo.height}
+                style={{ width: "auto", objectFit: "contain" }}
               />
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
-export default TrustCarousel;
+export default TrustGrid;

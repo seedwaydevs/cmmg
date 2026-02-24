@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { TiArrowSortedUp } from "react-icons/ti";
 
-import { image2, njalo, cstaz, tms, tms2, nkanyamba } from "@/data";
+import { njalo, cstaz, tms, tms2, nkanyamba } from "@/data";
 import Link from "next/link";
 
 type Props = {};
@@ -41,7 +41,7 @@ const albumsData = [
     title: "Live Culture",
     artist: "Abe Sibiya",
     releaseDate: "Coming Soon",
-    coverImage: image2, // Replace with your album cover path
+    coverImage: cstaz, // Replace with your album cover path
     link: "https://open.spotify.com/embed/album/7ET7RwAOI658wECgo2gq3o?utm_source=generator",
   },
   {
@@ -64,7 +64,7 @@ const albumsData = [
 
 const Latest = (props: Props) => {
   const [selectedAlbumIndex, setSelectedAlbumIndex] = useState<number | null>(
-    null
+    null,
   );
   const selectedAlbum =
     selectedAlbumIndex !== null ? albumsData[selectedAlbumIndex] : null;
@@ -188,7 +188,7 @@ const Latest = (props: Props) => {
                     key={album.id}
                     onClick={() =>
                       setSelectedAlbumIndex(
-                        selectedAlbumIndex === index ? null : index
+                        selectedAlbumIndex === index ? null : index,
                       )
                     }
                     className={`relative group transition-all duration-300 ${
