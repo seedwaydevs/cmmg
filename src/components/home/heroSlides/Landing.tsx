@@ -1,143 +1,439 @@
-import React from "react";
-import { Hanken_Grotesk, Schibsted_Grotesk } from "next/font/google";
+"use client";
+
+import React, { useEffect, useRef } from "react";
+import { Syne, Manrope } from "next/font/google";
 import { Music, Mic2, Calendar, Camera } from "lucide-react";
-import HeroBadge from "@/components/HeroBadge";
+import Link from "next/link";
 
-const hanken = Hanken_Grotesk({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
+const syne = Syne({ subsets: ["latin"], weight: ["700", "800"] });
+const manrope = Manrope({ subsets: ["latin"], weight: ["400", "500", "600"] });
 
-const sted = Schibsted_Grotesk({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-});
+const navigationOptions = [
+  {
+    icon: Music,
+    title: "Music Library",
+    description: "Browse our production catalog",
+    href: "https://www.library.cmmg.co.za",
+  },
+  {
+    icon: Mic2,
+    title: "Artists",
+    description: "Records from our roster",
+    href: "/commercial",
+  },
+  {
+    icon: Calendar,
+    title: "Book Studio",
+    description: "Reserve a session",
+    href: "/contact",
+  },
+  {
+    icon: Camera,
+    title: "Content",
+    description: "Gallery & social media",
+    href: "/gallery",
+  },
+];
 
 const Landing = () => {
-  const navigationOptions = [
-    {
-      icon: Music,
-      title: "Library Music",
-      description: "Browse our collection",
-      href: "https://www.library.cmmg.co.za",
-    },
-    {
-      icon: Mic2,
-      title: "Commercial Music",
-      description: "Records from our artists",
-      href: "/commercial",
-    },
-    {
-      icon: Calendar,
-      title: "Book Studio",
-      description: "Reserve your session",
-      href: "/contact",
-    },
-    {
-      icon: Camera,
-      title: "Content",
-      description: "Social media & gallery",
-      href: "/gallery",
-    },
-  ];
+  const titleRef = useRef<HTMLHeadingElement>(null);
+
+  // Subtle entrance animation
+  useEffect(() => {
+    const el = titleRef.current;
+    if (!el) return;
+    el.style.opacity = "0";
+    el.style.transform = "translateY(24px)";
+    requestAnimationFrame(() => {
+      el.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+      el.style.opacity = "1";
+      el.style.transform = "translateY(0)";
+    });
+  }, []);
 
   return (
-    <div className="relative z-10 backdrop-blur-xl bg-white/1 h-full">
-      <div className="w-[90%] md:w-[80%] mx-auto h-[90vh]">
-        <div className="flex flex-col justify-between h-full">
-          {/* Top Badge */}
-          <HeroBadge content="Content and Music" color="orange" />
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Manrope:wght@400;500;600&display=swap');
 
-          {/* Main Content - Split on Desktop */}
-          <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-8 lg:gap-12">
-            {/* Left Side - Text Content */}
-            <div className="space-y-6 lg:flex-1">
-              <p
-                className={`text-lg md:text-xl font-light max-w-xs md:max-w-lg text-white/80 leading-tight ${hanken.className}`}
-              >
-                Crafting original music libraries and immersive content for
-                film, television, and digital storytelling.
+        /* Slide uses a dark bg — keeps the hero cinematic */
+        .landing-root {
+          width: 100%;
+          height: 100%;
+          background-image: url('/image_ref.jpg');
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          position: relative;
+          overflow: hidden;
+        }
+
+        /* Dark overlay so text stays legible */
+        .landing-root::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.68);
+          pointer-events: none;
+          z-index: 0;
+        }
+
+        /* Orange left stripe */
+        .landing-root::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 3px;
+          height: 100%;
+          background: linear-gradient(to bottom, transparent, #f05a1a 25%, #f05a1a 75%, transparent);
+          pointer-events: none;
+          z-index: 1;
+        }
+
+        .landing-inner {
+          max-width: 1440px;
+          width: 100%;
+          margin: 0 auto;
+          padding: 0 3rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 100%;
+          padding-top: 9rem;
+          padding-bottom: 5rem;
+          position: relative;
+          z-index: 2;
+        }
+
+        /* ── Eyebrow ── */
+        .landing-eyebrow {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          margin-bottom: 2.5rem;
+        }
+        .landing-eyebrow-line {
+          width: 28px;
+          height: 1px;
+          background: #f05a1a;
+          flex-shrink: 0;
+        }
+        .landing-eyebrow-text {
+          font-family: 'Manrope', sans-serif;
+          font-size: 0.65rem;
+          font-weight: 600;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.45);
+        }
+        .landing-eyebrow-dot {
+          width: 5px;
+          height: 5px;
+          background: #1a8cff;
+          border-radius: 50%;
+          animation: pulse-blue 2s ease-in-out infinite;
+          margin-left: 0.25rem;
+        }
+        @keyframes pulse-blue {
+          0%,100% { opacity:1; box-shadow: 0 0 0 0 rgba(26,140,255,0.4); }
+          50%      { opacity:0.6; box-shadow: 0 0 0 6px rgba(26,140,255,0); }
+        }
+
+        /* ── Hero body: title left, cards right ── */
+        .landing-body {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          align-items: flex-end;
+          gap: 4rem;
+          flex: 1;
+        }
+
+        /* ── Title ── */
+        .landing-title-block {
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
+        }
+        .landing-title {
+          font-family: 'Syne', sans-serif;
+          font-weight: 800;
+          font-size: clamp(5rem, 10vw, 9rem);
+          letter-spacing: -0.04em;
+          line-height: 0.9;
+          text-transform: uppercase;
+          color: #ffffff;
+        }
+        .landing-title em {
+          font-style: normal;
+          color: #f05a1a;
+        }
+        .landing-subtitle {
+          font-family: 'Manrope', sans-serif;
+          font-size: 1rem;
+          font-weight: 400;
+          line-height: 1.65;
+          color: rgba(255,255,255,0.5);
+          max-width: 400px;
+        }
+        .landing-cta-row {
+          display: flex;
+          gap: 1rem;
+          align-items: center;
+          margin-top: 0.5rem;
+        }
+        .landing-cta-primary {
+          font-family: 'Syne', sans-serif;
+          font-weight: 700;
+          font-size: 0.72rem;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: #ffffff;
+          background: #f05a1a;
+          border: none;
+          padding: 0.85rem 2rem;
+          cursor: pointer;
+          text-decoration: none;
+          display: inline-block;
+          transition: background 0.2s ease, transform 0.2s ease;
+        }
+        .landing-cta-primary:hover {
+          background: #d44c10;
+          transform: translateY(-1px);
+        }
+        .landing-cta-secondary {
+          font-family: 'Manrope', sans-serif;
+          font-weight: 600;
+          font-size: 0.72rem;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.5);
+          text-decoration: none;
+          border-bottom: 1px solid rgba(255,255,255,0.2);
+          padding-bottom: 2px;
+          transition: color 0.2s ease, border-color 0.2s ease;
+        }
+        .landing-cta-secondary:hover {
+          color: #ffffff;
+          border-color: #f05a1a;
+        }
+
+        /* ── Nav cards grid ── */
+        .landing-cards {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          border-left: 1px solid rgba(255,255,255,0.08);
+          border-top: 1px solid rgba(255,255,255,0.08);
+        }
+        .landing-card {
+          border-right: 1px solid rgba(255,255,255,0.08);
+          border-bottom: 1px solid rgba(255,255,255,0.08);
+          padding: 1.75rem 1.5rem;
+          text-decoration: none;
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+          background: transparent;
+          position: relative;
+          overflow: hidden;
+          transition: background 0.25s ease;
+        }
+        .landing-card::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 2px;
+          height: 100%;
+          background: #f05a1a;
+          transform: scaleY(0);
+          transform-origin: top;
+          transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
+        }
+        .landing-card:hover { background: rgba(255,255,255,0.03); }
+        .landing-card:hover::before { transform: scaleY(1); }
+
+        .landing-card-icon {
+          width: 36px;
+          height: 36px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid rgba(255,255,255,0.1);
+          color: #f05a1a;
+          transition: border-color 0.2s ease, background 0.2s ease;
+        }
+        .landing-card:hover .landing-card-icon {
+          border-color: #f05a1a;
+          background: rgba(240,90,26,0.08);
+        }
+        .landing-card-title {
+          font-family: 'Syne', sans-serif;
+          font-weight: 700;
+          font-size: 0.85rem;
+          letter-spacing: 0.02em;
+          text-transform: uppercase;
+          color: #ffffff;
+        }
+        .landing-card-desc {
+          font-family: 'Manrope', sans-serif;
+          font-size: 0.75rem;
+          font-weight: 400;
+          color: rgba(255,255,255,0.35);
+          line-height: 1.5;
+        }
+        .landing-card-arrow {
+          font-family: 'Manrope', sans-serif;
+          font-size: 0.65rem;
+          font-weight: 600;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.2);
+          margin-top: auto;
+          transition: color 0.2s ease, letter-spacing 0.2s ease;
+        }
+        .landing-card:hover .landing-card-arrow {
+          color: #f05a1a;
+          letter-spacing: 0.15em;
+        }
+
+        /* ── Bottom meta bar ── */
+        .landing-meta {
+          display: flex;
+          gap: 3rem;
+          padding-top: 2.5rem;
+          border-top: 1px solid rgba(255,255,255,0.06);
+          margin-top: 2rem;
+        }
+        .landing-meta-item {
+          display: flex;
+          flex-direction: column;
+          gap: 0.3rem;
+        }
+        .landing-meta-label {
+          font-family: 'Manrope', sans-serif;
+          font-size: 0.6rem;
+          font-weight: 600;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.25);
+        }
+        .landing-meta-value {
+          font-family: 'Manrope', sans-serif;
+          font-size: 0.8rem;
+          font-weight: 500;
+          color: rgba(255,255,255,0.65);
+        }
+
+        @media (max-width: 1024px) {
+          .landing-body {
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+          }
+          .landing-title {
+            font-size: clamp(4rem, 14vw, 6rem);
+          }
+        }
+        @media (max-width: 768px) {
+          .landing-inner {
+            padding: 0 1.5rem;
+            padding-top: 7rem;
+            padding-bottom: 5rem;
+          }
+          .landing-meta { flex-wrap: wrap; gap: 1.5rem; }
+          .landing-cta-row { flex-wrap: wrap; }
+        }
+      `}</style>
+
+      <div className="landing-root">
+        <div className="landing-inner">
+          {/* Eyebrow */}
+          <div className="landing-eyebrow">
+            <span className="landing-eyebrow-line" />
+            <span className="landing-eyebrow-text">
+              Music & Content Production
+            </span>
+            <span className="landing-eyebrow-dot" />
+          </div>
+
+          {/* Body: title + cards */}
+          <div className="landing-body">
+            {/* Left — title */}
+            <div className="landing-title-block">
+              <h1 className="landing-title" ref={titleRef}>
+                CMMG<em>.</em>
+              </h1>
+              <p className="landing-subtitle">
+                A South African record label and media group — crafting original
+                music, licensing production libraries, and building artist
+                careers since 2015.
               </p>
-
-              {/* Main Logo/Title */}
-              <div className="relative">
-                <h1
-                  className={`text-8xl md:text-9xl 2xl:text-[10rem] font-black text-white tracking-tight leading-none ${sted.className}`}
+              <div className="landing-cta-row">
+                <Link
+                  href="https://www.library.cmmg.co.za/library"
+                  className="landing-cta-primary"
                 >
-                  CMMG
-                  <span className="text-orange-500">.</span>
-                </h1>
-
-                {/* Subtle glow effect behind title */}
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-transparent to-transparent blur-xl -z-10 scale-110" />
+                  Production Music Library
+                </Link>
+                <Link href="/about" className="landing-cta-secondary">
+                  About the Label
+                </Link>
               </div>
             </div>
 
-            {/* Mobile - Compact Buttons */}
-            <div className="grid grid-cols-2 gap-3 lg:hidden">
-              {navigationOptions.map((option, idx) => (
-                <a
-                  key={idx}
-                  href={option.href}
-                  className="group relative overflow-hidden backdrop-blur-sm bg-white/5 border border-white/10 rounded-lg p-3 hover:bg-white/10 hover:border-orange-500/50 transition-all duration-300 active:scale-95"
-                >
-                  <div className="flex items-center gap-2">
-                    <div className="p-2 rounded-md bg-orange-500/10 border border-orange-500/20 group-hover:bg-orange-500/20 transition-colors duration-300 flex-shrink-0">
-                      <option.icon size={18} className="text-orange-400" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h3
-                        className={`text-sm font-bold text-white truncate ${sted.className}`}
-                      >
-                        {option.title}
-                      </h3>
-                    </div>
+            {/* Right — nav cards */}
+            <div className="landing-cards">
+              {navigationOptions.map((opt, i) => (
+                <Link key={i} href={opt.href} className="landing-card">
+                  <div className="landing-card-icon">
+                    <opt.icon size={16} />
                   </div>
-                </a>
-              ))}
-            </div>
-            {/* Right Side - Navigation Buttons (Below text on mobile) */}
-            <div className="hidden lg:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 lg:max-w-md lg:flex-shrink-0">
-              {navigationOptions.map((option, idx) => (
-                <a
-                  key={idx}
-                  href={option.href}
-                  className="group relative overflow-hidden backdrop-blur-sm bg-white/1 border border-orange-400/20 rounded-xl p-3 hover:bg-white/10 hover:border-orange-500/50 transition-all duration-300 hover:scale-105"
-                >
-                  <div className="flex flex-col items-start gap-3">
-                    <div className="p-3 rounded-lg bg-orange-500/10 border border-orange-500/20 group-hover:bg-orange-500/20 transition-colors duration-300">
-                      <option.icon size={24} className="text-orange-400" />
-                    </div>
-
-                    <div>
-                      <h3
-                        className={`text-lg font-bold text-white mb-1 ${sted.className}`}
-                      >
-                        {option.title}
-                      </h3>
-                      <p
-                        className={`text-sm text-white/60 ${hanken.className}`}
-                      >
-                        {option.description}
-                      </p>
-                    </div>
-
-                    <div
-                      className={`mt-2 text-xs font-semibold text-orange-400 group-hover:translate-x-1 transition-transform duration-300 ${hanken.className}`}
-                    >
-                      Explore →
-                    </div>
-                  </div>
-                </a>
+                  <span className="landing-card-title">{opt.title}</span>
+                  <span className="landing-card-desc">{opt.description}</span>
+                  <span className="landing-card-arrow">Explore →</span>
+                </Link>
               ))}
             </div>
           </div>
 
-          {/* Bottom Badge */}
-          <HeroBadge position="bottom" content="Media group" color="orange" />
+          {/* Bottom meta bar */}
+          <div className="landing-meta">
+            <div className="landing-meta-item">
+              <span className="landing-meta-label">Location</span>
+              <span className="landing-meta-value">
+                Johannesburg, South Africa
+              </span>
+            </div>
+            <div className="landing-meta-item">
+              <span className="landing-meta-label">Established</span>
+              <span className="landing-meta-value">2015</span>
+            </div>
+            <div className="landing-meta-item">
+              <span className="landing-meta-label">Status</span>
+              <span
+                className="landing-meta-value"
+                style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}
+              >
+                <span
+                  style={{
+                    width: 6,
+                    height: 6,
+                    background: "#1a8cff",
+                    borderRadius: "50%",
+                    display: "inline-block",
+                    animation: "pulse-blue 2s ease-in-out infinite",
+                  }}
+                />
+                Accepting Projects
+              </span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

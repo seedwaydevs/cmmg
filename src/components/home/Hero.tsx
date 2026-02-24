@@ -1,132 +1,267 @@
 "use client";
 
-import React, { useState, useEffect, Component } from "react";
-import hero from "./hero.module.css";
-import { Hanken_Grotesk, Schibsted_Grotesk } from "next/font/google";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { Syne, Manrope } from "next/font/google";
 import Landing from "./heroSlides/Landing";
 import Catalog from "./heroSlides/Catalog";
 import NewReleases from "./heroSlides/NewReleases";
 import Studio from "./heroSlides/Studio";
 
-type Props = {};
+const syne = Syne({ subsets: ["latin"], weight: ["700", "800"] });
+const manrope = Manrope({ subsets: ["latin"], weight: ["400", "500", "600"] });
 
-const hanken = Hanken_Grotesk({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
+// Background images are handled inside each slide component directly.
+// The Hero wrapper only manages transitions and controls.
+const slides = [
+  { id: 1, Component: Landing },
+  { id: 2, Component: Catalog },
+  { id: 3, Component: NewReleases },
+  { id: 4, Component: Studio },
+];
 
-const sted = Schibsted_Grotesk({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-});
+const slideLabels = ["Home", "Catalog", "New Releases", "Studio"];
 
-const Hero = (props: Props) => {
+const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [animating, setAnimating] = useState(false);
 
-  // Slide data - customize these for your content
-  const slides = [
-    {
-      id: 1,
-      Component: Landing,
-      backgroundClass: hero.heroBackground, // Your existing background
-    },
-    {
-      id: 2,
-      Component: Catalog,
-      backgroundClass: hero.secondBackground, // Your existing background
-    },
-    {
-      id: 3,
-      Component: NewReleases,
-      backgroundClass: hero.thirdBackground, // Your existing background
-    },
-    {
-      id: 4,
-      Component: Studio,
-      backgroundClass: hero.fourthBackground, // Your existing background
-    },
-  ];
-
-  //Auto-advance slides every 5 seconds
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
+      goToSlide((prev) => (prev + 1) % slides.length);
     }, 15000);
-
     return () => clearInterval(timer);
-  }, [slides.length]);
+  }, []);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  const goToSlide = (indexOrUpdater: number | ((prev: number) => number)) => {
+    if (animating) return;
+    setAnimating(true);
+    setCurrentSlide(indexOrUpdater);
+    setTimeout(() => setAnimating(false), 700);
   };
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
-
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index);
-  };
+  const next = () => goToSlide((p) => (p + 1) % slides.length);
+  const prev = () => goToSlide((p) => (p - 1 + slides.length) % slides.length);
 
   return (
     <>
-      {/* Carousel Container */}
-      <div className="relative w-full min-h-screen overflow-hidden flex justify-center items-center">
-        {slides.map((slide, index) => (
-          <div
-            key={slide.id}
-            className={`absolute inset-0 w-full h-screen text-white transition-transform duration-700 ease-in-out ${
-              slide.backgroundClass || ""
-            } ${
-              index === currentSlide
-                ? "translate-x-0"
-                : index < currentSlide
-                ? "-translate-x-full"
-                : "translate-x-full"
-            }`}
-          >
-            <slide.Component />
-          </div>
-        ))}
+      <style>{`
+        .hero-root {
+          position: relative;
+          width: 100%;
+          min-height: 100svh;
+          overflow: hidden;
+          background: #0a0a0a;
+        }
 
-        {/* Navigation Arrows */}
-        <button
-          onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-colors duration-200"
-          aria-label="Previous slide"
-        >
-          <ChevronLeft size={24} />
-        </button>
+        /* ── Slides ── */
+        .hero-slide {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          transition: transform 0.7s cubic-bezier(0.76, 0, 0.24, 1),
+                      opacity 0.7s ease;
+          will-change: transform, opacity;
+        }
+        .hero-slide.active   { transform: translateX(0);      opacity: 1; z-index: 2; }
+        .hero-slide.before   { transform: translateX(-100%);   opacity: 0; z-index: 1; }
+        .hero-slide.after    { transform: translateX(100%);    opacity: 0; z-index: 1; }
 
-        <button
-          onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-colors duration-200"
-          aria-label="Next slide"
-        >
-          <ChevronRight size={24} />
-        </button>
+        /* ── Arrow buttons ── */
+        .hero-arrow {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          z-index: 20;
+          background: rgba(255,255,255,0.06);
+          border: 1px solid rgba(255,255,255,0.12);
+          color: #fff;
+          width: 44px;
+          height: 44px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: background 0.2s ease, border-color 0.2s ease;
+        }
+        .hero-arrow:hover {
+          background: #f05a1a;
+          border-color: #f05a1a;
+        }
+        .hero-arrow.left  { left: 2rem; }
+        .hero-arrow.right { right: 2rem; }
 
-        {/* Slide Indicators */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex space-x-2 ">
-          {slides.map((_, index) => (
+        /* ── Dot indicators ── */
+        .hero-dots {
+          position: absolute;
+          bottom: 2rem;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 20;
+          display: flex;
+          gap: 0.5rem;
+          align-items: center;
+        }
+        .hero-dot {
+          width: 24px;
+          height: 2px;
+          background: rgba(255,255,255,0.25);
+          border: none;
+          cursor: pointer;
+          transition: background 0.25s ease, width 0.25s ease;
+          padding: 0;
+        }
+        .hero-dot.active {
+          background: #f05a1a;
+          width: 40px;
+        }
+
+        /* ── Slide counter ── */
+        .hero-counter {
+          position: absolute;
+          top: 6rem;
+          left: 3rem;
+          z-index: 20;
+          font-family: 'Manrope', sans-serif;
+          font-size: 0.65rem;
+          font-weight: 600;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.35);
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+        }
+        .hero-counter-current {
+          color: #f05a1a;
+          font-weight: 700;
+        }
+
+        /* ── Slide label strip (right side) ── */
+        .hero-labels {
+          position: absolute;
+          right: 2rem;
+          top: 50%;
+          transform: translateY(-50%);
+          z-index: 20;
+          display: flex;
+          flex-direction: column;
+          gap: 1.25rem;
+          align-items: flex-end;
+        }
+        .hero-label-item {
+          font-family: 'Manrope', sans-serif;
+          font-size: 0.6rem;
+          font-weight: 600;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.2);
+          cursor: pointer;
+          transition: color 0.2s ease;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          border: none;
+          background: none;
+          padding: 0;
+        }
+        .hero-label-item.active {
+          color: rgba(255,255,255,0.85);
+        }
+        .hero-label-item.active::after {
+          content: '';
+          display: block;
+          width: 16px;
+          height: 1px;
+          background: #f05a1a;
+        }
+        .hero-label-item:hover { color: rgba(255,255,255,0.6); }
+
+        @media (max-width: 768px) {
+          .hero-arrow { display: none; }
+          .hero-labels { display: none; }
+          .hero-counter { left: 1.5rem; }
+        }
+      `}</style>
+
+      <div className="hero-root">
+        {/* Slides */}
+        {slides.map((slide, index) => {
+          const state =
+            index === currentSlide
+              ? "active"
+              : index < currentSlide
+                ? "before"
+                : "after";
+          return (
+            <div key={slide.id} className={`hero-slide ${state}`}>
+              <slide.Component />
+            </div>
+          );
+        })}
+
+        {/* Counter */}
+        <div className="hero-counter">
+          <span className="hero-counter-current">
+            {String(currentSlide + 1).padStart(2, "0")}
+          </span>
+          <span style={{ color: "rgba(255,255,255,0.15)" }}>/</span>
+          <span>{String(slides.length).padStart(2, "0")}</span>
+        </div>
+
+        {/* Side label nav */}
+        <div className="hero-labels">
+          {slideLabels.map((label, i) => (
             <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={`w-3 h-3 rounded-full transition-colors duration-200 ${
-                index === currentSlide
-                  ? "bg-orange-600"
-                  : "bg-white/50 hover:bg-white/70"
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
+              key={i}
+              className={`hero-label-item ${i === currentSlide ? "active" : ""}`}
+              onClick={() => goToSlide(i)}
+            >
+              {label}
+            </button>
           ))}
         </div>
 
-        {/* Slide Counter */}
-        <div className="absolute top-8 left-8 z-10 text-white/70 text-sm font-medium">
-          {String(currentSlide + 1).padStart(2, "0")} /{" "}
-          {String(slides.length).padStart(2, "0")}
+        {/* Arrows */}
+        <button
+          className="hero-arrow left"
+          onClick={prev}
+          aria-label="Previous"
+        >
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
+        <button className="hero-arrow right" onClick={next} aria-label="Next">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </button>
+
+        {/* Dot indicators */}
+        <div className="hero-dots">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              className={`hero-dot ${i === currentSlide ? "active" : ""}`}
+              onClick={() => goToSlide(i)}
+              aria-label={`Slide ${i + 1}`}
+            />
+          ))}
         </div>
       </div>
     </>

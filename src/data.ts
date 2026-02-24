@@ -1,5 +1,5 @@
 import image1 from "../public/images/CUT 3921 MIST TECHNO.webp";
-import image2 from "../public/images/Live Culture-10 (1).webp";
+
 import image3 from "../public/images/CUT 3948.webp";
 import image4 from "../public/images/CUT 3952.webp";
 import image5 from "../public/images/CUT 3991 FLOAT ELECTRONIC DANCE MUSIC.webp";
@@ -76,7 +76,6 @@ export {
   library,
   sounddesign,
   image1,
-  image2,
   image3,
   image4,
   image5,

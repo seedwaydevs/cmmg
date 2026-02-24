@@ -1,129 +1,178 @@
+"use client";
+
 import React from "react";
-import { Hanken_Grotesk, Schibsted_Grotesk } from "next/font/google";
 import Link from "next/link";
-import Image from "next/image";
-import { njalo } from "@/data";
-import HeroBadge from "@/components/HeroBadge";
-
-const hanken = Hanken_Grotesk({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
-
-const sted = Schibsted_Grotesk({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-});
 
 const NewReleases = () => {
   return (
-    <section className="relative min-h-screen z-10">
-      <div className="w-[90%] lg:w-[80%] mx-auto h-[90vh] space-y-6">
-        {/* Header Badge */}
-        <HeroBadge content="New Releases" color="orange" />
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Manrope:wght@400;500;600&display=swap');
 
-        {/* Main Content */}
-        <div className="flex-1 flex items-start ">
-          <div className="w-full grid lg:grid-cols-2 gap-7 lg:gap-12 items-center">
-            {/* Content Section - Left on desktop */}
-            <div className="space-y-5 lg:space-y-8 order-2 lg:order-2">
-              <div className="space-y-2 lg:space-y-6">
-                <div className="space-y-2">
-                  <p
-                    className={`${hanken.className} text-sm lg:text-base text-neutral-300/90 font-medium 
-                               tracking-wide uppercase`}
-                  >
-                    New release
-                  </p>
-                  <h1
-                    className={` capitalize text-3xl sm:text-4xl lg:text-7xl xl:text-8xl 
-                               font-black leading-[0.85] text-white tracking-tighter`}
-                  >
-                    brand new music
-                    <span className="text-orange-500">.</span>
-                  </h1>
-                </div>
+        .releases-root {
+          width: 100%;
+          height: 100%;
+          background-image: url('/njalo.jpg');
+          background-size: cover;
+          background-position: top;
+          background-repeat: no-repeat;
+          position: relative;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+        /* Dark overlay — replaces the original blur glass effect for cleaner readability */
+        .releases-root::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: rgba(0,0,0,0.72);
+          pointer-events: none;
+          z-index: 0;
+        }
+        /* Orange left stripe */
+        .releases-root::after {
+          content: '';
+          position: absolute;
+          left: 0; top: 0;
+          width: 3px; height: 100%;
+          background: linear-gradient(to bottom, transparent, #f05a1a 25%, #f05a1a 75%, transparent);
+          pointer-events: none;
+          z-index: 1;
+        }
 
-                <p
-                  className={`${sted.className} text-sm lg:text-lg text-neutral-100 font-light  
-                             max-w-md`}
-                >
-                  Explore our record labels latest music offerings from our in
-                  house artists.
-                </p>
-              </div>
+        .releases-inner {
+          max-width: 1440px;
+          width: 100%;
+          margin: 0 auto;
+          padding: 0 3rem;
+          padding-top: 9rem;
+          padding-bottom: 5rem;
+          position: relative;
+          z-index: 2;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 2rem;
+        }
 
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 ">
-                <Link
-                  href="/commercial"
-                  className={`${sted.className} group relative inline-flex items-center justify-center gap-2 
-                             bg-gradient-to-r from-orange-700 to-orange-400 hover:from-orange-400 hover:to-orange-700 
-                             text-white font-bold px-6 py-3 lg:px-8 lg:py-4 rounded-md transition-all duration-300 
-                             shadow-xl hover:shadow-white/10 transform hover:-translate-y-0.5 
-                              text-sm lg:text-base`}
-                >
-                  <span>Stream Now</span>
-                  <svg
-                    className="w-4 h-4 lg:w-5 lg:h-5 transition-transform duration-300 group-hover:translate-x-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2.5}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </Link>
+        .releases-eyebrow {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+        }
+        .releases-eyebrow-line { width: 28px; height: 1px; background: #f05a1a; }
+        .releases-eyebrow-text {
+          font-family: 'Manrope', sans-serif;
+          font-size: 0.65rem;
+          font-weight: 600;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.45);
+        }
+        .releases-badge {
+          font-family: 'Manrope', sans-serif;
+          font-size: 0.6rem;
+          font-weight: 600;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          color: #1a8cff;
+          border: 1px solid rgba(26,140,255,0.4);
+          padding: 0.25rem 0.6rem;
+          margin-left: 0.5rem;
+        }
 
-                <button
-                  className={`${sted.className} hidden group md:inline-flex items-center justify-center gap-2 
-                             bg-transparent hover:bg-white/10 text-white font-semibold px-6 py-3 lg:px-8 lg:py-4 
-                             rounded-md border-2 border-white/20 hover:border-white/40 
-                             transition-all duration-300 text-sm lg:text-base`}
-                >
-                  <span>Learn More</span>
-                </button>
-              </div>
-            </div>
+        .releases-title {
+          font-family: 'Syne', sans-serif;
+          font-weight: 800;
+          font-size: clamp(3rem, 7vw, 6.5rem);
+          letter-spacing: -0.04em;
+          line-height: 0.92;
+          text-transform: uppercase;
+          color: #ffffff;
+        }
+        .releases-title em { font-style: normal; color: #f05a1a; }
 
-            {/* Image Section - Right on desktop */}
-            <div className="relative group order-1 lg:order-1 flex justify-center lg:justify-center ">
-              <div
-                className="relative overflow-hidden rounded-2xl shadow-2xl w-[55%] md:w-[50%]  lg:w-[85%] 
-                             h-[30vh] md:h-[30vh] lg:h-[60vh]"
-              >
-                <Image
-                  src={njalo}
-                  alt="NJALO Production Music - Professional audio content"
-                  className="object-cover transition-all duration-700 group-hover:scale-105"
-                  fill
-                  priority
-                />
-                {/* Image overlay effects */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-60" />
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        .releases-desc {
+          font-family: 'Manrope', sans-serif;
+          font-size: 1rem;
+          font-weight: 400;
+          line-height: 1.65;
+          color: rgba(255,255,255,0.5);
+          max-width: 480px;
+        }
 
-                {/* Floating badge on image */}
-                <div className="absolute top-4 left-4 backdrop-blur-md bg-black/20 px-3 py-1 rounded-full border border-white/20">
-                  <span
-                    className={`${hanken.className} text-xs font-bold text-white tracking-wide`}
-                  >
-                    NEW
-                  </span>
-                </div>
-              </div>
-            </div>
+        .releases-cta-row {
+          display: flex;
+          gap: 1rem;
+          align-items: center;
+          flex-wrap: wrap;
+        }
+        .releases-cta-primary {
+          font-family: 'Syne', sans-serif;
+          font-weight: 700;
+          font-size: 0.72rem;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: #ffffff;
+          background: #f05a1a;
+          border: none;
+          padding: 0.85rem 2rem;
+          cursor: pointer;
+          text-decoration: none;
+          display: inline-block;
+          transition: background 0.2s ease, transform 0.2s ease;
+        }
+        .releases-cta-primary:hover { background: #d44c10; transform: translateY(-1px); }
+
+        .releases-cta-secondary {
+          font-family: 'Manrope', sans-serif;
+          font-weight: 600;
+          font-size: 0.72rem;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.5);
+          text-decoration: none;
+          border-bottom: 1px solid rgba(255,255,255,0.2);
+          padding-bottom: 2px;
+          transition: color 0.2s ease, border-color 0.2s ease;
+        }
+        .releases-cta-secondary:hover { color: #ffffff; border-color: #f05a1a; }
+
+        @media (max-width: 768px) {
+          .releases-inner { padding: 0 1.5rem; padding-top: 7rem; padding-bottom: 4rem; }
+        }
+      `}</style>
+
+      <div className="releases-root">
+        <div className="releases-inner">
+          <div className="releases-eyebrow">
+            <span className="releases-eyebrow-line" />
+            <span className="releases-eyebrow-text">Latest Drops</span>
+            <span className="releases-badge">New</span>
+          </div>
+          <h2 className="releases-title">
+            New
+            <br />
+            <em>Releases</em>
+          </h2>
+          <p className="releases-desc">
+            Fresh music from our roster. Stream the latest singles, albums, and
+            EPs from CMMG artists — straight from the studio.
+          </p>
+          <div className="releases-cta-row">
+            <Link href="/commercial" className="releases-cta-primary">
+              Listen Now →
+            </Link>
+            <Link href="/about" className="releases-cta-secondary">
+              Meet the Artists
+            </Link>
           </div>
         </div>
-
-        {/* Footer Badge */}
-        <HeroBadge position="bottom" content="Out now" color="orange" />
       </div>
-    </section>
+    </>
   );
 };
 

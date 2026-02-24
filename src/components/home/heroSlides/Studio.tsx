@@ -1,241 +1,209 @@
+"use client";
+
 import React from "react";
-import { Hanken_Grotesk, Schibsted_Grotesk } from "next/font/google";
 import Link from "next/link";
-import Image from "next/image";
-import { studio } from "@/data";
-import HeroBadge from "@/components/HeroBadge";
 
-const hanken = Hanken_Grotesk({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
-
-const sted = Schibsted_Grotesk({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-});
-
-const StudioBooking = () => {
+const Studio = () => {
   return (
-    <section className="relative min-h-screen z-10">
-      <div className="w-[90%] lg:w-[80%] mx-auto h-[90vh] space-y-6">
-        {/* Header Badge */}
-        <HeroBadge content="Studio Session" color="blue" />
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Manrope:wght@400;500;600&display=swap');
 
-        {/* Main Content */}
-        <div className="flex-1 flex items-start">
-          <div className="w-full grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* Image Section - Left on desktop */}
-            <div className="hidden relative group order-1 lg:order-1 lg:flex justify-start">
-              <div
-                className="relative overflow-hidden rounded-2xl shadow-2xl w-[85%] sm:w-[70%] lg:w-[85%] 
-                             h-[40vh] sm:h-[40vh] md:h-[45vh] lg:h-[60vh]"
+        .studio-root {
+          width: 100%;
+          height: 100%;
+          background-image: url('/studio.jpg');
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          position: relative;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+        /* Dark overlay — replaces the original blur glass effect */
+        .studio-root::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: rgba(0,0,0,0.70);
+          pointer-events: none;
+          z-index: 0;
+        }
+        /* Orange left stripe */
+        .studio-root::after {
+          content: '';
+          position: absolute;
+          left: 0; top: 0;
+          width: 3px; height: 100%;
+          background: linear-gradient(to bottom, transparent, #f05a1a 25%, #f05a1a 75%, transparent);
+          pointer-events: none;
+          z-index: 1;
+        }
+
+        .studio-inner {
+          max-width: 1440px;
+          width: 100%;
+          margin: 0 auto;
+          padding: 0 3rem;
+          padding-top: 9rem;
+          padding-bottom: 5rem;
+          position: relative;
+          z-index: 2;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 2rem;
+        }
+
+        .studio-eyebrow {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+        }
+        .studio-eyebrow-line { width: 28px; height: 1px; background: #f05a1a; }
+        .studio-eyebrow-text {
+          font-family: 'Manrope', sans-serif;
+          font-size: 0.65rem;
+          font-weight: 600;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.45);
+        }
+
+        .studio-title {
+          font-family: 'Syne', sans-serif;
+          font-weight: 800;
+          font-size: clamp(3rem, 7vw, 6.5rem);
+          letter-spacing: -0.04em;
+          line-height: 0.92;
+          text-transform: uppercase;
+          color: #ffffff;
+        }
+        .studio-title em { font-style: normal; color: #f05a1a; }
+
+        .studio-desc {
+          font-family: 'Manrope', sans-serif;
+          font-size: 1rem;
+          font-weight: 400;
+          line-height: 1.65;
+          color: rgba(255,255,255,0.5);
+          max-width: 480px;
+        }
+
+        /* Studio specs — small horizontal stat row */
+        .studio-specs {
+          display: flex;
+          gap: 2.5rem;
+          padding: 1.25rem 0;
+          border-top: 1px solid rgba(255,255,255,0.08);
+          border-bottom: 1px solid rgba(255,255,255,0.08);
+          flex-wrap: wrap;
+        }
+        .studio-spec-item {
+          display: flex;
+          flex-direction: column;
+          gap: 0.25rem;
+        }
+        .studio-spec-label {
+          font-family: 'Manrope', sans-serif;
+          font-size: 0.6rem;
+          font-weight: 600;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.25);
+        }
+        .studio-spec-value {
+          font-family: 'Syne', sans-serif;
+          font-weight: 700;
+          font-size: 1.1rem;
+          letter-spacing: -0.02em;
+          color: #ffffff;
+        }
+        .studio-spec-value span { color: #f05a1a; }
+
+        .studio-cta {
+          font-family: 'Syne', sans-serif;
+          font-weight: 700;
+          font-size: 0.72rem;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: #ffffff;
+          background: #f05a1a;
+          border: none;
+          padding: 0.85rem 2rem;
+          cursor: pointer;
+          text-decoration: none;
+          display: inline-block;
+          align-self: flex-start;
+          transition: background 0.2s ease, transform 0.2s ease;
+        }
+        .studio-cta:hover { background: #d44c10; transform: translateY(-1px); }
+
+        @media (max-width: 768px) {
+          .studio-inner { padding: 0 1.5rem; padding-top: 7rem; padding-bottom: 4rem; }
+          .studio-specs { gap: 1.5rem; }
+        }
+      `}</style>
+
+      <div className="studio-root">
+        <div className="studio-inner">
+          <div className="studio-eyebrow">
+            <span className="studio-eyebrow-line" />
+            <span className="studio-eyebrow-text">Recording & Production</span>
+          </div>
+          <h2 className="studio-title">
+            Book The
+            <br />
+            <em>Studio</em>
+          </h2>
+          <p className="studio-desc">
+            Professional-grade recording facilities in Johannesburg. Available
+            for independent artists, labels, and commercial productions.
+          </p>
+
+          {/* Studio specs */}
+          <div className="studio-specs">
+            <div className="studio-spec-item">
+              <span className="studio-spec-label">Live Room</span>
+              <span className="studio-spec-value">
+                <span>A</span> + B
+              </span>
+            </div>
+            <div className="studio-spec-item">
+              <span className="studio-spec-label">Format</span>
+              <span className="studio-spec-value">24-bit</span>
+            </div>
+            <div className="studio-spec-item">
+              <span className="studio-spec-label">Location</span>
+              <span className="studio-spec-value">JHB</span>
+            </div>
+            <div className="studio-spec-item">
+              <span className="studio-spec-label">Availability</span>
+              <span
+                className="studio-spec-value"
+                style={{
+                  fontSize: "0.75rem",
+                  color: "rgba(255,255,255,0.5)",
+                  fontFamily: "'Manrope',sans-serif",
+                  fontWeight: 400,
+                  letterSpacing: "0",
+                }}
               >
-                <Image
-                  src={studio}
-                  alt="Professional recording studio with mixing console and monitors"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 85vw, (max-width: 1024px) 70vw, 50vw"
-                  priority
-                />
-
-                {/* Image overlay effects */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-60" />
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                {/* Floating status badge */}
-                <div className="absolute top-4 right-4 backdrop-blur-md bg-green-500/20 px-3 py-1 rounded-full border border-green-400/30">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                    <span
-                      className={`${hanken.className} text-xs font-bold text-green-200 tracking-wide`}
-                    >
-                      AVAILABLE
-                    </span>
-                  </div>
-                </div>
-
-                {/* Equipment highlights */}
-                <div className="absolute bottom-4 left-4 right-4 backdrop-blur-md bg-black/30 p-3 rounded-lg">
-                  <div className="grid grid-cols-3 gap-2 text-center">
-                    <div>
-                      <p
-                        className={`${hanken.className} text-xs text-neutral-300 font-medium`}
-                      >
-                        48ch
-                      </p>
-                      <p
-                        className={`${hanken.className} text-xs text-neutral-500`}
-                      >
-                        Mixing
-                      </p>
-                    </div>
-                    <div>
-                      <p
-                        className={`${hanken.className} text-xs text-neutral-300 font-medium`}
-                      >
-                        Pro Tools
-                      </p>
-                      <p
-                        className={`${hanken.className} text-xs text-neutral-500`}
-                      >
-                        DAW
-                      </p>
-                    </div>
-                    <div>
-                      <p
-                        className={`${hanken.className} text-xs text-neutral-300 font-medium`}
-                      >
-                        Vocal Booth
-                      </p>
-                      <p
-                        className={`${hanken.className} text-xs text-neutral-500`}
-                      >
-                        Isolated
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Content Section - Right on desktop */}
-            <div className="space-y-6  order-2 lg:order-2">
-              <div className="space-y-4 lg:space-y-6">
-                <div className="space-y-2">
-                  <p
-                    className={`${hanken.className} text-sm lg:text-base text-blue-800 text-shadow-md text-shadow-white/10 font-medium 
-                               tracking-wide uppercase`}
-                  >
-                    Professional Recording
-                  </p>
-                  <h1
-                    className={`capitalize text-7xl  
-                               font-black leading-[0.85] text-white tracking-tighter`}
-                  >
-                    Our Studio
-                    <span className="text-blue-500">.</span>
-                  </h1>
-                </div>
-
-                <p
-                  className={`${hanken.className} text-base lg:text-lg text-neutral-100 font-light leading-relaxed 
-                             max-w-md lg:max-w-lg`}
-                >
-                  State-of-the-art recording facilities with professional-grade
-                  equipment and acoustic treatment for your next project.
-                </p>
-              </div>
-
-              {/* Features */}
-              <div className="grid lg:grid grid-cols-2 gap-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                  <span
-                    className={`${hanken.className} text-sm text-neutral-300 font-medium`}
-                  >
-                    Hourly Rates
-                  </span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                  <span
-                    className={`${hanken.className} text-sm text-neutral-300 font-medium`}
-                  >
-                    Engineer Included
-                  </span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                  <span
-                    className={`${hanken.className} text-sm text-neutral-300 font-medium`}
-                  >
-                    Full Equipment
-                  </span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                  <span
-                    className={`${hanken.className} text-sm text-neutral-300 font-medium`}
-                  >
-                    Mixing & Mastering
-                  </span>
-                </div>
-              </div>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 pt-2">
-                <Link
-                  href="/contact"
-                  className={`${sted.className} group relative inline-flex items-center justify-center gap-2 
-                             bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 
-                             text-white font-bold px-6 py-3 lg:px-8 lg:py-4 rounded-md transition-all duration-300 
-                             shadow-xl hover:shadow-blue-500/25 transform hover:-translate-y-0.5 
-                             border border-blue-400/20 text-sm lg:text-base`}
-                >
-                  <span>Book Session</span>
-                  <svg
-                    className="w-4 h-4 lg:w-5 lg:h-5 transition-transform duration-300 group-hover:translate-x-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                    />
-                  </svg>
-                </Link>
-
-                <button
-                  className={`${sted.className} group inline-flex items-center justify-center gap-2 
-                             bg-transparent hover:bg-white/10 text-white font-semibold px-6 py-3 lg:px-8 lg:py-4 
-                             rounded-md border-2 border-white/20 hover:border-white/40 
-                             transition-all duration-300 text-sm lg:text-base`}
-                >
-                  <span>View Rates</span>
-                  <svg
-                    className="w-4 h-4 lg:w-5 lg:h-5 transition-transform duration-300 group-hover:scale-110"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
-                    />
-                  </svg>
-                </button>
-              </div>
+                By appointment
+              </span>
             </div>
           </div>
-        </div>
 
-        {/* Footer Badge */}
-        <div className="flex justify-between items-end pb-12 lg:pb-16">
-          <HeroBadge
-            position="bottom"
-            content="Professional Grade"
-            color="blue"
-          />
-
-          <div className="flex items-center gap-2 text-neutral-100">
-            <div className="w-1.5 h-1.5 lg:w-2 lg:h-2 bg-blue-500 rounded-full animate-pulse"></div>
-            <span
-              className={`${hanken.className} text-xs font-medium tracking-wide`}
-            >
-              24/7 Booking
-            </span>
-          </div>
+          <Link href="/contact" className="studio-cta">
+            Book a Session →
+          </Link>
         </div>
       </div>
-    </section>
+    </>
   );
 };
 
-export default StudioBooking;
+export default Studio;
