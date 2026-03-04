@@ -1,6 +1,5 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import { ArrowUp } from "lucide-react";
+import React from "react";
+import Image from "next/image";
 import {
   barloworld,
   brownsense,
@@ -10,173 +9,244 @@ import {
   samro,
   trace,
 } from "@/data";
-import { TiArrowSortedUp } from "react-icons/ti";
-import { Hanken_Grotesk, Inter_Tight } from "next/font/google";
-import Image from "next/image";
 
 const logos = [
-  { src: orchard, alt: "Orchard", height: "h-[40px]" },
-  { src: brownsense, alt: "Brownsense", height: "h-[45px]" },
-  { src: trace, alt: "Trace", height: "h-[50px]" },
-  { src: capasso, alt: "Capasso", height: "h-[55px] bg-blue-900 px-2 w-fit" },
-  { src: samro, alt: "SAMRO", height: "h-[40px]" },
-  { src: barloworld, alt: "Barloworld", height: "h-[65px]" },
-  { src: ccli, alt: "CCLI", height: "h-[70px]" },
+  { src: orchard, alt: "Orchard" },
+  { src: brownsense, alt: "Brownsense" },
+  { src: trace, alt: "Trace" },
+  { src: capasso, alt: "Capasso" },
+  { src: samro, alt: "SAMRO" },
+  { src: barloworld, alt: "Barloworld" },
+  { src: ccli, alt: "CCLI" },
 ];
 
-const hanken = Hanken_Grotesk({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
+const stats = [
+  {
+    number: "50+",
+    label: "Global Clients",
+    desc: "Trusted partnerships worldwide",
+  },
+  {
+    number: "200+",
+    label: "Projects Delivered",
+    desc: "Successful campaigns and productions",
+  },
+  {
+    number: "98%",
+    label: "Client Satisfaction",
+    desc: "Consistently exceeding expectations",
+  },
+];
 
-const inter = Inter_Tight({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
-
-const Companies = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const element = document.getElementById("companies");
-    if (element) {
-      observer.observe(element);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
+const ServicesCompanies = () => {
   return (
-    <section
-      id="companies"
-      className="w-full py-20 bg-gradient-to-br from-slate-50 to-gray-100"
-    >
-      <div className="w-[90%] lg:w-[85%] mx-auto">
-        <div
-          className={`flex flex-col transform transition-all duration-1000 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
-          }`}
-        >
-          {/* Section Header */}
-          <div className="flex items-center gap-3 mb-8">
-            <div className="flex items-center justify-center w-10 h-10 bg-orange-500 rounded-full">
-              <TiArrowSortedUp className="text-white h-5 w-5" />
-            </div>
-            <span className="text-sm font-medium uppercase tracking-wider text-gray-600 bg-white px-4 py-2 rounded-full border">
-              Clients
-            </span>
-          </div>
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Syne:wght@700;800&family=Manrope:wght@400;500;600&display=swap');
 
-          <div className="flex flex-col md:items-center">
-            {/* Title and Description */}
-            <div className="pb-16 flex flex-col md:items-center space-y-6">
-              <h2 className="text-5xl lg:text-7xl font-black md:text-center tracking-tight leading-none">
-                Our Trusted
-                <span className="text-orange-600 block md:inline md:ml-4">
-                  Clients
+        .svc-co-root {
+          width: 100%;
+          background: #ffffff;
+          border-top: 1px solid rgba(0,0,0,0.08);
+          position: relative;
+        }
+
+        .svc-co-inner {
+          max-width: 1440px;
+          margin: 0 auto;
+          padding: 5rem 3rem;
+        }
+
+        /* ── Header ── */
+        .svc-co-header {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          align-items: flex-end;
+          gap: 3rem;
+          margin-bottom: 4rem;
+          padding-bottom: 2.5rem;
+          border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+        .svc-co-eyebrow {
+          display: flex; align-items: center;
+          gap: 0.75rem; margin-bottom: 1.25rem;
+        }
+        .svc-co-eyebrow-line { width: 28px; height: 1px; background: #f05a1a; flex-shrink: 0; }
+        .svc-co-eyebrow-text {
+          font-family: 'Manrope', sans-serif;
+          font-size: 0.65rem; font-weight: 600;
+          letter-spacing: 0.18em; text-transform: uppercase;
+          color: rgba(0,0,0,0.35);
+        }
+        .svc-co-title {
+          font-family: 'Bricolage Grotesque', sans-serif;
+          font-weight: 800;
+          font-size: clamp(2.5rem, 5vw, 4.5rem);
+          letter-spacing: -0.02em; line-height: 0.95;
+          text-transform: uppercase; color: #0a0a0a;
+        }
+        .svc-co-title em { font-style: normal; color: #f05a1a; }
+        .svc-co-desc {
+          font-family: 'Manrope', sans-serif;
+          font-size: 0.95rem; font-weight: 400;
+          line-height: 1.7; color: rgba(0,0,0,0.5);
+          max-width: 420px;
+        }
+
+        /* ── Logo grid ── */
+        .svc-co-logos {
+          display: grid;
+          grid-template-columns: repeat(7, 1fr);
+          border-left: 1px solid rgba(0,0,0,0.08);
+          border-top: 1px solid rgba(0,0,0,0.08);
+          margin-bottom: 0;
+        }
+
+        .svc-co-logo-cell {
+          border-right: 1px solid rgba(0,0,0,0.08);
+          border-bottom: 1px solid rgba(0,0,0,0.08);
+          padding: 2rem 1.5rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: background 0.2s ease;
+          position: relative;
+          overflow: hidden;
+        }
+        .svc-co-logo-cell:hover { background: #fafafa; }
+
+        /* Orange top bar on hover */
+        .svc-co-logo-cell::before {
+          content: '';
+          position: absolute; top: 0; left: 0;
+          width: 100%; height: 2px;
+          background: #f05a1a;
+          transform: scaleX(0); transform-origin: left;
+          transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
+        }
+        .svc-co-logo-cell:hover::before { transform: scaleX(1); }
+
+        .svc-co-logo-cell img {
+          height: 36px;
+          width: auto;
+          object-fit: contain;
+          filter: grayscale(100%) opacity(40%);
+          transition: filter 0.3s ease;
+          display: block;
+        }
+        /* Capasso needs a bg */
+        .svc-co-logo-cell.has-bg img {
+          background: #1e3a5f;
+          padding: 4px 8px;
+        }
+        .svc-co-logo-cell:hover img {
+          filter: grayscale(0%) opacity(100%);
+        }
+
+        /* ── Stats row ── */
+        .svc-co-stats {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          border-left: 1px solid rgba(0,0,0,0.08);
+          border-top: none;
+        }
+        .svc-co-stat {
+          border-right: 1px solid rgba(0,0,0,0.08);
+          border-bottom: 1px solid rgba(0,0,0,0.08);
+          padding: 2.5rem 2rem;
+          display: flex; flex-direction: column;
+          gap: 0.35rem;
+          transition: background 0.2s ease;
+        }
+        .svc-co-stat:hover { background: #fafafa; }
+
+        .svc-co-stat-value {
+          font-family: 'Bricolage Grotesque', sans-serif;
+          font-weight: 800;
+          font-size: clamp(2rem, 4vw, 3rem);
+          letter-spacing: -0.02em; line-height: 1;
+          color: #f05a1a;
+        }
+        .svc-co-stat-label {
+          font-family: 'Syne', sans-serif; font-weight: 700;
+          font-size: 0.78rem; letter-spacing: -0.01em;
+          text-transform: uppercase; color: #0a0a0a;
+        }
+        .svc-co-stat-desc {
+          font-family: 'Manrope', sans-serif;
+          font-size: 0.75rem; font-weight: 400;
+          color: rgba(0,0,0,0.4); line-height: 1.5;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 1024px) {
+          .svc-co-header { grid-template-columns: 1fr; gap: 1.5rem; }
+          .svc-co-logos  { grid-template-columns: repeat(4, 1fr); }
+          .svc-co-stats  { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 640px) {
+          .svc-co-inner { padding: 3rem 1.5rem; }
+          .svc-co-logos { grid-template-columns: repeat(3, 1fr); }
+          .svc-co-stats { grid-template-columns: 1fr; }
+        }
+      `}</style>
+
+      <section className="svc-co-root">
+        <div className="svc-co-inner">
+          {/* Header */}
+          <div className="svc-co-header">
+            <div>
+              <div className="svc-co-eyebrow">
+                <span className="svc-co-eyebrow-line" />
+                <span className="svc-co-eyebrow-text">
+                  Trusted & Licensed By
                 </span>
+              </div>
+              <h2 className="svc-co-title">
+                Our Trusted <em>Clients</em>
               </h2>
-
-              <p className="text-lg md:text-xl md:text-center lg:text-2xl text-gray-600 max-w-xl lg:max-w-4xl leading-relaxed font-light">
+            </div>
+            <div>
+              <p className="svc-co-desc">
                 We've had the privilege of collaborating with industry-leading
                 brands. Our flexible media solutions are crafted to amplify
                 stories, elevate experiences, and drive results — from concept
                 to final cut.
               </p>
             </div>
+          </div>
 
-            {/* Enhanced Logo Grid */}
-            <div className="w-full">
-              {/* Desktop Grid */}
-              <div className="hidden md:grid grid-cols-4 lg:grid-cols-7 gap-8 lg:gap-12 items-center justify-items-center">
-                {logos.map((logo, index) => (
-                  <div
-                    key={index}
-                    className={`group relative ${logo.height} transition-all duration-300 hover:scale-110 cursor-pointer`}
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    {/* Mock logo placeholder */}
-                    <div className="w-full h-full  flex items-center justify-center ">
-                      <Image
-                        src={logo.src}
-                        alt="image"
-                        className="w-fit h-full"
-                      />
-                    </div>
-
-                    {/* Subtle glow effect on hover */}
-                    <div className="absolute inset-0 bg-orange-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-sm scale-110"></div>
-                  </div>
-                ))}
+          {/* Logo grid */}
+          <div className="svc-co-logos">
+            {logos.map((logo, i) => (
+              <div
+                key={i}
+                className={`svc-co-logo-cell${logo.alt === "Capasso" ? " has-bg" : ""}`}
+              >
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  height={36}
+                  style={{ width: "auto", height: 36, objectFit: "contain" }}
+                />
               </div>
+            ))}
+          </div>
 
-              {/* Mobile Grid */}
-              <div className="md:hidden grid grid-cols-3 gap-6 items-center justify-items-center">
-                {logos.map((logo, index) => (
-                  <div
-                    key={index}
-                    className={`group relative ${logo.height} transition-all duration-300 hover:scale-105`}
-                  >
-                    <div className="w-full h-full flex items-center justify-center ">
-                      <Image
-                        src={logo.src}
-                        alt="image"
-                        className="w-fit h-full"
-                      />
-                    </div>
-                  </div>
-                ))}
+          {/* Stats row */}
+          <div className="svc-co-stats">
+            {stats.map((stat, i) => (
+              <div key={i} className="svc-co-stat">
+                <div className="svc-co-stat-value">{stat.number}</div>
+                <div className="svc-co-stat-label">{stat.label}</div>
+                <div className="svc-co-stat-desc">{stat.desc}</div>
               </div>
-            </div>
-
-            {/* Stats or Additional Info */}
-            <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-4xl">
-              {[
-                {
-                  number: "50+",
-                  label: "Global Clients",
-                  description: "Trusted partnerships worldwide",
-                },
-                {
-                  number: "200+",
-                  label: "Projects Delivered",
-                  description: "Successful campaigns and productions",
-                },
-                {
-                  number: "98%",
-                  label: "Client Satisfaction",
-                  description: "Consistently exceeding expectations",
-                },
-              ].map((stat, index) => (
-                <div key={index} className="text-center md:text-left space-y-2">
-                  <div className="text-3xl lg:text-4xl font-black text-gray-900">
-                    {stat.number}
-                  </div>
-                  <div className="text-lg font-semibold text-orange-600">
-                    {stat.label}
-                  </div>
-                  <div className="text-sm text-gray-600 font-light">
-                    {stat.description}
-                  </div>
-                </div>
-              ))}
-            </div>
+            ))}
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
-export default Companies;
+export default ServicesCompanies;

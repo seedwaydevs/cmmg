@@ -1,5 +1,7 @@
-import Companies from "@/components/services/Companies";
-import Hero from "@/components/services/Hero";
+import ServicesCompanies from "@/components/services/Companies";
+
+import ServicesHero from "@/components/services/Hero";
+
 import WhatWeOffer from "@/components/services/WhatWeOffer";
 import { Metadata } from "next";
 import { Schibsted_Grotesk } from "next/font/google";
@@ -19,8 +21,8 @@ export const metadata: Metadata = {
 const page = (props: Props) => {
   return (
     <div className={`${sted.className} flex flex-col`}>
-      <Hero />
-      <Companies />
+      <ServicesHero />
+      <ServicesCompanies />
       <WhatWeOffer />
     </div>
   );
