@@ -1,27 +1,17 @@
 "use client";
-import { Schibsted_Grotesk } from "next/font/google";
+
 import React, { useState } from "react";
 import Image from "next/image";
-import { TiArrowSortedUp } from "react-icons/ti";
-
-import { image2, njalo, cstaz, tms, tms2, nkanyamba } from "@/data";
 import Link from "next/link";
+import { njalo, cstaz, tms, tms2, nkanyamba } from "@/data";
 
-type Props = {};
-
-const sted = Schibsted_Grotesk({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-});
-
-// Album gallery data - replace with your actual albums
 const albumsData = [
   {
     id: 1,
     title: "Njalo",
     artist: "YandiSibi",
     releaseDate: "September 12, 2025",
-    coverImage: njalo, // Replace with third album cover
+    coverImage: njalo,
     link: "https://open.spotify.com/embed/track/7DtN0ksb5UH0TSl0aFfdVB?utm_source=generator",
   },
   {
@@ -29,19 +19,15 @@ const albumsData = [
     title: "Jesu Msindisi",
     artist: "L & J CSTAZ",
     releaseDate: "Coming Soon",
-    coverImage: cstaz, // Replace with fourth album cover
+    coverImage: cstaz,
     link: "https://open.spotify.com/embed/album/3HeSTciM2xJ9omxiyrijOc?utm_source=generator",
   },
-
-  /*
-   *<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/7DtN0ksb5UH0TSl0aFfdVB?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-   */
   {
     id: 3,
     title: "Live Culture",
     artist: "Abe Sibiya",
     releaseDate: "Coming Soon",
-    coverImage: image2, // Replace with your album cover path
+    coverImage: cstaz,
     link: "https://open.spotify.com/embed/album/7ET7RwAOI658wECgo2gq3o?utm_source=generator",
   },
   {
@@ -49,7 +35,7 @@ const albumsData = [
     title: "The Morning Service",
     artist: "Abe Sibiya",
     releaseDate: "Coming Soon",
-    coverImage: tms2, // Replace with your album cover path
+    coverImage: tms2,
     link: "https://open.spotify.com/embed/album/7ycsy7jxkODp286ZmGACnC?utm_source=generator",
   },
   {
@@ -57,90 +43,408 @@ const albumsData = [
     title: "Imfihlo Kamakoti",
     artist: "Nkanyamba",
     releaseDate: "Coming Soon",
-    coverImage: nkanyamba, // Replace with your album cover path
+    coverImage: nkanyamba,
     link: "https://open.spotify.com/embed/album/6zmGMomhs1gfMgA9gHkxdO?utm_source=generator",
   },
 ];
 
-const Latest = (props: Props) => {
-  const [selectedAlbumIndex, setSelectedAlbumIndex] = useState<number | null>(
-    null
-  );
-  const selectedAlbum =
-    selectedAlbumIndex !== null ? albumsData[selectedAlbumIndex] : null;
+const Latest = () => {
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const selected = selectedIndex !== null ? albumsData[selectedIndex] : null;
+
+  const toggle = (i: number) =>
+    setSelectedIndex(selectedIndex === i ? null : i);
 
   return (
-    <div className="w-full relative overflow-hidden py-5">
-      {/* Blurred Background */}
-      <div className="absolute inset-0 z-0">
-        {selectedAlbum && (
-          <>
-            <Image
-              src={selectedAlbum.coverImage}
-              alt={`${selectedAlbum.title} background`}
-              fill
-              className="object-cover blur-xl scale-110 opacity-30"
-              priority
-            />
-            <div className="absolute inset-0 bg-black/50"></div>
-          </>
-        )}
-        {!selectedAlbum && (
-          <>
-            <div className="absolute inset-0  bg-[#828180]"></div>
-            <div className="absolute inset-0 bg-white/30"></div>
-          </>
-        )}
-      </div>
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Manrope:wght@400;500;600&display=swap');
 
-      {/* Content */}
-      <div className="relative z-10 w-full ">
-        <div className="w-[90%] lg:w-[80%] mx-auto h-full py-5">
-          <div className="flex items-center">
-            <TiArrowSortedUp className="text-orange-500 h-7 w-7 lg:h-10 lg:w-10" />
-            <div className="backdrop-blur-sm bg-white/5 px-4 py-2 rounded-lg border border-white/10 ml-2">
-              <p
-                className={`${sted.className} text-xs uppercase lg:text-sm font-bold tracking-widest text-white/90`}
-              >
-                [ Record Label ]
-              </p>
-            </div>
+        /* ── Root ── */
+        .latest-root {
+          width: 100%;
+          background: #0a0a0a;
+          position: relative;
+          overflow: hidden;
+          border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        /* Blurred album art bg when selected */
+        .latest-bg-art {
+          position: absolute;
+          inset: 0;
+          z-index: 0;
+          transition: opacity 0.6s ease;
+        }
+        .latest-bg-art img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          filter: blur(60px);
+          transform: scale(1.15);
+          opacity: 0.12;
+        }
+        .latest-bg-art::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: rgba(10,10,10,0.7);
+        }
+
+        /* Orange left stripe */
+        .latest-root::before {
+          content: '';
+          position: absolute;
+          left: 0; top: 0;
+          width: 3px; height: 100%;
+          background: linear-gradient(to bottom, transparent, #f05a1a 25%, #f05a1a 75%, transparent);
+          pointer-events: none;
+          z-index: 2;
+        }
+
+        /* ── Inner ── */
+        .latest-inner {
+          max-width: 1440px;
+          margin: 0 auto;
+          padding: 5rem 3rem;
+          position: relative;
+          z-index: 2;
+        }
+
+        /* ── Section header: two-col ── */
+        .latest-header {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          align-items: flex-end;
+          gap: 3rem;
+          margin-bottom: 4rem;
+          padding-bottom: 2.5rem;
+          border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .latest-eyebrow {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          margin-bottom: 1.25rem;
+        }
+        .latest-eyebrow-line {
+          width: 28px;
+          height: 1px;
+          background: #f05a1a;
+          flex-shrink: 0;
+        }
+        .latest-eyebrow-text {
+          font-family: 'Manrope', sans-serif;
+          font-size: 0.65rem;
+          font-weight: 600;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.35);
+        }
+
+        .latest-title {
+          font-family: 'Syne', sans-serif;
+          font-weight: 800;
+          font-size: clamp(2.5rem, 5vw, 4.5rem);
+          letter-spacing: -0.04em;
+          line-height: 0.92;
+          text-transform: uppercase;
+          color: #ffffff;
+        }
+        .latest-title em {
+          font-style: normal;
+          color: #f05a1a;
+        }
+
+        .latest-header-right {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          gap: 1.25rem;
+        }
+        .latest-desc {
+          font-family: 'Manrope', sans-serif;
+          font-size: 0.9rem;
+          font-weight: 400;
+          line-height: 1.7;
+          color: rgba(255,255,255,0.45);
+          max-width: 400px;
+        }
+
+        .latest-cta-row {
+          display: flex;
+          gap: 1rem;
+          flex-wrap: wrap;
+        }
+        .latest-cta-primary {
+          font-family: 'Syne', sans-serif;
+          font-weight: 700;
+          font-size: 0.72rem;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: #ffffff;
+          background: #f05a1a;
+          border: none;
+          padding: 0.8rem 1.75rem;
+          cursor: pointer;
+          text-decoration: none;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          transition: background 0.2s ease, transform 0.2s ease;
+        }
+        .latest-cta-primary:hover { background: #d44c10; transform: translateY(-1px); }
+
+        .latest-cta-secondary {
+          font-family: 'Syne', sans-serif;
+          font-weight: 700;
+          font-size: 0.72rem;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.6);
+          background: none;
+          border: 1px solid rgba(255,255,255,0.12);
+          padding: 0.8rem 1.75rem;
+          cursor: pointer;
+          text-decoration: none;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          transition: border-color 0.2s ease, color 0.2s ease;
+        }
+        .latest-cta-secondary:hover {
+          border-color: #f05a1a;
+          color: #f05a1a;
+        }
+
+        /* ── Album grid: bordered, no gap ── */
+        .latest-grid {
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          border-left: 1px solid rgba(255,255,255,0.08);
+          border-top: 1px solid rgba(255,255,255,0.08);
+          margin-bottom: 2px;
+        }
+
+        .latest-album-btn {
+          border-right: 1px solid rgba(255,255,255,0.08);
+          border-bottom: 1px solid rgba(255,255,255,0.08);
+          background: none;
+          border-top: none;
+          border-left: none;
+          cursor: pointer;
+          padding: 0;
+          position: relative;
+          overflow: hidden;
+          aspect-ratio: 1;
+          display: block;
+          width: 100%;
+          transition: opacity 0.25s ease;
+        }
+        .latest-album-btn:not(.active) { opacity: 0.7; }
+        .latest-album-btn:hover { opacity: 1; }
+        .latest-album-btn.active { opacity: 1; }
+
+        /* Orange top border on active */
+        .latest-album-btn.active::before {
+          content: '';
+          position: absolute;
+          top: 0; left: 0;
+          width: 100%; height: 3px;
+          background: #f05a1a;
+          z-index: 3;
+        }
+
+        .latest-album-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          transition: transform 0.4s ease;
+        }
+        .latest-album-btn:hover .latest-album-img { transform: scale(1.04); }
+
+        /* Info overlay */
+        .latest-album-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 55%);
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          padding: 1rem;
+          z-index: 2;
+        }
+        .latest-album-title {
+          font-family: 'Syne', sans-serif;
+          font-weight: 700;
+          font-size: 0.85rem;
+          letter-spacing: -0.01em;
+          color: #ffffff;
+          line-height: 1.1;
+        }
+        .latest-album-artist {
+          font-family: 'Manrope', sans-serif;
+          font-size: 0.65rem;
+          font-weight: 500;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.45);
+          margin-top: 0.2rem;
+        }
+
+        /* Active badge */
+        .latest-album-badge {
+          position: absolute;
+          top: 0.75rem;
+          right: 0.75rem;
+          z-index: 3;
+          background: #f05a1a;
+          width: 20px;
+          height: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .latest-album-badge svg { color: #ffffff; }
+
+        /* ── Player panel ── */
+        .latest-player {
+          border: 1px solid rgba(255,255,255,0.08);
+          border-top: none;
+          background: rgba(255,255,255,0.02);
+          overflow: hidden;
+          animation: player-drop 0.35s cubic-bezier(0.16,1,0.3,1) forwards;
+        }
+        @keyframes player-drop {
+          from { opacity: 0; transform: translateY(-12px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Coming soon panel */
+        .latest-coming-soon {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 4rem 2rem;
+          gap: 1rem;
+        }
+        .latest-cs-icon {
+          width: 48px;
+          height: 48px;
+          border: 1px solid rgba(255,255,255,0.1);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: rgba(255,255,255,0.3);
+          margin-bottom: 0.5rem;
+        }
+        .latest-cs-title {
+          font-family: 'Syne', sans-serif;
+          font-weight: 800;
+          font-size: 1.5rem;
+          letter-spacing: -0.04em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.5);
+        }
+        .latest-cs-title span { color: #f05a1a; }
+        .latest-cs-desc {
+          font-family: 'Manrope', sans-serif;
+          font-size: 0.8rem;
+          font-weight: 400;
+          color: rgba(255,255,255,0.25);
+        }
+        .latest-cs-dots {
+          display: flex;
+          gap: 0.4rem;
+          margin-top: 0.5rem;
+        }
+        .latest-cs-dot {
+          width: 4px;
+          height: 4px;
+          background: #f05a1a;
+          animation: cs-dot 1.2s ease-in-out infinite;
+        }
+        .latest-cs-dot:nth-child(2) { animation-delay: 0.2s; }
+        .latest-cs-dot:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes cs-dot {
+          0%,100% { opacity: 0.2; }
+          50%      { opacity: 1; }
+        }
+
+        /* Spotify iframe wrapper */
+        .latest-spotify {
+          width: 100%;
+        }
+        .latest-spotify iframe {
+          display: block;
+          border: none;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 1024px) {
+          .latest-header { grid-template-columns: 1fr; gap: 1.5rem; }
+          .latest-grid   { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 640px) {
+          .latest-inner  { padding: 3rem 1.5rem; }
+          .latest-grid   { grid-template-columns: repeat(2, 1fr); }
+          .latest-title  { font-size: 2.25rem; }
+        }
+      `}</style>
+
+      <div className="latest-root">
+        {/* Blurred art background */}
+        {selected && (
+          <div className="latest-bg-art">
+            <Image
+              src={selected.coverImage}
+              alt=""
+              fill
+              aria-hidden="true"
+              style={{
+                objectFit: "cover",
+                filter: "blur(60px)",
+                opacity: 0.12,
+              }}
+            />
           </div>
-          {/* Content */}
-          <div className="flex flex-col xl:flex-row items-center justify-between gap-10 mb-8">
-            {/* Header */}
-            <div className="text-neutral-200 py-10 flex flex-col md:items-center md:text-center xl:items-start xl:text-start justify-center space-y-5">
-              <h1
-                className={`text-4xl lg:text-7xl lg:max-w-2xl font-extrabold  text-neutral-100 text-shadow-lg ${
-                  selectedAlbum
-                    ? "text-shadow-neutral-600/20"
-                    : "text-shadow-neutral-400"
-                } `}
-              >
-                Latest Commercial Albums
-              </h1>
-              <div className="max-w-2xl md:text-center xl:text-start">
-                <p
-                  className={`text-md lg:text-lg lg:max-w-xl text-neutral-100 leading-relaxed mb-4`}
-                >
-                  Discover our most recent commercial releases, featuring our
-                  exceptional artists and captivating soundscapes that define
-                  contemporary music.
-                </p>
+        )}
+
+        <div className="latest-inner">
+          {/* Section header */}
+          <div className="latest-header">
+            <div>
+              <div className="latest-eyebrow">
+                <span className="latest-eyebrow-line" />
+                <span className="latest-eyebrow-text">Record Label</span>
               </div>
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 pt-2">
+              <h2 className="latest-title">
+                Latest
+                <br />
+                Commercial <em>Albums</em>
+              </h2>
+            </div>
+
+            <div className="latest-header-right">
+              <p className="latest-desc">
+                Discover our most recent commercial releases, featuring our
+                artists and the soundscapes that define contemporary South
+                African music.
+              </p>
+              <div className="latest-cta-row">
                 <button
-                  onClick={() => setSelectedAlbumIndex(1)}
-                  className={`${sted.className} group relative inline-flex items-center justify-center gap-2 
-                             bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-500 hover:to-orange-600 
-                             text-white font-bold px-6 py-3 lg:px-8 lg:py-4 rounded-md transition-all duration-300 
-                             shadow-xl hover:shadow-orange-500/25 transform hover:-translate-y-0.5 
-                             border border-orange-400/20 text-sm lg:text-base`}
+                  className="latest-cta-primary"
+                  onClick={() =>
+                    setSelectedIndex(selectedIndex === null ? 0 : null)
+                  }
                 >
-                  <span>Pick An Album</span>
+                  {selectedIndex !== null ? "Close Player" : "Pick an Album"}
                   <svg
-                    className="w-4 h-4 lg:w-5 lg:h-5 transition-transform duration-300 group-hover:translate-x-1"
+                    width="14"
+                    height="14"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -153,18 +457,11 @@ const Latest = (props: Props) => {
                     />
                   </svg>
                 </button>
-
-                <Link
-                  href={"/commercial"}
-                  className={`${sted.className} group inline-flex items-center justify-center gap-2 
-                             bg-transparent hover:bg-white/10 text-white font-semibold px-6 py-3 lg:px-8 lg:py-4 
-                             rounded-md border-2 border-white/20 hover:border-white/40 
-                             transition-all duration-300 text-sm lg:text-base`}
-                >
-                  <span>Learn More</span>
-
+                <Link href="/commercial" className="latest-cta-secondary">
+                  All Releases
                   <svg
-                    className="w-4 h-4 lg:w-5 lg:h-5 transition-transform duration-300 group-hover:translate-x-1"
+                    width="14"
+                    height="14"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -173,125 +470,100 @@ const Latest = (props: Props) => {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      d="M9 5l7 7-7 7"
                     />
                   </svg>
                 </Link>
               </div>
             </div>
-
-            {/* Album Grid */}
-            <div className="flex justify-center">
-              <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-3 gap-4 md:gap-5 w-full max-w-7xl">
-                {albumsData.map((album, index) => (
-                  <button
-                    key={album.id}
-                    onClick={() =>
-                      setSelectedAlbumIndex(
-                        selectedAlbumIndex === index ? null : index
-                      )
-                    }
-                    className={`relative group transition-all duration-300 ${
-                      selectedAlbumIndex === index
-                        ? "scale-105 ring-2 ring-orange-500/70 rounded-2xl"
-                        : "hover:scale-102 hover:shadow-2xl"
-                    }`}
-                  >
-                    <div className="relative overflow-hidden rounded-2xl aspect-square">
-                      <Image
-                        src={album.coverImage}
-                        alt={album.title}
-                        width={300}
-                        height={300}
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
-
-                      {/* Overlay Info */}
-                      <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 bg-gradient-to-t from-black/80 to-transparent">
-                        <h3 className="text-white font-bold text-sm md:text-base lg:text-lg mb-1">
-                          {album.title}
-                        </h3>
-                        <p className="text-gray-300 text-xs md:text-sm">
-                          {album.artist}
-                        </p>
-                      </div>
-
-                      {/* Selected Indicator */}
-                      {selectedAlbumIndex === index && (
-                        <div className="absolute top-4 right-4">
-                          <div className="bg-orange-600 rounded-full p-2">
-                            <TiArrowSortedUp className="text-white w-4 h-4 rotate-180" />
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </button>
-                ))}
-              </div>
-            </div>
           </div>
 
-          {/* Selected Album Details */}
-          {selectedAlbum && (
-            <div className=" mx-auto bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 mb-8 animate-in slide-in-from-bottom duration-300">
-              {/* Album Header */}
-              {selectedAlbum?.link === "" ? (
-                <div className="flex flex-col items-center justify-center py-16 px-6">
-                  {/* Icon */}
-                  <div className="mb-6 relative">
-                    <div className="absolute inset-0 bg-orange-500/20 blur-xl rounded-full"></div>
-                    <div className="relative bg-gradient-to-br from-blue-orange/10 to-orange-500/10 p-6 rounded-full border border-orange-400/20">
-                      <svg
-                        className="w-12 h-12 text-orange-200"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={1.5}
-                          d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"
-                        />
-                      </svg>
-                    </div>
+          {/* Album grid */}
+          <div className="latest-grid">
+            {albumsData.map((album, i) => (
+              <button
+                key={album.id}
+                className={`latest-album-btn${selectedIndex === i ? " active" : ""}`}
+                onClick={() => toggle(i)}
+                aria-label={`Select ${album.title}`}
+              >
+                <Image
+                  src={album.coverImage}
+                  alt={album.title}
+                  fill
+                  className="latest-album-img"
+                  style={{ objectFit: "cover" }}
+                />
+                <div className="latest-album-overlay">
+                  <div className="latest-album-title">{album.title}</div>
+                  <div className="latest-album-artist">{album.artist}</div>
+                </div>
+                {selectedIndex === i && (
+                  <div className="latest-album-badge">
+                    <svg
+                      width="10"
+                      height="10"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <polygon points="5,3 19,12 5,21" />
+                    </svg>
                   </div>
+                )}
+              </button>
+            ))}
+          </div>
 
-                  {/* Text */}
-                  <h2 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-orange-300 via-orange-400 to-orange-500 bg-clip-text text-transparent mb-3">
-                    Coming Soon
-                  </h2>
-                  <p className="text-gray-300 text-center max-w-md">
-                    This album is currently in production. Check back soon to
-                    listen!
-                  </p>
-
-                  {/* Optional: Animated dots */}
-                  <div className="flex gap-2 mt-6">
-                    <span className="w-2 h-2 bg-orange-300 rounded-full animate-pulse"></span>
-                    <span className="w-2 h-2 bg-orange-400 rounded-full animate-pulse delay-75"></span>
-                    <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse delay-150"></span>
+          {/* Player panel */}
+          {selected && (
+            <div className="latest-player">
+              {selected.link === "" ? (
+                <div className="latest-coming-soon">
+                  <div className="latest-cs-icon">
+                    <svg
+                      width="20"
+                      height="20"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1.5}
+                        d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"
+                      />
+                    </svg>
+                  </div>
+                  <div className="latest-cs-title">
+                    Coming <span>Soon</span>
+                  </div>
+                  <div className="latest-cs-desc">
+                    This album is currently in production.
+                  </div>
+                  <div className="latest-cs-dots">
+                    <span className="latest-cs-dot" />
+                    <span className="latest-cs-dot" />
+                    <span className="latest-cs-dot" />
                   </div>
                 </div>
               ) : (
-                <iframe
-                  data-testid="embed-iframe"
-                  className="border-radius:12px"
-                  src={selectedAlbum.link}
-                  width="100%"
-                  height="352"
-                  frameBorder="0"
-                  // allowfullscreen="false"
-                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                  loading="lazy"
-                ></iframe>
+                <div className="latest-spotify">
+                  <iframe
+                    src={selected.link}
+                    width="100%"
+                    height="352"
+                    frameBorder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"
+                  />
+                </div>
               )}
             </div>
           )}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
