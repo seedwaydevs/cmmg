@@ -10,7 +10,7 @@ const spotlight = {
   song: "Imfihlo Kamakoti",
   genre: "Afro / Traditional",
   description:
-    "The latest release from Nkanyamba — a powerful blend of Southern African tradition and contemporary sound. Watch the official music video now.",
+    "The latest release from Nkanyamba — a powerful blend of Southern African tradition and contemporary sound.",
   youtubeId: "YOUR_YOUTUBE_ID_HERE", // Replace with actual YouTube video ID
   thumbnail:
     "https://placehold.co/1280x720/0a0a0a/ffffff?text=Nkanyamba+%E2%80%94+Imfihlo+Kamakoti",
@@ -447,7 +447,7 @@ const Spotlight = () => {
               ) : (
                 <div className="spotlight-iframe-wrap">
                   <iframe
-                    src={`https://www.youtube.com/embed/${spotlight.youtubeId}?autoplay=1&rel=0&modestbranding=1`}
+                    src={`https://www.youtube.com/embed/RUtHsrX7Yxs?si=hB7QqFt_hf9JcM8T`}
                     title={`${spotlight.song} — ${spotlight.artist}`}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
