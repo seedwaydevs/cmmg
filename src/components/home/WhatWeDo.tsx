@@ -68,7 +68,7 @@ const WhatWeDo = () => {
 
         .wwd-root {
           width: 100%;
-          background: #0a0a0a;
+          background: #003459;
           border-top: 1px solid rgba(255,255,255,0.06);
           position: relative;
           overflow: hidden;
@@ -207,20 +207,20 @@ const WhatWeDo = () => {
         .wwd-card-content {
           font-family: 'Manrope', sans-serif;
           font-size: 0.82rem; font-weight: 400;
-          line-height: 1.65; color: rgba(255,255,255,0.4);
+          line-height: 1.65; color: rgba(255,255,255,0.8);
         }
 
         .wwd-card-bullets {
           display: flex; flex-direction: column; gap: 0.5rem;
           padding-top: 1rem;
-          border-top: 1px solid rgba(255,255,255,0.06);
+          border-top: 1px solid rgba(255,255,255,0.2);
           list-style: none; padding-left: 0;
           flex: 1;
         }
         .wwd-card-bullets li {
           font-family: 'Manrope', sans-serif;
           font-size: 0.75rem; font-weight: 500;
-          color: rgba(255,255,255,0.35);
+          color: rgba(255,255,255,0.65);
           display: flex; align-items: center; gap: 0.6rem;
         }
         .wwd-card-bullets li::before {
@@ -259,7 +259,7 @@ const WhatWeDo = () => {
           display: flex; flex-direction: column;
           align-items: center; justify-content: center;
           gap: 0.4rem; text-align: center;
-          background: rgba(255,255,255,0.01);
+          background: rgba(255,255,255,0.06);
           transition: background 0.2s ease;
         }
         .wwd-stat-cell:hover { background: rgba(255,255,255,0.03); }
@@ -274,7 +274,7 @@ const WhatWeDo = () => {
           font-family: 'Manrope', sans-serif;
           font-size: 0.65rem; font-weight: 600;
           letter-spacing: 0.18em; text-transform: uppercase;
-          color: rgba(255,255,255,0.3);
+          color: rgba(255,255,255,0.7);
         }
 
         @media (max-width: 1024px) {

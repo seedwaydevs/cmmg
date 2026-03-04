@@ -35,6 +35,7 @@ import { FaDeezer } from "react-icons/fa6";
 import { Schibsted_Grotesk } from "next/font/google";
 import CommercialHero from "./Hero";
 import FeaturedTracks from "./FeaturedTracks";
+import LabelHero from "./Hero";
 
 type Props = {};
 
@@ -161,7 +162,7 @@ const CommercialContent = (props: Props) => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <CommercialHero image={njalo} />
+      <LabelHero image={njalo} />
 
       {/* Featured Albums Section - Enhanced Layout */}
       <FeaturedTracks tracks={tracks} />

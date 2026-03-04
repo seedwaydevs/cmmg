@@ -1,5 +1,5 @@
+import ContactCTA from "@/components/home/ContactCTA";
 import ServicesCompanies from "@/components/services/Companies";
-
 import ServicesHero from "@/components/services/Hero";
 
 import WhatWeOffer from "@/components/services/WhatWeOffer";
@@ -24,6 +24,7 @@ const page = (props: Props) => {
       <ServicesHero />
       <ServicesCompanies />
       <WhatWeOffer />
+      <ContactCTA />
     </div>
   );
 };

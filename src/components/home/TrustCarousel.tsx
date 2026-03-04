@@ -58,7 +58,7 @@ const TrustGrid = () => {
         /* Grid — border on container + cells, no gap */
         .trust-grid {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(6, 1fr);
           border-left: 1px solid rgba(0,0,0,0.08);
           border-top: 1px solid rgba(0,0,0,0.08);
         }
@@ -70,8 +70,8 @@ const TrustGrid = () => {
           align-items: center;
           justify-content: center;
           padding: 2.5rem 2rem;
-          filter: grayscale(100%);
-          opacity: 0.4;
+          filter: grayscale(0%);
+          opacity: 0.9;
           transition: opacity 0.25s ease, filter 0.25s ease, background 0.25s ease;
           cursor: default;
         }

@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { njalo, cstaz, tms, tms2, nkanyamba } from "@/data";
+import { njalo, cstaz, tms, tms2, nkanyamba, liveCulture } from "@/data";
 
 const albumsData = [
   {
@@ -18,7 +18,7 @@ const albumsData = [
     id: 2,
     title: "Jesu Msindisi",
     artist: "L & J CSTAZ",
-    releaseDate: "Coming Soon",
+    releaseDate: "October 10, 2025",
     coverImage: cstaz,
     link: "https://open.spotify.com/embed/album/3HeSTciM2xJ9omxiyrijOc?utm_source=generator",
   },
@@ -26,15 +26,15 @@ const albumsData = [
     id: 3,
     title: "Live Culture",
     artist: "Abe Sibiya",
-    releaseDate: "Coming Soon",
-    coverImage: cstaz,
+    releaseDate: "September 19, 2025",
+    coverImage: liveCulture,
     link: "https://open.spotify.com/embed/album/7ET7RwAOI658wECgo2gq3o?utm_source=generator",
   },
   {
     id: 4,
     title: "The Morning Service",
     artist: "Abe Sibiya",
-    releaseDate: "Coming Soon",
+    releaseDate: "November 7, 2025",
     coverImage: tms2,
     link: "https://open.spotify.com/embed/album/7ycsy7jxkODp286ZmGACnC?utm_source=generator",
   },
@@ -42,7 +42,7 @@ const albumsData = [
     id: 5,
     title: "Imfihlo Kamakoti",
     artist: "Nkanyamba",
-    releaseDate: "Coming Soon",
+    releaseDate: "December 12, 2025",
     coverImage: nkanyamba,
     link: "https://open.spotify.com/embed/album/6zmGMomhs1gfMgA9gHkxdO?utm_source=generator",
   },

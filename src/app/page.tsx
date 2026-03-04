@@ -22,10 +22,9 @@ export default function Home() {
       <Hero />
       <Spotlight />
       <Latest />
-      <Artists />
-      <WhatWeDo />
+      {/* <Artists /> */}
       <TrustCarousel />
-
+      <WhatWeDo />
       <ContactCTA />
     </div>
   );

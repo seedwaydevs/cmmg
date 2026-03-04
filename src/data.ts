@@ -16,6 +16,7 @@ import yandi from "../public/yandi.jpg";
 import njalo from "../public/njalo.jpg";
 import landj from "../public/landj.jpg";
 import nkanyamba from "../public/Nkanyamba.jpg";
+import liveCulture from "../public/LiveCulture.jpg";
 
 import trace from "../public/trust/trace.png";
 import orchard from "../public/trust/The-Orchard-Logo-One-Blue-1.webp";
@@ -59,6 +60,7 @@ import servicebg2 from "../public/ServicesBg2.jpeg";
 
 export {
   nkanyamba,
+  liveCulture,
   tms2,
   servicebg1,
   servicebg2,
