@@ -15,28 +15,28 @@ const Links = [
     app: "Instagram",
     icon: <FaInstagram />,
     link: "https://www.instagram.com/cmmg_records/",
-    class: "h-10 w-10 p-2 rounded-md hover:bg-orange-600",
+    class: "h-10 w-10 p-2 rounded-md text-orange-500 hover:text-purple-500",
   },
   {
     id: 2,
     app: "Facebook",
     icon: <FaSquareFacebook />,
     link: "https://www.facebook.com/profile.php?id=61582923471298",
-    class: "h-10 w-10 p-2 rounded-md hover:bg-orange-600",
+    class: "h-10 w-10 p-2 rounded-md text-orange-500 hover:text-blue-500",
   },
   {
     id: 3,
     app: "TikTok",
     icon: <FaTiktok />,
     link: "https://www.tiktok.com/@cmmg_records",
-    class: "h-10 w-10 p-2 rounded-md hover:bg-orange-600",
+    class: "h-10 w-10 p-2 rounded-md text-orange-500 hover:text-pink-600",
   },
   {
     id: 4,
     app: "YouTube",
     icon: <FaYoutube />,
     link: "https://www.youtube.com/@CMMGRecord",
-    class: "h-10 w-10 p-2 rounded-md hover:bg-orange-600",
+    class: "h-10 w-10 p-2 rounded-md text-orange-500 hover:text-red-600",
   },
 ];
 

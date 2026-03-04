@@ -50,8 +50,6 @@ const Nav = () => {
     { title: "Services", link: "/services" },
     { title: "Music", link: "/commercial" },
     { title: "Gallery", link: "/gallery" },
-    { title: "Blog", link: "/blog" },
-    { title: "Contact Us", link: "/contact" },
   ];
 
   return (

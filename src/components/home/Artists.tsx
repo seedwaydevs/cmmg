@@ -1,6 +1,9 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Music, ArrowRight } from "lucide-react";
+import yandi from "../../../public/yandi.jpg";
+import { cstaz, landj, nkanyamba, tms2 } from "@/data";
 
 const artists = [
   {
@@ -12,7 +15,7 @@ const artists = [
     albums: ["The Morning Service", "Live Culture", "The Blessing"],
     spotifyUrl:
       "https://open.spotify.com/embed/album/7ET7RwAOI658wECgo2gq3o?utm_source=generator",
-    image: "https://placehold.co/600x700/0d1b2a/ffffff?text=Abe+Sibiya",
+    image: tms2,
   },
   {
     id: 2,
@@ -23,7 +26,7 @@ const artists = [
     albums: ["Jesu Msindisi", "Bless The Lord"],
     spotifyUrl:
       "https://open.spotify.com/embed/album/3HeSTciM2xJ9omxiyrijOc?utm_source=generator",
-    image: "https://placehold.co/600x700/0d1b2a/ffffff?text=L+%26+J+CSTAZ",
+    image: cstaz,
   },
   {
     id: 3,
@@ -34,7 +37,7 @@ const artists = [
     albums: ["Njalo"],
     spotifyUrl:
       "https://open.spotify.com/embed/track/7DtN0ksb5UH0TSl0aFfdVB?utm_source=generator",
-    image: "https://placehold.co/600x700/0d1b2a/ffffff?text=YandiSibi",
+    image: yandi,
   },
   {
     id: 4,
@@ -45,7 +48,7 @@ const artists = [
     albums: ["Imfihlo Kamakoti"],
     spotifyUrl:
       "https://open.spotify.com/embed/album/6zmGMomhs1gfMgA9gHkxdO?utm_source=generator",
-    image: "https://placehold.co/600x700/0d1b2a/ffffff?text=Nkanyamba",
+    image: nkanyamba,
   },
 ];
 
@@ -343,7 +346,13 @@ const Artists = () => {
                 {/* Image */}
                 <div className="artists-card-image">
                   {/* Replace src with actual artist image import when available */}
-                  <img src={artist.image} alt={artist.name} />
+                  <Image
+                    src={artist.image}
+                    alt={artist.name}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    style={{ objectFit: "cover" }}
+                  />
                   <span className="artists-card-genre">{artist.genre}</span>
                 </div>
 
