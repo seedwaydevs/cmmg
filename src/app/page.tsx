@@ -10,6 +10,8 @@ import TrustCarousel from "@/components/home/TrustCarousel";
 import WhatWeDo from "@/components/home/WhatWeDo";
 import LoadingScreen from "@/components/LoadingScreen";
 import Studio from "@/components/home/Studio";
+import Artists from "@/components/home/Artists";
+import Spotlight from "@/components/home/Spotlight";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -18,12 +20,12 @@ export default function Home() {
   return (
     <div>
       <Hero />
-      <TrustCarousel />
+      <Spotlight />
       <Latest />
-      <Explore />
+      <Artists />
       <WhatWeDo />
-      <Studio />
-      <hr className="w-[80%] mx-auto" />
+      <TrustCarousel />
+
       <ContactCTA />
     </div>
   );

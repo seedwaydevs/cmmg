@@ -77,6 +77,7 @@ const Nav = () => {
 
         .nav-inner {
           max-width: 1440px;
+          width: 90%
           margin: 0 auto;
           padding: 0 3rem;
           height: 72px;

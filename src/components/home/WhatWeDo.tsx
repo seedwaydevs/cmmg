@@ -1,165 +1,388 @@
-import { Schibsted_Grotesk } from "next/font/google";
 import React from "react";
-import { TiArrowSortedUp } from "react-icons/ti";
-
 import Link from "next/link";
 import { Music, Video, Mic, ArrowRight } from "lucide-react";
-import { AccordionDemo } from "../Accordian";
-import LinkButton from "../LinkButton";
-
-const sted = Schibsted_Grotesk({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-});
-
-type Props = {};
-
-const WhatWeDo = (props: Props) => {
-  return (
-    <div className="py-5 w-full text-neutral-200 bg-blue-800">
-      <div className="w-[90%] lg:w-[80%] mx-auto pb-5">
-        <div className="flex flex-col ">
-          {/* Header - matching Landing style */}
-          <div className="flex items-center py-5 ">
-            <TiArrowSortedUp className="text-orange-500 h-7 w-7 lg:h-10 lg:w-10" />
-            <div className="backdrop-blur-sm bg-white/5 px-4 py-2 rounded-lg border border-white/10 ml-2">
-              <p
-                className={`${sted.className} text-xs uppercase lg:text-sm font-bold tracking-widest `}
-              >
-                [ Services ]
-              </p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 space-y-5 lg:py-5 ">
-            {/* Main heading */}
-            <div className="flex flex-col justify-center py-10 space-y-8">
-              <h1
-                className={`font-black text-6xl   tracking-tight leading-none`}
-              >
-                What We Do
-                <span className="text-orange-500">.</span>
-              </h1>
-              <p className={`text-lg  font-light leading-relaxed max-w-xl `}>
-                With years of experience across the music and media landscape,
-                our team specializes in original music production and licensable
-                tracks, content development for visual media, and
-                professional-grade studio hire for creators and collaborators.
-              </p>
-
-              {/* Enhanced CTA button */}
-              <div className="flex gap-4 items-center group">
-                <LinkButton
-                  url={"/services"}
-                  text="Our Services"
-                  color="blue"
-                  svg="M9 5l7 7-7 7"
-                />
-              </div>
-            </div>
-
-            <div className="flex flex-col items-center z-10 bg-white/10 backdrop-blur-md rounded-2xl p-6 lg:p-8 border border-white/20 shadow-2xl ">
-              <AccordionDemo services={services} />
-              {/* Bottom stats/highlights section */}
-              <div className="grid grid-cols-3 md:grid-cols-3 gap-6 py-5  text-white rounded-xl">
-                <div className="text-center space-y-2">
-                  <div
-                    className={`${sted.className} text-3xl lg:text-4xl font-black relative`}
-                  >
-                    <span className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-300 to-blue-500 bg-clip-text text-transparent blur-sm">
-                      4500+
-                    </span>
-                    <span className="relative bg-gradient-to-br from-white/90 via-blue-100/80 to-white/70 bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]">
-                      4500+
-                    </span>
-                  </div>
-                  <p className=" text-sm capitalize font-semibold tracking-wide">
-                    Tracks Produced
-                  </p>
-                </div>
-
-                <div className="text-center space-y-2">
-                  <div
-                    className={`${sted.className} text-3xl lg:text-4xl font-black relative`}
-                  >
-                    <span className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-300 to-blue-500 bg-clip-text text-transparent blur-sm">
-                      50+
-                    </span>
-                    <span className="relative bg-gradient-to-br from-white/90 via-blue-100/80 to-white/70 bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]">
-                      50+
-                    </span>
-                  </div>
-                  <p className=" text-sm capitalize font-semibold tracking-wide">
-                    Projects Completed
-                  </p>
-                </div>
-
-                <div className="text-center space-y-2">
-                  <div
-                    className={`${sted.className} text-3xl lg:text-4xl font-black relative`}
-                  >
-                    <span className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-300 to-blue-500 bg-clip-text text-transparent blur-sm">
-                      360&deg;
-                    </span>
-                    <span className="relative bg-gradient-to-br from-white/90 via-blue-100/80 to-white/70 bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]">
-                      360&deg;
-                    </span>
-                  </div>
-                  <p className=" text-sm capitalize font-semibold tracking-wide">
-                    Studio Solution
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default WhatWeDo;
 
 const services = [
   {
     id: 1,
-    title: "Music Production",
-    icon: "Music",
-    badge: "Production",
+    title: "Record Label",
+    icon: Music,
+    badge: "Artists",
     content:
-      "From recording to final mix, we produce music that captures emotion and purpose. Whether it's for artists, commercials, films, or digital campaigns, our team delivers professional sound with creative precision.",
+      "CMMG is home to a roster of talented South African artists across gospel, Afro soul, and contemporary music. We develop, produce, and distribute original music that connects with audiences locally and globally.",
     bullets: [
-      "Songwriting and composition",
-      "Mixing and mastering",
-      "Sound design and scoring",
-      "Production Music Library",
+      "Artist development & management",
+      "Commercial music releases",
+      "Distribution & licensing",
+      "Brand partnerships",
     ],
+    cta: { label: "Our Artists", href: "/commercial", external: false },
   },
   {
     id: 2,
-    title: "Content Development",
-    icon: "Video",
-    badge: "Development",
+    title: "Production Music Library",
+    icon: Video,
+    badge: "Library",
     content:
-      "We create compelling visual and audio content that connects with audiences across industries. From corporate communication to brand storytelling, our team manages every stage of production—from concept to final edit.",
+      "A curated catalog of thousands of original, sync-ready tracks cleared for film, television, advertising, and digital content. Professional quality. Ready to license.",
     bullets: [
-      "Training & induction videos",
-      "Corporate and promotional videos",
-      "Radio & TV commercials",
-      "Voice-over production",
+      "4500+ original tracks",
+      "Cleared for sync licensing",
+      "Film, TV & digital ready",
+      "Searchable by mood & genre",
     ],
+    cta: {
+      label: "Browse Library",
+      href: "https://www.library.cmmg.co.za/library",
+      external: true,
+    },
   },
   {
     id: 3,
-    title: "Studio Hire",
-    icon: "Mic",
-    badge: "Studio",
+    title: "Studios",
+    icon: Mic,
+    badge: "Facilities",
     content:
-      "Our state-of-the-art studios are available for hire, offering an ideal space for music recording, voice-overs, podcast production, or video shoots. Each room is acoustically treated and supported by professional engineers on request.",
+      "Two world-class studio facilities available for hire in Johannesburg. A professional music recording and production studio, and a fully equipped film and green screen studio — both supported by experienced engineers on request.",
     bullets: [
-      "Professional equipment",
-      "Multi-purpose spaces",
+      "Music recording & production studio",
+      "Film & green screen studio",
+      "Professional equipment throughout",
       "On-site technical assistance",
     ],
+    cta: { label: "Book a Studio", href: "/contact", external: false },
   },
 ];
+
+const stats = [
+  { value: "4500+", label: "Tracks Produced" },
+  { value: "50+", label: "Projects Completed" },
+  { value: "360°", label: "Studio Solution" },
+];
+
+const WhatWeDo = () => {
+  return (
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Syne:wght@700;800&family=Manrope:wght@400;500;600&display=swap');
+
+        .wwd-root {
+          width: 100%;
+          background: #0a0a0a;
+          border-top: 1px solid rgba(255,255,255,0.06);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .wwd-root::before {
+          content: '';
+          position: absolute;
+          left: 0; top: 0;
+          width: 3px; height: 100%;
+          background: linear-gradient(to bottom, transparent, #f05a1a 25%, #f05a1a 75%, transparent);
+          pointer-events: none;
+          z-index: 2;
+        }
+
+        .wwd-inner {
+          max-width: 1440px;
+          margin: 0 auto;
+          padding: 5rem 3rem;
+          position: relative;
+          z-index: 1;
+        }
+
+        .wwd-header {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          align-items: flex-end;
+          gap: 3rem;
+          margin-bottom: 4rem;
+          padding-bottom: 2.5rem;
+          border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .wwd-eyebrow {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          margin-bottom: 1.25rem;
+        }
+        .wwd-eyebrow-line { width: 28px; height: 1px; background: #f05a1a; flex-shrink: 0; }
+        .wwd-eyebrow-text {
+          font-family: 'Manrope', sans-serif;
+          font-size: 0.65rem; font-weight: 600;
+          letter-spacing: 0.18em; text-transform: uppercase;
+          color: rgba(255,255,255,0.35);
+        }
+
+        .wwd-title {
+          font-family: 'Bricolage Grotesque', sans-serif;
+          font-weight: 800;
+          font-size: clamp(2.5rem, 5vw, 4.5rem);
+          letter-spacing: -0.02em; line-height: 0.95;
+          text-transform: uppercase; color: #ffffff;
+        }
+        .wwd-title em { font-style: normal; color: #f05a1a; }
+
+        .wwd-header-right {
+          display: flex; flex-direction: column;
+          justify-content: flex-end; gap: 1.5rem;
+        }
+        .wwd-desc {
+          font-family: 'Manrope', sans-serif;
+          font-size: 0.95rem; font-weight: 400;
+          line-height: 1.7; color: rgba(255,255,255,0.45);
+          max-width: 420px;
+        }
+        .wwd-cta {
+          font-family: 'Syne', sans-serif; font-weight: 700;
+          font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+          color: #ffffff; background: #f05a1a; border: none;
+          padding: 0.85rem 2rem; cursor: pointer; text-decoration: none;
+          display: inline-flex; align-items: center; gap: 0.5rem;
+          align-self: flex-start;
+          transition: background 0.2s ease, transform 0.2s ease;
+        }
+        .wwd-cta:hover { background: #d44c10; transform: translateY(-1px); }
+        .wwd-cta svg { transition: transform 0.2s ease; }
+        .wwd-cta:hover svg { transform: translateX(3px); }
+
+        /* ── Services grid ── */
+        .wwd-services {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          border-left: 1px solid rgba(255,255,255,0.08);
+          border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .wwd-service-card {
+          border-right: 1px solid rgba(255,255,255,0.08);
+          border-bottom: 1px solid rgba(255,255,255,0.08);
+          padding: 2.5rem 2rem;
+          display: flex; flex-direction: column;
+          gap: 1.25rem; position: relative;
+          overflow: hidden;
+          transition: background 0.25s ease;
+        }
+        .wwd-service-card:hover { background: rgba(255,255,255,0.02); }
+        .wwd-service-card::before {
+          content: '';
+          position: absolute; left: 0; top: 0;
+          width: 2px; height: 100%;
+          background: #f05a1a;
+          transform: scaleY(0); transform-origin: top;
+          transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
+        }
+        .wwd-service-card:hover::before { transform: scaleY(1); }
+
+        .wwd-card-top {
+          display: flex; align-items: flex-start;
+          justify-content: space-between;
+        }
+        .wwd-card-icon {
+          width: 40px; height: 40px;
+          border: 1px solid rgba(255,255,255,0.1);
+          display: flex; align-items: center; justify-content: center;
+          color: #f05a1a; flex-shrink: 0;
+          transition: border-color 0.2s ease, background 0.2s ease;
+        }
+        .wwd-service-card:hover .wwd-card-icon {
+          border-color: #f05a1a;
+          background: rgba(240,90,26,0.08);
+        }
+        .wwd-card-badge {
+          font-family: 'Manrope', sans-serif;
+          font-size: 0.6rem; font-weight: 600;
+          letter-spacing: 0.14em; text-transform: uppercase;
+          color: #1a8cff; border: 1px solid rgba(26,140,255,0.3);
+          padding: 0.2rem 0.55rem;
+        }
+
+        .wwd-card-title {
+          font-family: 'Syne', sans-serif; font-weight: 700;
+          font-size: 1.1rem; letter-spacing: -0.01em;
+          text-transform: uppercase; color: #ffffff;
+        }
+        .wwd-card-content {
+          font-family: 'Manrope', sans-serif;
+          font-size: 0.82rem; font-weight: 400;
+          line-height: 1.65; color: rgba(255,255,255,0.4);
+        }
+
+        .wwd-card-bullets {
+          display: flex; flex-direction: column; gap: 0.5rem;
+          padding-top: 1rem;
+          border-top: 1px solid rgba(255,255,255,0.06);
+          list-style: none; padding-left: 0;
+          flex: 1;
+        }
+        .wwd-card-bullets li {
+          font-family: 'Manrope', sans-serif;
+          font-size: 0.75rem; font-weight: 500;
+          color: rgba(255,255,255,0.35);
+          display: flex; align-items: center; gap: 0.6rem;
+        }
+        .wwd-card-bullets li::before {
+          content: ''; display: block;
+          width: 12px; height: 1px;
+          background: #f05a1a; flex-shrink: 0;
+        }
+
+        /* Card CTA */
+        .wwd-card-cta {
+          font-family: 'Syne', sans-serif; font-weight: 700;
+          font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+          color: rgba(255,255,255,0.45);
+          text-decoration: none;
+          display: inline-flex; align-items: center; gap: 0.5rem;
+          border: 1px solid rgba(255,255,255,0.1);
+          padding: 0.6rem 1rem;
+          align-self: flex-start;
+          margin-top: 0.5rem;
+          transition: border-color 0.2s ease, color 0.2s ease;
+        }
+        .wwd-card-cta:hover { border-color: #f05a1a; color: #f05a1a; }
+        .wwd-card-cta svg { transition: transform 0.2s ease; }
+        .wwd-card-cta:hover svg { transform: translateX(3px); }
+
+        /* ── Stats row ── */
+        .wwd-stats {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          border-left: 1px solid rgba(255,255,255,0.08);
+        }
+        .wwd-stat-cell {
+          border-right: 1px solid rgba(255,255,255,0.08);
+          border-bottom: 1px solid rgba(255,255,255,0.08);
+          padding: 2rem;
+          display: flex; flex-direction: column;
+          align-items: center; justify-content: center;
+          gap: 0.4rem; text-align: center;
+          background: rgba(255,255,255,0.01);
+          transition: background 0.2s ease;
+        }
+        .wwd-stat-cell:hover { background: rgba(255,255,255,0.03); }
+        .wwd-stat-value {
+          font-family: 'Bricolage Grotesque', sans-serif;
+          font-weight: 800;
+          font-size: clamp(2rem, 4vw, 3rem);
+          letter-spacing: -0.02em; line-height: 1;
+          color: #ffffff;
+        }
+        .wwd-stat-label {
+          font-family: 'Manrope', sans-serif;
+          font-size: 0.65rem; font-weight: 600;
+          letter-spacing: 0.18em; text-transform: uppercase;
+          color: rgba(255,255,255,0.3);
+        }
+
+        @media (max-width: 1024px) {
+          .wwd-header   { grid-template-columns: 1fr; gap: 1.5rem; }
+          .wwd-services { grid-template-columns: 1fr; }
+          .wwd-stats    { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 640px) {
+          .wwd-inner { padding: 3rem 1.5rem; }
+          .wwd-title { font-size: 2.25rem; }
+          .wwd-stats { grid-template-columns: 1fr; }
+        }
+      `}</style>
+
+      <div className="wwd-root">
+        <div className="wwd-inner">
+          {/* Section header */}
+          <div className="wwd-header">
+            <div>
+              <div className="wwd-eyebrow">
+                <span className="wwd-eyebrow-line" />
+                <span className="wwd-eyebrow-text">What We Offer</span>
+              </div>
+              <h2 className="wwd-title">
+                Three Ways To
+                <br />
+                Work With <em>Us</em>
+              </h2>
+            </div>
+            <div className="wwd-header-right">
+              <p className="wwd-desc">
+                CMMG operates across three core pillars — a record label
+                nurturing South African talent, a world-class production music
+                library, and fully equipped studio facilities available for
+                hire.
+              </p>
+              <Link href="/services" className="wwd-cta">
+                All Services
+                <ArrowRight size={14} />
+              </Link>
+            </div>
+          </div>
+
+          {/* Services grid */}
+          <div className="wwd-services">
+            {services.map((service) => (
+              <div key={service.id} className="wwd-service-card">
+                <div className="wwd-card-top">
+                  <div className="wwd-card-icon">
+                    <service.icon size={18} />
+                  </div>
+                  <span className="wwd-card-badge">{service.badge}</span>
+                </div>
+
+                <div className="wwd-card-title">{service.title}</div>
+                <p className="wwd-card-content">{service.content}</p>
+
+                <ul className="wwd-card-bullets">
+                  {service.bullets.map((b, i) => (
+                    <li key={i}>{b}</li>
+                  ))}
+                </ul>
+
+                {service.cta.external ? (
+                  <a
+                    href={service.cta.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="wwd-card-cta"
+                  >
+                    {service.cta.label}
+                    <ArrowRight size={12} />
+                  </a>
+                ) : (
+                  <Link href={service.cta.href} className="wwd-card-cta">
+                    {service.cta.label}
+                    <ArrowRight size={12} />
+                  </Link>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Stats row */}
+          <div className="wwd-stats">
+            {stats.map((stat, i) => (
+              <div key={i} className="wwd-stat-cell">
+                <div className="wwd-stat-value">
+                  <span style={{ color: "#f05a1a" }}>
+                    {stat.value.replace(/[a-zA-Z°]/g, "")}
+                  </span>
+                  <span
+                    style={{
+                      color: "rgba(255,255,255,0.5)",
+                      fontSize: "0.6em",
+                    }}
+                  >
+                    {stat.value.replace(/[^a-zA-Z°]/g, "")}
+                  </span>
+                </div>
+                <div className="wwd-stat-label">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default WhatWeDo;

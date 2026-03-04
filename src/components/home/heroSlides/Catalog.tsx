@@ -7,8 +7,7 @@ const Catalog = () => {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Manrope:wght@400;500;600&display=swap');
-
+        @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Syne:wght@700;800&family=Manrope:wght@400;500;600&display=swap');
         .catalog-root {
           width: 100%;
           height: 100%;
@@ -44,7 +43,7 @@ const Catalog = () => {
 
         .catalog-inner {
           max-width: 1440px;
-          width: 100%;
+          width: 90%;
           margin: 0 auto;
           padding: 0 3rem;
           padding-top: 9rem;
@@ -74,11 +73,11 @@ const Catalog = () => {
         }
 
         .catalog-title {
-          font-family: 'Syne', sans-serif;
+          font-family: 'Bricolage Grotesque', sans-serif;
           font-weight: 800;
           font-size: clamp(3rem, 7vw, 6.5rem);
-          letter-spacing: -0.04em;
-          line-height: 0.92;
+          letter-spacing: -0.02em;
+          line-height: 0.95;
           text-transform: uppercase;
           color: #ffffff;
         }

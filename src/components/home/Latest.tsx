@@ -58,15 +58,55 @@ const Latest = () => {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Manrope:wght@400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Syne:wght@700;800&family=Manrope:wght@400;500;600&display=swap');
 
         /* ── Root ── */
         .latest-root {
           width: 100%;
-          background: #0a0a0a;
+          background: #111110;
           position: relative;
           overflow: hidden;
           border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        /* Dot grid — always visible */
+        .latest-dots {
+          position: absolute;
+          inset: 0;
+          background-image: radial-gradient(circle, rgba(255,255,255,0.18) 1px, transparent 1px);
+          background-size: 28px 28px;
+          pointer-events: none;
+          z-index: 1;
+          mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 60%, transparent 100%);
+          -webkit-mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 60%, transparent 100%);
+        }
+
+        /* Orange left stripe */
+        .latest-stripe {
+          position: absolute;
+          left: 0; top: 0;
+          width: 3px; height: 100%;
+          background: linear-gradient(to bottom, transparent, #f05a1a 25%, #f05a1a 75%, transparent);
+          pointer-events: none;
+          z-index: 4;
+        }
+
+        /* Ambient colour glows */
+        .latest-glow-orange {
+          position: absolute;
+          bottom: -10%; left: -5%;
+          width: 600px; height: 600px;
+          background: radial-gradient(circle, rgba(240,90,26,0.18) 0%, transparent 65%);
+          pointer-events: none;
+          z-index: 0;
+        }
+        .latest-glow-blue {
+          position: absolute;
+          top: -10%; right: -5%;
+          width: 500px; height: 500px;
+          background: radial-gradient(circle, rgba(26,140,255,0.12) 0%, transparent 65%);
+          pointer-events: none;
+          z-index: 0;
         }
 
         /* Blurred album art bg when selected */
@@ -76,30 +116,11 @@ const Latest = () => {
           z-index: 0;
           transition: opacity 0.6s ease;
         }
-        .latest-bg-art img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          filter: blur(60px);
-          transform: scale(1.15);
-          opacity: 0.12;
-        }
-        .latest-bg-art::after {
-          content: '';
+        .latest-bg-art-overlay {
           position: absolute;
           inset: 0;
-          background: rgba(10,10,10,0.7);
-        }
-
-        /* Orange left stripe */
-        .latest-root::before {
-          content: '';
-          position: absolute;
-          left: 0; top: 0;
-          width: 3px; height: 100%;
-          background: linear-gradient(to bottom, transparent, #f05a1a 25%, #f05a1a 75%, transparent);
-          pointer-events: none;
-          z-index: 2;
+          background: rgba(10,10,10,0.6);
+          z-index: 1;
         }
 
         /* ── Inner ── */
@@ -129,96 +150,62 @@ const Latest = () => {
           margin-bottom: 1.25rem;
         }
         .latest-eyebrow-line {
-          width: 28px;
-          height: 1px;
-          background: #f05a1a;
-          flex-shrink: 0;
+          width: 28px; height: 1px;
+          background: #f05a1a; flex-shrink: 0;
         }
         .latest-eyebrow-text {
           font-family: 'Manrope', sans-serif;
-          font-size: 0.65rem;
-          font-weight: 600;
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-          color: rgba(255,255,255,0.35);
+          font-size: 0.65rem; font-weight: 600;
+          letter-spacing: 0.18em; text-transform: uppercase;
+          color: rgba(255,255,255,0.45);
         }
 
         .latest-title {
-          font-family: 'Syne', sans-serif;
+          font-family: 'Bricolage Grotesque', sans-serif;
           font-weight: 800;
           font-size: clamp(2.5rem, 5vw, 4.5rem);
-          letter-spacing: -0.04em;
-          line-height: 0.92;
+          letter-spacing: -0.02em;
+          line-height: 0.95;
           text-transform: uppercase;
           color: #ffffff;
         }
-        .latest-title em {
-          font-style: normal;
-          color: #f05a1a;
-        }
+        .latest-title em { font-style: normal; color: #f05a1a; }
 
         .latest-header-right {
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-end;
-          gap: 1.25rem;
+          display: flex; flex-direction: column;
+          justify-content: flex-end; gap: 1.25rem;
         }
         .latest-desc {
           font-family: 'Manrope', sans-serif;
-          font-size: 0.9rem;
-          font-weight: 400;
-          line-height: 1.7;
-          color: rgba(255,255,255,0.45);
+          font-size: 0.9rem; font-weight: 400;
+          line-height: 1.7; color: rgba(255,255,255,0.45);
           max-width: 400px;
         }
 
-        .latest-cta-row {
-          display: flex;
-          gap: 1rem;
-          flex-wrap: wrap;
-        }
+        .latest-cta-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+
         .latest-cta-primary {
-          font-family: 'Syne', sans-serif;
-          font-weight: 700;
-          font-size: 0.72rem;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          color: #ffffff;
-          background: #f05a1a;
-          border: none;
-          padding: 0.8rem 1.75rem;
-          cursor: pointer;
-          text-decoration: none;
-          display: inline-flex;
-          align-items: center;
-          gap: 0.5rem;
+          font-family: 'Syne', sans-serif; font-weight: 700;
+          font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+          color: #ffffff; background: #f05a1a; border: none;
+          padding: 0.8rem 1.75rem; cursor: pointer; text-decoration: none;
+          display: inline-flex; align-items: center; gap: 0.5rem;
           transition: background 0.2s ease, transform 0.2s ease;
         }
         .latest-cta-primary:hover { background: #d44c10; transform: translateY(-1px); }
 
         .latest-cta-secondary {
-          font-family: 'Syne', sans-serif;
-          font-weight: 700;
-          font-size: 0.72rem;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          color: rgba(255,255,255,0.6);
-          background: none;
+          font-family: 'Syne', sans-serif; font-weight: 700;
+          font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+          color: rgba(255,255,255,0.6); background: none;
           border: 1px solid rgba(255,255,255,0.12);
-          padding: 0.8rem 1.75rem;
-          cursor: pointer;
-          text-decoration: none;
-          display: inline-flex;
-          align-items: center;
-          gap: 0.5rem;
+          padding: 0.8rem 1.75rem; cursor: pointer; text-decoration: none;
+          display: inline-flex; align-items: center; gap: 0.5rem;
           transition: border-color 0.2s ease, color 0.2s ease;
         }
-        .latest-cta-secondary:hover {
-          border-color: #f05a1a;
-          color: #f05a1a;
-        }
+        .latest-cta-secondary:hover { border-color: #f05a1a; color: #f05a1a; }
 
-        /* ── Album grid: bordered, no gap ── */
+        /* ── Album grid ── */
         .latest-grid {
           display: grid;
           grid-template-columns: repeat(5, 1fr);
@@ -230,90 +217,54 @@ const Latest = () => {
         .latest-album-btn {
           border-right: 1px solid rgba(255,255,255,0.08);
           border-bottom: 1px solid rgba(255,255,255,0.08);
-          background: none;
-          border-top: none;
-          border-left: none;
-          cursor: pointer;
-          padding: 0;
-          position: relative;
-          overflow: hidden;
-          aspect-ratio: 1;
-          display: block;
-          width: 100%;
+          background: none; border-top: none; border-left: none;
+          cursor: pointer; padding: 0; position: relative;
+          overflow: hidden; aspect-ratio: 1; display: block; width: 100%;
           transition: opacity 0.25s ease;
         }
         .latest-album-btn:not(.active) { opacity: 0.7; }
         .latest-album-btn:hover { opacity: 1; }
         .latest-album-btn.active { opacity: 1; }
-
-        /* Orange top border on active */
         .latest-album-btn.active::before {
           content: '';
-          position: absolute;
-          top: 0; left: 0;
+          position: absolute; top: 0; left: 0;
           width: 100%; height: 3px;
-          background: #f05a1a;
-          z-index: 3;
+          background: #f05a1a; z-index: 3;
         }
 
         .latest-album-img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          display: block;
+          width: 100%; height: 100%; object-fit: cover; display: block;
           transition: transform 0.4s ease;
         }
         .latest-album-btn:hover .latest-album-img { transform: scale(1.04); }
 
-        /* Info overlay */
         .latest-album-overlay {
-          position: absolute;
-          inset: 0;
+          position: absolute; inset: 0;
           background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 55%);
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-end;
-          padding: 1rem;
-          z-index: 2;
+          display: flex; flex-direction: column; justify-content: flex-end;
+          padding: 1rem; z-index: 2;
         }
         .latest-album-title {
-          font-family: 'Syne', sans-serif;
-          font-weight: 700;
-          font-size: 0.85rem;
-          letter-spacing: -0.01em;
-          color: #ffffff;
-          line-height: 1.1;
+          font-family: 'Syne', sans-serif; font-weight: 700;
+          font-size: 0.85rem; letter-spacing: -0.01em;
+          color: #ffffff; line-height: 1.1;
         }
         .latest-album-artist {
-          font-family: 'Manrope', sans-serif;
-          font-size: 0.65rem;
-          font-weight: 500;
-          letter-spacing: 0.08em;
-          text-transform: uppercase;
-          color: rgba(255,255,255,0.45);
-          margin-top: 0.2rem;
+          font-family: 'Manrope', sans-serif; font-size: 0.65rem;
+          font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+          color: rgba(255,255,255,0.45); margin-top: 0.2rem;
         }
 
-        /* Active badge */
         .latest-album-badge {
-          position: absolute;
-          top: 0.75rem;
-          right: 0.75rem;
-          z-index: 3;
-          background: #f05a1a;
-          width: 20px;
-          height: 20px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          position: absolute; top: 0.75rem; right: 0.75rem; z-index: 3;
+          background: #f05a1a; width: 20px; height: 20px;
+          display: flex; align-items: center; justify-content: center;
         }
-        .latest-album-badge svg { color: #ffffff; }
 
         /* ── Player panel ── */
         .latest-player {
           border: 1px solid rgba(255,255,255,0.08);
-          border-top: none;
-          background: rgba(255,255,255,0.02);
+          border-top: none; background: rgba(255,255,255,0.02);
           overflow: hidden;
           animation: player-drop 0.35s cubic-bezier(0.16,1,0.3,1) forwards;
         }
@@ -322,49 +273,30 @@ const Latest = () => {
           to   { opacity: 1; transform: translateY(0); }
         }
 
-        /* Coming soon panel */
         .latest-coming-soon {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          padding: 4rem 2rem;
-          gap: 1rem;
+          display: flex; flex-direction: column;
+          align-items: center; justify-content: center;
+          padding: 4rem 2rem; gap: 1rem;
         }
         .latest-cs-icon {
-          width: 48px;
-          height: 48px;
+          width: 48px; height: 48px;
           border: 1px solid rgba(255,255,255,0.1);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: rgba(255,255,255,0.3);
-          margin-bottom: 0.5rem;
+          display: flex; align-items: center; justify-content: center;
+          color: rgba(255,255,255,0.3); margin-bottom: 0.5rem;
         }
         .latest-cs-title {
-          font-family: 'Syne', sans-serif;
-          font-weight: 800;
-          font-size: 1.5rem;
-          letter-spacing: -0.04em;
-          text-transform: uppercase;
-          color: rgba(255,255,255,0.5);
+          font-family: 'Syne', sans-serif; font-weight: 800;
+          font-size: 1.5rem; letter-spacing: -0.02em;
+          text-transform: uppercase; color: rgba(255,255,255,0.5);
         }
         .latest-cs-title span { color: #f05a1a; }
         .latest-cs-desc {
-          font-family: 'Manrope', sans-serif;
-          font-size: 0.8rem;
-          font-weight: 400;
-          color: rgba(255,255,255,0.25);
+          font-family: 'Manrope', sans-serif; font-size: 0.8rem;
+          font-weight: 400; color: rgba(255,255,255,0.25);
         }
-        .latest-cs-dots {
-          display: flex;
-          gap: 0.4rem;
-          margin-top: 0.5rem;
-        }
+        .latest-cs-dots { display: flex; gap: 0.4rem; margin-top: 0.5rem; }
         .latest-cs-dot {
-          width: 4px;
-          height: 4px;
-          background: #f05a1a;
+          width: 4px; height: 4px; background: #f05a1a;
           animation: cs-dot 1.2s ease-in-out infinite;
         }
         .latest-cs-dot:nth-child(2) { animation-delay: 0.2s; }
@@ -374,29 +306,28 @@ const Latest = () => {
           50%      { opacity: 1; }
         }
 
-        /* Spotify iframe wrapper */
-        .latest-spotify {
-          width: 100%;
-        }
-        .latest-spotify iframe {
-          display: block;
-          border: none;
-        }
+        .latest-spotify { width: 100%; }
+        .latest-spotify iframe { display: block; border: none; }
 
-        /* ── Responsive ── */
         @media (max-width: 1024px) {
           .latest-header { grid-template-columns: 1fr; gap: 1.5rem; }
           .latest-grid   { grid-template-columns: repeat(3, 1fr); }
         }
         @media (max-width: 640px) {
-          .latest-inner  { padding: 3rem 1.5rem; }
-          .latest-grid   { grid-template-columns: repeat(2, 1fr); }
-          .latest-title  { font-size: 2.25rem; }
+          .latest-inner { padding: 3rem 1.5rem; }
+          .latest-grid  { grid-template-columns: repeat(2, 1fr); }
+          .latest-title { font-size: 2.25rem; }
         }
       `}</style>
 
       <div className="latest-root">
-        {/* Blurred art background */}
+        {/* Background layers */}
+        <div className="latest-dots" />
+        <div className="latest-glow-orange" />
+        <div className="latest-glow-blue" />
+        <div className="latest-stripe" />
+
+        {/* Album art blur — only when selected */}
         {selected && (
           <div className="latest-bg-art">
             <Image
@@ -407,9 +338,10 @@ const Latest = () => {
               style={{
                 objectFit: "cover",
                 filter: "blur(60px)",
-                opacity: 0.12,
+                opacity: 0.15,
               }}
             />
+            <div className="latest-bg-art-overlay" />
           </div>
         )}
 
@@ -427,7 +359,6 @@ const Latest = () => {
                 Commercial <em>Albums</em>
               </h2>
             </div>
-
             <div className="latest-header-right">
               <p className="latest-desc">
                 Discover our most recent commercial releases, featuring our
