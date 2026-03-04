@@ -58,8 +58,7 @@ const Latest = () => {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Manrope:wght@400;500;600&display=swap');
-
+        @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Syne:wght@700;800&family=Manrope:wght@400;500;600&display=swap');
         /* ── Root ── */
         .latest-root {
           width: 100%;
@@ -144,13 +143,14 @@ const Latest = () => {
         }
 
         .latest-title {
-          font-family: 'Syne', sans-serif;
-          font-weight: 800;
-          font-size: clamp(2.5rem, 5vw, 4.5rem);
-          letter-spacing: -0.04em;
-          line-height: 0.92;
-          text-transform: uppercase;
-          color: #ffffff;
+            font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: #ffffff;
+
         }
         .latest-title em {
           font-style: normal;

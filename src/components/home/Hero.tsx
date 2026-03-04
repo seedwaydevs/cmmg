@@ -120,7 +120,7 @@ const Hero = () => {
         .hero-counter {
           position: absolute;
           top: 6rem;
-          left: 3rem;
+          left: 7rem;
           z-index: 20;
           font-family: 'Manrope', sans-serif;
           font-size: 0.65rem;
@@ -140,7 +140,7 @@ const Hero = () => {
         /* ── Slide label strip (right side) ── */
         .hero-labels {
           position: absolute;
-          right: 2rem;
+          right: 6rem;
           top: 50%;
           transform: translateY(-50%);
           z-index: 20;

@@ -54,7 +54,7 @@ const Landing = () => {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Manrope:wght@400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Syne:wght@700;800&family=Manrope:wght@400;500;600&display=swap');
 
         /* Slide uses a dark bg — keeps the hero cinematic */
         .landing-root {
@@ -96,7 +96,7 @@ const Landing = () => {
 
         .landing-inner {
           max-width: 1440px;
-          width: 100%;
+          width: 90%;
           margin: 0 auto;
           padding: 0 3rem;
           display: flex;
@@ -159,11 +159,11 @@ const Landing = () => {
           gap: 1.5rem;
         }
         .landing-title {
-          font-family: 'Syne', sans-serif;
+          font-family: 'Bricolage Grotesque', sans-serif;
           font-weight: 800;
           font-size: clamp(5rem, 10vw, 9rem);
-          letter-spacing: -0.04em;
-          line-height: 0.9;
+          letter-spacing: -0.02em;
+          line-height: 0.95;
           text-transform: uppercase;
           color: #ffffff;
         }
