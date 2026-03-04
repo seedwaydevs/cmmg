@@ -14,7 +14,6 @@ import { Button } from "@/components/ui/button";
 
 import {
   image1,
-  image2,
   image3,
   image4,
   image5,

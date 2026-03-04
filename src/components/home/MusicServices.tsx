@@ -13,7 +13,6 @@ import Link from "next/link";
 // Import your images
 import {
   image1,
-  image2,
   image3,
   image4,
   image5,
@@ -52,7 +51,7 @@ const MusicServices = () => {
       genre: "Gospel",
     },
     {
-      image: image2,
+      image: image3,
       artist: "Abe Sibiya",
       album: "Live Culture",
       genre: "Jazz",
