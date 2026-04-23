@@ -10,11 +10,9 @@ const manrope = Manrope({ subsets: ["latin"], weight: ["400", "500", "600"] });
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
-  { label: "Services", href: "/services" },
+  { label: "Services", href: "https://studios.cmmg.co.za" },
   { label: "Artists", href: "/commercial" },
   { label: "Gallery", href: "/gallery" },
-  { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/contact" },
 ];
 
 const utilityLinks = [

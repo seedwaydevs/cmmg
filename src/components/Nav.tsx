@@ -47,7 +47,7 @@ const Nav = () => {
   const navLinks = [
     { title: "Home", link: "/" },
     { title: "About", link: "/about" },
-    { title: "Services", link: "/services" },
+    { title: "Services", link: "https://studios.cmmg.co.za/" },
     { title: "Music", link: "/commercial" },
     { title: "Gallery", link: "/gallery" },
   ];
