@@ -25,7 +25,7 @@ const navigationOptions = [
     icon: Calendar,
     title: "Book Studio",
     description: "Reserve a session",
-    href: "/contact",
+    href: "https://studios.cmmg.co.za/",
   },
   {
     icon: Camera,

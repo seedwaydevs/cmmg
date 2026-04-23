@@ -251,7 +251,7 @@ const ServicesHero = () => {
                   </a>
                 ))}
               </div>
-              <Link href="/contact" className="svc-hero-cta">
+              <Link href="https://studios.cmmg.co.za/" className="svc-hero-cta">
                 Book a Session
                 <ArrowRight size={14} />
               </Link>

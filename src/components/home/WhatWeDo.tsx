@@ -50,7 +50,11 @@ const services = [
       "Professional equipment throughout",
       "On-site technical assistance",
     ],
-    cta: { label: "Book a Studio", href: "/contact", external: false },
+    cta: {
+      label: "Book a Studio",
+      href: "https://studios.cmmg.co.za/",
+      external: false,
+    },
   },
 ];
 
