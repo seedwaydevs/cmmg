@@ -404,7 +404,10 @@ const ServicesStudios = () => {
                 professional music recording studio and a fully equipped film
                 and green screen studio. Both available for hire.
               </p>
-              <Link href="/contact" className="studios-header-cta">
+              <Link
+                href="https://studios.cmmg.co.za/"
+                className="studios-header-cta"
+              >
                 Book a Studio
                 <ArrowRight size={14} />
               </Link>
