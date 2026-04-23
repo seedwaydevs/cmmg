@@ -25,7 +25,7 @@ const externalLinks = [
     label: "Production Music Library",
     href: "https://www.library.cmmg.co.za/library",
   },
-  { label: "Book a Studio", href: "/contact" },
+  { label: "Book a Studio", href: "https://studios.cmmg.co.za/" },
 ];
 
 const Footer = () => {
