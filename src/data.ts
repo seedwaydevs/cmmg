@@ -56,9 +56,16 @@ import tms2 from "../public/tms002.jpg";
 import servicebg1 from "../public/ServicesBg1.jpeg";
 import servicebg2 from "../public/ServicesBg2.jpeg";
 
+import gs1 from "../public/hire/gs-1.jpg";
+import gs2 from "../public/hire/gs-2.jpg";
+import gs3 from "../public/hire/gs-3.jpg";
+
 //music
 
 export {
+  gs1,
+  gs2,
+  gs3,
   nkanyamba,
   liveCulture,
   tms2,

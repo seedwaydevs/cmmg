@@ -14,8 +14,8 @@ const LabelStory = () => {
 
         .ls-root {
           width: 100%;
-          background: #f05a1f;
-          border-top: 1px solid rgba(0,0,0,0.08);
+          background: #f04a1c;
+          border-top: 1px solid rgba(0,0,0,0.09);
           position: relative;
           overflow: hidden;
         }

@@ -63,10 +63,11 @@ const AboutHero = () => {
         .about-hero-inner {
           max-width: 1440px;
           margin: 0 auto;
-          padding: 9rem 3rem 5rem;
+          padding: 7rem 3rem 1rem;
           position: relative;
           z-index: 2;
           width: 100%;
+          
         }
 
         /* Eyebrow */
@@ -227,12 +228,6 @@ const AboutHero = () => {
         <div className="about-hero-glow" />
 
         <div className="about-hero-inner">
-          {/* Eyebrow */}
-          <div className="about-hero-eyebrow">
-            <span className="about-hero-eyebrow-line" />
-            <span className="about-hero-eyebrow-text">About CMMG</span>
-          </div>
-
           {/* Body */}
           <div className="about-hero-body">
             <div>
@@ -249,7 +244,7 @@ const AboutHero = () => {
                 music and authentic stories to audiences everywhere — rooted in
                 South Africa, reaching the world.
               </p>
-              <div className="about-hero-cta-row">
+              {/* <div className="about-hero-cta-row">
                 <Link href="/contact" className="about-hero-cta-primary">
                   Work With Us
                   <ArrowRight size={14} />
@@ -258,7 +253,7 @@ const AboutHero = () => {
                   Our Services
                   <ArrowRight size={14} />
                 </Link>
-              </div>
+              </div> */}
             </div>
 
             <div className="about-hero-image-wrap">
@@ -279,16 +274,6 @@ const AboutHero = () => {
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* Stats */}
-          <div className="about-hero-stats">
-            {stats.map((stat, i) => (
-              <div key={i} className="about-hero-stat">
-                <div className="about-hero-stat-value">{stat.number}</div>
-                <div className="about-hero-stat-label">{stat.label}</div>
-              </div>
-            ))}
           </div>
         </div>
       </section>

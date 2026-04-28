@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -10,34 +10,47 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
+import {
+  gs1,
+  gs2,
+  gs3,
+  hire1,
+  hire2,
+  hire3,
+  hire4,
+  hire5,
+  hire6,
+  hire7,
+  stu1,
+} from "@/data";
 
 // ── Replace these with actual studio image imports from @/data ──
 const recordingGallery = [
   {
-    src: "https://placehold.co/800x600/0a0a0a/f05a1a?text=Recording+Studio+1",
-    alt: "Recording Studio — Live Room",
+    src: hire1,
+    alt: "Recording Studio — Control Deck",
   },
   {
-    src: "https://placehold.co/800x600/0d1b2a/ffffff?text=Recording+Studio+2",
-    alt: "Recording Studio — Control Room",
-  },
-  {
-    src: "https://placehold.co/800x600/111110/f05a1a?text=Recording+Studio+3",
+    src: hire7,
     alt: "Recording Studio — Booth",
+  },
+  {
+    src: hire3,
+    alt: "Recording Studio — Room",
   },
 ];
 
 const filmGallery = [
   {
-    src: "https://placehold.co/800x600/0a0a0a/1a8cff?text=Film+Studio+1",
+    src: gs1,
     alt: "Film Studio — Green Screen",
   },
   {
-    src: "https://placehold.co/800x600/0d1b2a/ffffff?text=Film+Studio+2",
+    src: gs2,
     alt: "Film Studio — Lighting Rig",
   },
   {
-    src: "https://placehold.co/800x600/111110/1a8cff?text=Film+Studio+3",
+    src: gs3,
     alt: "Film Studio — Set",
   },
 ];
@@ -83,7 +96,11 @@ const studios = [
   },
 ];
 
-const GallerySlider = ({ images }: { images: typeof recordingGallery }) => {
+const GallerySlider = ({
+  images,
+}: {
+  images: { src: string | StaticImageData; alt: string }[];
+}) => {
   const [current, setCurrent] = useState(0);
   const prev = () => setCurrent((c) => (c === 0 ? images.length - 1 : c - 1));
   const next = () => setCurrent((c) => (c === images.length - 1 ? 0 : c + 1));
@@ -91,7 +108,7 @@ const GallerySlider = ({ images }: { images: typeof recordingGallery }) => {
   return (
     <div className="studio-gallery">
       <div className="studio-gallery-main">
-        <img src={images[current].src} alt={images[current].alt} />
+        <Image src={images[current].src} alt={images[current].alt} />
         {/* Controls */}
         <button
           className="studio-gallery-btn studio-gallery-btn--prev"
@@ -122,7 +139,7 @@ const GallerySlider = ({ images }: { images: typeof recordingGallery }) => {
             onClick={() => setCurrent(i)}
             aria-label={`View ${img.alt}`}
           >
-            <img src={img.src} alt={img.alt} />
+            <Image src={img.src} alt={img.alt} />
           </button>
         ))}
       </div>

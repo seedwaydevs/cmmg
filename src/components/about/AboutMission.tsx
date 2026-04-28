@@ -4,17 +4,17 @@ const tiles = [
   {
     id: 1,
     label: "Vision",
-    heading: "To Redefine What's Possible",
+    heading: "To Shape the Sound of a Generation",
     paragraph:
-      "Our vision is to redefine media production by empowering brands, creators, and storytellers through immersive visual and audio experiences — where innovation meets authenticity, and every story leaves a lasting impact.",
+      "Our vision is to build a record label that defines an era — discovering raw talent, nurturing authentic voices, and releasing music that moves culture. We believe the next iconic sound isn't in Los Angeles or London. It's here.",
     number: "01",
   },
   {
     id: 2,
     label: "Mission",
-    heading: "To Empower Every Story",
+    heading: "To Develop Artists Who Last",
     paragraph:
-      "We exist to empower brands, creators, and storytellers by delivering compelling visual and audio content. Our goal is to set a new standard in media production by merging innovation with authenticity — from the first note to the final cut.",
+      "We exist to find, develop, and amplify artists who have something real to say. From the first studio session to the worldwide release, our mission is to build careers built on craft, not trends — and put Johannesburg on the global music map.",
     number: "02",
   },
 ];
@@ -170,7 +170,7 @@ const AboutMission = () => {
             <div>
               <p className="about-mission-header-desc">
                 Two guiding principles that shape every decision we make — from
-                the artists we sign to the stories we tell.
+                the artists we sign to the records we release.
               </p>
             </div>
           </div>
