@@ -347,7 +347,7 @@ const ContactCTA = () => {
                 </a>
                 <a href="tel:+27617889902" className="cta-action-btn">
                   <span className="cta-action-label">Phone</span>
-                  <span className="cta-action-value">+27 61 788 9902</span>
+                  <span className="cta-action-value">+27 79-534-9239</span>
                   <div className="cta-action-arrow">
                     <Zap size={12} />
                   </div>
