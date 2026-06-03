@@ -252,7 +252,7 @@ const Footer = () => {
               </p>
               <div className="footer-contact-block">
                 <a href="tel:+27617889902" className="footer-contact-item">
-                  +27 (0) 61-788-9902
+                  +27 (0) 79-534-9239
                 </a>
                 <a
                   href="mailto:info@cmmg.co.za"
