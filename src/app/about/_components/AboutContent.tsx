@@ -12,7 +12,7 @@ import Image from "next/image";
 import prod from "../../../../public/prodco.jpg";
 import MissionVisionTiles from "./MissionVisionTiles";
 import { title } from "process";
-import Team from "@/components/about/Team";
+
 import AboutHero from "@/components/about/AboutHero";
 import AboutMission from "@/components/about/AboutMission";
 import AboutWhyUs from "@/components/about/AboutWhyUs";
