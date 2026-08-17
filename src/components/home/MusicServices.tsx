@@ -1,9 +1,5 @@
 "use client";
-import {
-  Hanken_Grotesk,
-  Inter_Tight,
-  Schibsted_Grotesk,
-} from "next/font/google";
+import { Schibsted_Grotesk } from "next/font/google";
 import Image from "next/image";
 import React from "react";
 import { TiArrowSortedUp } from "react-icons/ti";
@@ -24,11 +20,6 @@ import {
   njalo,
   landj,
 } from "@/data";
-
-const hanken = Hanken_Grotesk({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
 
 const sted = Schibsted_Grotesk({
   subsets: ["latin"],

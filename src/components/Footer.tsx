@@ -2,10 +2,6 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { cmmg } from "@/data";
-import { Syne, Manrope } from "next/font/google";
-
-const syne = Syne({ subsets: ["latin"], weight: ["700", "800"] });
-const manrope = Manrope({ subsets: ["latin"], weight: ["400", "500", "600"] });
 
 const navLinks = [
   { label: "Home", href: "/" },

@@ -1,7 +1,6 @@
 // ServicesGrid.tsx
 "use client";
 
-import { Schibsted_Grotesk } from "next/font/google";
 import Link from "next/link";
 import {
   ArrowUpRight,
@@ -12,13 +11,6 @@ import {
   Lightbulb,
   Play,
 } from "lucide-react";
-
-const schibstedGrotesk = Schibsted_Grotesk({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-  display: "swap",
-  variable: "--font-schibsted",
-});
 
 const services = [
   {
@@ -79,7 +71,7 @@ const services = [
 
 const ServicesGrid = () => {
   return (
-    <div className={`${schibstedGrotesk.variable} font-sans py-16`}>
+    <div className={`font-sans py-16`}>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {services.map((service, index) => {
           const IconComponent = service.icon;

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Schibsted_Grotesk } from "next/font/google";
 import {
   CheckCircle,
   ExternalLink,
@@ -11,13 +10,6 @@ import {
 import musicLibraryImg2 from "../../../public/pexels-stephendn-63703.jpg";
 import musicLibraryImg1 from "../../../../public/new_collage.png";
 import Link from "next/link";
-
-const schibstedGrotesk = Schibsted_Grotesk({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-  display: "swap",
-  variable: "--font-schibsted",
-});
 
 const features = [
   {
@@ -46,7 +38,7 @@ const ServiceMusicLibrary = () => {
   return (
     <section
       id="1"
-      className={`${schibstedGrotesk.variable} font-sans py-20 bg-gradient-to-br from-white via-orange-50/20 to-white relative overflow-hidden`}
+      className={` font-sans py-20 bg-gradient-to-br from-white via-orange-50/20 to-white relative overflow-hidden`}
     >
       {/* Background decorations */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-orange-100 to-transparent rounded-full blur-3xl opacity-30"></div>

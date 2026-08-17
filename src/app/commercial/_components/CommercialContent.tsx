@@ -1,39 +1,13 @@
 import React from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { Play } from "lucide-react";
-
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import { Button } from "@/components/ui/button";
-
 import {
   image1,
-  image3,
-  image4,
-  image5,
-  image6,
-  image7,
-  image8,
-  image9,
-  image10,
-  image11,
   yandi,
   njalo,
   cstaz,
 } from "@/data";
-
-import bg from "../../../../public/servicebg.jpeg";
 import { BsSpotify } from "react-icons/bs";
 import { SiApplemusic, SiYoutubemusic } from "react-icons/si";
 import { FaDeezer } from "react-icons/fa6";
-import { Schibsted_Grotesk } from "next/font/google";
-import CommercialHero from "./Hero";
 import FeaturedTracks from "./FeaturedTracks";
 import LabelHero from "./Hero";
 import Artists from "@/components/home/Artists";
@@ -156,10 +130,7 @@ const latestAlbums = [
   },
 ];
 
-const sted = Schibsted_Grotesk({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-});
+
 
 const CommercialContent = (props: Props) => {
   return (

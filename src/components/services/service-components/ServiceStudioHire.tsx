@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import { Schibsted_Grotesk } from "next/font/google";
 import {
   Play,
   Clock,
@@ -17,13 +16,6 @@ import Link from "next/link";
 
 // Dummy image imports - replace these with your actual images
 import { hire1, hire2, hire3, hire4, hire5, hire6, hire7, hire8 } from "@/data";
-
-const schibstedGrotesk = Schibsted_Grotesk({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-  display: "swap",
-  variable: "--font-schibsted",
-});
 
 const features = [
   {
@@ -112,14 +104,14 @@ const ServiceStudioHire = () => {
 
   const prevImage = () => {
     setSelectedImageIndex(
-      (prev) => (prev - 1 + studioImages.length) % studioImages.length
+      (prev) => (prev - 1 + studioImages.length) % studioImages.length,
     );
   };
 
   return (
     <section
       id="3"
-      className={`${schibstedGrotesk.variable} font-sans py-20 bg-gradient-to-br from-green-50/30 via-white to-emerald-50/20 relative overflow-hidden`}
+      className={`font-sans py-20 bg-gradient-to-br from-green-50/30 via-white to-emerald-50/20 relative overflow-hidden`}
     >
       {/* Background decorations */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-green-100 to-transparent rounded-full blur-3xl opacity-30"></div>

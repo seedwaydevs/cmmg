@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Schibsted_Grotesk } from "next/font/google";
+
 import {
   Video,
   Film,
@@ -12,13 +12,6 @@ import {
 } from "lucide-react";
 import videoProdImg1 from "../../../../public/prodco.jpg";
 import Link from "next/link";
-
-const schibstedGrotesk = Schibsted_Grotesk({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-  display: "swap",
-  variable: "--font-schibsted",
-});
 
 const services = [
   {
@@ -57,7 +50,7 @@ const ServiceVideoProduction = () => {
   return (
     <section
       id="4"
-      className={`${schibstedGrotesk.variable} font-sans py-20 bg-gradient-to-br from-red-50/30 via-white to-orange-50/20 relative overflow-hidden`}
+      className={`font-sans py-20 bg-gradient-to-br from-red-50/30 via-white to-orange-50/20 relative overflow-hidden`}
     >
       {/* Background decorations */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-red-100 to-transparent rounded-full blur-3xl opacity-30"></div>
