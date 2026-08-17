@@ -6,15 +6,14 @@ import { Play, ArrowRight } from "lucide-react";
 
 // ── Swap this out per release ──────────────────────────────────────────────
 const spotlight = {
-  artist: "Nkanyamba",
-  song: "Imfihlo Kamakoti",
-  genre: "Afro / Traditional",
-  description:
-    "The latest release from Nkanyamba — a powerful blend of Southern African tradition and contemporary sound.",
+  artist: "DJ Kwame",
+  song: "Izwi Lendoda",
+  genre: "Amapiano",
+  description: "The latest release from Dj Kwame — a powerful Amapiano track.",
   youtubeId: "YOUR_YOUTUBE_ID_HERE", // Replace with actual YouTube video ID
   thumbnail:
     "https://placehold.co/1280x720/0a0a0a/ffffff?text=Nkanyamba+%E2%80%94+Imfihlo+Kamakoti",
-  releaseDate: "2025",
+  releaseDate: "2026",
   label: "CMMG Records",
   streamUrl:
     "https://open.spotify.com/embed/album/6zmGMomhs1gfMgA9gHkxdO?utm_source=generator",
@@ -447,7 +446,7 @@ const Spotlight = () => {
               ) : (
                 <div className="spotlight-iframe-wrap">
                   <iframe
-                    src={`https://www.youtube.com/embed/RUtHsrX7Yxs?si=hB7QqFt_hf9JcM8T`}
+                    src={`https://www.youtube.com/embed/Y_REfRJ3atM?si=t3KkohBzATfcigIL`}
                     title={`${spotlight.song} — ${spotlight.artist}`}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen

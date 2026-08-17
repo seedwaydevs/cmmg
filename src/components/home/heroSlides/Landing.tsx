@@ -2,37 +2,16 @@
 
 import React, { useEffect, useRef } from "react";
 import { Syne, Manrope } from "next/font/google";
-import { Music, Mic2, Calendar, Camera } from "lucide-react";
 import Link from "next/link";
 
 const syne = Syne({ subsets: ["latin"], weight: ["700", "800"] });
 const manrope = Manrope({ subsets: ["latin"], weight: ["400", "500", "600"] });
 
 const navigationOptions = [
-  {
-    icon: Music,
-    title: "Music Library",
-    description: "Browse our production catalog",
-    href: "https://www.library.cmmg.co.za",
-  },
-  {
-    icon: Mic2,
-    title: "Artists",
-    description: "Records from our roster",
-    href: "/commercial",
-  },
-  {
-    icon: Calendar,
-    title: "Book Studio",
-    description: "Reserve a session",
-    href: "https://studios.cmmg.co.za/",
-  },
-  {
-    icon: Camera,
-    title: "Content",
-    description: "Gallery & social media",
-    href: "/gallery",
-  },
+  { title: "Music Library", href: "https://www.library.cmmg.co.za" },
+  { title: "Artists", href: "/commercial" },
+  { title: "Book Studio", href: "https://studios.cmmg.co.za/" },
+  { title: "Content", href: "/gallery" },
 ];
 
 const Landing = () => {
@@ -43,9 +22,9 @@ const Landing = () => {
     const el = titleRef.current;
     if (!el) return;
     el.style.opacity = "0";
-    el.style.transform = "translateY(24px)";
+    el.style.transform = "translateY(16px)";
     requestAnimationFrame(() => {
-      el.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+      el.style.transition = "opacity 0.9s ease, transform 0.9s ease";
       el.style.opacity = "1";
       el.style.transform = "translateY(0)";
     });
@@ -56,381 +35,125 @@ const Landing = () => {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Syne:wght@700;800&family=Manrope:wght@400;500;600&display=swap');
 
-        /* Slide uses a dark bg — keeps the hero cinematic */
         .landing-root {
           width: 100%;
           height: 100%;
-          background-image: url('/image_ref.jpg');
-          background-size: cover;
-          background-position: center;
-          background-repeat: no-repeat;
+          background: #F1F0EC;
           display: flex;
-          flex-direction: column;
+          align-items: center;
           justify-content: center;
           position: relative;
           overflow: hidden;
         }
 
-        /* Dark overlay so text stays legible */
+        /* Single soft glow bloom behind the wordmark — faint warm tint,
+           not full brand-orange, to keep it quiet */
         .landing-root::before {
           content: '';
           position: absolute;
-          inset: 0;
-          background: rgba(0, 0, 0, 0.68);
+          top: 50%;
+          left: 50%;
+          width: 60vw;
+          height: 60vw;
+          max-width: 900px;
+          max-height: 900px;
+          transform: translate(-50%, -50%);
+          background: radial-gradient(circle,
+            rgba(255,107,53,0.16) 30%,
+            rgba(255,107,53,0.38) 25%,
+            rgba(241,240,236,0) 28%);
+          filter: blur(10px);
           pointer-events: none;
           z-index: 0;
         }
 
-        /* Orange left stripe */
-        .landing-root::after {
-          content: '';
-          position: absolute;
-          left: 0;
-          top: 0;
-          width: 3px;
-          height: 100%;
-          background: linear-gradient(to bottom, transparent, #f05a1a 25%, #f05a1a 75%, transparent);
-          pointer-events: none;
-          z-index: 1;
-        }
-
         .landing-inner {
-          max-width: 1440px;
-          width: 90%;
-          margin: 0 auto;
-          padding: 0 3rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          height: 100%;
-          padding-top: 9rem;
-          padding-bottom: 5rem;
           position: relative;
           z-index: 2;
-        }
-
-        /* ── Eyebrow ── */
-        .landing-eyebrow {
-          display: flex;
-          align-items: center;
-          gap: 0.75rem;
-          margin-bottom: 2.5rem;
-        }
-        .landing-eyebrow-line {
-          width: 28px;
-          height: 1px;
-          background: #f05a1a;
-          flex-shrink: 0;
-        }
-        .landing-eyebrow-text {
-          font-family: 'Manrope', sans-serif;
-          font-size: 0.65rem;
-          font-weight: 600;
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-          color: rgba(255,255,255,0.45);
-        }
-        .landing-eyebrow-dot {
-          width: 5px;
-          height: 5px;
-          background: #1a8cff;
-          border-radius: 50%;
-          animation: pulse-blue 2s ease-in-out infinite;
-          margin-left: 0.25rem;
-        }
-        @keyframes pulse-blue {
-          0%,100% { opacity:1; box-shadow: 0 0 0 0 rgba(26,140,255,0.4); }
-          50%      { opacity:0.6; box-shadow: 0 0 0 6px rgba(26,140,255,0); }
-        }
-
-        /* ── Hero body: title left, cards right ── */
-        .landing-body {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          align-items: flex-end;
-          gap: 4rem;
-          flex: 1;
-        }
-
-        /* ── Title ── */
-        .landing-title-block {
           display: flex;
           flex-direction: column;
-          gap: 1.5rem;
+          align-items: center;
+          text-align: center;
+          gap: 2.5rem;
+          padding: 0 1.5rem;
         }
+
+        /* ── Wordmark ── */
         .landing-title {
           font-family: 'Bricolage Grotesque', sans-serif;
           font-weight: 800;
-          font-size: clamp(5rem, 10vw, 9rem);
+          font-size: clamp(4rem, 11vw, 8.5rem);
           letter-spacing: -0.02em;
-          line-height: 0.95;
+          line-height: 1;
           text-transform: uppercase;
-          color: #ffffff;
+          color: #17151A;
+          margin: 0;
         }
         .landing-title em {
           font-style: normal;
-          color: #f05a1a;
+          color: #FF4B1F;
         }
+
         .landing-subtitle {
           font-family: 'Manrope', sans-serif;
-          font-size: 1rem;
+          font-size: 0.95rem;
           font-weight: 400;
-          line-height: 1.65;
-          color: rgba(255,255,255,0.5);
-          max-width: 400px;
-        }
-        .landing-cta-row {
-          display: flex;
-          gap: 1rem;
-          align-items: center;
-          margin-top: 0.5rem;
-        }
-        .landing-cta-primary {
-          font-family: 'Syne', sans-serif;
-          font-weight: 700;
-          font-size: 0.72rem;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          color: #ffffff;
-          background: #f05a1a;
-          border: none;
-          padding: 0.85rem 2rem;
-          cursor: pointer;
-          text-decoration: none;
-          display: inline-block;
-          transition: background 0.2s ease, transform 0.2s ease;
-        }
-        .landing-cta-primary:hover {
-          background: #d44c10;
-          transform: translateY(-1px);
-        }
-        .landing-cta-secondary {
-          font-family: 'Manrope', sans-serif;
-          font-weight: 600;
-          font-size: 0.72rem;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          color: rgba(255,255,255,0.5);
-          text-decoration: none;
-          border-bottom: 1px solid rgba(255,255,255,0.2);
-          padding-bottom: 2px;
-          transition: color 0.2s ease, border-color 0.2s ease;
-        }
-        .landing-cta-secondary:hover {
-          color: #ffffff;
-          border-color: #f05a1a;
+          line-height: 1.6;
+          color: rgba(23,21,26,0.45);
+          max-width: 380px;
+          margin: -1.25rem 0 0;
         }
 
-        /* ── Nav cards grid ── */
-        .landing-cards {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          border-left: 1px solid rgba(255,255,255,0.08);
-          border-top: 1px solid rgba(255,255,255,0.08);
-        }
-        .landing-card {
-          border-right: 1px solid rgba(255,255,255,0.08);
-          border-bottom: 1px solid rgba(255,255,255,0.08);
-          padding: 1.75rem 1.5rem;
-          text-decoration: none;
-          display: flex;
-          flex-direction: column;
-          gap: 0.75rem;
-          background: transparent;
-          position: relative;
-          overflow: hidden;
-          transition: background 0.25s ease;
-        }
-        .landing-card::before {
-          content: '';
-          position: absolute;
-          left: 0;
-          top: 0;
-          width: 2px;
-          height: 100%;
-          background: #f05a1a;
-          transform: scaleY(0);
-          transform-origin: top;
-          transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
-        }
-        .landing-card:hover { background: rgba(255,255,255,0.03); }
-        .landing-card:hover::before { transform: scaleY(1); }
-
-        .landing-card-icon {
-          width: 36px;
-          height: 36px;
+        /* ── Minimal pill nav ── */
+        .landing-nav {
           display: flex;
           align-items: center;
+          gap: 0.5rem;
+          flex-wrap: wrap;
           justify-content: center;
-          border: 1px solid rgba(255,255,255,0.1);
-          color: #f05a1a;
-          transition: border-color 0.2s ease, background 0.2s ease;
         }
-        .landing-card:hover .landing-card-icon {
-          border-color: #f05a1a;
-          background: rgba(240,90,26,0.08);
-        }
-        .landing-card-title {
-          font-family: 'Syne', sans-serif;
-          font-weight: 700;
-          font-size: 0.85rem;
-          letter-spacing: 0.02em;
-          text-transform: uppercase;
-          color: #ffffff;
-        }
-        .landing-card-desc {
+        .landing-nav-item {
           font-family: 'Manrope', sans-serif;
-          font-size: 0.75rem;
-          font-weight: 400;
-          color: rgba(255,255,255,0.35);
-          line-height: 1.5;
-        }
-        .landing-card-arrow {
-          font-family: 'Manrope', sans-serif;
-          font-size: 0.65rem;
+          font-size: 0.72rem;
           font-weight: 600;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          color: rgba(255,255,255,0.2);
-          margin-top: auto;
-          transition: color 0.2s ease, letter-spacing 0.2s ease;
+          letter-spacing: 0.04em;
+          color: rgba(23,21,26,0.6);
+          text-decoration: none;
+          padding: 0.6rem 1.1rem;
+          border-radius: 0px;
+          border: 1px solid rgba(23,21,26,0.1);
+          background: rgba(255,255,255,0.5);
+          transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
         }
-        .landing-card:hover .landing-card-arrow {
-          color: #f05a1a;
-          letter-spacing: 0.15em;
+        .landing-nav-item:hover {
+          color: #17151A;
+          border-color: rgba(255,75,31,0.4);
+          background: #ffffff;
         }
 
-        /* ── Bottom meta bar ── */
-        .landing-meta {
-          display: flex;
-          gap: 3rem;
-          padding-top: 2.5rem;
-          border-top: 1px solid rgba(255,255,255,0.06);
-          margin-top: 2rem;
-        }
-        .landing-meta-item {
-          display: flex;
-          flex-direction: column;
-          gap: 0.3rem;
-        }
-        .landing-meta-label {
-          font-family: 'Manrope', sans-serif;
-          font-size: 0.6rem;
-          font-weight: 600;
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-          color: rgba(255,255,255,0.25);
-        }
-        .landing-meta-value {
-          font-family: 'Manrope', sans-serif;
-          font-size: 0.8rem;
-          font-weight: 500;
-          color: rgba(255,255,255,0.65);
-        }
-
-        @media (max-width: 1024px) {
-          .landing-body {
-            grid-template-columns: 1fr;
-            gap: 2.5rem;
-          }
-          .landing-title {
-            font-size: clamp(4rem, 14vw, 6rem);
-          }
-        }
         @media (max-width: 768px) {
-          .landing-inner {
-            padding: 0 1.5rem;
-            padding-top: 7rem;
-            padding-bottom: 5rem;
-          }
-          .landing-meta { flex-wrap: wrap; gap: 1.5rem; }
-          .landing-cta-row { flex-wrap: wrap; }
+          .landing-nav-item { font-size: 0.68rem; padding: 0.55rem 1rem; }
         }
       `}</style>
 
       <div className="landing-root">
         <div className="landing-inner">
-          {/* Eyebrow */}
-          <div className="landing-eyebrow">
-            <span className="landing-eyebrow-line" />
-            <span className="landing-eyebrow-text">
-              Music & Content Production
-            </span>
-            <span className="landing-eyebrow-dot" />
-          </div>
+          <h1 className="landing-title" ref={titleRef}>
+            CMMG<em>.</em>
+          </h1>
 
-          {/* Body: title + cards */}
-          <div className="landing-body">
-            {/* Left — title */}
-            <div className="landing-title-block">
-              <h1 className="landing-title" ref={titleRef}>
-                CMMG<em>.</em>
-              </h1>
-              <p className="landing-subtitle">
-                A South African record label and media group — crafting original
-                music, licensing production libraries, and building artist
-                careers since 2015.
-              </p>
-              <div className="landing-cta-row">
-                <Link
-                  href="https://www.library.cmmg.co.za/library"
-                  className="landing-cta-primary"
-                >
-                  Production Music Library
-                </Link>
-                <Link href="/about" className="landing-cta-secondary">
-                  About the Label
-                </Link>
-              </div>
-            </div>
+          <p className="landing-subtitle">
+            A South African record label and media group, crafting original
+            music and licensing production libraries since 2015.
+          </p>
 
-            {/* Right — nav cards */}
-            <div className="landing-cards">
-              {navigationOptions.map((opt, i) => (
-                <Link key={i} href={opt.href} className="landing-card">
-                  <div className="landing-card-icon">
-                    <opt.icon size={16} />
-                  </div>
-                  <span className="landing-card-title">{opt.title}</span>
-                  <span className="landing-card-desc">{opt.description}</span>
-                  <span className="landing-card-arrow">Explore →</span>
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Bottom meta bar */}
-          <div className="landing-meta">
-            <div className="landing-meta-item">
-              <span className="landing-meta-label">Location</span>
-              <span className="landing-meta-value">
-                Johannesburg, South Africa
-              </span>
-            </div>
-            <div className="landing-meta-item">
-              <span className="landing-meta-label">Established</span>
-              <span className="landing-meta-value">2015</span>
-            </div>
-            <div className="landing-meta-item">
-              <span className="landing-meta-label">Status</span>
-              <span
-                className="landing-meta-value"
-                style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}
-              >
-                <span
-                  style={{
-                    width: 6,
-                    height: 6,
-                    background: "#1a8cff",
-                    borderRadius: "50%",
-                    display: "inline-block",
-                    animation: "pulse-blue 2s ease-in-out infinite",
-                  }}
-                />
-                Accepting Projects
-              </span>
-            </div>
-          </div>
+          <nav className="landing-nav">
+            {navigationOptions.map((opt, i) => (
+              <Link key={i} href={opt.href} className="landing-nav-item">
+                {opt.title}
+              </Link>
+            ))}
+          </nav>
         </div>
       </div>
     </>

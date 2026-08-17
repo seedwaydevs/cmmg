@@ -12,11 +12,13 @@ const manrope = Manrope({ subsets: ["latin"], weight: ["400", "500", "600"] });
 
 // Background images are handled inside each slide component directly.
 // The Hero wrapper only manages transitions and controls.
+// `theme` tells the wrapper's own UI (arrows, dots, counter, labels)
+// whether to render light-on-dark or dark-on-light for that slide.
 const slides = [
-  { id: 1, Component: Landing },
-  { id: 2, Component: Catalog },
-  { id: 3, Component: NewReleases },
-  { id: 4, Component: Studio },
+  { id: 1, Component: Landing, theme: "light" as const },
+  { id: 2, Component: Catalog, theme: "dark" as const },
+  { id: 3, Component: NewReleases, theme: "dark" as const },
+  { id: 4, Component: Studio, theme: "dark" as const },
 ];
 
 const slideLabels = ["Home", "Catalog", "New Releases", "Studio"];
@@ -41,6 +43,8 @@ const Hero = () => {
 
   const next = () => goToSlide((p) => (p + 1) % slides.length);
   const prev = () => goToSlide((p) => (p - 1 + slides.length) % slides.length);
+
+  const theme = slides[currentSlide].theme;
 
   return (
     <>
@@ -82,11 +86,12 @@ const Hero = () => {
           align-items: center;
           justify-content: center;
           cursor: pointer;
-          transition: background 0.2s ease, border-color 0.2s ease;
+          transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
         }
         .hero-arrow:hover {
           background: #f05a1a;
           border-color: #f05a1a;
+          color: #fff;
         }
         .hero-arrow.left  { left: 2rem; }
         .hero-arrow.right { right: 2rem; }
@@ -131,6 +136,7 @@ const Hero = () => {
           display: flex;
           align-items: center;
           gap: 0.75rem;
+          transition: color 0.3s ease;
         }
         .hero-counter-current {
           color: #f05a1a;
@@ -177,6 +183,39 @@ const Hero = () => {
         }
         .hero-label-item:hover { color: rgba(255,255,255,0.6); }
 
+        /* ── Light-theme overrides (active slide is light-background) ── */
+        .hero-root.theme-light .hero-arrow {
+          background: rgba(23,21,26,0.05);
+          border-color: rgba(23,21,26,0.12);
+          color: #17151A;
+        }
+        .hero-root.theme-light .hero-arrow:hover {
+          background: #f05a1a;
+          border-color: #f05a1a;
+          color: #fff;
+        }
+        .hero-root.theme-light .hero-dot {
+          background: rgba(23,21,26,0.18);
+        }
+        .hero-root.theme-light .hero-dot.active {
+          background: #f05a1a;
+        }
+        .hero-root.theme-light .hero-counter {
+          color: rgba(23,21,26,0.35);
+        }
+        .hero-root.theme-light .hero-counter span:nth-child(2) {
+          color: rgba(23,21,26,0.15);
+        }
+        .hero-root.theme-light .hero-label-item {
+          color: rgba(23,21,26,0.25);
+        }
+        .hero-root.theme-light .hero-label-item.active {
+          color: rgba(23,21,26,0.85);
+        }
+        .hero-root.theme-light .hero-label-item:hover {
+          color: rgba(23,21,26,0.6);
+        }
+
         @media (max-width: 768px) {
           .hero-arrow { display: none; }
           .hero-labels { display: none; }
@@ -184,7 +223,7 @@ const Hero = () => {
         }
       `}</style>
 
-      <div className="hero-root">
+      <div className={`hero-root ${theme === "light" ? "theme-light" : ""}`}>
         {/* Slides */}
         {slides.map((slide, index) => {
           const state =
@@ -205,7 +244,7 @@ const Hero = () => {
           <span className="hero-counter-current">
             {String(currentSlide + 1).padStart(2, "0")}
           </span>
-          <span style={{ color: "rgba(255,255,255,0.15)" }}>/</span>
+          <span>/</span>
           <span>{String(slides.length).padStart(2, "0")}</span>
         </div>
 

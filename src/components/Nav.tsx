@@ -16,7 +16,15 @@ const manrope = Manrope({
   weight: ["400", "500", "600"],
 });
 
-const Nav = () => {
+interface NavProps {
+  /** Color of the page content sitting behind the nav before scroll.
+   *  "light" flips the logo + hamburger to dark ink so they stay visible
+   *  over a light hero. Once scrolled, the nav always gets its solid
+   *  dark bar back, so this only matters pre-scroll. */
+  theme?: "light" | "dark";
+}
+
+const Nav = ({ theme = "dark" }: NavProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [clock, setClock] = useState("");
@@ -51,6 +59,8 @@ const Nav = () => {
     { title: "Music", link: "/commercial" },
     { title: "Gallery", link: "/gallery" },
   ];
+
+  const onLight = theme === "light" && !scrolled;
 
   return (
     <>
@@ -93,6 +103,11 @@ const Nav = () => {
           height: 100%;
           width: auto;
           object-fit: contain;
+          transition: filter 0.3s ease;
+        }
+        /* Pre-scroll, sitting on a light hero: flip the mark to dark ink */
+        .nav-root.on-light .nav-logo img {
+          filter: brightness(0) saturate(100%);
         }
 
         .nav-right {
@@ -111,6 +126,10 @@ const Nav = () => {
           display: flex;
           align-items: center;
           gap: 0.5rem;
+          transition: color 0.3s ease;
+        }
+        .nav-root.on-light .nav-clock {
+          color: rgba(23,21,26,0.5);
         }
         .nav-clock-dot {
           width: 6px;
@@ -171,6 +190,19 @@ const Nav = () => {
           transition: background 0.2s ease;
         }
         .nav-hamburger:hover span {
+          background: #f05a1a;
+        }
+        /* Pre-scroll, sitting on a light hero: dark border + dark bars */
+        .nav-root.on-light .nav-hamburger {
+          border-color: rgba(23,21,26,0.18);
+        }
+        .nav-root.on-light .nav-hamburger span {
+          background: #17151A;
+        }
+        .nav-root.on-light .nav-hamburger:hover {
+          border-color: #f05a1a;
+        }
+        .nav-root.on-light .nav-hamburger:hover span {
           background: #f05a1a;
         }
 
@@ -406,7 +438,9 @@ const Nav = () => {
       `}</style>
 
       {/* ── NAVIGATION ── */}
-      <nav className={`nav-root ${scrolled ? "scrolled" : ""}`}>
+      <nav
+        className={`nav-root ${scrolled ? "scrolled" : ""} ${onLight ? "on-light" : ""}`}
+      >
         <div className="nav-inner">
           {/* Logo */}
           <Link href="/" className="nav-logo">
