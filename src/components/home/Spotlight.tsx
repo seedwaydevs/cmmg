@@ -11,8 +11,7 @@ const spotlight = {
   genre: "Amapiano",
   description: "The latest release from Dj Kwame — a powerful Amapiano track.",
   youtubeId: "YOUR_YOUTUBE_ID_HERE", // Replace with actual YouTube video ID
-  thumbnail:
-    "https://placehold.co/1280x720/0a0a0a/ffffff?text=Nkanyamba+%E2%80%94+Imfihlo+Kamakoti",
+  thumbnail: "",
   releaseDate: "2026",
   label: "CMMG Records",
   streamUrl:
