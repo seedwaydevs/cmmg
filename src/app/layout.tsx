@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     images: [siteConfig.ogImage],
   },
   icons: {
-    icon: "/cmmg-logo.ico", // favicon
+    icon: "/cmmg_red.ico", // favicon
     shortcut: "/images/cmmg-logo.png",
     apple: "/images/cmmg-logo.png",
   },
@@ -61,7 +61,7 @@ export default function RootLayout({
       <body
         className={cn(
           "bg-background min-h-screen font-sans antialiased",
-          sted.className
+          sted.className,
         )}
       >
         <InitialLoader>
